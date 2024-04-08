@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: prototype
-        image: ${REGISTRY}/${REPOSITORY}:${IMAGE_TAG}
+        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/${ECR_NAME}:${IMAGE_TAG}
         env:
           - name: USERNAME
             valueFrom:
@@ -54,9 +54,9 @@ spec:
   ingressClassName: default
   tls:
   - hosts:
-    - ${KUBE_NAMESPACE}.apps.live.cloud-platform.service.justice.gov.uk
+    - ${KUBE_NAMESPACE}-${BRANCH}.apps.live.cloud-platform.service.justice.gov.uk
   rules:
-  - host: ${KUBE_NAMESPACE}.apps.live.cloud-platform.service.justice.gov.uk
+  - host: ${KUBE_NAMESPACE}-${BRANCH}.apps.live.cloud-platform.service.justice.gov.uk
     http:
       paths:
       - path: /
