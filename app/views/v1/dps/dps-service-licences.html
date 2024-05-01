@@ -23,41 +23,27 @@
     <div class="govuk-width-container">
         <ul class="govuk-grid-row card-group">
 
+          {% if data.user=="admin"%}
             <li class="govuk-grid-column-one-third card-group__item">
                 <div class="card card--clickable" data-test="secure-move">
                     <h2 class="govuk-heading-m card__heading">
                         
                           <a class="govuk-link card__link govuk-link--no-visited-state" href="#">Print or generate a licence</a></h2>
                             <p class="govuk-body card__description">Print licences and post sentence supervision orders or generate standard licences.</p>
-                          
-                          <!--{% if data.user=="aco"%}
-                          <a class="govuk-link card__link govuk-link--no-visited-state" href="vary/list">Approve a licence variation</a></h2>
-                            <p class="govuk-body card__description"> Approve variations for standard determinate licences and post sentence supervision orders created by community probation practitioners.</p>
-                            {%endif%}
-
-                          {% if data.user=="governor"%}
-                          <a class="govuk-link card__link govuk-link--no-visited-state" href="list">Approve a licence</a></h2>
-                            <p class="govuk-body card__description"> Approve standard determinate licences and post sentence supervision orders created by community probation practitioners.</p>
-                            {%endif%}
-
-                          {% if data.user=="probation"%}<a class="govuk-link card__link govuk-link--no-visited-state" href="type">Create and vary a licence </a></h2>
-                            <p class="govuk-body card__description"> Create, edit and vary standard determinate licences and post sentence supervision orders.</p>
-                          {%endif%}-->
                 </div>
             </li>
-
 
             <li class="govuk-grid-column-one-third card-group__item">
               <div class="card card--clickable" data-test="secure-move">
                   <h2 class="govuk-heading-m card__heading">
                       
-                        <a class="govuk-link card__link govuk-link--no-visited-state" href="case-list"> Assess for HDC 
+                        <a class="govuk-link card__link govuk-link--no-visited-state" href="../afer/case-list"> Assess for HDC 
                         </a></h2>
                           <p class="govuk-body card__description">Check if someone is eligible and suitable for HDC release.
                           </p>
               </div>
           </li>
-
+          {% endif %}
 
 
 
