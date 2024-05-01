@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+    <h1 class="govuk-heading-xl">Create or vary a licence prototype</h1>
+
+      <form action="/v1/dps/dps-home" method="post">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-8">
+      <div class="govuk-radios">
+        <label class="govuk-label govuk-!-font-weight-bold" for="user">
+          Show the journey for
+        </label>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-admin" name="user" type="radio" value="admin" checked="checked">
+          <label class="govuk-label govuk-radios__label" for="user-admin">
+            Prison Admin
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-probation" name="user" type="radio" value="probation">
+          <label class="govuk-label govuk-radios__label" for="user-probation" >
+            Probation Practitioner
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-employer" name="user" type="radio" value="decisionmaker">
+          <label class="govuk-label govuk-radios__label" for="user-decisionmaker">
+            Decision maker
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-employer" name="user" type="radio" value="governor">
+          <label class="govuk-label govuk-radios__label" for="user-employer">
+            Prison Approver
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-aco" name="user" type="radio" value="aco">
+          <label class="govuk-label govuk-radios__label" for="user-aco" >
+            PDU Head
+          </label>
+        </div>
+
+      </div>
+      </div>
+
+
+
+      <!--<input type="hidden" name="hardstopreviewed" value="yes">-->
+
+
+
+<input class="govuk-radios__input" id="configversion" name="configversion" type="hidden" value="5">
+      <div class="govuk-form-group">
+
+
+       <!--<button class="govuk-button" data-module="govuk-button">
+          Submit
+        </button>-->
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Start</button>
+
+
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{{super()}}
+
+
+{% endblock %}

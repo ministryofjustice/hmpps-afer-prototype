@@ -4,49 +4,6 @@ var version = '/v1';
 
 
 
-//////////
-
-//ECSL bespoke page - do they need bespoke conditions
-
-//ECSL
-
-router.post(version + '/ecsl/meet', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/ecsl/address');
-  }
-});
-router.post(version + '/ecsl/address', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/ecsl/phone-number');
-  }
-});
-router.post(version + '/ecsl/phone-number', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/ecsl/when');
-  }
-});
-router.post(version + '/ecsl/when', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/ecsl/question');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/ecsl/question');
-  }
-});
-
 //question page - do they need additional conditions
 router.post(version + '/ecsl/question', function(req, res) {
     var saveexit = req.session.data['submit'];
@@ -146,37 +103,6 @@ router.post(version + '/timeserved/confirmation', function(req, res) {
 
 
 
-
-
-
-
-//Hardstop - edit confirmation
-router.post(version + '/edit/check-your-answers-edit', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/list#releases-two-days');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/hardstop/confirmation');
-  }
-});
-
-//hardstop edit yes or no question
-router.post(version + '/edit/question', function(req, res) {
-  var edit = req.session.data['edit'];
-  if (edit == "yes"){
-    req.session.data['needadditional'] ='yes';
-    req.session.data['needbespoke']='yes';
-    req.session.data['needpss']='yes';
-    res.redirect(version + '/edit/check-your-answers-edit');
-  }
-  else if (edit == "no"){
-    res.redirect(version + '/edit/check-your-answers');
-  }
-});
-
-
-
 //Hardstop - from confirmation back to case list
 router.post(version + '/hardstop/confirmation', function(req, res) {
   var saveexit = req.session.data['submit'];
@@ -230,22 +156,6 @@ router.post(version + '/hardstop/address', function(req, res) {
     res.redirect(version + '/hardstop/phone-number');
   }
 });
-
-
-
-
-
-//Hardstop - edit initial appointmemnt
-router.post(version + '/hardstop/meet-change', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/hardstop/check-your-answers');
-  }
-});
-
 
 
 
