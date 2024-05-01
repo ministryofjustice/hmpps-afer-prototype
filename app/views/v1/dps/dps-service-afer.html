@@ -21,17 +21,50 @@
 
 <div class="homepage-content" style="margin-top: -50px;">
     <div class="govuk-width-container">
-        <ul class="govuk-grid-row card-group">
+       
+      
+      <ul class="govuk-grid-row card-group">
 
-            <li class="govuk-grid-column-one-third card-group__item">
+
+
+
+        {% if data.user=="admin"%}
+          <li class="govuk-grid-column-one-third card-group__item">
               <div class="card card--clickable" data-test="secure-move">
                   <h2 class="govuk-heading-m card__heading">
                       
-                        <a class="govuk-link card__link govuk-link--no-visited-state" href="case-list">Assess for HDC</a></h2>
+                        <a class="govuk-link card__link govuk-link--no-visited-state" href="../afer/case-list">Assess for HDC</a></h2>
                           <p class="govuk-body card__description">Check if someone is eligible and suitable for HDC release.
                           </p>
               </div>
           </li>
+          {% endif %}
+
+
+          {% if data.user=="probation"%}
+          <li class="govuk-grid-column-one-third card-group__item">
+            <div class="card card--clickable" data-test="secure-move">
+                <h2 class="govuk-heading-m card__heading">
+                    
+                      <a class="govuk-link card__link govuk-link--no-visited-state" href="../afer/case-list">Probation Practitioner TBC</a></h2>
+                        <p class="govuk-body card__description">Probation Practitioner TBC.
+                        </p>
+            </div>
+        </li>
+          {% endif %}
+
+
+          {% if data.user=="decisionmaker"%}
+          <li class="govuk-grid-column-one-third card-group__item">
+            <div class="card card--clickable" data-test="secure-move">
+                <h2 class="govuk-heading-m card__heading">
+                    
+                      <a class="govuk-link card__link govuk-link--no-visited-state" href="../afer/case-list">Decision maker TBC</a></h2>
+                        <p class="govuk-body card__description">Decision maker TBC.
+                        </p>
+            </div>
+        </li>
+          {% endif %}
 
 
 
