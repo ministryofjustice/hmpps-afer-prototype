@@ -356,7 +356,7 @@
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
         <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-          Assessment decision
+          Application decision
         </span>
       </h2>
     </div>
@@ -365,7 +365,7 @@
     <p class="govuk-body">Add info</p>
 
     {% if data.user=="decisionmaker"%}
-    <a href="#" class="govuk-button" target="_blank">Edit assessment decision</a>
+    <a href="./decision/application.html" class="govuk-button">Make assessment decision</a>
     {% endif %}
      
     </div>
@@ -389,8 +389,7 @@
     {% endif %}
 
     {% if data.user=="decisionmaker"%}
-    <a href="../cvl/approvals/approve.html" class="govuk-button">Approve HDC licence</a></br>
-    <a href="https://hmpps-cvl-prototype.apps.live.cloud-platform.service.justice.gov.uk/v23/approvals/approve" class="govuk-button">Approve HDC licence - Test CVL proto</a>
+    <a href="../cvl/approvals/hdc" class="govuk-button">Approve HDC licence</a></br>
     {% endif %}
      
     </div>

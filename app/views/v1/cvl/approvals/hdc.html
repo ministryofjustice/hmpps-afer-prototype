@@ -551,26 +551,6 @@
 
 
 
-    
-
-
-
-
-
-
-
-
-
-
-    
-
-       
-    
-
-      
-
-
-
 
 
 
@@ -582,47 +562,13 @@
 
 
         
-        
-        
-        
-        
-
-      {% if data.user=="admin"%}
-      <form action="#" method="post">
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "View and print licence PDF"
-        }) }}
-
-
-      </div>
-      </form>
-      
-
-
-      {% else %}
-
-    
-
-        <form action="#" method="post" style="padding-top: 10px;">
 
           <div class="govuk-button-group">
-            <button class="govuk-button" data-module="govuk-button" name="approve-a-licence" value="approvenow">
-              Approve
-            </button>
+            <a href="./confirmation.html" class="govuk-button">Approve licence</a></br>
+            <a href="../../afer/case-list.html" class="govuk-button govuk-button--secondary">Return to HDC case list?</a></br>
 
-            <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="approve-a-licence" value="returntocases">
-              Return to case list
-            </button>
           </div>
 
-        </form>
-
-
-        <!--<a class="govuk-link" href="confirmation-rejected">Reject and send back to probation</a>--><br /><br />
-
-      {%endif%}
-        <!--<a href="confirmation" class="govuk-button" type="submit">Send to prison for approval</a>-->
       </div>
     </div>
 
