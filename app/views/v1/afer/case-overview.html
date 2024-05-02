@@ -322,7 +322,7 @@
     </ul>-->
 
     {% if data.user=="admin"%}
-    <a href="eligibility/tasklist.html" class="govuk-button" target="_blank">Edit eligibility and suitability checks</a>
+    <a href="eligibility/tasklist.html" class="govuk-button">Edit eligibility and suitability checks</a>
     {% endif %}
 
 
@@ -389,7 +389,8 @@
     {% endif %}
 
     {% if data.user=="decisionmaker"%}
-    <a href="../cvl/approvals/approve.html" class="govuk-button">Approve HDC licence</a>
+    <a href="../cvl/approvals/approve.html" class="govuk-button">Approve HDC licence</a></br>
+    <a href="https://hmpps-cvl-prototype.apps.live.cloud-platform.service.justice.gov.uk/v23/approvals/approve" class="govuk-button">Approve HDC licence - Test CVL proto</a>
     {% endif %}
      
     </div>
