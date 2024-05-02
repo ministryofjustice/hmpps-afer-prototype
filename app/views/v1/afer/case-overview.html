@@ -36,10 +36,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">
-        HDC application for [working title]
-      </h1>
-
       <!--new banner start-->
       <div class="mini-profile govuk-!-margin-top-4" data-qa="mini-profile">
         <div class="mini-profile-inner">
@@ -75,7 +71,7 @@
         <div class="govuk-grid-column-three-quarters">
     
 
-<h2 class="govuk-heading-l" style="margin-top: 50px;">Application timeline [working title]</h2>
+<h2 class="govuk-heading-l" style="margin-top: 50px;">Overview</h2>
 
 
 <!--Timeline start-->
@@ -151,7 +147,7 @@
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Assessment decision</h2>
+      <h2 class="moj-timeline__title">Application decision</h2>
 
       <!--<p class="moj-timeline__byline">by Caseworker 1</p>-->
 
@@ -164,7 +160,7 @@
     <div class="moj-timeline__description">
 
       {% if data.user=="decisionmaker"%}
-      <a href="./decision/application.html" class="govuk-button">Make assessment decision</a>
+      <a href="./decision/application.html" class="govuk-button">Make application decision</a>
       {% endif %}
 
     </div>
@@ -298,7 +294,18 @@
 
 <!--overview start-->
 
-<h3 class="govuk-heading-l" style="margin-top: 50px;">Application details [working title]</h2>
+<h2 class="govuk-heading-l" style="margin-top: 50px;">Your tasks</h2>
+
+
+Add tasks
+
+
+
+
+
+
+
+<h3 class="govuk-heading-l" style="margin-top: 50px;">Summary [working title]</h2>
         
 
 <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
@@ -384,7 +391,7 @@
     <p class="govuk-body">Add info</p>
 
     {% if data.user=="decisionmaker"%}
-    <a href="./decision/application.html" class="govuk-button">Make assessment decision</a>
+    <a href="./decision/application.html" class="govuk-button">Make application decision</a>
     {% endif %}
      
     </div>
@@ -428,14 +435,14 @@
 
 <!--contacts start-->
 
-<h3 class="govuk-heading-l" style="margin-top: 50px;">Staff contacts [working title]</h2>
+<h3 class="govuk-heading-l" style="margin-top: 50px;">Key contacts</h3>
 
 <!--card start-->
 <div class="govuk-summary-card">
 
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-     People working on this case
+      Key contacts
     </h2>
   </div>
 
@@ -443,20 +450,7 @@
     <dl class="govuk-summary-list">
 
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Prison Case Administrator
-        </dt>
-        <dd class="govuk-summary-list__value">
-          [First and last name]</br>
-          [Email]
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
+        <dt class="govuk-summary-list__key" style="width: 40%;">
           Prison Offender Manager
         </dt>
         <dd class="govuk-summary-list__value">
@@ -481,7 +475,7 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Decision maker
+          Prison Case Administrator
         </dt>
         <dd class="govuk-summary-list__value">
           [First and last name]</br>
@@ -492,6 +486,18 @@
       </div>
 
       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Decision maker?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          [First and last name]</br>
+          [Email]
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <!--<div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__value">
           <a class="govuk-link" href="#">Contact details</a>
         </dt>
@@ -499,7 +505,7 @@
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
-      </div>
+      </div>-->
   
     </dl>
   </div>
