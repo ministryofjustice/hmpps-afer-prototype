@@ -133,7 +133,16 @@
       <time datetime="2019-06-07T12:32:00.000Z">Not ready yet</time>
     </p>-->
 
-    <!--<div class="moj-timeline__description">Your application is being reviewed by one of our case workers.</div>-->
+    <div class="moj-timeline__description">
+
+     {% if data.user=="probation"%}
+    <a href="#" class="govuk-button" target="_blank">Create or edit licence</a>
+    {% endif %}
+
+    {% if data.user=="decisionmaker"%}
+    <a href="../cvl/approvals/hdc" class="govuk-button">Approve HDC licence</a></br>
+    {% endif %}
+    </div>
 
   </div>
 
@@ -152,7 +161,13 @@
       <time datetime="2019-06-07T12:32:00.000Z">Not ready yet</time>
     </p>-->
 
-    <!--<div class="moj-timeline__description">Your application is being reviewed by one of our case workers.</div>-->
+    <div class="moj-timeline__description">
+
+      {% if data.user=="decisionmaker"%}
+      <a href="./decision/application.html" class="govuk-button">Make assessment decision</a>
+      {% endif %}
+
+    </div>
 
   </div>
 
@@ -169,12 +184,13 @@
       <time datetime="2019-06-06T09:12:00.000Z">Last worked on 6 June 2019 at 9:12am</time>
     </p>
 
-    <!--<div class="moj-timeline__description">
-     2 address checks complete</br>
-      CAS referal incomplete</br></br>
+   <div class="moj-timeline__description">
+     
+    {% if data.user=="probation"%}
+    <a href="#" class="govuk-button" target="_blank">Edit address checks</a>
+    {% endif %}
 
-      <a class="govuk-button govuk-!-margin-bottom-0" href="#">Contine address checks</a>
-    </div>-->
+    </div>
 
   </div>
 
@@ -219,10 +235,13 @@
       <time datetime="2019-05-28T10:15:00.000Z">Completed on 28 May 2019 at 10:15am</time>
     </p>
 
-    <!--<div class="moj-timeline__description">
-      George Jennings is eligible for HDC</br>
-      <a class="govuk-link" href="./eligibility/tasklist.html">Eligibility and suitability checks</a>
-    </div>-->
+    <div class="moj-timeline__description">
+
+    {% if data.user=="admin"%}
+    <a href="eligibility/tasklist.html" class="govuk-button">Edit eligibility and suitability checks</a>
+    {% endif %}
+    
+    </div>
 
 
 
