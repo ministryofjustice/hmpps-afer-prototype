@@ -36,19 +36,102 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">
-       Log decision page
-      </h1>
+      <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">Confirm if {{pipFirstName}} can be released on HDC</h1>
+
+      <h2 class="govuk-heading-l govuk-!-static-margin-top-6">Review suitability checks</h2>
+
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Address checks</h3>
+
+        <p class="govuk-body">This information has been completed by John Farrell, this person’s allocated probation practitioner.</p>
+
+      
+      <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Proposed address</h4>
+
+        <p class="govuk-body">
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
+        </p>
 
 
-      <p>Approve HDC application</br>
-      Reject HDC application</br>
-      Postpone decision</p>
+      <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Details of residents</h4>
+        table/summary card
 
 
-        <a href="./confirmation.html" class="govuk-button">Save decision</a></br>
-    
+      <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Details of checks</h4>
+        table/summary card
 
+
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Risk management</h3>
+        table/summary card
+
+
+      <h2 class="govuk-heading-l govuk-!-static-margin-top-6">Release decision</h2>
+              
+              <form action="/form-handler" method="post" novalidate>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Is this information up to date?
+                    </legend>
+                    <div id="dob-hint" class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Can this person be released on HDC?
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                          No
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                          Postpone?
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Submit
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Cancel
+                </button>
+              </div>
+
+              </form>
 
 
       </div>
