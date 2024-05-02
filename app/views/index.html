@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-four-quarters">
+  <div class="govuk-grid-column-full" style="margin-top: 40px;">
 
     {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
@@ -20,7 +20,7 @@
         <li><a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://drive.google.com/drive/folders/1aVBl3cSX6dgL-cTw-jcKjTpj05gUJIbe">Content docs</a></li>
         <li><a class="govuk-link govuk-link--no-visited-state" target="_blank" href="https://miro.com/app/board/uXjVNTZUaWs=/?moveToWidget=3458764577565784580&cot=14">TO BE user journey map</a></li>
         <li><a class="govuk-link govuk-link--no-visited-state" target="_blank" href="">Design notes TO BE ADDED</a></li>
-        <li><a href="HOWTO">How to create a new prototype version</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" target="_blank" href="HOWTO">How to create a new prototype version</a></li>
         </ul></br>
       
     
@@ -81,7 +81,9 @@
               <tbody class="govuk-table__body">
 
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">All users (incl. read only)</br></td>
+                  <td class="govuk-table__cell">All users and read only access</br>
+                    <a class="govuk-link govuk-link--no-visited-state" href="https://hmpps-afer-prototype-main.apps.live.cloud-platform.service.justice.gov.uk/v1/afer/case-overview" target="_blank">Case overview page</a>
+                  </td>
                   <td class="govuk-table__cell">Low-fi designs for case overview page</td>
                   <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="https://dsdmoj.atlassian.net/browse/CVSL-1686" target="_blank">CVSL-1686</a></td>
                   <td class="govuk-table__cell"><strong class="govuk-tag" style="background: blue;">I<span style="text-transform: lowercase;">n design</span></strong></td>
@@ -95,7 +97,10 @@
                 </tr>
 
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">Prison Case Admin</td>
+                  <td class="govuk-table__cell">Prison Case Admin</br>
+                    <a class="govuk-link govuk-link--no-visited-state" href="https://hmpps-afer-prototype-main.apps.live.cloud-platform.service.justice.gov.uk/v1/afer/eligibility/automated-eligible" target="_blank">System checks eligigble</a></br>
+                    <a class="govuk-link govuk-link--no-visited-state" href="https://hmpps-afer-prototype-main.apps.live.cloud-platform.service.justice.gov.uk/v1/afer/eligibility/automated-ineligible" target="_blank">System checks ineligigble</a>
+                  </td>
                   <td class="govuk-table__cell">Low-fi designs for eligibility & suitablity checks</td>
                   <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="https://dsdmoj.atlassian.net/browse/CVSL-1684" target="_blank">CVSL-1684</a></td>
                   <td class="govuk-table__cell"><strong class="govuk-tag" style="background: blue;">I<span style="text-transform: lowercase;">n design</span></strong></td>
