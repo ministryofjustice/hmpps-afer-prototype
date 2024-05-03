@@ -1,0 +1,360 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">Confirm if {{pipFirstName}} can be released on HDC</h1>
+
+      <h2 class="govuk-heading-l govuk-!-static-margin-top-6">Review suitability checks</h2>
+
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Address checks</h3>
+
+        <p class="govuk-body">This information has been completed by John Farrell, this person’s allocated probation practitioner.</p>
+
+      
+      <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Proposed address</h4>
+
+        <p class="govuk-body">
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
+        </p>
+
+
+      <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Details of residents</h4>
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+        <!--check your answers start-->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Main occupier
+            </dt>
+            <dd class="govuk-summary-list__value">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Leanna Martin
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Mother
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other residents
+            </dt>
+            <dd class="govuk-summary-list__value">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Greg Martin
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Brother</br>
+              <!--Age: 17</br>
+              Date of birth: 2 May 2007-->
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Age: 17</br>
+              Date of birth: 2 May 2007
+            </dd>
+          </div>
+      <!--check your answers end-->
+      </div>
+      </div>
+
+
+    <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Details of checks</h4>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <!--check your answers start-->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Have you visited this address in person?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Has the main occupier given informed consent for {{pipName}} to be released here?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Is the address connected to an electricity supply?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              What information have you found from the police and children’s services about the proposed address?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Some offending history with the prisoner's brother who also lives at this address.
+            </dt>
+            <!--<dd class="govuk-summary-list__actions">
+            </dd>-->
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Is this address suitable for {{pipFirstName}} to be released to?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Information to support your decision
+            </dd>
+            <dt class="govuk-summary-list__key">
+              [content]
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+      <!--check your answers end-->
+      </div>
+      </div>
+
+
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Risk management</h3>
+        
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <!--check your answers start-->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                What information has the POM provided about the behaviour of {{pipFirstName}} while in prison?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Does {{pipFirstName}} need a mental health plan to help manage risk?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Have you consulted with prison healthcare?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there a victim liaison officer (VLO) for {{pipFirstName}}?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Give details of any concerns victims have about {{pipFirstName}} being released to the proposed address. the victims have. For example, about licence conditions.
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there any information that cannot be disclosed to {{pipFirstName}}?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Give details of information that cannot be disclosed.
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Can {{pipFirstName}} be managed safely in the community if they are released to the proposed address?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div><div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Add information to support your decision
+              </dd>
+              <dt class="govuk-summary-list__key">
+                [content]
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+        <!--check your answers end-->
+        </div>
+        </div>
+      
+
+
+      <h2 class="govuk-heading-l govuk-!-static-margin-top-6">Release decision</h2>
+              
+              <form action="/form-handler" method="post" novalidate>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Is this information up to date?
+                    </legend>
+                    <div id="dob-hint" class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Can this person be released on HDC?
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                          No
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                          Postpone?
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Submit
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Cancel
+                </button>
+              </div>
+
+              </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
