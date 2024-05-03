@@ -28,19 +28,20 @@
       <div class="govuk-grid-column-two-thirds">
 
         <form action="/form-handler" method="post" novalidate>
+          
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
                 <span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>
                 <h1 class="govuk-fieldset__heading">
-                  Does this person have both of the following?
+                  Does this person have a high or very high risk of serious harm?
                 </h1>
               </legend>
-              <ul class="govuk-list govuk-list--bullet" style="margin-bottom: 20px;">
+              <!--<ul class="govuk-list govuk-list--bullet" style="margin-bottom: 20px;">
                 <li>High or very high risk of serious harm</li>
                 <li>MAPPA level 2 or 3</li>
-              </ul>
+              </ul>-->
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
@@ -57,6 +58,37 @@
               </div>
             </fieldset>
           </div>
+
+
+        <div class="govuk-form-group govuk-!-margin-top-6">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
+              <!--<span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>-->
+              <h1 class="govuk-fieldset__heading">
+                Are they MAPPA level 2 or 3?
+              </h1>
+            </legend>
+            <!--<ul class="govuk-list govuk-list--bullet" style="margin-bottom: 20px;">
+              <li>High or very high risk of serious harm</li>
+              <li>MAPPA level 2 or 3</li>
+            </ul>-->
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Continue

@@ -33,32 +33,53 @@
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+      <!--new profile banner start-->
+      <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
+        <div class="mini-profile-inner">
+            <div class="mini-profile-left">
+                <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+            </div>
+            <div class="mini-profile-right">
+                <ul class="mini-profile-info">
+                    <li>
+                        <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                        </p>
+                        <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
+                    </li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Establishment</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                    <li style="margin-left: 158px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">28 May 2024</span></li>
+                    <li style="margin-left: 30px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">28 Jul 2024</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Status</span><span class="govuk-body" data-qa="mini-profile-status">Released</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      <!--new profile banner end-->
+
+</div>
+</div>
+
+
+
+              
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">
+      <!--<h1 class="govuk-heading-xl govuk-!-static-margin-top-6">
         Eligibility and suitability for [working title]
-      </h1>
-
-
-
-      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Important
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          <p class="govuk-notification-banner__heading">
-            We need more information to determine eligibility/suitability.
-          </p>
-        </div>
-      </div>
+      </h1>-->
 
 
 
 
-      <h2 class="govuk-heading-m">Personal details</h2>
+     <!--<h2 class="govuk-heading-m">Personal details</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         
@@ -102,7 +123,7 @@
           <a class="govuk-link" href="#">View case history</a>
         </div>
   
-      </dl>
+      </dl>-->
 
 
 
@@ -115,22 +136,23 @@
 
       <!--task list start-->
 
-      <h2 class="govuk-heading-l">Questions we need you to answer [working title]</h2>
+      <h2 class="govuk-heading-l govuk-!-margin-top-4">Tasklist [working title]</h2>
 
+      <div class="govuk-inset-text">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">HDC application incomplete</h2>
+        <p class="govuk-body">You have completed 5 of 11 sections.</p>
+      </div>
 
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">HDC application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 5 of 11 sections.</p>
+      <p><a class="govuk-link govuk-link--no-visited-state" href="#">View case history</a></p>
 
-      <ol class="app-task-list">
-
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">m heading</h2>
+      <ol class="app-task-list govuk-!-margin-top-8">
 
         <li>
           <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">1. </span>-->Checked automatically</h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="checked-automatically/category-a.html" aria-describedby="eligibility-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="checked-automatically/category-a.html" aria-describedby="eligibility-status">
                   Category A
                 </a></br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -141,7 +163,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="checked-automatically/sentence-length.html" aria-describedby="read-declaration-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="checked-automatically/sentence-length.html" aria-describedby="read-declaration-status">
                   Sentence length
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -152,7 +174,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="checked-automatically/rosh-mappa.html" aria-describedby="read-declaration-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="checked-automatically/rosh-mappa.html" aria-describedby="read-declaration-status">
                   RoSH and MAPPA
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -170,7 +192,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="sentence/presumed-unsuitable.html" aria-describedby="eligibility-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="sentence/presumed-unsuitable.html" aria-describedby="eligibility-status">
                   Presumed unsuitable offences
                 </a></br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -181,7 +203,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="sentence/extended-sentence.html" aria-describedby="read-declaration-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="sentence/extended-sentence.html" aria-describedby="read-declaration-status">
                   Extended sentence for violent or sexual offences
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -199,7 +221,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="offence-history/sex-offenders-register.html" aria-describedby="company-information-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="offence-history/sex-offenders-register.html" aria-describedby="company-information-status">
                   Sex offenders’ register
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -210,7 +232,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="offence-history/sexual-offending-history.html" aria-describedby="contact-details-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="offence-history/sexual-offending-history.html" aria-describedby="contact-details-status">
                   Sexual offending history
                 </a>
               </span>
@@ -218,7 +240,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="offence-history/terrorism.html" aria-describedby="list-convictions-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="offence-history/terrorism.html" aria-describedby="list-convictions-status">
                   Terrorist or terrorism connected offending history
                 </a>
               </span>
@@ -245,7 +267,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="recall/rotl.html" aria-describedby="company-information-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="recall/rotl.html" aria-describedby="company-information-status">
                   ROTL failure to return
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -256,7 +278,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="recall/hdc.html" aria-describedby="contact-details-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="recall/hdc.html" aria-describedby="contact-details-status">
                   Recalled while on HDC
                 </a>
               </span>
@@ -264,7 +286,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="recall/at-risk-period.html" aria-describedby="list-convictions-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="recall/at-risk-period.html" aria-describedby="list-convictions-status">
                   Ever returned to custody during the at-risk period
                 </a>
               </span>
@@ -272,7 +294,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="recall/compassionate-grounds.html" aria-describedby="list-convictions-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="recall/compassionate-grounds.html" aria-describedby="list-convictions-status">
                   Serving a recall from early release on compassionate grounds
                 </a>
               </span>
@@ -287,7 +309,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="deportation-repatriation/deportation-orders.html" aria-describedby="company-information-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="deportation-repatriation/deportation-orders.html" aria-describedby="company-information-status">
                   Deportation orders
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -298,7 +320,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="deportation-repatriation/repatriated-people.html" aria-describedby="contact-details-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="deportation-repatriation/repatriated-people.html" aria-describedby="contact-details-status">
                   People who have been repatriated
                 </a>
               </span>
