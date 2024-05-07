@@ -37,7 +37,7 @@
     <div class="govuk-grid-column-full">
 
       <!--new banner start-->
-      <div class="mini-profile govuk-!-margin-top-4" data-qa="mini-profile">
+      <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
         <div class="mini-profile-inner">
             <div class="mini-profile-left">
                 <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
@@ -79,7 +79,7 @@
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">CRD: 14 Jun 2019</h2>
+      <h2 class="moj-timeline__title">CRD: {{ "today" |  duration(0) | govukDate("truncate") }}</h2>
 
       <!--<p class="moj-timeline__byline">by Joe Bloggs</p>-->
 
@@ -100,7 +100,7 @@
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">HDCED: 14 Jun 2019</h2>
+      <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(0) | govukDate("truncate") }}</h2>
 
       <!--<p class="moj-timeline__byline">by Caseworker 1</p>-->
 
@@ -129,16 +129,7 @@
       <time datetime="2019-06-07T12:32:00.000Z">Not ready yet</time>
     </p>-->
 
-    <div class="moj-timeline__description">
-
-     {% if data.user=="probation"%}
-    <a href="#" class="govuk-button" target="_blank">Create or edit licence</a>
-    {% endif %}
-
-    {% if data.user=="decisionmaker"%}
-    <a href="../cvl/approvals/hdc" class="govuk-button">Approve HDC licence</a></br>
-    {% endif %}
-    </div>
+    <!--<div class="moj-timeline__description"></div>-->
 
   </div>
 
@@ -157,20 +148,14 @@
       <time datetime="2019-06-07T12:32:00.000Z">Not ready yet</time>
     </p>-->
 
-    <div class="moj-timeline__description">
-
-      {% if data.user=="decisionmaker"%}
-      <a href="./decision/application.html" class="govuk-button">Make application decision</a>
-      {% endif %}
-
-    </div>
+    <!--<div class="moj-timeline__description"></div>-->
 
   </div>
 
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Address checks incomplete</h2>
+      <h2 class="moj-timeline__title">Address checks</h2>
 
       <p class="moj-timeline__byline">by Erin Mills</p>
 
@@ -180,87 +165,25 @@
       <time datetime="2019-06-06T09:12:00.000Z">Last worked on 6 June 2019 at 9:12am</time>
     </p>
 
-   <div class="moj-timeline__description">
-     
-    {% if data.user=="probation"%}
-    <a href="#" class="govuk-button" target="_blank">Edit address checks</a>
-    {% endif %}
-
-    </div>
+   <!--<div class="moj-timeline__description"></div>-->
 
   </div>
 
-  <!--<div class="moj-timeline__item">
-
-    <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Application submitted</h2>
-
-      <p class="moj-timeline__byline">by Joe Bloggs</p>
-
-    </div>
-
-    <p class="moj-timeline__date">
-      <time datetime="2019-05-28T10:45:00.000Z">28 May 2019 at 10:45am</time>
-    </p>
-
-    <div class="moj-timeline__description">
-      <details class="govuk-details govuk-!-margin-bottom-0">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Application details
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          Ut quam nunc, vulputate ac metus pharetra, posuere maximus velit. <a class="govuk-link" href="#">Etiam nec interdum velit.</a> Suspendisse molestie lectus in eros ornare
-        </div>
-      </details>
-    </div>
-
-  </div>-->
-
+  
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Eligibility and suitability checks</h2>
 
-      <p class="moj-timeline__byline">by Kerry Hall</p>
+      <!--<p class="moj-timeline__byline">by Kerry Hall</p>-->
 
     </div>
 
-    <p class="moj-timeline__date">
+    <!--<p class="moj-timeline__date">
       <time datetime="2019-05-28T10:15:00.000Z">Completed on 28 May 2019 at 10:15am</time>
-    </p>
+    </p>-->
 
-    <div class="moj-timeline__description">
-
-    {% if data.user=="admin"%}
-    <a href="eligibility/tasklist.html" class="govuk-button">Edit eligibility and suitability checks</a>
-    {% endif %}
-    
-    </div>
-
-
-
-    <!--<div class="moj-timeline__description">
-      <ul class="moj-timeline__documents">
-        <li class="moj-timeline__document-item">
-          <a class="govuk-link" href="#">
-            <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-              <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-            </svg>
-            Document 1
-          </a>
-        </li>
-        <li class="moj-timeline__document-item">
-          <a class="govuk-link" href="#">
-            <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-              <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-            </svg>
-            Document 2
-          </a>
-        </li>
-      </ul>
-    </div>-->
+    <!--<div class="moj-timeline__description"></div>-->
 
   </div>
 
@@ -277,13 +200,6 @@
       <time datetime="2019-05-21T13:15:00.000Z">21 May 2019 at 1:15pm</time>
     </p>-->
 
-    <!--<div class="moj-timeline__description">
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a class="govuk-link" href="#">Item 1</a></li>
-        <li><a class="govuk-link" href="#">Item 2</a></li>
-      </ul>
-    </div>-->
-
   </div>
 </div>
 
@@ -297,11 +213,25 @@
 <h2 class="govuk-heading-l" style="margin-top: 50px;">Your tasks</h2>
 
 
+{% if data.user=="admin"%}
+<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="eligibility/tasklist.html">Eligibility and suitability checks</a></p>
+{% endif %}
 
 
+{% if data.user=="probation"%}
+<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="">Address checks</a></p>
+
+<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="">Create or edit licence</a></p>
+{% endif %}
+
+
+{% if data.user=="decisionmaker"%}
 <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./decision/confirm-release.html">Confirm if [pipFirstName] can be released on HDC</a></p>
 
 <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../cvl/approvals/hdc.html">Approve licence</a></p>
+{% endif %}
+
+
 
 
 <h3 class="govuk-heading-l" style="margin-top: 50px;">Summary [working title]</h2>
