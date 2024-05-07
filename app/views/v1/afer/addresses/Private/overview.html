@@ -1,0 +1,373 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">
+        Select an address to check
+      </h1>
+
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            George Jennings
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Prison number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            G5613GT
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HDCED
+          </dt>
+          <dd class="govuk-summary-list__value">
+            28 May 2024
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            CRD
+          </dt>
+          <dd class="govuk-summary-list__value">
+            28 July 2024
+          </dd>
+        </div>
+
+        <div class="govuk-button-group" style="margin-top: 10px;">
+          <a class="govuk-link" href="#">View case history</a>
+        </div>
+  
+      </dl>
+
+
+
+      <h2 class="govuk-heading-m">Address information from David Jones</h2>
+
+
+
+<!--Preferred address start-->
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred address
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+            4 Inner Street</br>
+            Grantham</br>
+            NG31 6HN
+        </dt>
+        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--blue">I<span style="text-transform: lowercase;">n progress</span></strong></td></dd>
+      </div>
+  
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <h3 class="govuk-heading-s">Details of residents</h3>
+
+  <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Main occupier
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Leanna Martin
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Mother
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#"></a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Other residents
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Greg Martin
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Brother
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#"></a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+<p class="govuk-body"><strong>This address has been checked before.</strong> <a class="govuk-link" href="#">View history.</a></p>
+
+      <form action="/form-handler" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Offending history at this address
+            </legend>
+            <p class="govuk-body">
+              Has David Jones given details of convictions or cautions relating to this address?
+            </p>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>-->
+      </form>
+
+
+<!--Preferred address end-->
+
+
+<!--Second address start-->
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Second address
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+          49 Hill Street</br>
+          Grantham</br>
+          N1J 5NB
+        </dt>
+        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--blue">I<span style="text-transform: lowercase;">n progress</span></strong></td></dd>
+      </div>
+  
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <h3 class="govuk-heading-s">Details of residents</h3>
+
+  <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Main occupier
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Craig Fox
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Uncle
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#"></a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Other residents
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Joanne Fox
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Aunty
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#"></a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+<p class="govuk-body"><strong>This address has been checked before.</strong> <a class="govuk-link" href="#">View history.</a></p>
+
+      <form action="/form-handler" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Offending history at this address
+            </legend>
+            <p class="govuk-body">
+              Has David Jones given details of convictions or cautions relating to this address?
+            </p>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>-->
+      </form>
+
+
+<!--Second address end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

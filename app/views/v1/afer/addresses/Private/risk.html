@@ -1,0 +1,267 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Assess this person’s risk</h1>
+
+      <h2 class="govuk-heading-m govuk-!-static-margin-top-6">Suitability checks</h2>
+
+      
+    <!--card start-->
+<div class="govuk-summary-card">
+
+<div class="govuk-summary-card__title-wrapper">
+  <h2 class="govuk-summary-card__title">
+    Proposed address
+  </h2>
+</div>
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
+      </dt>
+      <!--<dd class="govuk-summary-list__key">
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>-->
+    </div>
+
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+
+<h2 class="govuk-heading-m govuk-!-static-margin-top-6">Risk management information</h2>
+
+
+<h3 class="govuk-heading-s govuk-!-static-margin-top-6">Consultation with the POM</h3>
+
+<p class="govuk-body">What information has the POM provided about the behaviour of David Jones while in prison?</p>
+
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="more-detail">
+                  <strong>Find out if there are any concerns about them being released on HDC</strong>
+                </label>
+                <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+              </div>
+
+
+ 
+<form action="/form-handler" method="post" novalidate>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Mental health plan
+      </legend>
+      <p>Does David Jones need a mental health plan to help manage risk?</p>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <p>Have you consulted with prison healthcare?</p>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Victim consultation
+      </legend>
+      <p>Is there a victim liaison officer (VLO) for David Jones?</p>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+ <!--Only to show if YES is selected--> 
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+      <strong>Give details of any concerns the victims have. For example, about licence conditions.</strong>
+    </label>
+    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+  </div>
+
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Non-disclosable information
+      </legend>
+      <p>Is there any information that cannot be disclosed to David Jones?</p>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+ <!--Only to show if YES is selected--> 
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+      <strong>Give details of information that cannot be disclosed</strong>
+    </label>
+    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+  </div>
+
+
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Risk management information
+      </legend>
+      <p class="govuk-body">Can David Jones be managed safely in the community if they are released to the proposed address?<p>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="changedName">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="changedName-2">
+              No
+            </label>
+          </div>
+        </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+      <strong>Add information to support your decision</strong>
+    </label>
+    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+  </div>
+
+
+
+  <div class="govuk-button-group">
+    <a href="#" class="govuk-button">Save</a>        
+  </div>
+
+
+<!--<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Submit
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Cancel
+  </button>
+</div>-->
+
+              </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
