@@ -1,0 +1,307 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Check if an address is suitable for HDC</h1>
+
+      <h2 class="govuk-heading-m govuk-!-static-margin-top-6">Suitability checks</h2>
+
+      
+    <!--card start-->
+<div class="govuk-summary-card">
+
+<div class="govuk-summary-card__title-wrapper">
+  <h2 class="govuk-summary-card__title">
+    Proposed address
+  </h2>
+</div>
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
+      </dt>
+      <!--<dd class="govuk-summary-list__key">
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>-->
+    </div>
+
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+ 
+<form action="/form-handler" method="post" novalidate>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Informed consent
+      </legend>
+      <p>Have you visited this address in person?</p>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <p>Has the main occupier given informed consent for David Jones to be released here?</p>
+      <div id="changedName-hint" class="govuk-hint">
+        <p class="govuk-body govuk-hint">They must understand:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-hint" style="margin-top: -10px; margin-bottom: 20px;">
+          <li>what HDC involves</li>
+          <li>the offences they committed</li>
+        </ul>
+      </div>
+
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Electricity supply
+      </legend>
+      <p>Is the address connected to an electricity supply?</p>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+
+
+  <h3 class="govuk-heading-s">Details of residents</h3>
+
+  <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Main occupier
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Leanna Martin
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Mother
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 200px;">
+          <a class="govuk-link" href="#">Change or remove</a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Other residents
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Greg Martin
+        </dt>
+        <dd class="govuk-summary-list__value" style="width: 210px;">
+          Brother</br>
+          Age: 17</br>
+          Date of birth: 2 May 2007
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 150px;">
+          <a class="govuk-link" href="#">Change or remove</a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <div class="moj-button-action">
+
+    <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
+      Add another resident
+    </button>
+
+  </div>
+
+
+
+
+  <h2 class="govuk-heading-m govuk-!-static-margin-top-8">Police and children’s services checks</h2>
+
+
+  <p class="govuk-body">What information have you found from the police and children’s services about the property?</p>
+
+  <p class="govuk-body">You need to know whether this address is known to these organisations and if there is a record of domestic violence there. You may need to contact them to find out.</p>
+              
+              
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="more-detail">
+                    <strong>Summarise the information you found out</strong>
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
+
+
+                
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Suitability decision 
+                    </legend>
+                    <p class="govuk-body">Is this address suitable for David Jones to be released to?<p>
+                      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                          <label class="govuk-label govuk-radios__label" for="changedName">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                          <label class="govuk-label govuk-radios__label" for="changedName-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                  </fieldset>
+                </div>
+
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="more-detail">
+                    <strong>Add information to support your decision</strong>
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
+
+
+                <div class="govuk-button-group">
+                  <a href="#" class="govuk-button">Save</a>        
+                </div>
+         
+
+              <!--<div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Submit
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Cancel
+                </button>
+              </div>-->
+
+              </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
