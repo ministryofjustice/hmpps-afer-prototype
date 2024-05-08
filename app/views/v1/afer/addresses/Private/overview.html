@@ -187,35 +187,14 @@
 
 <p class="govuk-body"><strong>This address has been checked before.</strong> <a class="govuk-link" href="#">View history.</a></p>
 
-      <form action="/form-handler" method="post" novalidate>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Offending history at this address
-            </legend>
-            <p class="govuk-body">
-              Has David Jones given details of convictions or cautions relating to this address?
-            </p>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="interviewNeeds">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-        <!--<button type="submit" class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>-->
-      </form>
+[H4] Offending history at this address
+
+Has {{pipFirstName}} given details of convictions or cautions relating to this address?
+
+The prisoner has said that he was convicted for a burglary with his neighbour. </br>
+
+
+CTA
 
 
 <!--Preferred address end-->
