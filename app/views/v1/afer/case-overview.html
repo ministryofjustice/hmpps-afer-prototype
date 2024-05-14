@@ -152,24 +152,13 @@
           <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
         </dd>
       </div>
-
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__value" style="width: 100%;">
-          <a class="govuk-link govuk-link--no-visited-state" href="#">DPS profile</a>
-        </dt>
-        <dd class="govuk-summary-list__value">
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
   
     </dl>
   </div>
-
 </div>
 <!--card end-->
-    
+<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">See this person’s full Digital Prison Services profile</a></p>
+
 
     </div>
   </div>
@@ -233,7 +222,7 @@
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
 
-    <div class="moj-timeline__description">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</div>
+    <div class="moj-timeline__description">To do by Ade Cooper at HMP Wandsworth before {{ "today" |  duration(116) | govukDate("truncate") }}</div>
 
   </div>
 
@@ -252,7 +241,7 @@
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
 
-    <div class="moj-timeline__description">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</div>
+    <div class="moj-timeline__description">To do by Ade Cooper at HMP Wandsworth before {{ "today" |  duration(116) | govukDate("truncate") }}</div>
 
   </div>
 
@@ -792,9 +781,15 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
-      {% if data.user=="decisionmaker"%}
-      <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./decision/confirm-release.html">Confirm if George can be released on HDC</a></p>
-      {% endif %}
+
+{% if data.user=="decisionmaker"%}
+    <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+      Start
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+{% endif %}
     
      
     </div>
@@ -815,8 +810,14 @@
       <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Create or edit licence</a></p>
       {% endif %}
 
+
       {% if data.user=="decisionmaker"%}
-      <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../cvl/approvals/hdc.html">Approve licence</a></p>
+      <a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+        Start
+       <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+           </svg>
+            </a>
       {% endif %}
     
     
