@@ -374,80 +374,85 @@
 
 
       <h2 class="govuk-heading-l govuk-!-static-margin-top-6">Release decision</h2>
-              
-              <form action="/dm-confirm-release" method="post" novalidate>
-
-                <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                      Is this information up to date?
-                    </legend>
-                    <div id="dob-hint" class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
-                        <label class="govuk-label govuk-radios__label" for="interviewNeeds">
-                          Yes
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
-                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
-                          No
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-
-                <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                      Can this person be released on HDC?
-                    </legend>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
-                        <label class="govuk-label govuk-radios__label" for="interviewNeeds">
-                          Yes
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
-                        <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
-                          No
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
 
 
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="more-detail">
-                    Add more information to support your decision (optional)
-                  </label>
-                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-                </div>
+<!--new-->
+
+<form method="post" action="">
+  
+<div class="govuk-form-group govuk-!-margin-bottom-8">
+  <div class="govuk-radios govuk-radios--inline">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Is this information up to date?
+    </legend>
+    <div class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+        No
+      </label>
+    </div>
+  </div>
+</div>
 
 
-                <div class="govuk-button-group">
-                  <a href="./confirmation" class="govuk-button">Submit</a></br>
-                  <a href="#" class="govuk-button govuk-button--secondary">Cancel</a></br>
-        
-                </div>
-         
+  <div class="govuk-radios govuk-radios--inline">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Can this person be released on HDC?
+    </legend>    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="hdc-release" name="hdc-release" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="hdc-release">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="hdc-release-2">
+         No
+        </label>
+      </div>
+    </div>
+  </div>
+      <br /><br />
 
-              <!--<div class="govuk-button-group">
-                <button type="submit" class="govuk-button" data-module="govuk-button">
-                  Submit
-                </button>
-                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Cancel
-                </button>
-              </div>-->
 
-              </form>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="more-detail">
+          Add more information to support your decision (optional)
+        </label>
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+      </div>
+
+
+
+
+    <div class="govuk-button-group">
+      <a href="./confirmation" class="govuk-button">Submit</a></br>
+      <a href="../case-overview.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+    </div>
+
+    <!--<div class="govuk-button-group">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Submit
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Cancel
+    </button>
+  </div>-->
+
+  </div>
+</form>
+
+
+             
 
 
       </div>
