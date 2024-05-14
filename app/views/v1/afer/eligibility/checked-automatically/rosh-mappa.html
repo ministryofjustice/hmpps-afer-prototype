@@ -24,18 +24,22 @@
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-
 
 
 
 <form method="post" action="">
 
+<!--columns start-->
 
-  <!--<h1 class="govuk-heading-l">CHeck</h1>-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <!--content start-->
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-4">Automated [working title]</h2>
+  <div class="govuk-body">These questions have been answered automatically using the information from OASys. You can change the answer if something looks wrong.</div>
   
-  <div class="govuk-form-group govuk-!-margin-bottom-8">
+  <div class="govuk-form-group govuk-!-margin-bottom-6">
     <div class="govuk-radios govuk-radios--inline">
       <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>
@@ -46,12 +50,15 @@
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         Does this person have a high or very high risk of serious harm?
       </legend>    
-      <div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>
+      <!--<div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>-->
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes">
+        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes" checked="checked">
         <label class="govuk-label govuk-radios__label" for="seriousHarm">
           Yes
         </label>
+        <!--<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Automatically checked, can be changed
+        </div>-->
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="seriousHarm-2" name="seriousHarm" type="radio" value="no">
@@ -67,7 +74,7 @@
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         Are they MAPPA level 2 or 3?
       </legend>  
-      <div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>  
+      <!--<div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>-->  
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="hdc-release" name="hdc-release" type="radio" value="yes">
         <label class="govuk-label govuk-radios__label" for="hdc-release">
@@ -76,16 +83,18 @@
       </div>
       <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no">
+          <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no" checked="checked">
           <label class="govuk-label govuk-radios__label" for="hdc-release-2">
            No
           </label>
+          <!--<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Automatically checked, can be changed
+          </div>-->
         </div>
       </div>
     </div>
         <br /><br />
   
-
       <div class="govuk-button-group">
         <a href="../tasklist.html" class="govuk-button">Continue</a></br>
         <a href="../tasklist.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
@@ -99,19 +108,54 @@
         Cancel
       </button>
     </div>-->
-  
-    </div>
+
   </form>
 
 
+        <!--content end-->
+
+      </div>
 
 
+      <div class="govuk-grid-column-one-third">
 
+        <h2 class="govuk-heading-s" style="margin-top: 90px;">Information from OASys</h2>
+        
 
+<!--rosh widget start-->
+{% from "components/rosh-widget/macro.njk" import roshWidget %}
+
+{{ roshWidget({
+    hasBeenCompleted: true,
+    overallRisk: "VERY_HIGH",
+    riskInCommunity: {
+      "Children": "LOW",
+      "Public": "VERY_HIGH",
+      "Known Adult": "MEDIUM",
+      "Staff": "HIGH"
+    },
+    lastUpdated: "10th October 2021"
+}) }}
+<!--rosh widget end-->
+
+<!--mappa widget start-->
+{% from "components/mappa-widget/macro.njk" import mappaWidget %}
+
+{{ mappaWidget({}) }}
+<!--mappa widget end-->
 
       </div>
     </div>
   </main>
 </div>
+
+<!--columns end-->
+
+
+
+
+
+
+
 
 {% endblock %}

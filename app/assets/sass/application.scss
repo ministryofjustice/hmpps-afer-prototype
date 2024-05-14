@@ -10,9 +10,13 @@
 
 // Components that aren't in Frontend
 @import "components/cards";
-@import './components/date-picker';
-@import './components/dps-home';
+@import "components/date-picker";
+@import "components/dps-home";
 
+//Assess risk and needs
+// https://github.com/ministryofjustice/hmpps-risk-ui-elements?tab=readme-ov-file
+@import "risk/mappa-widget";
+@import "risk/rosh-widget";
 
 //Mini profile (personal details banner)
 
