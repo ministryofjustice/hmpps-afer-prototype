@@ -95,12 +95,9 @@
 <!--mappa widget start-->
    <div class="govuk-grid-row">
      <div class="govuk-grid-column-two-thirds">     
-{% from "components/mappa-widget/macro.njk" import mappaWidget %}
+      {% from "components/mappa-widget/macro.njk" import mappaWidget %}
 
-{{ mappaWidget({
-    level: "CAT 2/LEVEL 1",
-    lastUpdated: "10th October 2021"
-}) }}
+      {{ mappaWidget({}) }}
 
   </div>
 </div>
