@@ -69,166 +69,6 @@
 
 <h1 class="govuk-heading-xl govuk-!-margin-top-8">Release George Jennings on HDC </h1>
 
-
-   <!--<div class="govuk-grid-row govuk-!-margin-top-6">
-    <div class="govuk-grid-column-one-half">
-      
-<div class="govuk-summary-card">
-
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">
-      Personal details
-    </h2>
-  </div>
-
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key" style="width: 30%;">
-          Name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          George Jennings
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Prison number
-        </dt>
-        <dd class="govuk-summary-list__value">
-          G5613GT
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          HDCED
-        </dt>
-        <dd class="govuk-summary-list__value">
-          28 May 2024
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <span class="moj-badge moj-badge--black">Nomis</span>
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          CRD
-        </dt>
-        <dd class="govuk-summary-list__value">
-          28 July 2024
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <span class="moj-badge moj-badge--black">Nomis</span>
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Location
-        </dt>
-        <dd class="govuk-summary-list__value">
-          E35
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <span class="moj-badge moj-badge--black">Nomis</span>
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__value" style="width: 100%;">
-          <a class="govuk-link govuk-link--no-visited-state" href="#">DPS profile</a>
-        </dt>
-        <dd class="govuk-summary-list__value">
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-  
-    </dl>
-  </div>
-
-</div>
-
-
-    </div>
-    <div class="govuk-grid-column-one-half">
-      
-<div class="govuk-summary-card">
-
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">
-      Key contacts
-    </h2>
-  </div>
-
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key" style="width: 15%;">
-          POM
-        </dt>
-        <dd class="govuk-summary-list__value" style="width: 85%;">
-          George Jennings</br>
-          George.Jennings@justice.gov.uk
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          PP
-        </dt>
-        <dd class="govuk-summary-list__value">
-          George Jennings</br>
-          George.Jennings@justice.gov.uk
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          CA
-        </dt>
-        <dd class="govuk-summary-list__value" style="height: 70px;">
-          George Jennings</br>
-          George.Jennings@justice.gov.uk
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__value">
-          <a class="govuk-link" href="#">Contact details</a>
-        </dt>
-        <dd class="govuk-summary-list__value">
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-  
-    </dl>
-  </div>
-
-</div>
-
-    </div>
-  </div>-->
-
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <!--card start-->
@@ -270,7 +110,7 @@
           HDCED
         </dt>
         <dd class="govuk-summary-list__value">
-          28 May 2024
+          {{ "today" |  duration(93) | govukDate("truncate") }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <span class="moj-badge moj-badge--black">Nomis</span>
@@ -282,7 +122,7 @@
           CRD
         </dt>
         <dd class="govuk-summary-list__value">
-          28 July 2024
+          {{ "today" |  duration(126) | govukDate("truncate") }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <span class="moj-badge moj-badge--black">Nomis</span>

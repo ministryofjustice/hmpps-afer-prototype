@@ -16,48 +16,113 @@
 
 {% block content %}
 
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-
-
- <!--new profile banner start-->
- <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
-  <div class="mini-profile-inner">
-      <div class="mini-profile-left">
-          <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
-      </div>
-      <div class="mini-profile-right">
-          <ul class="mini-profile-info">
-              <li>
-                  <p class="govuk-heading-s govuk-!-margin-bottom-1">
-                      <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
-                  </p>
-                  <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
-              </li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
-              <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(93) | govukDate("truncate") }}</span></li>
-              <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(126) | govukDate("truncate") }}</span></li>
-          </ul>
-      </div>
-  </div>
-</div>
-<!--new profile banner end-->
-
-
-</div>
-</div>
-
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-  <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">Approve licence</h1>
+    <h1 class="govuk-heading-xl govuk-!-static-margin-top-6">Approve licence
+    </h1>
 
-<h2 class="govuk-heading-l" style="padding-top: 0px;"> Review details</h2>
+    <!--card start-->
+<div class="govuk-summary-card" style="margin-top: 20px;">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Personal details
+    </h2>
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 30%;">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          George Jennings
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Prison number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          G5613GT
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          HDCED
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ "today" |  duration(93) | govukDate("truncate") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CRD
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ "today" |  duration(126) | govukDate("truncate") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Location
+        </dt>
+        <dd class="govuk-summary-list__value">
+          HMP 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cell number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          A-1-1
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value" style="width: 100%;">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">DPS profile</a>
+        </dt>
+        <dd class="govuk-summary-list__value">
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+
+</div>
+<!--card end-->
+  
+  
+<h2 class="govuk-heading-l" style="padding-top: 30px;"> Review details</h2>
 
 
 
