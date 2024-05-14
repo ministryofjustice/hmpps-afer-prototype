@@ -27,74 +27,86 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form action="/form-handler" method="post" novalidate>
-          
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
-                <span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>
-                <h1 class="govuk-fieldset__heading">
-                  Does this person have a high or very high risk of serious harm?
-                </h1>
-              </legend>
-              <!--<ul class="govuk-list govuk-list--bullet" style="margin-bottom: 20px;">
-                <li>High or very high risk of serious harm</li>
-                <li>MAPPA level 2 or 3</li>
-              </ul>-->
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
 
 
-        <div class="govuk-form-group govuk-!-margin-top-6">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
-              <!--<span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>-->
-              <h1 class="govuk-fieldset__heading">
-                Are they MAPPA level 2 or 3?
-              </h1>
-            </legend>
-            <!--<ul class="govuk-list govuk-list--bullet" style="margin-bottom: 20px;">
-              <li>High or very high risk of serious harm</li>
-              <li>MAPPA level 2 or 3</li>
-            </ul>-->
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
+
+<form method="post" action="">
+
+
+  <!--<h1 class="govuk-heading-l">CHeck</h1>-->
+  
+  <div class="govuk-form-group govuk-!-margin-bottom-8">
+    <div class="govuk-radios govuk-radios--inline">
+      <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>
+        <h1 class="govuk-fieldset__heading">
+          Does this person have a high or very high risk of serious harm?
+        </h1>
+      </legend>-->
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Does this person have a high or very high risk of serious harm?
+      </legend>    
+      <div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="seriousHarm">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="seriousHarm-2" name="seriousHarm" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="seriousHarm-2">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  
+    <div class="govuk-radios govuk-radios--inline">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Are they MAPPA level 2 or 3?
+      </legend>  
+      <div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>  
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hdc-release" name="hdc-release" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="hdc-release">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="hdc-release-2">
+           No
+          </label>
         </div>
+      </div>
+    </div>
+        <br /><br />
+  
 
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
+      <div class="govuk-button-group">
+        <a href="../tasklist.html" class="govuk-button">Continue</a></br>
+        <a href="../tasklist.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+      </div>
+  
+      <!--<div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>-->
+  
+    </div>
+  </form>
 
-        </form>
+
+
+
+
 
 
       </div>
