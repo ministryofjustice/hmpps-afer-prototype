@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+
+
+<form method="post" action="">
+
+<!--columns start-->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <!--content start-->
+
+  
+        <form action="/form-handler" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
+                <span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>
+                <h1 class="govuk-fieldset__heading">
+                  Does this person have a security category of A?
+                </h1>
+              </legend>
+              <div class="govuk-hint">This question has been answered automatically using information from NOMIS. You can change the answer if something looks wrong.</br>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios" style="margin-top: 20px;">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+        </form>
+
+
+        <!--content end-->
+
+      </div>
+
+
+      <div class="govuk-grid-column-one-third">
+
+        <!--<h2 class="govuk-heading-s" style="margin-top: 90px;">Information from NOMIS</h2>-->
+        
+        
+               <!--card start-->
+<div class="govuk-summary-card" style="margin-top: 150px;">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Information from NOMIS
+    </h2>
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 40%;">
+          Category
+        </dt>
+        <dd class="govuk-summary-list__value">
+          C
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+<!--card end-->
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<!--columns end-->
+
+
+
+
+
+
+
+
+{% endblock %}
