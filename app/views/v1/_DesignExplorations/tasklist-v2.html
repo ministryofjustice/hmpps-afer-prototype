@@ -33,47 +33,15 @@
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-
-
-      <!--new profile banner start-->
-      <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
-        <div class="mini-profile-inner">
-            <div class="mini-profile-left">
-                <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
-            </div>
-            <div class="mini-profile-right">
-                <ul class="mini-profile-info">
-                    <li>
-                        <p class="govuk-heading-s govuk-!-margin-bottom-1">
-                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
-                        </p>
-                        <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
-                    </li>
-                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
-                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
-                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
-                    <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(93) | govukDate("truncate") }}</span></li>
-                    <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(126) | govukDate("truncate") }}</span></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-      <!--new profile banner end-->
-
-</div>
-</div>
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Release someone on HDC</h1>
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">
+        Release someone on HDC
+      </h1>
 
 
-      <!--<h2 class="govuk-heading-m">Personal details</h2>
+      <h2 class="govuk-heading-m">Personal details</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         
@@ -117,11 +85,11 @@
           <a class="govuk-link" href="#">View case history</a>
         </div>
   
-      </dl>-->
+      </dl>
 
 
 
-      <p class="govuk-body">Finish checking addresses by 31 March 2024 or <a class="govuk-link govuk-link--no-visited-state" href="#">pause these checks</a></p>
+      <p class="govuk-body">Finish checking addresses by 31 March 2024 or <a class="govuk-link" href="#">pause these checks</a></p>
 
       <h2 class="govuk-heading-m">Proposed address</h2>
 
@@ -211,7 +179,7 @@
             </div>
             <div class="govuk-grid-column-one-third">
               
-              <a href="residential/select-address.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 10px;">
+              <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 10px;">
                 Start
                 <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
                   <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
@@ -224,13 +192,14 @@
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <h2 class="govuk-heading-m" style="margin-top: 15px;">Assess this person's risk</h2>
         </div>
         <div class="govuk-grid-column-one-third">
           
-          <a href="residential/risk.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 5px;">
+          <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 5px;">
             Start
             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
@@ -245,58 +214,10 @@
 
 
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-8">Proposed community accommodation</h2>
-
-       <!--card start-->
-<div class="govuk-summary-card">
-
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">
-      Preferred CAS2 area
-    </h2>
-  </div>
-  
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-  
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Town
-        </dt>
-        <dd class="govuk-summary-list__value">
-          London
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-        </dd>-->
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          County or borough
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Wimbledon
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-        </dd>-->
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Additional Information
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Prisoner has offending history in Edmonton, so that area should be avoided
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-        </dd>-->
-      </div>
-    </dl>
-  </div>
-  
-  </div>
-  <!--card end-->
+      <h2 class="govuk-heading-m">Community accommodation</h2>
 
 
-     <!--<dl class="govuk-summary-list">
+      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Proposed town
@@ -321,14 +242,14 @@
             Prisoner has offending history in Edmonton, so that area should be avoided
           </dd>
         </div>
-      </dl>--> 
+      </dl>
 
 
     
       <form action="/form-handler" method="post" novalidate>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               Select which type of community accommodation they need
             </legend>
             <div id="dob-hint" class="govuk-hint">
