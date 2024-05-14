@@ -380,12 +380,12 @@
 
 <form method="post" action="">
   
-<div class="govuk-form-group govuk-!-margin-bottom-8">
+<div class="govuk-form-group">
   <div class="govuk-radios govuk-radios--inline">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      Is this information up to date?
+      Have there been any changes in this person’s behaviour?
     </legend>
-    <div class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
+    <div class="govuk-hint">You can check with their POM.</div>
     <div class="govuk-radios__item">
       <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
       <label class="govuk-label govuk-radios__label" for="interviewNeeds">
@@ -401,8 +401,37 @@
   </div>
 </div>
 
+<div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    Add more information   
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+</div>
 
-  <div class="govuk-radios govuk-radios--inline">
+
+<div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    Is this information up to date?
+  </legend>
+  <div class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="infoUptodate" name="infoUptodate" type="radio" value="yes">
+    <label class="govuk-label govuk-radios__label" for="infoUptodate">
+      Yes
+    </label>
+  </div>
+  <div class="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="infoUptodate-2" name="infoUptodate" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="infoUptodate-2">
+        No
+      </label>
+    </div>
+  </div>
+</div>
+
+
+  <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       Can this person be released on HDC?
     </legend>    
