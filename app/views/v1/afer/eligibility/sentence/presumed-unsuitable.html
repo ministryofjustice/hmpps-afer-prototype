@@ -27,51 +27,63 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form action="/form-handler" method="post" novalidate>
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
-                <span class="govuk-caption-l govuk-!-static-margin-top-6">Sentence</span>
-                <h1 class="govuk-fieldset__heading">
-                  Is this person serving a prison sentence for any of these categories of offence?
-                </h1>
-              </legend>
+                <span class="govuk-caption-l govuk-!-static-margin-top-8">Sentence</span>
+                <h1 class="govuk-heading-l">You need to check some information</h1>
+                <p class="govuk-body">According to NOMIS, this person is serving a sentence for the following offence, which may fall under the cruelty to children category:</p>
+
+                <div class="govuk-inset-text">Wounding/GBH
+                </div>
+             
+
+                <p class="govuk-body">Select yes to the question below if:</p>
 
                 <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
-                  <li>Homicide</li>
-                  <li>Explosives</li>
-                  <li>Possession of an offensive weapon</li>
-                  <li>Possession of firearms with intent</li>
-                  <li>Cruelty to children</li>
-                  <li>Racially aggravated offences</li>
-                  <li>Stalking, harassment and other offences linked to domestic abuse</li>
-                  <li>Terrorist offences not described in section 247A(2) of the Criminal Justice Act 2003</li>
+                  <li>this person was 16 or over when they committed this offence</li>
+                  <li>their victim was 16 or under </li>
+                  <li>they had custody, charge or care of that child</li>
                 </ul>
 
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                    No
-                  </label>
-                </div>
-                
-              </div>
-            </fieldset>
-          </div>
+                <form action="/form-handler" method="post" novalidate>
+                  <div class="govuk-form-group  govuk-!-margin-top-8">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Is this person serving a prison sentence for any of these categories of offence?
+                      </legend>
+                      <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
+                        <li>Homicide</li>
+                        <li>Explosives</li>
+                        <li>Possession of an offensive weapon</li>
+                        <li>Possession of firearms with intent</li>
+                        <li>Cruelty to children</li>
+                        <li>Racially aggravated offences</li>
+                        <li>Stalking, harassment and other offences linked to domestic abuse</li>
+                        <li>Terrorist offences not described in section 247A(2) of the Criminal Justice Act 2003</li>
+                      </ul>
+                      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                          <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                          <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
 
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
 
-        </form>
+
+
+        
+                  <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+                    Continue
+                  </button>
+                </form>-->
 
 
       </div>
