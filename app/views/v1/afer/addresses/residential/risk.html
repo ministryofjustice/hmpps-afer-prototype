@@ -39,45 +39,40 @@
       <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Assess this person’s risk</h1>
 
       
-   
-
+  
 
 
 <h2 class="govuk-heading-m govuk-!-static-margin-top-6">Risk management information</h2>
 
 
-<h3 class="govuk-heading-s govuk-!-static-margin-top-6">Consultation with the POM</h3>
-
-<p class="govuk-body">What information has the POM provided about the behaviour of David Jones while in prison?</p>
-
-
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="more-detail">
-                  <strong>Find out if there are any concerns about them being released on HDC</strong>
+              <div class="govuk-form-group govuk-!-margin-top-6">
+                <label class="govuk-label" for="moredetailPOM">
+                  <strong>What information has the POM provided about the behaviour of George while in prison?</strong>
                 </label>
-                <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                <div id="dob-hint" class="govuk-hint">
+                  Find out if there are any concerns about them being released on HDC.
+                </div>
+                <textarea class="govuk-textarea" id="moredetailPOM" name="moredetailPOM" rows="5"></textarea>
               </div>
 
 
  
-<form action="/form-handler" method="post" novalidate>
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Mental health plan
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Does George need a mental health plan to help manage risk?
       </legend>
-      <p>Does David Jones need a mental health plan to help manage risk?</p>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="changedName">
+          <input class="govuk-radios__input" id="mentalHealth" name="mentalHealth" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="mentalHealth">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="changedName-2">
+          <input class="govuk-radios__input" id="mentalHealth-2" name="mentalHealth" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="mentalHealth-2">
             No
           </label>
         </div>
@@ -88,17 +83,19 @@
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
-      <p>Have you consulted with prison healthcare?</p>
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Have you consulted with prison healthcare?
+      </legend>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="changedName">
+          <input class="govuk-radios__input" id="healthcare" name="healthcare" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="healthcare">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="changedName-2">
+          <input class="govuk-radios__input" id="healthcare-2" name="healthcare" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="healthcare-2">
             No
           </label>
         </div>
@@ -109,20 +106,52 @@
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Victim consultation
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Is there a victim liaison officer (VLO) for this case?
       </legend>
-      <p>Is there a victim liaison officer (VLO) for David Jones?</p>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="changedName">
+          <input class="govuk-radios__input" id="vloCase" name="vloCase" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="vloCase">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="changedName-2">
+          <input class="govuk-radios__input" id="vloCase-2" name="vloCase" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="vloCase-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+ <!--VLO: Only to show if YES is selected--> 
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="moreDetailvlo">Give details of any concerns victims have about George being released to the proposed address.</label>
+    <textarea class="govuk-textarea" id="moreDetailvlo" name="moreDetailvlo" rows="5"></textarea>
+  </div>
+
+  <!--VLO: end--> 
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Is there any information that cannot be disclosed to George?
+      </legend>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="infoDisclosure" name="infoDisclosure" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="infoDisclosure">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="infoDisclosure-2" name="infoDisclosure" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="infoDisclosure-2">
             No
           </label>
         </div>
@@ -134,79 +163,8 @@
  <!--Only to show if YES is selected--> 
 
   <div class="govuk-form-group">
-    <label class="govuk-label" for="more-detail">
-      <strong>Give details of any concerns the victims have. For example, about licence conditions.</strong>
-    </label>
-    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-  </div>
-
-
-
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Non-disclosable information
-      </legend>
-      <p>Is there any information that cannot be disclosed to David Jones?</p>
-      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="changedName">
-            Yes
-          </label>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="changedName-2">
-            No
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-
-
- <!--Only to show if YES is selected--> 
-
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="more-detail">
-      <strong>Give details of information that cannot be disclosed</strong>
-    </label>
-    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-  </div>
-
-
-
-
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Risk management decision
-      </legend>
-      <p class="govuk-body">Can David Jones be managed safely in the community if they are released to the proposed address?<p>
-        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="changedName">
-              Yes
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="changedName-2">
-              No
-            </label>
-          </div>
-        </div>
-    </fieldset>
-  </div>
-
-
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="more-detail">
-      <strong>Add information to support your decision</strong>
-    </label>
-    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+    <label class="govuk-label" for="moreDetaildisclosure">Give details of information that cannot be disclosed</label>
+    <textarea class="govuk-textarea" id="moreDetaildisclosure" name="moreDetaildisclosure" rows="5"></textarea>
   </div>
 
 
