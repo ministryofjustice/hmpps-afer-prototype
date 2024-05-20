@@ -71,76 +71,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <!--<h1 class="govuk-heading-xl govuk-!-static-margin-top-6">
-        Eligibility and suitability for [working title]
-      </h1>-->
-
-
-
-
-     <!--<h2 class="govuk-heading-m">Personal details</h2>
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-           Name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            George Jennings
-          </dd>
-        </div>
-  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Prison number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            G5613GT
-          </dd>
-        </div>
-  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            HDCED
-          </dt>
-          <dd class="govuk-summary-list__value">
-            28 May 2024
-          </dd>
-        </div>
-  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            CRD
-          </dt>
-          <dd class="govuk-summary-list__value">
-            28 July 2024
-          </dd>
-        </div>
-
-        <div class="govuk-button-group" style="margin-top: 10px;">
-          <a class="govuk-link" href="#">View case history</a>
-        </div>
-  
-      </dl>-->
-
-
-
-  
-
-
-
-
-
-
+    
       <!--task list start-->
 
-      <h2 class="govuk-heading-l govuk-!-margin-top-4">Tasklist [working title]</h2>
+      <h2 class="govuk-heading-l govuk-!-margin-top-4">Assess eligibility and suitability</h2>
 
       <div class="govuk-inset-text">
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">HDC application incomplete</h2>
-        <p class="govuk-body">You have completed 5 of 11 sections.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Assessment incomplete</h2>
+        <p class="govuk-body">You have completed five of 11 checks</p>
       </div>
+
+
+
+
+
+
 
       <p><a class="govuk-link govuk-link--no-visited-state" href="#">View case history</a></p>
 
@@ -155,7 +100,7 @@
                   Category A
                 </a></br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  ????
+                  Checked automatically on {{ "today" |  duration(-2) | govukDate("truncate") }}
                 </div>
               </span>
               <p class="govuk-body" style="text-align: right;">Completed</p>
@@ -166,7 +111,7 @@
                   Sentence length
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  ????
+                  Checked automatically on {{ "today" |  duration(-2) | govukDate("truncate") }}
                 </div>
               </span>
               <p class="govuk-body" style="text-align: right;">Completed</p>
@@ -177,7 +122,7 @@
                   RoSH and MAPPA
                 </a>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  ????
+                  Checked automatically on {{ "today" |  duration(-2) | govukDate("truncate") }}
                 </div>
               </span>
               <p class="govuk-body" style="text-align: right;">Completed</p>
@@ -240,7 +185,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a class="govuk-link govuk-link--no-visited-state" href="offence-history/terrorism.html" aria-describedby="list-convictions-status">
-                  Terrorist or terrorism connected offending history
+                  Terrorism
                 </a>
               </span>
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
