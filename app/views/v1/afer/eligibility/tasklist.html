@@ -76,18 +76,37 @@
 
       <h2 class="govuk-heading-l govuk-!-margin-top-4">Assess eligibility and suitability</h2>
 
+      
+    
+      {% if data.presumedunsuitable=="yes"%}
+
+
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">George is presumed unsuitable for HDC</p>
+
+          <p class="govuk-body">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</br>
+            [Copy from Tom but we're saying this is the question that led to this outcome]: <a class="govuk-link govuk-link--no-visited-state" href="#">Presumed unsuitable offences</a></br></br>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Restart assessment</a>
+            </p>
+
+        </div>
+      </div>
+
+
+      {% else %}
       <div class="govuk-inset-text">
 
-        {% if data.presumedunsuitable=="yes"%}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Assessment complete</h2>
-        {% else %}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Assessment incomplete</h2>
-        {% endif %}
+       
 
         {% if (data.recalledhdc=="no") and (data.presumedunsuitable=="yes") %} 
-        <p class="govuk-body"> George is eligible and presumed suitable for HDC</br>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">Restart assessment</a>
-        </p>
+
         {% elseif data.recalledhdc=="no"%}
         <p class="govuk-body">You have completed four of 14 checks</p>
         {% else %}
@@ -95,7 +114,7 @@
         {% endif %}
 
       </div>
-
+      {% endif %}
 
 
       <p><a class="govuk-link govuk-link--no-visited-state" href="#">View case history</a></p>
