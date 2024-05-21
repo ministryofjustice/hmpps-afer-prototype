@@ -366,15 +366,11 @@
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+   
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">On {{ "today" |  duration(-366) | govukDate("truncate") }}</time>
     </p>
-    {% else %}
-    <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">On {{ "today" |  duration(0) | govukDate("truncate") }}</time>
-    </p>
-    {% endif %}
+    
 
   </div>
 </div>
@@ -449,9 +445,7 @@
 
     {% if data.ineligibleforHDC=="yes"%}
 
-    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 17px;">
-      View assessment
-    </button>
+    <a href="./eligibility/tasklist" class="govuk-button" style="margin-top: 17px;">View assessment</a></br>
 
     {% else %}
     <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">

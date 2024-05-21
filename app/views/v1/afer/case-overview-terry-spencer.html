@@ -218,15 +218,11 @@
 
     </div>
 
-    <!--<p class="moj-timeline__date">
-      <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
-    </p>-->
-  
-    <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
-
+    <p class="moj-timeline__date">
+      <time datetime="2019-06-06T09:12:00.000Z">Completed by Ade Cooper at HMP Wandsworth on {{ "today" |  duration(90) | govukDate("truncate") }}</time>
+    </p>
 
   </div>
-
 
 
   <div class="moj-timeline__item">
@@ -242,8 +238,9 @@
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
 
-    <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
-
+    <p class="moj-timeline__date">
+      <time datetime="2019-06-06T09:12:00.000Z">Completed by Ade Cooper at HMP Wandsworth on {{ "today" |  duration(90) | govukDate("truncate") }}</time>
+    </p>
 
   </div>
 
@@ -804,7 +801,53 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
+<!--new-->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!--check your answers start-->
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Have there been any changes in this person’s behaviour or level of risk?
+        </dd>
+        <dt class="govuk-summary-list__key">
+          No
+        </dt>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Is this information up to date? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Yes
+        </dt>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Can this person be released on HDC? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Yes
+        </dt>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      
+  <!--check your answers end-->
+    </dl>
+  </div>
+</div>
+
+
+
+<!--new-->
 
 {% if data.user=="decisionmaker"%}
     <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
@@ -830,6 +873,12 @@
       </h2>
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+      <p class="govuk-body"><strong>You can now <a class="govuk-link" href="#">print this licence</a></strong></br>
+        Approved by Ade Cooper at HMP Wandsworth on {{ "today" |  duration(90) | govukDate("truncate") }}
+      </p>
+
 
       {% if data.user=="probation"%}
       <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Create or edit licence</a></p>
