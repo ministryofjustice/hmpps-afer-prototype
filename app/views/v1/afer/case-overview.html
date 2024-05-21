@@ -334,6 +334,10 @@
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</time>
     </p>
+    {% else %}
+    <div class="moj-timeline__description">
+      <div class="govuk-inset-text">To do before {{ "today" |  duration(-361) | govukDate("truncate") }}</div>
+    </div>
     {% endif %}
 
   </div>
@@ -476,35 +480,13 @@
 
       {% if data.ineligibleforHDC=="yes"%}
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <p class="govuk-body">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Is George statutorily excluded from HDC?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-            </a>
-          </dd>
-        </div>
-      
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Is George presumed unsuitable?
-          </dt>
-          <dd class="govuk-summary-list__value">
-           No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-            </a>
-          </dd>
-        </div>
-      
-      </dl>
+
+      <p class="govuk-body">Assessment complete</br>
+      George is presumed unsuitable for HDC
+      </p>
+
       
 
       {% else %}
