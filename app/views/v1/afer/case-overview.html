@@ -221,8 +221,9 @@
     <!--<p class="moj-timeline__date">
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
-
+    {% if data.user=="decisionmaker"%}
     <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
+    {% endif %}
 
   </div>
 
@@ -240,8 +241,9 @@
     <!--<p class="moj-timeline__date">
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
-
+    {% if data.user=="decisionmaker"%}
     <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
+    {% endif %}
 
   </div>
 
@@ -254,9 +256,11 @@
 
     </div>
 
+    {% if data.user=="decisionmaker"%}
     <p class="moj-timeline__date">
       <time datetime="2019-06-06T09:12:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
     </p>
+    {% endif %}
 
    <!--<div class="moj-timeline__description"></div>-->
 
@@ -273,9 +277,11 @@
 
     </div>
 
+    {% if data.user=="decisionmaker"%}
     <p class="moj-timeline__date">
       <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-22) | govukDate("truncate") }}</time>
     </p>
+    {% endif %}
 
     <!--<div class="moj-timeline__description"></div>-->
 
@@ -290,9 +296,11 @@
 
     </div>
 
+    {% if data.user=="decisionmaker"%}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</time>
     </p>
+    {% endif %}
 
   </div>
 
@@ -305,9 +313,11 @@
 
     </div>
 
+    {% if data.user=="decisionmaker"%}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</time>
     </p>
+    {% endif %}
 
   </div>
 
@@ -320,9 +330,11 @@
 
     </div>
 
+    {% if data.user=="decisionmaker"%}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</time>
     </p>
+    {% endif %}
 
   </div>
  
@@ -459,10 +471,43 @@
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
 
-
-
-      
+    
       {% if data.user=="admin"%}
+
+      {% if data.ineligibleforHDC=="yes"%}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is George statutorily excluded from HDC?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+            </a>
+          </dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is George presumed unsuitable?
+          </dt>
+          <dd class="govuk-summary-list__value">
+           No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+            </a>
+          </dd>
+        </div>
+      
+      </dl>
+      
+
+      {% else %}
       <p class="govuk-body">No information submitted yet</br>
 
         <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
@@ -473,6 +518,8 @@
               </a>
 
       </p>
+
+      {% endif %}
 
       {% else %}
 
@@ -524,40 +571,86 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
-    <p class="govuk-body">The following address has been found to be suitable:</p>
+
+      {% if data.user=="admin"%}
+      <p class="govuk-body">No information submitted yet</br>
+
+      {% if data.ineligibleforHDC=="yes"%}  
+      <p class="govuk-body">The following address has been found to be suitable:</p>
 
 
-    <!--card start-->
-    <div class="govuk-summary-card">
+      <!--card start-->
+      <div class="govuk-summary-card">
+  
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Proposed address
+          </h2>
+        </div>
+        
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+        
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                  4 Inner Street</br>
+                  Grantham</br>
+                  NG31 6HN
+              </dt>
+              <!--<dd class="govuk-summary-list__key">
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              </dd>-->
+            </div>
+        
+        
+          </dl>
+        </div>
+        
+        </div>
+        <!--card end-->
+        {% endif %}  
 
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">
-          Proposed address
-        </h2>
-      </div>
-      
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-      
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-                4 Inner Street</br>
-                Grantham</br>
-                NG31 6HN
-            </dt>
-            <!--<dd class="govuk-summary-list__key">
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </dd>-->
-          </div>
-      
-      
-        </dl>
-      </div>
-      
-      </div>
-      <!--card end-->
 
+      {% else %}  
+
+
+      <p class="govuk-body">The following address has been found to be suitable:</p>
+
+
+      <!--card start-->
+      <div class="govuk-summary-card">
+  
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Proposed address
+          </h2>
+        </div>
+        
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+        
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                  4 Inner Street</br>
+                  Grantham</br>
+                  NG31 6HN
+              </dt>
+              <!--<dd class="govuk-summary-list__key">
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              </dd>-->
+            </div>
+        
+        
+          </dl>
+        </div>
+        
+        </div>
+        <!--card end-->
+
+      {% endif %}  
+      
 
 
     {% if data.user=="probation"%}
@@ -578,11 +671,31 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
+
+      {% if data.user=="admin"%}
+
+      <p class="govuk-body">No information submitted yet</br>
+
+      {% if data.ineligibleforHDC=="yes"%}
+
+      <div class="govuk-grid-row">
+       <div class="govuk-grid-column-three-quarters">
+      <p class="govuk-body">Probation practitioner Mark Coombes has decided that George can be managed safely in the community at their proposed address.</p>
+       </div>
+      </div>
+
+      {% endif %}
+
+
+
+      {% else %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
           <p class="govuk-body">Probation practitioner Mark Coombes has decided that George can be managed safely in the community at their proposed address.</p>
         </div>
       </div>
+      {% endif %}
+
 
   
     </div>
@@ -599,82 +712,204 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
+      {% if data.user=="admin"%}
+
+      <p class="govuk-body">No information submitted yet</br>
+
+      {% if data.ineligibleforHDC=="yes"%}
+
+
+      <h3 class="govuk-heading-s govuk-!-margin-top-0">HDC curfew hours</h3>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+ 
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+           Monday
+         </dt>
+         <dd class="govuk-summary-list__value">
+           7:00 pm to 7:00 am
+         </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="#">
+     
+           </a>
+         </dd>
+       </div>
+     
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+           Tuesday
+         </dt>
+         <dd class="govuk-summary-list__value">
+           7:00 pm to 7:00 am
+         </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="#">
+     
+           </a>
+         </dd>
+       </div>
+     
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+           Wednesday
+         </dt>
+         <dd class="govuk-summary-list__value">
+           7:00 pm to 7:00 am
+         </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="#">
+     
+           </a>
+         </dd>
+       </div>
+     
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+           Thursday
+         </dt>
+         <dd class="govuk-summary-list__value">
+           7:00 pm to 7:00 am
+         </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="#">
+     
+           </a>
+         </dd>
+       </div>
+     
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+           Friday
+         </dt>
+         <dd class="govuk-summary-list__value">
+           7:00 pm to 7:00 am
+         </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="#">
+     
+           </a>
+         </dd>
+       </div>
+     
+     </dl>
+     
+ 
+ <h3 class="govuk-heading-s govuk-!-margin-top-0">Additional licence conditions (2)</h3>
+ 
+ <!--conditions start-->
+ 
+ 
+ <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+ 
+   <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key">
+       Drug testing
+     </dt>
+     <dd class="govuk-summary-list__value">
+       Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
+     </dd>
+   </div>
+ 
+   <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key">
+       Possession, ownership, control or inspection of specified items or documents
+     </dt>
+     <dd class="govuk-summary-list__value">
+       Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
+     </dd>
+     
+   </div>
+ 
+ </dl>
+ 
+ 
+ 
+ <!--conditions end-->
+      {% endif %}
+
+
+
+      {% else %}
+      
+
     <h3 class="govuk-heading-s govuk-!-margin-top-0">HDC curfew hours</h3>
 
-     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Monday
-        </dt>
-        <dd class="govuk-summary-list__value">
-          7:00 pm to 7:00 am
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-    
-          </a>
-        </dd>
-      </div>
-    
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Tuesday
-        </dt>
-        <dd class="govuk-summary-list__value">
-          7:00 pm to 7:00 am
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-    
-          </a>
-        </dd>
-      </div>
-    
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Wednesday
-        </dt>
-        <dd class="govuk-summary-list__value">
-          7:00 pm to 7:00 am
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-    
-          </a>
-        </dd>
-      </div>
-    
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Thursday
-        </dt>
-        <dd class="govuk-summary-list__value">
-          7:00 pm to 7:00 am
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-    
-          </a>
-        </dd>
-      </div>
-    
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Friday
-        </dt>
-        <dd class="govuk-summary-list__value">
-          7:00 pm to 7:00 am
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-    
-          </a>
-        </dd>
-      </div>
-    
-    </dl>
-    
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Monday
+       </dt>
+       <dd class="govuk-summary-list__value">
+         7:00 pm to 7:00 am
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <a class="govuk-link" href="#">
+   
+         </a>
+       </dd>
+     </div>
+   
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Tuesday
+       </dt>
+       <dd class="govuk-summary-list__value">
+         7:00 pm to 7:00 am
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <a class="govuk-link" href="#">
+   
+         </a>
+       </dd>
+     </div>
+   
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Wednesday
+       </dt>
+       <dd class="govuk-summary-list__value">
+         7:00 pm to 7:00 am
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <a class="govuk-link" href="#">
+   
+         </a>
+       </dd>
+     </div>
+   
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Thursday
+       </dt>
+       <dd class="govuk-summary-list__value">
+         7:00 pm to 7:00 am
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <a class="govuk-link" href="#">
+   
+         </a>
+       </dd>
+     </div>
+   
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Friday
+       </dt>
+       <dd class="govuk-summary-list__value">
+         7:00 pm to 7:00 am
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <a class="govuk-link" href="#">
+   
+         </a>
+       </dd>
+     </div>
+   
+   </dl>
+   
 
 <h3 class="govuk-heading-s govuk-!-margin-top-0">Additional licence conditions (2)</h3>
 
@@ -683,30 +918,35 @@
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Drug testing
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
-    </dd>
-  </div>
+ <div class="govuk-summary-list__row">
+   <dt class="govuk-summary-list__key">
+     Drug testing
+   </dt>
+   <dd class="govuk-summary-list__value">
+     Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
+   </dd>
+ </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Possession, ownership, control or inspection of specified items or documents
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
-    </dd>
-    
-  </div>
+ <div class="govuk-summary-list__row">
+   <dt class="govuk-summary-list__key">
+     Possession, ownership, control or inspection of specified items or documents
+   </dt>
+   <dd class="govuk-summary-list__value">
+     Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
+   </dd>
+   
+ </div>
 
 </dl>
 
 
 
 <!--conditions end-->
+
+      {% endif %}
+
+
+
 
      
     </div>
@@ -722,6 +962,14 @@
       </h2>
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+
+      {% if data.user=="admin"%}
+
+      <p class="govuk-body">No information submitted yet</br>
+
+      {% if data.ineligibleforHDC=="yes"%}
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
@@ -782,7 +1030,71 @@
         <!--check your answers end-->
         </div>
 
-      
+      {% endif %}
+
+      {% else %}
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <!--check your answers start-->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Has George committed an offence in prison that is unresolved with the police or independent adjudicator? 
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is George currently on remand?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is George subject to a confiscation order?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there an outstanding application under the unduly lenient scheme for George?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is George currently segregated (except solely for their own protection)?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            </div>
+        <!--check your answers end-->
+        </div>
+
+        {% endif %}
      
     </div>
   </div>
@@ -799,6 +1111,7 @@
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
 
+
 {% if data.user=="decisionmaker"%}
     <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
       Start
@@ -806,8 +1119,22 @@
         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
       </svg>
     </a>
+
+
+{% else %}
+
+<p class="govuk-body">No information submitted yet</br>
+
+{% if data.ineligibleforHDC=="yes"%}
+
+TOM: What would we show here????
+Saying that the case was approved or rejected or postponed?
+
 {% endif %}
-    
+
+{% endif %}
+
+
      
     </div>
   </div>
@@ -835,6 +1162,18 @@
          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
            </svg>
             </a>
+   
+      {% else %}
+
+      <p class="govuk-body">No information submitted yet</br>
+
+      {% if data.ineligibleforHDC=="yes"%}
+
+      TOM: What would we show here????
+      Link to CVL?
+
+      {% endif %}
+
       {% endif %}
     
     
