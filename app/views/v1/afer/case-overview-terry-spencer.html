@@ -46,7 +46,7 @@
                 <ul class="mini-profile-info">
                     <li>
                         <p class="govuk-heading-s govuk-!-margin-bottom-1">
-                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">Terry Jennings</a>
                         </p>
                         <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
                     </li>
@@ -67,7 +67,7 @@
 
 
 
-<h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for George Jennings</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for Terry Spencer</h1>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
@@ -88,7 +88,7 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          George Jennings
+          Terry Spencer
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
@@ -221,9 +221,9 @@
     <!--<p class="moj-timeline__date">
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
-    {% if data.user=="decisionmaker"%}
+  
     <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
-    {% endif %}
+
 
   </div>
 
@@ -232,7 +232,7 @@
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Confirm if George can be released on HDC</h2>
+      <h2 class="moj-timeline__title">Confirm if Terry can be released on HDC</h2>
 
       <!--<p class="moj-timeline__byline">by Caseworker 1</p>-->
 
@@ -241,9 +241,9 @@
     <!--<p class="moj-timeline__date">
       <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
     </p>-->
-    {% if data.user=="decisionmaker"%}
+
     <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
-    {% endif %}
+
 
   </div>
 
@@ -256,11 +256,11 @@
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+
     <p class="moj-timeline__date">
       <time datetime="2019-06-06T09:12:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
     </p>
-    {% endif %}
+
 
    <!--<div class="moj-timeline__description"></div>-->
 
@@ -277,11 +277,11 @@
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+
     <p class="moj-timeline__date">
       <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-22) | govukDate("truncate") }}</time>
     </p>
-    {% endif %}
+
 
     <!--<div class="moj-timeline__description"></div>-->
 
@@ -296,11 +296,11 @@
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</time>
     </p>
-    {% endif %}
+
 
   </div>
 
@@ -313,11 +313,11 @@
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+   
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</time>
     </p>
-    {% endif %}
+ 
 
   </div>
 
@@ -330,51 +330,27 @@
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+    
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</time>
     </p>
-    {% endif %}
-
-
-    {% if data.user=="admin"%}
-
-      {% if data.ineligibleforHDC=="yes"%}
-
-      <p class="moj-timeline__date">
-        <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
-      </p>
-
-      {% else %}
-
-      <div class="moj-timeline__description">
-        <div class="govuk-inset-text">To do before {{ "today" |  duration(-361) | govukDate("truncate") }}</div>
-      </div>
-    {% endif %}
-
-  {% endif %}
-
-
+  
   </div>
  
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">George entered HMP Wandsworth</h2>
+      <h2 class="moj-timeline__title">Terry entered HMP Wandsworth</h2>
 
       <!--<p class="moj-timeline__byline">by Joe Bloggs</p>-->
 
     </div>
 
-    {% if data.user=="decisionmaker"%}
+    
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">On {{ "today" |  duration(-366) | govukDate("truncate") }}</time>
     </p>
-    {% else %}
-    <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">On {{ "today" |  duration(0) | govukDate("truncate") }}</time>
-    </p>
-    {% endif %}
+    
 
   </div>
 </div>
@@ -395,7 +371,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Confirm if George can be released on HDC</h2>
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Confirm if Terry can be released on HDC</h2>
   </div>
   <div class="govuk-grid-column-one-third">
     
@@ -447,22 +423,11 @@
   </div>
   <div class="govuk-grid-column-one-third">
 
-    {% if data.ineligibleforHDC=="yes"%}
-
     <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 17px;">
       View assessment
     </button>
 
-    {% else %}
-    <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-    {% endif %}
-
+  
   </div>
 </div>
 
@@ -475,12 +440,9 @@
   </div>
   <div class="govuk-grid-column-one-third">
 
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 17px;">
+      View checks
+    </button>
 
   </div>
 </div>
@@ -521,71 +483,15 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
-
-    
-      {% if data.user=="admin"%}
-
-      {% if data.ineligibleforHDC=="yes"%}
-
-      <p class="govuk-body"><strong>George Jennings is presumed unsuitable for HDC</strong></br>
+      <p class="govuk-body"><strong>Terry is eligible and presumed suitable for HDC</strong></br>
       Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}
 
-    
-      {% else %}
-      <p class="govuk-body">No information submitted yet</br>
-
-        <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-          Start now
-         <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-             </svg>
-              </a>
-
-      </p>
-
-      {% endif %}
-
-      {% else %}
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Is George statutorily excluded from HDC?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-            </a>
-          </dd>
-        </div>
-      
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Is George presumed unsuitable?
-          </dt>
-          <dd class="govuk-summary-list__value">
-           No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-            </a>
-          </dd>
-        </div>
-      
-      </dl>
-
-      
-      {% endif %}
-
+  
     </div>
   </div>
 
 
-  {% if data.user=="admin"%}
-  {% else%}
+ 
   <div class="govuk-accordion__section">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
@@ -639,12 +545,11 @@
      
     </div>
   </div>
-  {% endif %}
 
 
 
-  {% if data.user=="admin"%}
-  {% else%}
+
+
   <div class="govuk-accordion__section">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
@@ -658,16 +563,15 @@
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
-          <p class="govuk-body">Probation practitioner Mark Coombes has decided that George can be managed safely in the community at their proposed address.</p>
+          <p class="govuk-body">Probation practitioner Mark Coombes has decided that Terry can be managed safely in the community at their proposed address.</p>
         </div>
       </div>
 
     </div>
   </div>
-  {% endif %}
+  
 
-  {% if data.user=="admin"%}
-  {% else%}
+
   <div class="govuk-accordion__section">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
@@ -811,11 +715,10 @@
      
     </div>
   </div>
-  {% endif %}
 
 
-{% if data.user=="admin"%}
-  {% else%}
+
+
   <div class="govuk-accordion__section">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
@@ -833,7 +736,7 @@
   
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Has George committed an offence in prison that is unresolved with the police or independent adjudicator? 
+                Has Terry committed an offence in prison that is unresolved with the police or independent adjudicator? 
               </dd>
               <dt class="govuk-summary-list__key">
                 No
@@ -843,7 +746,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Is George currently on remand?
+                Is Terry currently on remand?
               </dd>
               <dt class="govuk-summary-list__key">
                 No
@@ -853,7 +756,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Is George subject to a confiscation order?
+                Is Terry subject to a confiscation order?
               </dd>
               <dt class="govuk-summary-list__key">
                 No
@@ -863,7 +766,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Is there an outstanding application under the unduly lenient scheme for George?
+                Is there an outstanding application under the unduly lenient scheme for Terry?
               </dd>
               <dt class="govuk-summary-list__key">
                 No
@@ -873,7 +776,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Is George currently segregated (except solely for their own protection)?
+                Is Terry currently segregated (except solely for their own protection)?
               </dd>
               <dt class="govuk-summary-list__key">
                 No
@@ -889,15 +792,13 @@
 
     </div>
   </div>
-  {% endif %}
 
-  {% if data.user=="admin"%}
-  {% else%}
+
   <div class="govuk-accordion__section">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
         <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-          Confirm if George can be released on HDC
+          Confirm if Terry can be released on HDC
         </span>
       </h2>
     </div>
@@ -917,10 +818,9 @@
      
     </div>
   </div>
-  {% endif %}
+  
 
-  {% if data.user=="admin"%}
-  {% else%}
+
   <div class="govuk-accordion__section">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
@@ -937,8 +837,6 @@
 
 
       {% if data.user=="decisionmaker"%}
-      <p class="govuk-body">No information submitted yet</br>
-
       <a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
         Start
        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
@@ -951,7 +849,7 @@
      
     </div>
   </div>
-  {% endif %}
+
 
 
 </div>
