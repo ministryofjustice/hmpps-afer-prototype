@@ -44,7 +44,7 @@
 
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      Proposed address
+      Proposed area
     </h2>
   </div>
   
@@ -56,7 +56,7 @@
           Town
         </dt>
         <dd class="govuk-summary-list__value">
-          London
+          Sheffield
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -64,7 +64,7 @@
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          Wimbledon
+          South Yorkshire
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -72,7 +72,7 @@
           Additional Information
         </dt>
         <dd class="govuk-summary-list__value">
-          Prisoner has offending history in Edmonton, so that area should be avoided
+          Offending history at mother’s address
         </dd>
       </div>
   
@@ -85,10 +85,13 @@
 
 
 
+
+  <form class="form" action="../case-overview" method="post" novalidate>
+
   <div class="govuk-form-group  govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Can George be managed safely in the community if they are released to the proposed address?
+        Can George be managed safely in the community if they are released to the proposed area?
       </legend>
         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
           <div class="govuk-radios__item">
@@ -119,7 +122,7 @@
   <div class="govuk-form-group  govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Are any risk management planning actions needed prior to release before the address can be suitable?
+        Are any risk management planning actions needed prior to release before the area can be suitable?
       </legend>
         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
           <div class="govuk-radios__item">
@@ -148,7 +151,7 @@
   <div class="govuk-form-group  govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Is there anything else about George or the proposed address that will help EMS? 
+        Is there anything else about George or the proposed area that will help EMS? 
       </legend>
         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
           <div class="govuk-radios__item">
@@ -175,21 +178,21 @@
 
 
 
-  <div class="govuk-button-group">
-    <a href="../case-overview" class="govuk-button">Save</a>
-    <a href="../case-overview" class="govuk-button govuk-button--secondary">Cancel</a>                
-  </div>
+  <input type="hidden" name="managementDecision" value="yes">
 
+ 
 
-<!--<div class="govuk-button-group">
+<div class="govuk-button-group">
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Save
   </button>
   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
     Cancel
   </button>
-</div>-->
+</div>
 
+
+</form>
 
       </div>
     </div>

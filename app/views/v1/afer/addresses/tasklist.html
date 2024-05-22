@@ -71,12 +71,22 @@
 
       <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Release someone on HDC</h1>
 
-      <p class="govuk-body">Finish checking addresses by 31 March 2024 or <a class="govuk-link govuk-link--no-visited-state" href="">pause these checks</a></p>
 
-      <h2 class="govuk-heading-m">Proposed address</h2>
+      <div class="govuk-inset-text">
+        Finish checking addresses by {{ "today" |  duration(10) | govukDate("truncate") }}
+      </div>
 
 
-        
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m">Proposed address</h2>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../case-overview.html" style="margin-left: 55px;">Back to application</a></p>
+        </div>
+      </div>
+
+
 
           <!--card start-->
 <div class="govuk-summary-card">
@@ -97,7 +107,7 @@
             NG31 6HN</br></br>
 
 
-            <a href="residential/address-details-1" class="govuk-button govuk-button--secondary">Edit checks</a></br>
+            <a href="#" class="govuk-button govuk-button--secondary">Edit checks</a></br>
 
 
         </dt>
@@ -135,14 +145,23 @@
           Grantham</br>
           N1J 5NB</br></br>
 
-          
-          <a href="residential/address-details-2" class="govuk-button">Check this address</a>
-
+        {% if data.suitabilityDecision=="no"%}
+        <a href="#" class="govuk-button govuk-button--secondary">Edit checks</a>
+        {% else %}
+        <a href="residential/address-details-2" class="govuk-button">Check this address</a>
+        {% endif %}
 
 
         </dt>
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--blue">I<span style="text-transform: lowercase;">n progress</span></strong>
+
+        {% if data.suitabilityDecision=="no"%}
+        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
         </dd>
+        {% else %}
+        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
+        </dd>
+        {% endif %}
+
       </div>
   
   
@@ -154,12 +173,15 @@
 
 
 
+  <div class="govuk-grid-row govuk-!-margin-top-8">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Proposed community accommodation</h2>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../case-overview.html" style="margin-left: 55px;">Back to application</a></p>
+    </div>
+  </div>
 
-
-      
-
-
-      <h2 class="govuk-heading-m govuk-!-margin-top-8">Proposed community accommodation</h2>
 
        <!--card start-->
 <div class="govuk-summary-card">
@@ -168,7 +190,12 @@
     <h2 class="govuk-summary-card__title">
       Preferred area
     </h2>
-    <p class="govuk-body" style="margin-top: 10px;">CAS2 <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type">Change</a></p>
+    {% if data.accomodationType=="cas1"%}
+    <p class="govuk-body" style="margin-top: 10px;">Approved premises <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a></p>
+    {% endif %}
+    {% if data.accomodationType=="cas2"%}
+    <p class="govuk-body" style="margin-top: 10px;">CAS2 <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a></p>
+    {% endif %}
   </div>
   
   <div class="govuk-summary-card__content">
@@ -179,15 +206,22 @@
           Town
         </dt>
         <dd class="govuk-summary-list__value">
-          London
+          Sheffield
         </dd>
+        {% if data.cas2suitable=="yes"%}
+        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--turquoise">S<span style="text-transform: lowercase;">uitable</span></strong>
+        </dd>
+        {% else %}
+        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
+        </dd>
+        {% endif %}
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          Wandsworth
+          South Yorkshire
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -195,25 +229,25 @@
           Additional Information
         </dt>
         <dd class="govuk-summary-list__value">
-          Prisoner has offending history in Edmonton, so that area should be avoided
+          Offending history at mother’s address
         </dd>
       </div>
-      <div class="govuk-summary-list__row">
+     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          <a href="accommodation-type" class="govuk-button" style="margin-top: 20px;">Check this area</a>
+          {% if data.cas2suitable=="yes"%}
+          <a href="#" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a>
+          {% else %}
+          <a href="accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Check this area</a>
+          {% endif %}
         </dt>
       </div>
-
-
- 
-      
-
-
     </dl>
   </div>
   
   </div>
   <!--card end-->
+
+  
 
        <!--card start-->
        <div class="govuk-summary-card">
@@ -234,6 +268,11 @@
               <dd class="govuk-summary-list__value">
                 London
               </dd>
+              {% if data.cas2suitable=="yes"%}
+              {% else %}
+              <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
+              </dd>
+              {% endif %}
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -251,27 +290,22 @@
                 Prisoner has offending history in Edmonton, so that area should be avoided
               </dd>
             </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {% if data.cas2suitable=="yes"%}
+                <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">
+                  Check this area
+                </button>
+                {% else %}
+                <a href="accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Check this area</a>
+                {% endif %}
+              </dt>
+            </div>
           </dl>
         </div>
         
         </div>
         <!--card end-->
-
-     
-
-      <div class="govuk-button-group">
-        <a href="../case-overview" class="govuk-button govuk-button--secondary">Back to application information</a></br>
-      </div>
-
-
-    <!--<div class="govuk-button-group">
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Submit
-      </button>
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Cancel
-      </button>
-    </div>-->
 
 
 
