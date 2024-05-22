@@ -36,9 +36,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Check if CAS2 area is suitable</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if CAS2 area is suitable</h1>
 
-      <h2 class="govuk-heading-m govuk-!-static-margin-top-6">Suitability checks</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Suitability checks</h2>
 
       
     <!--card start-->
@@ -54,33 +54,27 @@
     <dl class="govuk-summary-list">
   
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__value">
+        <dt class="govuk-summary-list__key">
           Town
         </dt>
-        <dd class="govuk-summary-list__key">
-          London
-        </dd>
-        <dd class="govuk-summary-list__actions">
+        <dd class="govuk-summary-list__value">
+          Sheffield
         </dd>
       </div>
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__value">
+        <dt class="govuk-summary-list__key">
           County or borough
         </dt>
-        <dd class="govuk-summary-list__key">
-          Wimbledon
-        </dd>
-        <dd class="govuk-summary-list__actions">
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
         </dd>
       </div>
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__value">
+        <dt class="govuk-summary-list__key">
           Additional Information
         </dt>
-        <dd class="govuk-summary-list__key">
-          Prisoner has offending history in Edmonton, so that area should be avoided
-        </dd>
-        <dd class="govuk-summary-list__actions">
+        <dd class="govuk-summary-list__value">
+          Offending history at mother’s address
         </dd>
       </div>
   
@@ -91,32 +85,22 @@
   </div>
   <!--card end-->
 
-
-  <h2 class="govuk-heading-m govuk-!-static-margin-top-8">Police and children’s services checks???</h2>
-
-
-  <p class="govuk-body">What information have you found from the police and children’s services about the proposed area?</p>
-
-  <p class="govuk-body">You need to know whether this area is known to these organisations and if there is a record of domestic violence there. You may need to contact them to find out.</p>
-              
-              
-
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="more-detail">
-                    <strong>Summarise the information you found out</strong>
-                  </label>
-                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-                </div>
-
-
-
+  <h3 class="govuk-heading-m govuk-!-margin-top-6">Suitability decision</h3>
+  
                 
-                <div class="govuk-form-group">
+                <div class="govuk-form-group govuk-!-margin-top-4">
                   <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                      Suitability decision 
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      Is this area suitable for George to live in?
                     </legend>
-                    <p class="govuk-body">Is this area suitable for David Jones to live in?<p>
+                    <div class="govuk-hint">
+                      <p class="govuk-body">For example, consider if:</p>
+                      <ul class="govuk-list govuk-list--bullet" style="margin-top: 0px; margin-bottom: 20px;">
+                        <li>victims are nearby</li>
+                        <li>the area is compatible with exclusion zones</li>
+                        <li>living with other people is suitable for George</li>
+                      </ul>
+                    </div>
                       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
@@ -136,22 +120,20 @@
 
 
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="more-detail">
-                    <strong>Add information to support your decision</strong>
+                  <label class="govuk-label" for="more-detail">Add information to support your decision
                   </label>
                   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
                 </div>
 
 
-
                 <div class="govuk-button-group">
-                  <a href="#" class="govuk-button">Save</a>        
+                  <a href="../tasklist" class="govuk-button">Save</a>
+                  <a href="../tasklist" class="govuk-button govuk-button--secondary">Cancel</a>         
                 </div>
-         
-
-              <!--<div class="govuk-button-group">
+            
+                <!--<div class="govuk-button-group">
                 <button type="submit" class="govuk-button" data-module="govuk-button">
-                  Submit
+                  Save
                 </button>
                 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                   Cancel
