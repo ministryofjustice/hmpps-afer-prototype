@@ -75,8 +75,8 @@
 
       <h2 class="govuk-heading-m">Proposed address</h2>
 
-
-        
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
 
           <!--card start-->
 <div class="govuk-summary-card">
@@ -94,15 +94,12 @@
         <dt class="govuk-summary-list__value">
             4 Inner Street</br>
             Grantham</br>
-            NG31 6HN</br></br>
-
-
-            <a href="residential/address-details-1" class="govuk-button govuk-button--secondary">Edit checks</a></br>
-
-
+            NG31 6HN
         </dt>
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
+        <!--<dd class="govuk-summary-list__key">
         </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>-->
       </div>
   
   
@@ -113,9 +110,8 @@
   <!--card end-->
 
 
-
-
-
+        </div>
+        <div class="govuk-grid-column-one-half">
 
           <!--card start-->
 <div class="govuk-summary-card">
@@ -133,16 +129,12 @@
         <dt class="govuk-summary-list__value">
           49 Hill Street</br>
           Grantham</br>
-          N1J 5NB</br></br>
-
-          
-          <a href="residential/address-details-2" class="govuk-button">Check this address</a>
-
-
-
+          N1J 5NB
         </dt>
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--blue">I<span style="text-transform: lowercase;">n progress</span></strong>
+        <!--<dd class="govuk-summary-list__key">
         </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>-->
       </div>
   
   
@@ -153,10 +145,51 @@
   <!--card end-->
 
 
+        </div>
+      </div>
 
 
 
-      
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m" style="margin-top: 20px;">Check if addresses are suitable for HDC</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              
+              <a href="residential/select-address.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 10px;">
+                Start
+                <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </a>
+
+            </div>
+          </div>
+
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m" style="margin-top: 15px;">Assess this person's risk</h2>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          
+          <a href="residential/risk.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 5px;">
+            Start
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
 
 
       <h2 class="govuk-heading-m govuk-!-margin-top-8">Proposed community accommodation</h2>
@@ -168,7 +201,6 @@
     <h2 class="govuk-summary-card__title">
       Preferred area
     </h2>
-    <p class="govuk-body" style="margin-top: 10px;">CAS2 <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type">Change</a></p>
   </div>
   
   <div class="govuk-summary-card__content">
@@ -198,17 +230,6 @@
           Prisoner has offending history in Edmonton, so that area should be avoided
         </dd>
       </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          <a href="accommodation-type" class="govuk-button" style="margin-top: 20px;">Check this area</a>
-        </dt>
-      </div>
-
-
- 
-      
-
-
     </dl>
   </div>
   
@@ -261,7 +282,38 @@
 
 
     
-      
+      <form action="/form-handler" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Select which type of community accommodation they need
+            </legend>
+            <div id="dob-hint" class="govuk-hint">
+              If you select approved premises, you will not need to assess this person’s risk or check if their release area is suitable.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                  Approved premises – for people who are higher risk
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                  CAS2 – for everyone else
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+
+
 
       <h2 class="govuk-heading-m govuk-!-margin-top-8">Send checks to prison</h2>
 
