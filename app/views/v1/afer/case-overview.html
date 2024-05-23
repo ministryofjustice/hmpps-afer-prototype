@@ -303,7 +303,15 @@
     {% endif %}
 
     {% if data.user=="probation"%}
-    <div class="moj-timeline__description"><div class="govuk-inset-text">To do before DEFINE DATE {{ "today" |  duration(0) | govukDate("truncate") }}</div></div>
+    {% if data.riskAssessed=="yes"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
+    </p>
+    {% else %}
+    <div class="moj-timeline__description">
+      <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate("truncate") }}</div>
+    </div>
+    {% endif %}
     {% endif %}
 
   </div>
@@ -323,9 +331,18 @@
     </p>
     {% endif %}
 
-    {% if data.user=="probation"%}
-    <div class="moj-timeline__description"><div class="govuk-inset-text">To do before DEFINE DATE {{ "today" |  duration(0) | govukDate("truncate") }}</div></div>
-    {% endif %}
+  {% if data.user=="probation"%}
+
+   {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
+   <p class="moj-timeline__date">
+    <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
+  </p>
+   {% else %}
+    <div class="moj-timeline__description">
+      <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate("truncate") }}</div>
+    </div>
+  {% endif %}
+  {% endif %}
 
   </div>
 
@@ -688,10 +705,57 @@
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
-
-
       {% if data.user=="probation"%}
+      {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
+      <p class="govuk-body">The following area has been found to be suitable:</p>
 
+      <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Proposed area
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Offending history at mother’s address
+        </dd>
+      </div>
+  
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+
+      {% else %}
       <p class="govuk-body">No information submitted yet</br>
 
         <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
@@ -703,7 +767,7 @@
 
       </p>
 
-
+      {% endif %}
       {% endif %}
 
 
@@ -768,7 +832,14 @@
 
       
       {% if data.user=="probation"%}
-
+      {% if data.riskAssessed=="yes"%}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+          <p class="govuk-body"><strong>George Jennings can be managed safely in the community within their proposed area.</strong></p>
+          <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+        </div>
+      </div>
+      {% else %}    
       <p class="govuk-body">No information submitted yet</br>
 
         <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
@@ -779,6 +850,7 @@
               </a>
 
       </p>
+      {% endif %}
       {% endif %}
     
 
