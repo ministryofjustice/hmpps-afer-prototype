@@ -1,0 +1,148 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if CAS2 area is suitable</h1>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Suitability checks</h2>
+
+      
+    <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred area
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Offending history at mother’s address
+        </dd>
+      </div>
+  
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-6">Suitability decision</h3>
+
+  <form class="form" action="../tasklist" method="post" novalidate>
+  
+                
+                <div class="govuk-form-group govuk-!-margin-top-4">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      Is this area suitable for George to live in?
+                    </legend>
+                    <div class="govuk-hint">
+                      <p class="govuk-body">For example, consider if:</p>
+                      <ul class="govuk-list govuk-list--bullet" style="margin-top: 0px; margin-bottom: 20px;">
+                        <li>victims are nearby</li>
+                        <li>the area is compatible with exclusion zones</li>
+                        <li>living with other people is suitable for George</li>
+                      </ul>
+                    </div>
+                      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="cas2suitable" name="cas2suitable" type="radio" value="yes">
+                          <label class="govuk-label govuk-radios__label" for="cas2suitable">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="cas2suitable-2" name="cas2suitable" type="radio" value="no">
+                          <label class="govuk-label govuk-radios__label" for="cas2suitable-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                  </fieldset>
+                </div>
+
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="more-detail">Add information to support your decision
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
+
+                <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Save
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Cancel
+                </button>
+              </div>
+
+            </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="community2/suitability" method="post" novalidate>
+
+        <div class="govuk-form-group govuk-!-margin-top-8">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Select which type of community accommodation they need
+            </legend>
+            <div id="dob-hint" class="govuk-hint">
+              If you select approved premises, you will not need to assess this person’s risk or check if their release area is suitable.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accomodationType" name="accomodationType" type="radio" value="cas1">
+                <label class="govuk-label govuk-radios__label" for="accomodationType">
+                  Approved premises – for people who are higher risk
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accomodationType-2" name="accomodationType" type="radio" value="cas2">
+                <label class="govuk-label govuk-radios__label" for="accomodationType-2">
+                  CAS2 – for everyone else
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+
+      </form>
+
+
+
+
+
+
+
+
+
+      
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

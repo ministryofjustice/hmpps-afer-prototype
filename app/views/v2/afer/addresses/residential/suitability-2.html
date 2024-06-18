@@ -1,0 +1,501 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if an address is suitable for HDC</h1>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Suitability checks</h2>
+
+      
+    <!--card start-->
+<div class="govuk-summary-card">
+
+<div class="govuk-summary-card__title-wrapper">
+  <h2 class="govuk-summary-card__title">
+    Proposed address
+  </h2>
+</div>
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
+      </dt>
+      <!--<dd class="govuk-summary-list__key">
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>-->
+    </div>
+
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+  
+        
+  <h3 class="govuk-heading-s">Check details of residents</h3>
+
+  <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Main occupier
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Leanna Martin
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Mother
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 200px;">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change or remove</a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Other residents
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Greg Martin
+        </dt>
+        <dd class="govuk-summary-list__value" style="width: 210px;">
+          Brother</br>
+          Age: 17</br>
+          Date of birth: 2 May 2007
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 150px;">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change or remove</a>
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <div class="moj-button-action">
+
+    <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
+      Add another resident
+    </button>
+
+  </div>
+
+
+  
+
+    <form class="form" action="../tasklist" method="post" novalidate>
+
+  
+    <div class="govuk-form-group govuk-!-margin-top-8">
+      <div class="govuk-radios">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          Have you visited this address in person?
+        </legend>
+        <div class="govuk-hint">
+          It is not mandatory to do so.
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addressVisit" name="addressVisit" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="addressVisit">
+            I have visited this address and spoken to the main occupier
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addressVisit-2" name="addressVisit" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="addressVisit-2">
+            I have not visited the address but I have spoken to the main occupier
+          </label>
+        </div>
+      </div>
+    </div>
+    
+
+
+  <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      Has the main occupier given informed consent for George to be released here?
+    </legend>
+    <div class="govuk-hint">
+      <p class="govuk-body govuk-hint">They must understand:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-hint" style="margin-top: -10px; margin-bottom: 20px;">
+        <li>what HDC involves</li>
+        <li>the offences they committed</li>
+      </ul>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="informedConsent" name="informedConsent" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="informedConsent">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="informedConsent-2" name="informedConsent" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="informedConsent-2">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Is the address connected to an electricity supply?
+      </legend>    
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="electricitySupply" name="electricitySupply" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="electricitySupply">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="electricitySupply-2" name="electricitySupply" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="electricitySupply-2">
+           No
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">Police checks</h3>
+
+
+  <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-4">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      Have you received and considered information from the police about domestic abuse and safeguarding?
+    </legend>    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="policeCheck" name="policeCheck" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="policeCheck">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="policeCheck-2" name="policeCheck" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="policeCheck-2">
+         No
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Enter the date that you requested this information
+      </legend>
+      <div id="expiry-hint" class="govuk-hint">
+        For example, 31 3 1980
+      </div>
+      <div class="govuk-date-input" id="expiry">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6">
+    <label class="govuk-label" for="moreDetailpolice"><strong>Summarise the information the police provided</strong></label>
+    <textarea class="govuk-textarea" id="moreDetailpolice" name="moreDetailpolice" rows="5"></textarea>
+  </div>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Enter the date that the police sent this information
+      </legend>
+      <div id="expiry-hint" class="govuk-hint">
+        For example, 31 3 1980
+      </div>
+      <div class="govuk-date-input" id="expiry">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">Children's services checks</h3>
+
+
+  <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-4">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      Have you received and considered information from children’s services about domestic abuse and safeguarding?
+    </legend>    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="childrensServices" name="childrensServices" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="childrensServices">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="childrensServices-2" name="childrensServices" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="childrensServices-2">
+         No
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Enter the date that you requested this information
+      </legend>
+      <div id="expiry-hint" class="govuk-hint">
+        For example, 31 3 1980
+      </div>
+      <div class="govuk-date-input" id="expiry">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-4">
+    <label class="govuk-label" for="moreDetailchildren"><strong>Summarise the information that children’s services provided</strong></label>
+    <textarea class="govuk-textarea" id="moreDetailchildren" name="moreDetailchildren" rows="5"></textarea>
+  </div>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Enter the date that children’s services sent this information
+      </legend>
+      <div id="expiry-hint" class="govuk-hint">
+        For example, 31 3 1980
+      </div>
+      <div class="govuk-date-input" id="expiry">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="expiry-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <h1 class="govuk-heading-m govuk-!-margin-top-8">Suitability decision </h1>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-4">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Is this address suitable for George to be released to?
+      </legend>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="suitabilityDecision" name="suitabilityDecision" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="suitabilityDecision">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="suitabilityDecision-2" name="suitabilityDecision" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="suitabilityDecision">
+              No
+            </label>
+          </div>
+        </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="moreDetailsuitability">Add information to support your decision</label>
+    <textarea class="govuk-textarea" id="moreDetailsuitability" name="moreDetailsuitability" rows="5"></textarea>
+  </div>
+
+
+
+      <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Save
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  
+    </div>
+  </form>
+  
+
+
+<!--new forms end-->
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
