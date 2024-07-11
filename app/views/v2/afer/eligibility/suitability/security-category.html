@@ -36,8 +36,8 @@
 
         <!--content start-->
 
-  <h2 class="govuk-heading-l govuk-!-margin-top-4">Checked automatically</h2>
-  <div class="govuk-body">These questions have been answered automatically using information from OASys. You can change the answer if something looks wrong.</div>
+  <!--<h2 class="govuk-heading-l govuk-!-margin-top-4">Checked automatically</h2>
+  <div class="govuk-body">This question has been answered automatically using information from NOMIS. You can change the answer if something looks wrong.</div>-->
   
   <div class="govuk-form-group govuk-!-margin-bottom-6">
     <div class="govuk-radios govuk-radios--inline">
@@ -47,13 +47,13 @@
           Does this person have a high or very high risk of serious harm?
         </h1>
       </legend>-->
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Does this person have a high or very high risk of serious harm?
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        Is this person category A?
       </legend>    
       <!--<div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>-->
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes" checked="checked">
-        <label class="govuk-label govuk-radios__label" for="seriousHarm">
+        <input class="govuk-radios__input" id="categoryA" name="categoryA" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="categoryA">
           Yes
         </label>
         <!--<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
@@ -61,39 +61,13 @@
         </div>-->
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="seriousHarm-2" name="seriousHarm" type="radio" value="no">
-        <label class="govuk-label govuk-radios__label" for="seriousHarm-2">
+        <input class="govuk-radios__input" id="categoryA-2" name="categoryA" type="radio" value="no" checked="checked">
+        <label class="govuk-label govuk-radios__label" for="categoryA-2">
           No
         </label>
       </div>
     </div>
   </div>
-  
-  
-    <div class="govuk-radios govuk-radios--inline">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Are they MAPPA level 2 or 3?
-      </legend>  
-      <!--<div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>-->  
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="hdc-release" name="hdc-release" type="radio" value="yes">
-        <label class="govuk-label govuk-radios__label" for="hdc-release">
-          Yes
-        </label>
-      </div>
-      <div class="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no" checked="checked">
-          <label class="govuk-label govuk-radios__label" for="hdc-release-2">
-           No
-          </label>
-          <!--<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
-            Automatically checked, can be changed
-          </div>-->
-        </div>
-      </div>
-    </div>
-        <br /><br />
   
       <div class="govuk-button-group">
         <a href="../tasklist.html" class="govuk-button">Continue</a></br>
@@ -117,34 +91,41 @@
       </div>
 
 
-      <div class="govuk-grid-column-one-third">
+      <!--<div class="govuk-grid-column-one-third">
 
-        <h2 class="govuk-heading-s" style="margin-top: 90px;">Information from OASys</h2>
         
 
-<!--rosh widget start-->
-{% from "components/rosh-widget/macro.njk" import roshWidget %}
+<div class="govuk-summary-card" style="margin-top: 90px;">
 
-{{ roshWidget({
-    hasBeenCompleted: true,
-    overallRisk: "VERY_HIGH",
-    riskInCommunity: {
-      "Children": "LOW",
-      "Public": "VERY_HIGH",
-      "Known Adult": "MEDIUM",
-      "Staff": "HIGH"
-    },
-    lastUpdated: "10th October 2021"
-}) }}
-<!--rosh widget end-->
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Information from NOMIS
+    </h2>
+  </div>
 
-<!--mappa widget start-->
-{% from "components/mappa-widget/macro.njk" import mappaWidget %}
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
 
-{{ mappaWidget({}) }}
-<!--mappa widget end-->
-
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 40%;">
+          Category
+        </dt>
+        <dd class="govuk-summary-list__value">
+          C
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
       </div>
+
+    </dl>
+  </div>
+</div>
+
+
+
+
+      </div>-->
     </div>
   </main>
 </div>
