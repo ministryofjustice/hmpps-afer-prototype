@@ -27,17 +27,20 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form action="/form-handler" method="post" novalidate>
+        <form class="form" action="../tasklist" method="post" novalidate>
+
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
-                <span class="govuk-caption-l govuk-!-static-margin-top-6">Recall</span>
                 <h1 class="govuk-fieldset__heading">
-                  Is this person serving a sentence for ROTL failure to return?
+                  Has this person been recalled for poor behaviour on HDC within 2 years of their current sentence date?
                 </h1>
               </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
+              <!--<div id="changedName-hint" class="govuk-hint">
+                This will be shown as a recall under section 39 of the Criminal Justice Act 1991 or section 254 of the Criminal Justice Act 2003
+              </div>-->
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
                   <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
@@ -55,9 +58,18 @@
             </fieldset>
           </div>
 
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
+          <input type="hidden" name="recalledhdc" value="no">
+
+          <div class="govuk-button-group">
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+               Continue
+             </button>
+             
+             <a href="../tasklist.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+
+           </div>
+
 
         </form>
 

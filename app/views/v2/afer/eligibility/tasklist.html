@@ -123,52 +123,191 @@
 
       <ol class="app-task-list govuk-!-margin-top-8">
 
+      
         <li>
-          <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">1. </span>-->Checked automatically</h2>
+          <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">1. </span>-->Eligibility checks</h2>
           <ul class="app-task-list__items">
+
+
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="checked-automatically/category-a.html" aria-describedby="eligibility-status">
-                  Category A
-                </a></br>
-                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  Checked automatically on {{ "today" |  duration(0) | govukDate("truncate") }}
-                </div>
-              </span>
-              <p class="govuk-body" style="text-align: right;">Completed</p>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
-                  Sentence length
+                <a class="govuk-link govuk-link--no-visited-state" href="eligibility/sex-offenders-register.html" aria-describedby="company-information-status">
+                  Sex offenders’ register
                 </a>
-                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  Checked automatically on {{ "today" |  duration(0) | govukDate("truncate") }}
-                </div>
               </span>
-              <p class="govuk-body" style="text-align: right;">Completed</p>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
             </li>
+
+
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="checked-automatically/rosh-mappa.html" aria-describedby="read-declaration-status">
-                  RoSH and MAPPA
+                <a class="govuk-link govuk-link--no-visited-state" href="eligibility/extended-sentence.html" aria-describedby="read-declaration-status">
+                  Extended sentence for violent or sexual offences
                 </a>
-                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  Checked automatically on {{ "today" |  duration(0) | govukDate("truncate") }}
-                </div>
               </span>
-              <p class="govuk-body" style="text-align: right;">Completed</p>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
             </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/rotl.html" aria-describedby="company-information-status">
+                      ROTL failure to return
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/community-order-curfew-breach.html" aria-describedby="read-declaration-status">
+                      Community order curfew breach
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/hdc-recall.html" aria-describedby="contact-details-status">
+                      Recalled for breaching HDC curfew
+                    </a>{% if data.recalledhdc=="no"%}</br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                      Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>{% endif %}
+                  </span>
+                  {% if data.recalledhdc=="no"%}<p class="govuk-body" style="text-align: right;">Completed</p>{% else %}
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>{% endif %}
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/deportation-orders.html" aria-describedby="company-information-status">
+                      Deportation orders
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/compassionate-release.html" aria-describedby="list-convictions-status">
+                      Recalled from early release on compassionate grounds
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+    
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/terrorist-offending-history.html" aria-describedby="list-convictions-status">
+                      Terrorism
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/two-thirds-release.html" aria-describedby="list-convictions-status">
+                      Two-thirds release
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/244ZB-notice.html" aria-describedby="list-convictions-status">
+                      Section 244ZB notice
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/schedule-20b.html" aria-describedby="list-convictions-status">
+                      Schedule 20B release
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                </li>
+
+
           </ul>
         </li>
 
 
+
+
+
         <li>
-          <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">1. </span>-->Sentence</h2>
+          <h2 class="app-task-list__section">Suitability checks</h2>
           <ul class="app-task-list__items">
+
+
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="sentence/presumed-unsuitable.html" aria-describedby="eligibility-status">
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/sexual-offending-history.html" aria-describedby="contact-details-status">
+                  Sexual offending history
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+            </li>
+
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/liable-to-deportation.html" aria-describedby="contact-details-status">
+                  Liable to deportation
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+            </li>
+
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/recall-poor-behaviour.html" aria-describedby="contact-details-status">
+                  Recalled for poor behaviour on HDC
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+            </li>
+
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category.html" aria-describedby="contact-details-status">
+                  Category A
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+            </li>
+
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html" aria-describedby="contact-details-status">
+                  RoSH and MAPPA
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+            </li>
+
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/presumed-unsuitable-offences.html" aria-describedby="eligibility-status">
                   Presumed unsuitable offences
                 </a>{% if data.presumedunsuitable=="yes"%}</br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -178,111 +317,21 @@
               {% if data.presumedunsuitable=="yes"%}<p class="govuk-body" style="text-align: right;">Completed</p>{% else %}
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>{% endif %}
             </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
-                  Extended sentence for violent or sexual offences
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-          </ul>
-        </li>
 
 
-        <li>
-          <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">2. </span>-->Offence history</h2>
-          <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="company-information-status">
-                  Sex offenders’ register
+                <a class="govuk-link govuk-link--no-visited-state" href="suitability/terrorist-history.html" aria-describedby="contact-details-status">
+                  Terrorist offending history
                 </a>
               </span>
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
             </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="contact-details-status">
-                  Sexual offending history
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="list-convictions-status">
-                  Terrorism
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-          </ul>
-        </li>
-
-       
-        <li>
-          <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">3. </span>-->Recall</h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="company-information-status">
-                  ROTL failure to return
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="recall/hdc.html" aria-describedby="contact-details-status">
-                  Recalled while on HDC
-                </a>{% if data.recalledhdc=="no"%}</br>
-                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
-                </div>{% endif %}
-              </span>
-              {% if data.recalledhdc=="no"%}<p class="govuk-body" style="text-align: right;">Completed</p>{% else %}
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>{% endif %}
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="list-convictions-status">
-                  Ever returned to custody during the at-risk period
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="list-convictions-status">
-                  Serving a recall from early release on compassionate grounds
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-          </ul>
-        </li>
 
 
-        <li>
-          <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">4. </span>-->Deportation and repatriation</h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="company-information-status">
-                  Deportation orders
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="#" aria-describedby="contact-details-status">
-                  People who have been repatriated
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
+
+
+
           </ul>
         </li>
 

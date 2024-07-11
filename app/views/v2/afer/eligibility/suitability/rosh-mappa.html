@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+
+
+<form method="post" action="">
+
+<!--columns start-->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <!--content start-->
+
+  <!--<h2 class="govuk-heading-l govuk-!-margin-top-4">Checked automatically</h2>
+  <div class="govuk-body">These questions have been answered automatically using information from OASys. You can change the answer if something looks wrong.</div>-->
+  
+  <div class="govuk-form-group govuk-!-margin-bottom-6">
+    <div class="govuk-radios govuk-radios--inline">
+      <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l govuk-!-static-margin-top-6">Checked automatically</span>
+        <h1 class="govuk-fieldset__heading">
+          Does this person have a high or very high risk of serious harm?
+        </h1>
+      </legend>-->
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        Does this person have a high or very high risk of serious harm?
+      </legend>    
+      <!--<div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>-->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes" checked="checked">
+        <label class="govuk-label govuk-radios__label" for="seriousHarm">
+          Yes
+        </label>
+        <!--<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Automatically checked, can be changed
+        </div>-->
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="seriousHarm-2" name="seriousHarm" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="seriousHarm-2">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  
+    <div class="govuk-radios govuk-radios--inline">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        Are they MAPPA level 2 or 3?
+      </legend>  
+      <!--<div class="govuk-hint">This question has been answered automatically using the information below from OASys. You can change the answer if something looks wrong.</div>-->  
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hdc-release" name="hdc-release" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="hdc-release">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no" checked="checked">
+          <label class="govuk-label govuk-radios__label" for="hdc-release-2">
+           No
+          </label>
+          <!--<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Automatically checked, can be changed
+          </div>-->
+        </div>
+      </div>
+    </div>
+        <br /><br />
+  
+      <div class="govuk-button-group">
+        <a href="../tasklist.html" class="govuk-button">Continue</a></br>
+        <a href="../tasklist.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+      </div>
+  
+      <!--<div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>-->
+
+  </form>
+
+
+        <!--content end-->
+
+      </div>
+
+
+      <!--<div class="govuk-grid-column-one-third">
+
+        <h2 class="govuk-heading-s" style="margin-top: 90px;">Information from OASys</h2>
+        
+
+
+{% from "components/rosh-widget/macro.njk" import roshWidget %}
+
+{{ roshWidget({
+    hasBeenCompleted: true,
+    overallRisk: "VERY_HIGH",
+    riskInCommunity: {
+      "Children": "LOW",
+      "Public": "VERY_HIGH",
+      "Known Adult": "MEDIUM",
+      "Staff": "HIGH"
+    },
+    lastUpdated: "10th October 2021"
+}) }}
+
+
+
+{% from "components/mappa-widget/macro.njk" import mappaWidget %}
+{{ mappaWidget({}) }}
+
+
+      </div>-->
+    </div>
+  </main>
+</div>
+
+<!--columns end-->
+
+
+
+
+
+
+
+
+{% endblock %}
