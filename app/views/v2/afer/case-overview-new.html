@@ -1,0 +1,1310 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <!--
+      <div class="mini-profile govuk-!-margin-top-4" data-qa="mini-profile">
+        <div class="mini-profile-inner">
+            <div class="mini-profile-left">
+                <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+            </div>
+            <div class="mini-profile-right">
+                <ul class="mini-profile-info">
+                    <li>
+                        <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                        </p>
+                        <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
+                    </li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Establishment</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                    <li style="margin-left: 158px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">28 May 2024</span></li>
+                    <li style="margin-left: 30px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">28 Jul 2024</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Status</span><span class="govuk-body" data-qa="mini-profile-status">Released</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      -->
+
+<h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for George Jennings</h1>
+ 
+      
+</div>
+   </div>
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+
+                <!--card start-->
+<div class="govuk-summary-card" style="margin-top: 0px;">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Personal details
+    </h2>
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 30%;">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          George Jennings
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Prison number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          G5613GT
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          HDCED
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ "today" |  duration(93) | govukDate("truncate") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CRD
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ "today" |  duration(126) | govukDate("truncate") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Location
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wandsworth (HMP) 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cell number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          A-1-1
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+</div>
+
+<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">See this person’s full Digital Prison Services profile</a></p>
+
+<!--card end-->
+
+
+
+        </div>
+      </div>
+
+       
+
+
+   
+
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  
+    
+<!--Tabs start-->
+
+<div class="govuk-tabs" data-module="govuk-tabs" style="margin-top: 40px;">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#tasks">
+        Tasks
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#timeline">
+        Timeline
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#summary">
+        Application summary
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#contacts">
+        Key contacts
+      </a>
+    </li>
+  </ul>
+
+
+  <div class="govuk-tabs__panel" id="tasks">
+    <h2 class="govuk-heading-l">Taks</h2>
+    
+
+
+<!--tasks start-->
+{% if data.user=="decisionmaker"%}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Confirm if George can be released on HDC</h2>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    
+    <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+      Start
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-m" style="margin-top: 25px;">Approve licence</h2>
+</div>
+<div class="govuk-grid-column-one-third">
+
+<a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+  Start
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>
+
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+{% endif %}
+<!--tasks end-->
+
+<!--tasks CA start-->
+{% if data.user=="admin"%}
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Assess eligibility and suitability</h2>
+  </div>
+  <div class="govuk-grid-column-one-third">
+
+    {% if data.ineligibleforHDC=="yes"%}
+
+    <a href="./eligibility/tasklist" class="govuk-button" style="margin-top: 17px;">View assessment</a></br>
+
+    {% else %}
+    <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+      Start
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+
+    {% endif %}
+
+  </div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Pre-decision checks</h2>
+  </div>
+  <div class="govuk-grid-column-one-third">
+
+    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+      Start
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{% endif %}
+<!--tasks end-->
+
+
+
+
+
+{% if data.user=="probation"%}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Check addresses or community accommodation</h2>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    
+
+    {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
+    <a href="./addresses/tasklist" class="govuk-button govuk-button--secondary" style="margin-top: 17px;">Edit checks</a>
+    {% else %}
+    <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+      Start
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+    {% endif %}
+
+  </div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-m" style="margin-top: 25px;">Assess this person’s risk</h2>
+</div>
+<div class="govuk-grid-column-one-third">
+
+{% if data.riskAssessed=="yes"%}
+<a href="./addresses/risk" class="govuk-button govuk-button--secondary" style="margin-top: 17px;">Edit risk</a>
+{% else %}
+<a href="./addresses/risk" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+  Start
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>
+{% endif %}
+
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-m" style="margin-top: 25px;">Make a risk management decision</h2>
+</div>
+<div class="govuk-grid-column-one-third">
+
+{% if data.managementDecision=="yes"%}
+<a href="./addresses/decision" class="govuk-button govuk-button--secondary" style="margin-top: 17px;">Edit decision</a>
+{% else %}  
+{% if data.riskAssessed=="yes"%}  
+<a href="./addresses/decision" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+{% else %}  
+<a href="./addresses/decision" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+{% endif %}    
+  Start
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>
+{% endif %}    
+
+</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-m" style="margin-top: 25px;">Send checks to prison</h2>
+</div>
+<div class="govuk-grid-column-one-third">
+
+{% if data.managementDecision=="yes"%}  
+<a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+{% else %}  
+<a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+{% endif %}  
+  Start
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>
+
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-m" style="margin-top: 25px;">Create licence</h2>
+</div>
+<div class="govuk-grid-column-one-third">
+
+<a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+  Start
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>
+
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+{% endif %}
+
+
+<!--tasks end-->
+
+
+
+  </div>
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timeline">
+    <h2 class="govuk-heading-l">Timeline</h2>
+    
+<!--Timeline start-->
+<div class="moj-timeline">
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">CRD: {{ "today" |  duration(126) | govukDate("truncate") }}</h2>
+
+      <!--<p class="moj-timeline__byline">by Joe Bloggs</p>-->
+
+    </div>
+
+   <!--<p class="moj-timeline__date">
+      <time datetime="2019-06-14T14:01:00.000Z">X days left until CRD</time>
+    </p>-->
+
+  </div>
+
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(93) | govukDate("truncate") }}</h2>
+
+      <!--<p class="moj-timeline__byline">by Caseworker 1</p>-->
+
+    </div>
+
+    <!--<p class="moj-timeline__date">
+      <time datetime="2019-06-07T12:32:00.000Z">X days left until HDCED</time>
+    </p>-->
+
+   <!--<div class="moj-timeline__description">
+      Make sure tasks are done in time to avoid the case to timeout.</div>-->
+
+  </div>
+
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Approve licence</h2>
+
+      <!--<p class="moj-timeline__byline">by Caseworker 1</p>-->
+
+    </div>
+
+    <!--<p class="moj-timeline__date">
+      <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
+    </p>-->
+    {% if data.user=="decisionmaker"%}
+    <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
+    {% endif %}
+
+  </div>
+
+
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Confirm if George can be released on HDC</h2>
+
+      <!--<p class="moj-timeline__byline">by Caseworker 1</p>-->
+
+    </div>
+
+    <!--<p class="moj-timeline__date">
+      <time datetime="2019-06-07T12:32:00.000Z">To do by Ade Cooper before {{ "today" |  duration(116) | govukDate("truncate") }}</time>
+    </p>-->
+    {% if data.user=="decisionmaker"%}
+    <div class="moj-timeline__description"><div class="govuk-inset-text">To do before {{ "today" |  duration(93) | govukDate("truncate") }}</div></div>
+    {% endif %}
+
+  </div>
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Pre-decision checks</h2>
+
+      <!--<p class="moj-timeline__byline">by Erin Mills</p>-->
+
+    </div>
+
+    {% if data.user=="decisionmaker"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-06-06T09:12:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
+    </p>
+    {% endif %}
+
+   <!--<div class="moj-timeline__description"></div>-->
+
+  </div>
+
+  
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Licence created</h2>
+
+      <!--<p class="moj-timeline__byline">by Kerry Hall</p>-->
+
+    </div>
+
+    {% if data.user=="decisionmaker"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-22) | govukDate("truncate") }}</time>
+    </p>
+    {% endif %}
+
+    <!--<div class="moj-timeline__description"></div>-->
+
+  </div>
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Assess this person’s risk</h2>
+
+      <!--<p class="moj-timeline__byline">by Jessica Smith</p>-->
+
+    </div>
+
+    {% if data.user=="decisionmaker"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</time>
+    </p>
+    {% endif %}
+
+    {% if data.user=="probation"%}
+    {% if data.riskAssessed=="yes"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
+    </p>
+    {% else %}
+    <div class="moj-timeline__description">
+      <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate("truncate") }}</div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+  </div>
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Check if an address is suitable</h2>
+
+      <!--<p class="moj-timeline__byline">by Jessica Smith</p>-->
+
+    </div>
+
+    {% if data.user=="decisionmaker"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</time>
+    </p>
+    {% endif %}
+
+  {% if data.user=="probation"%}
+
+   {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
+   <p class="moj-timeline__date">
+    <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
+  </p>
+   {% else %}
+    <div class="moj-timeline__description">
+      <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate("truncate") }}</div>
+    </div>
+  {% endif %}
+  {% endif %}
+
+  </div>
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Assess eligibility and suitability</h2>
+
+      <!--<p class="moj-timeline__byline">by Jessica Smith</p>-->
+
+    </div>
+
+    {% if (data.user=="decisionmaker") or (data.user=="probation") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</time>
+    </p>
+    {% endif %}
+
+
+    {% if data.user=="admin"%}
+
+      {% if data.ineligibleforHDC=="yes"%}
+
+      <p class="moj-timeline__date">
+        <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</time>
+      </p>
+
+      {% else %}
+
+      <div class="moj-timeline__description">
+        <div class="govuk-inset-text">To do before {{ "today" |  duration(-361) | govukDate("truncate") }}</div>
+      </div>
+    {% endif %}
+
+  {% endif %}
+
+
+  </div>
+ 
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">George entered HMP Wandsworth</h2>
+
+      <!--<p class="moj-timeline__byline">by Joe Bloggs</p>-->
+
+    </div>
+
+   
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">On {{ "today" |  duration(-366) | govukDate("truncate") }}</time>
+    </p>
+    
+
+  </div>
+</div>
+
+
+<!--Timeline end-->
+
+  </div>
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="summary">
+    <h2 class="govuk-heading-l">Application summary</h2>
+
+
+    <!--application summary start-->
+    
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+         
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Assess eligibility and suitability
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+    
+        
+          {% if data.user=="admin"%}
+    
+          {% if data.ineligibleforHDC=="yes"%}
+    
+          <p class="govuk-body"><strong>George Jennings is presumed unsuitable for HDC</strong></br>
+          Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}
+    
+        
+          {% else %}
+          <p class="govuk-body">No information submitted yet</br>
+    
+            <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+              Start
+             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                 </svg>
+                  </a>
+    
+          </p>
+    
+          {% endif %}
+    
+          {% else %}
+    
+          <p class="govuk-body"><strong>George Jennings is eligible and presumed suitable for HDC</strong></br>
+            Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}
+    
+          {% endif %}
+    
+        </div>
+      </div>
+    
+    
+      {% if data.user=="admin"%}
+      {% elseif (data.user=="decisionmaker") or (data.user=="probation")%}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Check if an address is suitable
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+          {% if data.user=="probation"%}
+          {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
+          <p class="govuk-body">The following area has been found to be suitable:</p>
+    
+          <!--card start-->
+    <div class="govuk-summary-card">
+    
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Proposed area
+        </h2>
+      </div>
+      
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+      
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Town
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sheffield
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              County or borough
+            </dt>
+            <dd class="govuk-summary-list__value">
+              South Yorkshire
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional Information
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Offending history at mother’s address
+            </dd>
+          </div>
+      
+      
+        </dl>
+      </div>
+      
+      </div>
+      <!--card end-->
+    
+      <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+    
+          {% else %}
+          <p class="govuk-body">No information submitted yet</br>
+    
+            <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+              Start
+             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                 </svg>
+                  </a>
+    
+          </p>
+    
+          {% endif %}
+          {% endif %}
+    
+    
+    
+          {% if data.user=="decisionmaker"%}
+          <p class="govuk-body">The following address has been found to be suitable:</p>
+    
+    
+          <!--card start-->
+          <div class="govuk-summary-card">
+      
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Proposed address
+              </h2>
+            </div>
+            
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+            
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                      4 Inner Street</br>
+                      Grantham</br>
+                      NG31 6HN
+                  </dt>
+                  <!--<dd class="govuk-summary-list__key">
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>-->
+                </div>
+            
+            
+              </dl>
+            </div>
+            
+            </div>
+            <!--card end-->
+          {% endif %}
+         
+        </div>
+      </div>
+    
+     
+    
+    
+      {% endif %}
+    
+    
+    
+      {% if data.user=="admin"%}
+      {% elseif (data.user=="decisionmaker") or (data.user=="probation")%}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Assess this person’s risk
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+          
+          {% if data.user=="probation"%}
+          {% if data.riskAssessed=="yes"%}
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+              <p class="govuk-body"><strong>George Jennings can be managed safely in the community within their proposed area.</strong></p>
+              <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+            </div>
+          </div>
+          {% else %}    
+          <p class="govuk-body">No information submitted yet</br>
+    
+            <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+              Start
+             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                 </svg>
+                  </a>
+    
+          </p>
+          {% endif %}
+          {% endif %}
+        
+    
+          {% if data.user=="decisionmaker"%}   
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+              <p class="govuk-body">Probation practitioner Mark Coombes has decided that George can be managed safely in the community at their proposed address.</p>
+            </div>
+          </div>
+          {% endif %}
+    
+        </div>
+      </div>
+      {% endif %}
+    
+    
+    
+      {% if data.user=="decisionmaker"%}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Create licence 
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+    
+        <h3 class="govuk-heading-s govuk-!-margin-top-0">HDC curfew hours</h3>
+    
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+             Monday
+           </dt>
+           <dd class="govuk-summary-list__value">
+             7:00 pm to 7:00 am
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link" href="#">
+       
+             </a>
+           </dd>
+         </div>
+       
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+             Tuesday
+           </dt>
+           <dd class="govuk-summary-list__value">
+             7:00 pm to 7:00 am
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link" href="#">
+       
+             </a>
+           </dd>
+         </div>
+       
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+             Wednesday
+           </dt>
+           <dd class="govuk-summary-list__value">
+             7:00 pm to 7:00 am
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link" href="#">
+       
+             </a>
+           </dd>
+         </div>
+       
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+             Thursday
+           </dt>
+           <dd class="govuk-summary-list__value">
+             7:00 pm to 7:00 am
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link" href="#">
+       
+             </a>
+           </dd>
+         </div>
+       
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+             Friday
+           </dt>
+           <dd class="govuk-summary-list__value">
+             7:00 pm to 7:00 am
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link" href="#"></a>
+           </dd>
+         </div>
+    
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Saturday
+          </dt>
+          <dd class="govuk-summary-list__value">
+            7:00 pm to 7:00 am
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#"></a>
+          </dd>
+        </div>
+    
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sunday
+          </dt>
+          <dd class="govuk-summary-list__value">
+            7:00 pm to 7:00 am
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#"></a>
+          </dd>
+        </div>
+       
+       </dl>
+       
+    
+    <h3 class="govuk-heading-s govuk-!-margin-top-0">Additional licence conditions (2)</h3>
+    
+    <!--conditions start-->
+    
+    
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Drug testing
+       </dt>
+       <dd class="govuk-summary-list__value">
+         Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
+       </dd>
+     </div>
+    
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Possession, ownership, control or inspection of specified items or documents
+       </dt>
+       <dd class="govuk-summary-list__value">
+         Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
+       </dd>
+       
+     </div>
+    
+    </dl>
+    <!--conditions end-->
+    
+    
+         
+        </div>
+      </div>
+      {% endif %}
+    
+    
+    
+      {% if data.user=="decisionmaker"%}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Pre-decision checks
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+              <!--check your answers start-->
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value">
+                    Has George committed an offence in prison that is unresolved with the police or independent adjudicator? 
+                  </dd>
+                  <dt class="govuk-summary-list__key">
+                    No
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value">
+                    Is George currently on remand?
+                  </dd>
+                  <dt class="govuk-summary-list__key">
+                    No
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value">
+                    Is George subject to a confiscation order?
+                  </dd>
+                  <dt class="govuk-summary-list__key">
+                    No
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value">
+                    Is there an outstanding application under the unduly lenient scheme for George?
+                  </dd>
+                  <dt class="govuk-summary-list__key">
+                    No
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value">
+                    Is George currently segregated (except solely for their own protection)?
+                  </dd>
+                  <dt class="govuk-summary-list__key">
+                    No
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                </div>
+            <!--check your answers end-->
+            </div>
+    
+          
+    
+        </div>
+      </div>
+      {% endif %}
+    
+    
+    
+      {% if data.user=="decisionmaker"%}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Confirm if George can be released on HDC
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+    
+    
+    {% if data.user=="decisionmaker"%}
+        <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+          Start
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </a>
+    {% endif %}
+    
+         
+        </div>
+      </div>
+      {% endif %}
+    
+      {% if data.user=="decisionmaker"%}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Approve licence
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+    
+          {% if data.user=="probation"%}
+          <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Create or edit licence</a></p>
+          {% endif %}
+    
+    
+          {% if data.user=="decisionmaker"%}
+          <p class="govuk-body">No information submitted yet</br>
+    
+          <a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+            Start
+           <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+             <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+               </svg>
+              </a>
+          {% endif %}
+        
+        
+         
+        </div>
+      </div>
+      {% endif %}
+    
+    
+    </div>
+    
+    <!--application summary end-->
+  </div>
+
+  <div class="govuk-tabs__panel" id="contacts">
+    <h2 class="govuk-heading-l">Key contacts</h2>
+
+<!--contacts card start-->
+<div class="govuk-summary-card" style="margin-top: 0px;">
+
+  <div class="govuk-summary-card__title-wrapper">
+  <h2 class="govuk-summary-card__title">
+    Key contacts
+  </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Case Admin
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Jessica Smith</br>
+        jessica.smith@justice.gov.uk</br>
+        HMP Wandsworth
+      </dd>
+    </div>
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Prison Offender Manager
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Michaela Sharrow</br>
+        michaela.sharrows@justice.gov.uk</br>
+        HMP Wandsworth
+      </dd>
+    </div>
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+       Probation Practitioner
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Mark Coombes</br>
+        mark.coombes@justice.gov.uk</br>
+        Team ABC
+      </dd>
+    </div>
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+       Decision maker
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Ade Cooper, Head of Offender Management Services</br>
+        ade.cooper@justice.gov.uk</br>
+        HMP Wandsworth
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Decision maker
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Nicky Thomson, Head of Resettlement</br>
+        nicky.thomson@justice.gov.uk</br>
+        HMP Wandsworth
+      </dd>
+    </div>
+  
+  </dl>
+  </div>
+  
+  </div>
+  <!--contact card end-->
+
+
+  </div>
+  
+</div>
+
+
+<!--Tabs end-->
+
+
+
+
+
+
+  
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
