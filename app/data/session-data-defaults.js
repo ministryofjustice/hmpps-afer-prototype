@@ -1,5 +1,5 @@
+let tasks = require('./tasks.json')
+
 module.exports = {
-
-  // Insert values here
-
+  tasks
 }

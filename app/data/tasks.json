@@ -1,0 +1,93 @@
+[
+    {
+      "name": "Smith, John",
+      "prisonnumber": "G12345",
+      "eligibilitydate": "4 Aug 2024",
+      "daysremaining": 12,
+      "staffname": "Patel, Priya",
+      "caseprogress": "in progress",
+      "status": "eligible"
+    },
+    {
+      "name": "Zhang, Wei",
+      "prisonnumber": "G23456",
+      "eligibilitydate": "10 Aug 2024",
+      "daysremaining": 18,
+      "staffname": "O'Sullivan, Aisling",
+      "caseprogress": "not started",
+      "status": "ineligible"
+    },
+    {
+      "name": "Brown, Marcus",
+      "prisonnumber": "G34567",
+      "eligibilitydate": "15 Aug 2024",
+      "daysremaining": 23,
+      "staffname": "Chen, Li",
+      "caseprogress": "awaiting pp checks",
+      "status": "unsuitable"
+    },
+    {
+      "name": "Khan, Ahmed",
+      "prisonnumber": "G45678",
+      "eligibilitydate": "20 Aug 2024",
+      "daysremaining": 28,
+      "staffname": "Johnson, Emily",
+      "caseprogress": "awaiting dm decision",
+      "status": "opted out"
+    },
+    {
+      "name": "Garcia, Luis",
+      "prisonnumber": "G56789",
+      "eligibilitydate": "22 Aug 2024",
+      "daysremaining": 30,
+      "staffname": "Kim, Soo-min",
+      "caseprogress": "in progress",
+      "status": "eligible"
+    },
+    {
+      "name": "Nwosu, Chike",
+      "prisonnumber": "G67890",
+      "eligibilitydate": "25 Aug 2024",
+      "daysremaining": 33,
+      "staffname": "Hernandez, Maria",
+      "caseprogress": "awaiting pp checks",
+      "status": "rejected"
+    },
+    {
+      "name": "Lee, David",
+      "prisonnumber": "G78901",
+      "eligibilitydate": "28 Aug 2024",
+      "daysremaining": 36,
+      "staffname": "Smith, Robert",
+      "caseprogress": "awaiting dm decision",
+      "status": "unsuitable"
+    },
+    {
+      "name": "Rodriguez, Jose",
+      "prisonnumber": "G89012",
+      "eligibilitydate": "30 Aug 2024",
+      "daysremaining": 38,
+      "staffname": "Robinson, Sarah",
+      "caseprogress": "not started",
+      "status": "ineligible"
+    },
+    {
+      "name": "Patel, Arjun",
+      "prisonnumber": "G90123",
+      "eligibilitydate": "1 Sept 2024",
+      "daysremaining": 40,
+      "staffname": "Williams, James",
+      "caseprogress": "in progress",
+      "status": "opted out"
+    },
+    {
+      "name": "Johnson, Michael",
+      "prisonnumber": "G01234",
+      "eligibilitydate": "3 Sept 2024",
+      "daysremaining": 42,
+      "staffname": "Singh, Anjali",
+      "caseprogress": "awaiting pp checks",
+      "status": "eligible"
+    }
+  ]
+  
