@@ -27,8 +27,7 @@
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-      Enter reason for opt out</h1>
+        <h1 class="govuk-fieldset__heading">Why has this person chosen to opt out of HDC?</h1>
       </legend><br>
       <div class="govuk-form-group">
 
@@ -38,13 +37,13 @@
 
     {% set textHtmlOther %}
     {{ govukInput({
-      id: "Enter other reason",
-      name: "Enter other reason",
+      id: "Enter reason",
+      name: "Enter reason",
       type: "tel",
       autocomplete: "tel",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter other reason"
+        text: "Enter reason"
       }
     }) }}
     {% endset -%}
@@ -75,7 +74,7 @@
       name: "contact",
       fieldset: {
         legend: {
-          text: "title of radio buttons?",
+          text: "",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -84,30 +83,24 @@
       items: [
       {
         value: "noaddress",
-        text: "No address",
+        text: "They do not have anywhere to stay",
         conditional: {
           html: emailHtml
         }
       },
+      
       {
-        value: "releasescheme",
-        text: "Other release scheme",
+        value: "other",
+        text: "Another reason",
         conditional: {
-          html: emailHtml
+          html: textHtmlOther
         }
       },
       {
         value: "tagging",
-        text: "Does not want taqgging",
+        text: "They did not give a reason",
         conditional: {
           html: emailHtml
-        }
-      },
-      {
-        value: "other",
-        text: "Other",
-        conditional: {
-          html: textHtmlOther
         }
       }
       ]
