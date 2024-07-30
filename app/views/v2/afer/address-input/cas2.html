@@ -37,36 +37,29 @@
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
     {% set textHtmlOther %}
+
+
     {{ govukInput({
-      id: "Enter other reason",
-      name: "Enter other reason",
-      type: "tel",
-      autocomplete: "tel",
+      id: "towncity",
+      name: "towncity",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter other reason"
+        text: "Town/City"
       }
     }) }}
-    {% endset -%}
 
-    {% set textHtmlReview %}
+
     {{ govukInput({
-      id: "Enter the review period",
-      name: "Enter the review period",
+      id: "county",
+      name: "county",
       type: "tel",
-      autocomplete: "tel",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter the review period"
+        text: "County"
       }
     }) }}
-    {% endset -%}
 
-    
 
-    {% set textHtmlTimesTwo %}
-    
-    
     {% endset -%}
     <!--END set dynamic radio hide/show text-->
 
@@ -75,7 +68,7 @@
       name: "contact",
       fieldset: {
         legend: {
-          text: "title of radio buttons?",
+          text: "",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -83,31 +76,17 @@
 
       items: [
       {
-        value: "noaddress",
-        text: "No address",
-        conditional: {
-          html: emailHtml
-        }
-      },
-      {
-        value: "releasescheme",
-        text: "Other release scheme",
-        conditional: {
-          html: emailHtml
-        }
-      },
-      {
-        value: "tagging",
-        text: "Does not want taqgging",
-        conditional: {
-          html: emailHtml
-        }
-      },
-      {
-        value: "other",
-        text: "Other",
+        value: "yes",
+        text: "Yes",
         conditional: {
           html: textHtmlOther
+        }
+      },
+      {
+        value: "no",
+        text: "No",
+        conditional: {
+          html: emailHtml
         }
       }
       ]
@@ -115,6 +94,18 @@
  
 
   
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="more-detail">
+        Additional information
+      </label>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+    </div>
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
 
 </form>
 {% endblock %}
