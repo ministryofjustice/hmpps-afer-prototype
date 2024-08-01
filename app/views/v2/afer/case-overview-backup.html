@@ -19,7 +19,7 @@
       Alpha
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service – your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us to improve it.
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -29,15 +29,15 @@
 
 {% block content %}
 
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
 
-    <div class="govuk-width-container">
-      <main class="govuk-main-wrapper " id="main-content" role="main">
-    
-    
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-    
-          {% if data.optoutreason=="yes"%}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+    {% if data.optoutreason=="yes"%}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -50,149 +50,121 @@
     {% else %}
     {% endif %}
 
-    <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for George Jennings</h1>
-     
-          
-    </div>
-       </div>
-    
-    
-    
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
-    
-                    <!--card start-->
-    <div class="govuk-summary-card" style="margin-top: 0px;">
-    
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">
-          Personal details
-        </h2>
-        <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">See full DPS profile</a>
-          </li>
-        </ul>
-      </div>
-    
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-    
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 30%;">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              George Jennings
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </dd>
-          </div>
-    
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Prison number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              G5613GT
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </dd>
-          </div>
-    
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              HDCED
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ "today" |  duration(93) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <span class="moj-badge moj-badge--black">Nomis</span>
-            </dd>
-          </div>
-    
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              CRD
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ "today" |  duration(126) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <span class="moj-badge moj-badge--black">Nomis</span>
-            </dd>
-          </div>
-    
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Location
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Wandsworth (HMP) 
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
-            </dd>
-          </div>
-    
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Cell number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              A-1-1
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
-            </dd>
-          </div>
+
+
+
+<h1 class="govuk-heading-l govuk-!-margin-top-8">HDC application for George Jennings</h1>
+ 
       
-        </dl>
+</div>
+   </div>
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+
+                <!--card start-->
+<div class="govuk-summary-card" style="margin-top: 0px;">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Personal details
+    </h2>
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 30%;">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          George Jennings
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
       </div>
-    </div>
-    
-    
-    <!--card end-->
-    
-            </div>
-    
-    
-           <div class="govuk-grid-column-one-half">
-    
-    <!--contacts card start-->
-    <div class="govuk-summary-card" style="margin-top: 0px;">
-    
-      <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title">
-        Actions
-      </h2>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Prison number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          G5613GT
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
       </div>
-      
-      <div class="govuk-summary-card__content">
-      <dl class="govuk-summary-list">
-      
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason.html">Opt out</a>
-          </dt>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          HDCED
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ "today" |  duration(93) | govukDate("truncate") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CRD
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ "today" |  duration(126) | govukDate("truncate") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <span class="moj-badge moj-badge--black">Nomis</span>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Location
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wandsworth (HMP) 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cell number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          A-1-1
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+        </dd>
+      </div>
+  
+    </dl>
+  </div>
+</div>
+
+<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">See this person’s full Digital Prison Services profile</a></p>
+
+<!--card end-->
+
+
+
         </div>
-      
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Close case</a>
-          </dt>
-        </div>
-      
-      </dl>
       </div>
-      
-      </div>
-      <!--contact card end-->
-    
-            </div>
-          </div>
-    
+
+       
+
+
+   
+
+
 
 
 
@@ -221,11 +193,6 @@
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#summary">
         Application summary
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#forms">
-        Forms
       </a>
     </li>
     <li class="govuk-tabs__list-item">
@@ -297,44 +264,6 @@
 <!--tasks CA start-->
 {% if data.user=="admin"%}
 
-
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
-      Start
-    </a>
-  </section>
-
-</article>
-
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Address form</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
-      Download
-    </a>
-  </section>
-
-</article>
-
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Address input</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
-      Start
-    </a>
-  </section>
-
-</article>
-
-
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row">
@@ -368,7 +297,7 @@
   </div>
   <div class="govuk-grid-column-one-third">
 
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+    <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
       Start
       <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
@@ -382,7 +311,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Address input</h2>
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Address</h2>
   </div>
   <div class="govuk-grid-column-one-third">
 
@@ -406,26 +335,7 @@
   </div>
   <div class="govuk-grid-column-one-third">
 
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-  </div>
-</div>
-
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Print licence</h2>
-  </div>
-  <div class="govuk-grid-column-one-third">
-
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+    <a href="./address-input/opt-out.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
       Start
       <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
@@ -577,46 +487,12 @@
             
           </div>
           <div class="govuk-grid-column-one-third">
-
-            <!--<h2 class="govuk-heading-m" style="margin-top: 20px">Actions</h2>
-
+            <h2 class="govuk-heading-m" style="margin-top: 20px">Actions</h2>
             <p class="govuk-body" style="margin-top: 20px">
-              <a class="govuk-link" href="address-input/opt-out-reason.html">Opt out</a>
-              </br>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">Close case</a>
-            </p>-->
-
-
-            <!--actions card start-->
-    <div class="govuk-summary-card" style="margin-top: 70px;">
-    
-      <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title">
-        Actions
-      </h2>
-      </div>
-      
-      <div class="govuk-summary-card__content">
-      <dl class="govuk-summary-list">
-      
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason.html">Opt out</a>
-          </dt>
-        </div>
-      
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Close case</a>
-          </dt>
-        </div>
-      
-      </dl>
-      </div>
-      
-      </div>
-      <!--actions card end-->
-
+              
+              
+              Opt out</br>
+            Close case</p>
           </div>
         </div>
        
@@ -1115,7 +991,7 @@
              7:00 pm to 7:00 am
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
+             <a class="govuk-link" href="#">
        
              </a>
            </dd>
@@ -1129,7 +1005,7 @@
              7:00 pm to 7:00 am
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
+             <a class="govuk-link" href="#">
        
              </a>
            </dd>
@@ -1143,7 +1019,7 @@
              7:00 pm to 7:00 am
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
+             <a class="govuk-link" href="#">
        
              </a>
            </dd>
@@ -1157,7 +1033,7 @@
              7:00 pm to 7:00 am
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
+             <a class="govuk-link" href="#">
        
              </a>
            </dd>
@@ -1171,7 +1047,7 @@
              7:00 pm to 7:00 am
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#"></a>
+             <a class="govuk-link" href="#"></a>
            </dd>
          </div>
     
@@ -1183,7 +1059,7 @@
             7:00 pm to 7:00 am
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#"></a>
+            <a class="govuk-link" href="#"></a>
           </dd>
         </div>
     
@@ -1195,7 +1071,7 @@
             7:00 pm to 7:00 am
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#"></a>
+            <a class="govuk-link" href="#"></a>
           </dd>
         </div>
        
@@ -1382,143 +1258,6 @@
     
     <!--application summary end-->
   </div>
-
-  <!--Forms and letters start-->
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="forms">
-    <h2 class="govuk-heading-l">Forms</h2>
-
-    <p class="govuk-body">These forms will open in a new tab for printing</p>
-    
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Eligible
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Not eligible
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Not suitable
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Information about address checks
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Address form
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Address unsuitable
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Opt out
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Postponed
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Not enough time
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Refused
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Approved
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Agency notification
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Cancel agency notification
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Licence variation
-      </a>
-    </p>
-
-  </div>
-
-  <!--Forms and letters end-->
 
   <div class="govuk-tabs__panel" id="contacts">
     <h2 class="govuk-heading-l">Key contacts</h2>
