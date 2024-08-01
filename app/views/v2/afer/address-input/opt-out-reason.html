@@ -16,18 +16,22 @@
   </p>
 </div>
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
-
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
 {% endblock %}
 
 {% block content %}
+{% include "includes/layouts/personaldetails.html" %}
 
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-<form action="/v21/conditions" method="post">
+<form action="" method="post">
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">Why has this person chosen to opt out of HDC?</h1>
+        <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Why has this person chosen to opt out of HDC?</h1>
       </legend><br>
       <div class="govuk-form-group">
 
@@ -107,7 +111,14 @@
     }) }}
  
 
-  
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
 
 </form>
+
+</div>
+</div>
+</main>
+</div>
 {% endblock %}

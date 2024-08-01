@@ -2,59 +2,76 @@ module.exports = function (router) {
 
 var version = '/v2';
 
+//CA journey
+//Opting in and out
+
+router.post('/optout', function (req, res) {
+  var optoutDecision = req.session.data['optoutdecision']
+
+  // Check whether the variable matches a condition
+  if (optoutDecision == "yes"){
+   
+   // Send user to 
+    res.redirect(version + '/afer/address-input/type-of-address')
+  } else {
+    // Send user to 
+    res.redirect(version + '/afer/address-input/opt-out-reason')
+  }
+
+});
 
 
-//question page - do they need additional conditions
-router.post(version + '/ecsl/question', function(req, res) {
-    var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
+
+//THE END OF AFER ROUTES
+
+
+
+
+
+
+
+//Freedom of movement - multiple addresses
+//Add another address
+
+router.post('/new-addresslocation', function (req, res) {
+  var addresslocationAddAnother = req.session.data['addanotheraddresslocation']
+
+  // Check whether the variable matches a condition
+  if (addresslocationAddAnother == "yes"){
+   
+   // Send user to next page
+    res.redirect('v22/additional/8b-location2')
+  } else {
+    // Send user to ineligible page
+    res.redirect('v22/check-your-answers')
   }
-  else {
-    var needadditional = req.session.data['needadditional'];
-    if (needadditional == "yes"){
-      res.redirect(version + '/ecsl/conditions');
-    }
-    else if (needadditional == "no"){
-      res.redirect(version + '/ecsl/bespoke');
-    }
-  }
+
 });
-//bespoke page - do they need bespoke conditions
-router.post(version +'/ecsl/bespoke', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-    }
-  else if (saveexit == "continue"){
-    var needbespoke = req.session.data['needbespoke'];
-      if (needbespoke == "yes"){
-        res.redirect(version +'/bespoke-checked-PPCS');
-        }
-  else if (needbespoke == "no"){
-    var licencetypechoose = req.session.data['licencetypechoose'];
-    var change = req.session.data['changecycle'];
-      if (change == "yes"){
-        res.redirect(version +'/ecsl/check-your-answers');
-      }
-    else if (licencetypechoose !== "ap"){
-        res.redirect(version +'/pss');
-      }
-      else if (licencetypechoose == "ap"){
-        res.redirect(version + '/ecsl/check-your-answers');
-      }
-    }
+
+//Freedom of movement - multiple addresses
+//Delete this condition
+
+// Run this code when a form is submitted to 'parole-outcome-letter-answer'
+router.post('/delete-location', function (req, res) {
+
+  // Make a variable and give it the value from 'how-many-letters'
+  var locationNotNeeded = req.session.data['location-not-needed']
+
+  // Check whether the variable matches a condition
+  if (locationNotNeeded == "yes"){
+    // Send user to next page
+    res.redirect(version + '/additional/8b-overview')
+  } else {
+    // Send user to ineligible page
+    res.redirect(version + '/additional/8b-overview')
   }
+
 });
-router.post(version + '/ecsl/check-your-answers', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/list');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/ecsl/confirmation');
-  }
-});
+
+
+
+//THESE ARE ALL OLD AND WE MIGHT NEED TO DELETE THEM
+
 
 //Timeserved - Prison admin creating a new licence
 router.post('/ca-new-licence-timeserved', function (req, res) {
