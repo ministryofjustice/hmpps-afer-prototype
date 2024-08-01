@@ -16,16 +16,18 @@
   </p>
 </div>
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
 {% endblock %}
 
 {% block content %}
+{% include "includes/layouts/personaldetails.html" %}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+        <form action="/v2/afer/address-input/postcode-lookup-results" method="post" novalidate>
 
         <body class="govuk-template__body">
           <script>
@@ -35,7 +37,7 @@
           <div class="govuk-width-container">
             <main class="govuk-main-wrapper" id="main-content">
              
-                <h1 class="govuk-heading-l">Find an address</h1>
+                <h1 class="govuk-heading-l govuk-!-margin-top-6">Find an address</h1>
 
                 <div class="govuk-form-group">
                   <span class="govuk-visually-hidden"><h1 class="govuk-label-wrapper">
@@ -45,16 +47,46 @@
                     </h1>
                     <input class="govuk-input" name="eventName" type="text" id="apikey" type="text" placeholder="API Token" value="1YwdDcrUaTCJNG6hJ2mlhGAH1oQBAGlR"></span>
                 </div>
-        
-        
-                <div class="govuk-form-group">
-                    <h1 class="govuk-label-wrapper">
-                      <label class="govuk-label govuk-label--s" for="event-name">
+
+
+                <!--<div class="moj-search">
+              
+                    <div class="govuk-form-group">
+                      <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="event-name">
                         Type an address or postcode
                       </label>
-                    </h1>
-                    <input class="govuk-input" name="eventName" type="text" id="query" type="search" placeholder="Search...">
+                
+                      <div id="search-hint" class="govuk-hint moj-search__hint ">
+                        You can search by name, date of birth or national insurance number
+                      </div>
+                
+                      <input class="govuk-input moj-search__input " name="eventName" type="text" id="query" type="search">
+                
+                    </div>
+                
+                    <button type="submit" class="govuk-button moj-search__button " data-module="govuk-button">
+                      Search
+                    </button>
+                
+                </div>-->
+
+
+                <div class="moj-search">
+
+                  <div class="govuk-form-group">
+        
+                      <label class="govuk-label govuk-label--s" for="event-name">Type an address or postcode</label>
+      
+                      <input class="govuk-input" name="eventName" type="text" id="query" type="search" style="width: 300px;">
+
+                  </div>
+
+                    <button id="submit" type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 30px; margin-left: 10px;">Search</button>
+
                 </div>
+
+
+                <!--search craig end-->
         
                 <div class="govuk-form-group">
                   <span class="govuk-visually-hidden"><fieldset class="govuk-fieldset">
@@ -111,29 +143,23 @@
                   </div>
         
                 <span class="govuk-visually-hidden"><input id="minmatch" class="govuk-input" type="number" name="minmatch" min="0.1" max="1.0" step="0.1" value="0.8" title="Minimum Match Score"></span>
-                <button id="submit" type="submit" class="govuk-button" data-module="govuk-button">
-                    Search
-                </button>
+                
+                
         
                 <div class="loader"></div>
                 
-                <div class="govuk-form-group">
-                    <label class="govuk-label" for="more-detail">Address</label>
+                <span class="govuk-visually-hidden"><div class="govuk-form-group">
+                    <label class="govuk-label" for="more-detail">Address search result</label>
                     <select class="govuk-textarea" id="results" name="results" rows="5" aria-describedby="more-detail-hint" multiple></select>
-                </div>
+                </div></span>
 
 
-                <p class="govuk-body govuk-!-margin-bottom-80"><a href="#" class="govuk-link">If you couldn't find it enter address manually</a></p>
+                <span class="govuk-visually-hidden"><p class="govuk-body govuk-!-margin-bottom-80"><a href="manual-entry.html" class="govuk-link govuk-link--no-visited-state">If you couldn't find it enter address manually</a></p></span>
 
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="event-name">
-                   Phone number (which one is this for the tagging or to contact the main occupier?)
-                  </label>
-                  <input class="govuk-input" id="event-name" name="eventName" type="text">
-                </div>
+  
 
-                <!--If they have provided 2 addresses, say if this is their preferred or second address-->
-  <div class="govuk-form-group">
+  <!--If they have provided 2 addresses, say if this is their preferred or second address-->
+  <!--<div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h1 class="govuk-fieldset__heading">
@@ -155,12 +181,11 @@
         </div>
       </div>
     </fieldset>
-  </div>
+  </div>-->
 
-
-  <button type="submit" class="govuk-button" data-module="govuk-button">
+  <span class="govuk-visually-hidden"><button type="submit" class="govuk-button" data-module="govuk-button">
     Continue
-  </button>
+  </button></span>
 
 
 
@@ -659,7 +684,7 @@
           </script></span>
         </body>
 
-  
+      </form>
 
       </div>
     </div>

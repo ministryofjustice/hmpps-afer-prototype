@@ -2,23 +2,41 @@ module.exports = function (router) {
 
 var version = '/v2';
 
-//CA journey
-//Opting in and out
+//CA journey routes
 
+//Opting in and out question
 router.post('/optout', function (req, res) {
   var optoutDecision = req.session.data['optoutdecision']
 
   // Check whether the variable matches a condition
   if (optoutDecision == "yes"){
    
-   // Send user to 
+   // Send user to address type page
     res.redirect(version + '/afer/address-input/type-of-address')
   } else {
-    // Send user to 
+    // Send user to opt out reason page
     res.redirect(version + '/afer/address-input/opt-out-reason')
   }
 
 });
+
+
+//Address type question
+router.post('/addresstype', function (req, res) {
+  var addresstypeQuestion = req.session.data['curfewcasAddress']
+
+  // Check whether the variable matches a condition
+  if (addresstypeQuestion == "curfew"){
+   
+   // Send user to postcode look up page
+    res.redirect(version + '/afer/address-input/postcode-lookup')
+  } else {
+    // Send user to cas page
+    res.redirect(version + '/afer/address-input/cas')
+  }
+
+});
+
 
 
 

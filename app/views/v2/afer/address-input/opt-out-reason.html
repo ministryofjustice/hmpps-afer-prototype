@@ -27,7 +27,9 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-<form action="" method="post">
+
+  <form action="/v2/afer/case-overview" method="post">
+
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -41,10 +43,8 @@
 
     {% set textHtmlOther %}
     {{ govukInput({
-      id: "Enter reason",
-      name: "Enter reason",
-      type: "tel",
-      autocomplete: "tel",
+      id: "enterreason",
+      name: "enterreason",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
         text: "Enter reason"
@@ -52,25 +52,6 @@
     }) }}
     {% endset -%}
 
-    {% set textHtmlReview %}
-    {{ govukInput({
-      id: "Enter the review period",
-      name: "Enter the review period",
-      type: "tel",
-      autocomplete: "tel",
-      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-      label: {
-        text: "Enter the review period"
-      }
-    }) }}
-    {% endset -%}
-
-    
-
-    {% set textHtmlTimesTwo %}
-    
-    
-    {% endset -%}
     <!--END set dynamic radio hide/show text-->
 
     {{ govukRadios({
@@ -87,35 +68,37 @@
       items: [
       {
         value: "noaddress",
-        text: "They do not have anywhere to stay",
-        conditional: {
-          html: emailHtml
-        }
+        text: "They do not have anywhere to stay"
       },
-      
       {
-        value: "other",
-        text: "Another reason",
+        value: "notagging",
+        text: "They do not want to be tagged"
+      },
+      {
+        value: "noreason",
+        text: "They did not give a reason"
+      },
+      {
+        value: "otherreason",
+        text: "Other reason",
         conditional: {
           html: textHtmlOther
-        }
-      },
-      {
-        value: "tagging",
-        text: "They did not give a reason",
-        conditional: {
-          html: emailHtml
         }
       }
       ]
     }) }}
  
 
-    <button type="submit" class="govuk-button" data-module="govuk-button">
-      Continue
-    </button>
+    <input type="hidden" name="optoutreason" value="yes">
 
-</form>
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Save
+      </button>
+      <a class="govuk-link" href="./opt-out.html">Cancel</a>
+    </div>
+
+  </form>
 
 </div>
 </div>
