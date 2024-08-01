@@ -38,6 +38,31 @@ router.post('/addresstype', function (req, res) {
 });
 
 
+//Add another curfew address or CAS area
+router.post('/add-another-address', function (req, res) {
+  var addAnotherAddress = req.session.data['add-another-address']
+
+  // Check whether the variable matches a condition
+  if (addAnotherAddress == "curfew"){
+   
+   // Send user to postcode look up page nr. 2
+    res.redirect(version + '/afer/address-input/postcode-lookup-2')
+  }
+  // Check whether the variable matches a condition
+  else if (addAnotherAddress == "cas"){
+
+  // Send user to cas page nr. 1
+    res.redirect(version + '/afer/address-input/cas');
+  }
+   // Check whether the variable matches a condition
+   else if (addAnotherAddress == "cas2"){
+
+    // Send user to cas page nr. 2
+      res.redirect(version + '/afer/address-input/cas-2');
+    }
+});
+
+
 
 
 //THE END OF AFER ROUTES
@@ -62,26 +87,6 @@ router.post('/new-addresslocation', function (req, res) {
   } else {
     // Send user to ineligible page
     res.redirect('v22/check-your-answers')
-  }
-
-});
-
-//Freedom of movement - multiple addresses
-//Delete this condition
-
-// Run this code when a form is submitted to 'parole-outcome-letter-answer'
-router.post('/delete-location', function (req, res) {
-
-  // Make a variable and give it the value from 'how-many-letters'
-  var locationNotNeeded = req.session.data['location-not-needed']
-
-  // Check whether the variable matches a condition
-  if (locationNotNeeded == "yes"){
-    // Send user to next page
-    res.redirect(version + '/additional/8b-overview')
-  } else {
-    // Send user to ineligible page
-    res.redirect(version + '/additional/8b-overview')
   }
 
 });
@@ -136,73 +141,6 @@ router.post(version + '/timeserved/confirmation', function(req, res) {
 
 
 
-
-
-//Hardstop - from confirmation back to case list
-router.post(version + '/hardstop/confirmation', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "continue"){
-    res.redirect(version + '/list#releases-two-days');
-  }
-});
-
-
-//Hardstop - confirmation
-router.post(version + '/hardstop/check-your-answers', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/list#releases-two-days');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/hardstop/confirmation');
-  }
-});
-
-
-//Hardstop - check licence details
-router.post(version + '/hardstop/when', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/hardstop/check-your-answers');
-  }
-});
-
-//Hardstop - when the initial appointment is
-router.post(version + '/hardstop/phone-number', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/hardstop/when');
-  }
-});
-
-//Hardstop - entering an address
-router.post(version + '/hardstop/address', function(req, res) {
-  var saveexit = req.session.data['submit'];
-  if (saveexit == "exit"){
-    res.redirect(version + '/exit');
-  }
-  else if (saveexit == "continue"){
-    res.redirect(version + '/hardstop/phone-number');
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
-///////////
 
 
 //Time served
