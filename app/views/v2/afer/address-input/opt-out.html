@@ -29,38 +29,41 @@
 
 
         <form action="/optout" method="post" novalidate>
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
-                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
+
+
+          <h1 class="govuk-heading-l govuk-!-margin-top-6">
+            GOVUK Heading L
+          </h1>
+          <p class="govuk-body">
+            Placeholder sentence to link to the <a href="/v2/afer/case-overview#forms" class="govuk-link govuk-link--no-visited-state">address form.</a>
+          </p>
+          
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                   Does this person want to be considered for HDC?
-                </h1>
-              </legend>
-              
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="optoutdecision" name="optoutdecision" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="optout">
-                    Yes, they have said where they want to be released  
-                  </label>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="optoutdecision" name="optoutdecision" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="optout">
+                      Yes, they have said where they want to be released  
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="optoutdecision" name="optoutdecision" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="optout-2">
+                      No, they want to opt out
+                    </label>
+                  </div>
                 </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="optoutdecision" name="optoutdecision" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="optout-2">
-                    No, they want to opt out
-                  </label>
-                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
 
-
-              </div>
-            </fieldset>
-          </div>
-
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-
+         
         </form>
 
 
