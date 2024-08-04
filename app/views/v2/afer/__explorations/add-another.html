@@ -31,7 +31,7 @@
         {% if (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
         <!--If 2 addresses and 2 CAS area entered-->
         <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and 2 CAS areas</h1>
-        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="no") %}
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
         <!--If 2 addresses and 1 CAS area entered-->
         <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and one CAS area</h1>
         {% elseif (data.postcodelookup=="two") %}
@@ -90,44 +90,6 @@
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
             <strong>Second CAS area</strong></br>
             London, Wimbledon
-          </dt>
-          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
-            <ul class="govuk-summary-list__actions-list">
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change Jeremy Winter</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Jeremy Winter from the list</span></a></li>
-            </ul>
-          </dd>
-        </div>
-        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="no") %}
-        <!--If 2 addresses and no CAS preference entered-->
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-            <strong>Preferred address</strong></br>
-            4 Inner Street, Grantham NG31 6HN
-          </dt>
-          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
-            <ul class="govuk-summary-list__actions-list">
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup.html"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change preferred address</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove preferred address from the list</span></a></li>
-            </ul>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-            <strong>Second address</strong></br>
-            49 Hill Street, Grantham N1J 5NB
-          </dt>
-          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
-            <ul class="govuk-summary-list__actions-list">
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup.html"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change second address</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove second address from the list</span></a></li>
-            </ul>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-            <strong>No preferred CAS area</strong></br>
-            This person would like to be referred for CAS but has no preference where they are released
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
@@ -223,11 +185,7 @@
   <form action="/add-another-address" method="post">
 
 
-  {% if (data.communityaccommodation=="no") %}
-
-  <a href="./check-your-answers.html" class="govuk-button govuk-button--primary">From here to check your answers page</a>
-
-  {% elseif data.communityaccommodation=="two"%}
+  {% if data.communityaccommodation=="two"%}
 
   <a href="./check-your-answers.html" class="govuk-button govuk-button--primary">From here to check your answers page</a>
 
@@ -240,8 +198,6 @@
         {% if (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
         <!--If 2 addresses and 1 CAS area entered-->
         Do you need to add another CAS area?
-        {% elseif (data.communityaccommodation=="no") %}
-        <!--If no preferred cas area-->
         {% elseif (data.postcodelookup=="two") %}
         <!--If 2 address entered-->   
         Do you need to add a CAS area?
@@ -277,8 +233,6 @@
         {% if (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
         <!--If 2 addresses and 1 CAS area entered-->
         You can enter one more CAS area.
-        {% elseif (data.communityaccommodation=="no") %}
-        <!--If no preferred cas area-->
         {% elseif (data.postcodelookup=="two") %}
         <!--If 2 address entered-->   
         You can enter 2 CAS areas.
@@ -315,8 +269,6 @@
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="add-another-address" name="add-another-address" type="radio" value="curfew">
           <label class="govuk-label govuk-radios__label" for="add-another-address">
-            
-            <!--If no preferred cas area-->
             Yes, add curfew address
             
             <!--RULES-->
@@ -342,10 +294,7 @@
       {% endif %} 
 
 
-
       {% if (data.communityaccommodation=="one") and (data.communityaccommodation=="two") %}
-
-      {% elseif (data.communityaccommodation=="no") %}
 
       {% elseif (data.communityaccommodation=="one") %}
       <div class="govuk-radios__item">
@@ -405,9 +354,6 @@
         </div>
       {% endif %} 
 
-      {% if (data.communityaccommodation=="no") %}
-
-      {% else %} 
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="add-another-address" name="add-another-address" type="radio" value="no">
           <label class="govuk-label govuk-radios__label" for="add-another-address-3">
@@ -434,7 +380,6 @@
 
           </label>
         </div>
-        {% endif %} 
       </div>
     </fieldset>
   </div>
