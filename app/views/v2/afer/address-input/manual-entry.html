@@ -16,11 +16,11 @@
   </p>
 </div>
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
-
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
 {% endblock %}
 
 {% block content %}
+{% include "includes/layouts/personaldetails.html" %}
 
 
 <div class="govuk-width-container">
@@ -29,10 +29,11 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+        <form action="/v2/afer/address-input/add-another" method="post" novalidate>
 
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
               What is your address?
             </h1>
           </legend>
@@ -60,12 +61,6 @@
             </label>
             <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
           </div>
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="event-name">
-             Phone number (which one?)
-            </label>
-            <input class="govuk-input" id="event-name" name="eventName" type="text">
-          </div>
         </fieldset>
 
         
@@ -75,7 +70,7 @@
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-fieldset__heading">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
         Set address preference 
       </h1>
     </legend>
@@ -102,7 +97,7 @@
 </button>
 
 
-
+</form>
 
 
       </div>
