@@ -32,6 +32,9 @@
         <!--If 2 addresses and 2 CAS area entered-->
         <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and 2 CAS areas</h1>
         {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="no") %}
+        <!--If 2 addresses and not defined CAS area entered-->
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and chosen CAS referral with no preferred area</h1>
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
         <!--If 2 addresses and 1 CAS area entered-->
         <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and one CAS area</h1>
         {% elseif (data.postcodelookup=="two") %}
