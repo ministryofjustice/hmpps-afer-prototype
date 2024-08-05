@@ -29,7 +29,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form action="/v2/afer/address-input/add-another" method="post" novalidate>
+        <form action="additional-info-2" method="post" novalidate>
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Add details of residents</h1>
 
@@ -99,7 +99,7 @@
     </div>
     <div class="govuk-form-group">
       <label class="govuk-label" for="address-line-2">
-        Relation to person in prison
+        Relation
       </label>
       <input class="govuk-input" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
     </div>
@@ -152,7 +152,7 @@
   
         <div class="govuk-form-group">
           <label class="govuk-label govuk-!-font-weight-bold" for="person[0][last_name]">
-            Relation to person in prison
+            Relation
           </label>
   
           <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
@@ -217,7 +217,7 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-!-font-weight-bold" for="width-3">
-            Age (optional)
+            Age
           </label>
           <input class="govuk-input govuk-input--width-3" id="width-3" name="width3" type="text">
         </div>
@@ -236,21 +236,9 @@
   
       
       
-      
-      <div class="govuk-form-group govuk-!-margin-top-8">
-        <label class="govuk-label" for="more-detail">
-          Additional information
-        </label>
-        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-      </div>
-      
-      
-      
-  
-      
       <div class="moj-button-action govuk-!-margin-top-8">
 
-        <input type="hidden" name="postcodelookup" value="two">
+        
         <button type="submit" class="govuk-button" data-module="govuk-button">
          Continue
         </button>

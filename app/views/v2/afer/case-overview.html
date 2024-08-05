@@ -37,7 +37,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
     
-          {% if data.optoutreason=="yes"%}
+    {% if data.optoutreason=="yes"%}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -47,14 +47,14 @@
       <div class="moj-banner__message">George Jennings has opted out of HDC</div>
     
     </div>    
-    {% elseif data.addressinfocomplete=="yes"%}
+    {% elseif data.addressinputcomplete=="yes"%}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
     
-      <div class="moj-banner__message">Address information sent for review by Mark Coombes, this person’s probation practitioner</div>
+      <div class="moj-banner__message">Address information saved</div>
     
     </div>    
     {% else %}
@@ -184,7 +184,7 @@
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason.html">Opt out</a>
+            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason.html">Opt in/out</a>
           </dt>
         </div>
       
@@ -605,7 +605,7 @@
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason.html">Opt out</a>
+            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason.html">Opt in/out</a>
           </dt>
         </div>
       
@@ -1401,6 +1401,8 @@
     <h2 class="govuk-heading-l">Forms</h2>
 
     <p class="govuk-body">These forms will open in a new tab for printing</p>
+
+    <p class="govuk-body">UCD TO DO: Structure page with subheadings? Only show relevant forms to user?</p>
     
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">

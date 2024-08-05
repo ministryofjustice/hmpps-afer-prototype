@@ -156,9 +156,9 @@
                 <p class="govuk-body govuk-!-margin-bottom-80"><a href="manual-entry.html" class="govuk-link govuk-link--no-visited-state">If you couldn't find it enter address manually</a></p>
 
   
-
+{% if (data.postcodelookup=="two") %}
   <!--If they have provided 2 addresses, say if this is their preferred or second address-->
-  <!--<div class="govuk-form-group">
+  <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
@@ -167,7 +167,7 @@
       </legend>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+          <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england" checked>
           <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
             Preferred address
           </label>
@@ -180,10 +180,10 @@
         </div>
       </div>
     </fieldset>
-  </div>-->
+  </div>
+{% endif %}
 
-
-  <form action="/v2/afer/address-input/enter-info" method="post" novalidate>
+  <form action="enter-info" method="post" novalidate>
 
   
   <button type="submit" class="govuk-button" data-module="govuk-button">
