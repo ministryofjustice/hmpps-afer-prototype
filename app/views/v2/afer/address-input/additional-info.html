@@ -33,33 +33,37 @@
  
         <form action="add-another" method="post" novalidate>
 
-          {% if (data.postcodelookup=="one") %}
+          {% if (data.communityaccommodation=="two") %}
           <div class="govuk-form-group govuk-!-margin-top-8">
             <label class="govuk-label" for="more-detail">
-              Additional information postcode one
+              TO BE DESIGNED  Additional information for CAS two
             </label>
             <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
           </div>
-          {% endif %}
-      
-          {% if (data.communityaccommodation=="one") %}
+          {% elseif (data.communityaccommodation=="one") %}
           <div class="govuk-form-group govuk-!-margin-top-8">
             <label class="govuk-label" for="more-detail">
-              Additional information CAS one
+              TO BE DESIGNED Additional information for CAS one
+            </label>
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+          </div>
+          {% elseif (data.postcodelookup=="two") %}
+          <div class="govuk-form-group govuk-!-margin-top-8">
+            <label class="govuk-label" for="more-detail">
+              TO BE DESIGNED Additional information for postcode two
+            </label>
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+          </div>
+          {% elseif (data.postcodelookup=="one") %}
+          <div class="govuk-form-group govuk-!-margin-top-8">
+            <label class="govuk-label" for="more-detail">
+              TO BE DESIGNED  Additional information for postcode one
             </label>
             <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
           </div>
           {% endif %}
 
-          {% if (data.communityaccommodation=="two") %}
-          <div class="govuk-form-group govuk-!-margin-top-8">
-            <label class="govuk-label" for="more-detail">
-              Additional information CAS two
-            </label>
-            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-          </div>
-          {% endif %}
-  
+          
       
       <div class="moj-button-action">
   

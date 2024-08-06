@@ -36,18 +36,8 @@
     
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-    
-    {% if data.optoutreason=="yes"%}
-    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
-      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-      </svg>
-    
-      <div class="moj-banner__message">George Jennings has opted out of HDC</div>
-    
-    </div>    
-    {% elseif data.addressinputcomplete=="yes"%}
+    {% if data.addressinputcomplete=="yes"%}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -57,6 +47,18 @@
       <div class="moj-banner__message">Address information saved</div>
     
     </div>    
+    
+    {% elseif data.optoutreason=="yes"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+    
+      <div class="moj-banner__message">George Jennings has opted out of HDC</div>
+    
+    </div>    
+    
     {% else %}
     {% endif %}
 
@@ -357,7 +359,7 @@
 </article>
 
 
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<!--<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -440,7 +442,7 @@
 </div>
 
 
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">-->
 
 {% endif %}
 <!--tasks end-->
