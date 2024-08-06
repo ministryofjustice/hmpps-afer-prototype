@@ -45,6 +45,34 @@
                       </label>
                       <input class="govuk-input govuk-input--width-10" id="passport-number" name="passportNumber" type="text" aria-describedby="passport-number-hint">
                     </div>
+
+
+  {% if (data.communityaccommodation=="two") %}
+  <!--If they have provided 2 addresses, say if this is their preferred or second address-->
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
+          Set address preference 
+        </h1>
+      </legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england" checked>
+          <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+            Preferred CAS area
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+          <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+            Second CAS area
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+{% endif %}
       
          <input type="hidden" name="communityaccommodation" value="one">
           <button type="submit" class="govuk-button" data-module="govuk-button">
