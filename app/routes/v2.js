@@ -60,6 +60,13 @@ router.post('/add-another-address', function (req, res) {
     // Send user to cas page nr. 2
       res.redirect(version + '/afer/address-input/cas-2');
     }
+
+    // Check whether the variable matches a condition
+   else if (addAnotherAddress == "no"){
+
+    // Send user to check your answers page
+      res.redirect(version + '/afer/address-input/check-your-answers');
+    }
 });
 
 

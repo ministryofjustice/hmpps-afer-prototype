@@ -54,7 +54,7 @@
               name: "moreDetailCommunityTwo",
               id: "moreDetailCommunityTwo",
               label: {
-                text: "Add more information community 2"
+                text: "Add more information"
               }
             }) }}
 
@@ -116,7 +116,7 @@
               name: "moreDetailCommunityOne",
               id: "moreDetailCommunityOne",
               label: {
-                text: "Add more information community 1"
+                text: "Add more information"
               }
             }) }}
 
@@ -177,7 +177,7 @@
                 name: "moreDetailnoCAS",
                 id: "moreDetailnoCAS",
                 label: {
-                  text: "Add more information no CAS preference"
+                  text: "Add more information"
                 }
               }) }}
   
@@ -238,7 +238,7 @@
               name: "moreDetailpostcodeTwo",
               id: "moreDetailpostcodeTwo",
               label: {
-                text: "Add more information postcode 2"
+                text: "Add more information"
               }
             }) }}
 
@@ -299,7 +299,7 @@
                 name: "moreDetailpostcodeOne",
                 id: "moreDetailpostcodeOne",
                 label: {
-                  text: "Add more information postcode one"
+                  text: "Add more information"
                 }
               }) }}
 
@@ -343,23 +343,18 @@
       <div class="moj-button-action">
 
         {% if (data.communityaccommodation=="two") %}
-        cas 2
         <input type="hidden" name="communityaccommodation" value="two">
       
         {% elseif (data.cas=="specificarea") %}
-        cas 1
         <input type="hidden" name="communityaccommodation" value="one">
         
         {% elseif (data.cas=="nopreference") %}
-        CAS no preference
         <input type="hidden" name="communityaccommodation" value="no">
 
         {% elseif (data.postcodelookup=="two") %}
-        postcode 2
         <input type="hidden" name="postcodelookup" value="two">
   
         {% elseif (data.postcodelookup=="one") %}
-        postcode 1
         <input type="hidden" name="postcodelookup" value="one">
         {% endif %}
         

@@ -31,11 +31,1592 @@
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Check your answers</h1>
 
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>     
 
+        {% if (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
+        <!--You have added 2 addresses and 2 CAS areas-->
+        <!--Preferred address start-->   
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>  
 
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Address details
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+              </li>
+              </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  4 Inner Street</br>
+                  Grantham</br>
+                  NG31 6HN
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Preference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Preferred address
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                </dd>-->
+              </div>
+            </dl>
+          </div>
+        </div>
+        
+        <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Main occupier
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+              </li>
+              <!--<li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+              </li>-->
+              </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   Sarah Martin
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  020 555 3083
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Relationship to person in prison
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Sister
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                </dd>-->
+              </div>
+            </dl>
+          </div>
+        </div>
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Resident 1
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Amelia Martin
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Relationship to person in prison
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Cousin
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                </dd>-->
+              </div>
+                <!--<div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                   Date of birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    2 May 2007
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 1)</span></a>
+                  </dd>
+                </div>-->
+                  <!--<div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                     Age
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      17
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 1)</span></a>
+                    </dd>
+                  </div>-->
+              </div>
+            </dl>
+          </div>
+        
+        
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Resident 2
+              </h2>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    James Martin
+                  </dd>
+                  <!--<dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                  </dd>-->
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                   Relationship to person in prison
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Cousin
+                  </dd>
+                  <!--<dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+                  </dd>-->
+                </div>
+                  <!--<div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                     Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      2 May 2007
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+                    </dd>
+                  </div>-->
+                    <!--<div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                       Age
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        17
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 2)</span></a>
+                      </dd>
+                    </div>-->
+                </div>
+              </dl>
+            </div>
+        
+            
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Additional information
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                  </li>
+                  <li class="govuk-summary-card__action">
+                    <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <!--<dt class="govuk-summary-list__key">
+                      
+                    </dt>-->
+                    <dd class="govuk-summary-list__value">
+                      It's important to mention that ...
+                    </dd>
+                    <!--<dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                    </dd>-->
+                  </div>
+                  </div>
+                </dl>
+              </div>
+        
+        <!--Preferred address end-->
+        <!--Second address start-->
+        
+        <h2 class="govuk-heading-m" style="margin-top: 80px;">Second address</h2>    
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Address details
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+              </li>
+              </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  49 Hill Street</br>
+                  Grantham</br>
+                  N1J 5NB
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Preference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Second address
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                </dd>-->
+              </div>
+            </dl>
+          </div>
+        </div>
+        
+        <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Main occupier
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+              </li>
+              <!--<li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+              </li>-->
+              </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Leanna Martin
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  020 3334 3555
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Relationship to person in prison
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Mother
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                </dd>-->
+              </div>
+            </dl>
+          </div>
+        </div>
+        
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Resident 1
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Greg Martin
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Relationship to person in prison
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Brother
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                </dd>-->
+              </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                   Date of birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    2 May 2007
+                  </dd>
+                  <!--<dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                  </dd>-->
+                </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                     Age
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      17
+                    </dd>
+                    <!--<dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                    </dd>-->
+                  </div>
+              </div>
+            </dl>
+          </div>
+        
+        <!--Second address end-->
+        <!--Preferred CAS start-->
 
-<!--Preferred address start-->
+<h2 class="govuk-heading-m" style="margin-top: 80px;">Preferred CAS area</h2>    
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      CAS area details
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Preference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Preferred CAS area
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred CAS area</span></a>
+        </dd>-->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Additional information
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <!--<dt class="govuk-summary-list__key">
+          
+        </dt>-->
+        <dd class="govuk-summary-list__value">
+          It's important to mention that ...
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      </div>
+    </dl>
+  </div>
+
+<!--Preferred CAS end-->
+<!--Second CAS start-->
+
+<h2 class="govuk-heading-m" style="margin-top: 80px;">Second CAS area</h2>    
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      CAS area details
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove second CAS area<span class="govuk-visually-hidden"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          London
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wimbledon
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Preference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Second CAS area
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred CAS area</span></a>
+        </dd>-->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<!--Second CAS end-->
+        
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="no") %}
+
+        <!--You have added 2 addresses and chosen CAS referral with no preferred area-->
+               <!--Preferred address start-->   
+               <h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>  
+
+               <div class="govuk-summary-card">
+                 <div class="govuk-summary-card__title-wrapper">
+                   <h2 class="govuk-summary-card__title">
+                     Address details
+                   </h2>
+                   <ul class="govuk-summary-card__actions">
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
+                     </li>
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+                     </li>
+                     </ul>
+                 </div>
+                 <div class="govuk-summary-card__content">
+                   <dl class="govuk-summary-list">
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Address
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         4 Inner Street</br>
+                         Grantham</br>
+                         NG31 6HN
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Preference
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Preferred address
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                   </dl>
+                 </div>
+               </div>
+               
+               <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+               
+               <div class="govuk-summary-card">
+                 <div class="govuk-summary-card__title-wrapper">
+                   <h2 class="govuk-summary-card__title">
+                     Main occupier
+                   </h2>
+                   <ul class="govuk-summary-card__actions">
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+                     </li>
+                     <!--<li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                     </li>-->
+                     </ul>
+                 </div>
+                 <div class="govuk-summary-card__content">
+                   <dl class="govuk-summary-list">
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Name
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                          Sarah Martin
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Phone number
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         020 555 3083
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                        Relationship to person in prison
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Sister
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                   </dl>
+                 </div>
+               </div>
+               
+               <div class="govuk-summary-card">
+                 <div class="govuk-summary-card__title-wrapper">
+                   <h2 class="govuk-summary-card__title">
+                     Resident 1
+                   </h2>
+                   <ul class="govuk-summary-card__actions">
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+                     </li>
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                     </li>
+                   </ul>
+                 </div>
+                 <div class="govuk-summary-card__content">
+                   <dl class="govuk-summary-list">
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Name
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Amelia Martin
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                        Relationship to person in prison
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Cousin
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                       </dd>-->
+                     </div>
+                       <!--<div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key">
+                          Date of birth
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           2 May 2007
+                         </dd>
+                         <dd class="govuk-summary-list__actions">
+                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 1)</span></a>
+                         </dd>
+                       </div>-->
+                         <!--<div class="govuk-summary-list__row">
+                           <dt class="govuk-summary-list__key">
+                            Age
+                           </dt>
+                           <dd class="govuk-summary-list__value">
+                             17
+                           </dd>
+                           <dd class="govuk-summary-list__actions">
+                             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 1)</span></a>
+                           </dd>
+                         </div>-->
+                     </div>
+                   </dl>
+                 </div>
+               
+               
+                 <div class="govuk-summary-card">
+                   <div class="govuk-summary-card__title-wrapper">
+                     <h2 class="govuk-summary-card__title">
+                       Resident 2
+                     </h2>
+                     <ul class="govuk-summary-card__actions">
+                       <li class="govuk-summary-card__action">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                       </li>
+                       <li class="govuk-summary-card__action">
+                         <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                       </li>
+                     </ul>
+                   </div>
+                   <div class="govuk-summary-card__content">
+                     <dl class="govuk-summary-list">
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key">
+                           Name
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           James Martin
+                         </dd>
+                         <!--<dd class="govuk-summary-list__actions">
+                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                         </dd>-->
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key">
+                          Relationship to person in prison
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           Cousin
+                         </dd>
+                         <!--<dd class="govuk-summary-list__actions">
+                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+                         </dd>-->
+                       </div>
+                         <!--<div class="govuk-summary-list__row">
+                           <dt class="govuk-summary-list__key">
+                            Date of birth
+                           </dt>
+                           <dd class="govuk-summary-list__value">
+                             2 May 2007
+                           </dd>
+                           <dd class="govuk-summary-list__actions">
+                             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+                           </dd>
+                         </div>-->
+                           <!--<div class="govuk-summary-list__row">
+                             <dt class="govuk-summary-list__key">
+                              Age
+                             </dt>
+                             <dd class="govuk-summary-list__value">
+                               17
+                             </dd>
+                             <dd class="govuk-summary-list__actions">
+                               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 2)</span></a>
+                             </dd>
+                           </div>-->
+                       </div>
+                     </dl>
+                   </div>
+               
+                   
+                   <div class="govuk-summary-card">
+                     <div class="govuk-summary-card__title-wrapper">
+                       <h2 class="govuk-summary-card__title">
+                         Additional information
+                       </h2>
+                       <ul class="govuk-summary-card__actions">
+                         <li class="govuk-summary-card__action">
+                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                         </li>
+                         <li class="govuk-summary-card__action">
+                           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                         </li>
+                       </ul>
+                     </div>
+                     <div class="govuk-summary-card__content">
+                       <dl class="govuk-summary-list">
+                         <div class="govuk-summary-list__row">
+                           <!--<dt class="govuk-summary-list__key">
+                             
+                           </dt>-->
+                           <dd class="govuk-summary-list__value">
+                             It's important to mention that ...
+                           </dd>
+                           <!--<dd class="govuk-summary-list__actions">
+                             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                           </dd>-->
+                         </div>
+                         </div>
+                       </dl>
+                     </div>
+               
+               <!--Preferred address end-->
+               <!--Second address start-->
+               
+               <h2 class="govuk-heading-m" style="margin-top: 80px;">Second address</h2>    
+               
+               <div class="govuk-summary-card">
+                 <div class="govuk-summary-card__title-wrapper">
+                   <h2 class="govuk-summary-card__title">
+                     Address details
+                   </h2>
+                   <ul class="govuk-summary-card__actions">
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
+                     </li>
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+                     </li>
+                     </ul>
+                 </div>
+                 <div class="govuk-summary-card__content">
+                   <dl class="govuk-summary-list">
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Address
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         49 Hill Street</br>
+                         Grantham</br>
+                         N1J 5NB
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Preference
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Second address
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                   </dl>
+                 </div>
+               </div>
+               
+               <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+               
+               <div class="govuk-summary-card">
+                 <div class="govuk-summary-card__title-wrapper">
+                   <h2 class="govuk-summary-card__title">
+                     Main occupier
+                   </h2>
+                   <ul class="govuk-summary-card__actions">
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+                     </li>
+                     <!--<li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                     </li>-->
+                     </ul>
+                 </div>
+                 <div class="govuk-summary-card__content">
+                   <dl class="govuk-summary-list">
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Name
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Leanna Martin
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Phone number
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         020 3334 3555
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                        Relationship to person in prison
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Mother
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                       </dd>-->
+                     </div>
+                   </dl>
+                 </div>
+               </div>
+               
+               
+               <div class="govuk-summary-card">
+                 <div class="govuk-summary-card__title-wrapper">
+                   <h2 class="govuk-summary-card__title">
+                     Resident 1
+                   </h2>
+                   <ul class="govuk-summary-card__actions">
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+                     </li>
+                     <li class="govuk-summary-card__action">
+                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                     </li>
+                   </ul>
+                 </div>
+                 <div class="govuk-summary-card__content">
+                   <dl class="govuk-summary-list">
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Name
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Greg Martin
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                       </dd>-->
+                     </div>
+                     <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                        Relationship to person in prison
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         Brother
+                       </dd>
+                       <!--<dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                       </dd>-->
+                     </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key">
+                          Date of birth
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           2 May 2007
+                         </dd>
+                         <!--<dd class="govuk-summary-list__actions">
+                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                         </dd>-->
+                       </div>
+                         <div class="govuk-summary-list__row">
+                           <dt class="govuk-summary-list__key">
+                            Age
+                           </dt>
+                           <dd class="govuk-summary-list__value">
+                             17
+                           </dd>
+                           <!--<dd class="govuk-summary-list__actions">
+                             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                           </dd>-->
+                         </div>
+                     </div>
+                   </dl>
+                 </div>
+               
+               <!--Second address end-->
+      <!--No CAS preference start-->
+      
+      <h2 class="govuk-heading-m" style="margin-top: 80px;">Preferred CAS area</h2>    
+      
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            CAS area details
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
+            </li>
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                no cas area
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Sheffield
+              </dd>
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+              </dd>-->
+            </div>
+          </dl>
+        </div>
+      </div>      
+      <!--No CAS preference end-->
+        
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
+        <!--You have added 2 addresses and one CAS area-->
+         <!--Preferred address start-->   
+         <h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>  
+
+         <div class="govuk-summary-card">
+           <div class="govuk-summary-card__title-wrapper">
+             <h2 class="govuk-summary-card__title">
+               Address details
+             </h2>
+             <ul class="govuk-summary-card__actions">
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
+               </li>
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+               </li>
+               </ul>
+           </div>
+           <div class="govuk-summary-card__content">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Address
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   4 Inner Street</br>
+                   Grantham</br>
+                   NG31 6HN
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Preference
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Preferred address
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+             </dl>
+           </div>
+         </div>
+         
+         <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+         
+         <div class="govuk-summary-card">
+           <div class="govuk-summary-card__title-wrapper">
+             <h2 class="govuk-summary-card__title">
+               Main occupier
+             </h2>
+             <ul class="govuk-summary-card__actions">
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+               </li>
+               <!--<li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+               </li>-->
+               </ul>
+           </div>
+           <div class="govuk-summary-card__content">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Name
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                    Sarah Martin
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Phone number
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   020 555 3083
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Relationship to person in prison
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Sister
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+             </dl>
+           </div>
+         </div>
+         
+         <div class="govuk-summary-card">
+           <div class="govuk-summary-card__title-wrapper">
+             <h2 class="govuk-summary-card__title">
+               Resident 1
+             </h2>
+             <ul class="govuk-summary-card__actions">
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+               </li>
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+               </li>
+             </ul>
+           </div>
+           <div class="govuk-summary-card__content">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Name
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Amelia Martin
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Relationship to person in prison
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Cousin
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                 </dd>-->
+               </div>
+                 <!--<div class="govuk-summary-list__row">
+                   <dt class="govuk-summary-list__key">
+                    Date of birth
+                   </dt>
+                   <dd class="govuk-summary-list__value">
+                     2 May 2007
+                   </dd>
+                   <dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 1)</span></a>
+                   </dd>
+                 </div>-->
+                   <!--<div class="govuk-summary-list__row">
+                     <dt class="govuk-summary-list__key">
+                      Age
+                     </dt>
+                     <dd class="govuk-summary-list__value">
+                       17
+                     </dd>
+                     <dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 1)</span></a>
+                     </dd>
+                   </div>-->
+               </div>
+             </dl>
+           </div>
+         
+         
+           <div class="govuk-summary-card">
+             <div class="govuk-summary-card__title-wrapper">
+               <h2 class="govuk-summary-card__title">
+                 Resident 2
+               </h2>
+               <ul class="govuk-summary-card__actions">
+                 <li class="govuk-summary-card__action">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                 </li>
+                 <li class="govuk-summary-card__action">
+                   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                 </li>
+               </ul>
+             </div>
+             <div class="govuk-summary-card__content">
+               <dl class="govuk-summary-list">
+                 <div class="govuk-summary-list__row">
+                   <dt class="govuk-summary-list__key">
+                     Name
+                   </dt>
+                   <dd class="govuk-summary-list__value">
+                     James Martin
+                   </dd>
+                   <!--<dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                   </dd>-->
+                 </div>
+                 <div class="govuk-summary-list__row">
+                   <dt class="govuk-summary-list__key">
+                    Relationship to person in prison
+                   </dt>
+                   <dd class="govuk-summary-list__value">
+                     Cousin
+                   </dd>
+                   <!--<dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+                   </dd>-->
+                 </div>
+                   <!--<div class="govuk-summary-list__row">
+                     <dt class="govuk-summary-list__key">
+                      Date of birth
+                     </dt>
+                     <dd class="govuk-summary-list__value">
+                       2 May 2007
+                     </dd>
+                     <dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+                     </dd>
+                   </div>-->
+                     <!--<div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                        Age
+                       </dt>
+                       <dd class="govuk-summary-list__value">
+                         17
+                       </dd>
+                       <dd class="govuk-summary-list__actions">
+                         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 2)</span></a>
+                       </dd>
+                     </div>-->
+                 </div>
+               </dl>
+             </div>
+         
+             
+             <div class="govuk-summary-card">
+               <div class="govuk-summary-card__title-wrapper">
+                 <h2 class="govuk-summary-card__title">
+                   Additional information
+                 </h2>
+                 <ul class="govuk-summary-card__actions">
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                   </li>
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                   </li>
+                 </ul>
+               </div>
+               <div class="govuk-summary-card__content">
+                 <dl class="govuk-summary-list">
+                   <div class="govuk-summary-list__row">
+                     <!--<dt class="govuk-summary-list__key">
+                       
+                     </dt>-->
+                     <dd class="govuk-summary-list__value">
+                       It's important to mention that ...
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+                   </div>
+                 </dl>
+               </div>
+         
+         <!--Preferred address end-->
+         <!--Second address start-->
+         
+         <h2 class="govuk-heading-m" style="margin-top: 80px;">Second address</h2>    
+         
+         <div class="govuk-summary-card">
+           <div class="govuk-summary-card__title-wrapper">
+             <h2 class="govuk-summary-card__title">
+               Address details
+             </h2>
+             <ul class="govuk-summary-card__actions">
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
+               </li>
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+               </li>
+               </ul>
+           </div>
+           <div class="govuk-summary-card__content">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Address
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   49 Hill Street</br>
+                   Grantham</br>
+                   N1J 5NB
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Preference
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Second address
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+             </dl>
+           </div>
+         </div>
+         
+         <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+         
+         <div class="govuk-summary-card">
+           <div class="govuk-summary-card__title-wrapper">
+             <h2 class="govuk-summary-card__title">
+               Main occupier
+             </h2>
+             <ul class="govuk-summary-card__actions">
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+               </li>
+               <!--<li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+               </li>-->
+               </ul>
+           </div>
+           <div class="govuk-summary-card__content">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Name
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Leanna Martin
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Phone number
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   020 3334 3555
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Relationship to person in prison
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Mother
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                 </dd>-->
+               </div>
+             </dl>
+           </div>
+         </div>
+         
+         
+         <div class="govuk-summary-card">
+           <div class="govuk-summary-card__title-wrapper">
+             <h2 class="govuk-summary-card__title">
+               Resident 1
+             </h2>
+             <ul class="govuk-summary-card__actions">
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+               </li>
+               <li class="govuk-summary-card__action">
+                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+               </li>
+             </ul>
+           </div>
+           <div class="govuk-summary-card__content">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Name
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Greg Martin
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                 </dd>-->
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Relationship to person in prison
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   Brother
+                 </dd>
+                 <!--<dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                 </dd>-->
+               </div>
+                 <div class="govuk-summary-list__row">
+                   <dt class="govuk-summary-list__key">
+                    Date of birth
+                   </dt>
+                   <dd class="govuk-summary-list__value">
+                     2 May 2007
+                   </dd>
+                   <!--<dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                   </dd>-->
+                 </div>
+                   <div class="govuk-summary-list__row">
+                     <dt class="govuk-summary-list__key">
+                      Age
+                     </dt>
+                     <dd class="govuk-summary-list__value">
+                       17
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+               </div>
+             </dl>
+           </div>
+         
+         <!--Second address end-->
+<!--Preferred CAS start-->
+
+<h2 class="govuk-heading-m" style="margin-top: 80px;">Preferred CAS area</h2>    
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      CAS area details
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Preference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Preferred CAS area
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred CAS area</span></a>
+        </dd>-->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Additional information
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <!--<dt class="govuk-summary-list__key">
+          
+        </dt>-->
+        <dd class="govuk-summary-list__value">
+          It's important to mention that ...
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      </div>
+    </dl>
+  </div>
+
+<!--Preferred CAS end-->
+
+        {% elseif (data.postcodelookup=="two") %}
+
+        <!--You have added 2 addresses-->   
+        <!--Preferred address start-->   
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>  
 
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
@@ -298,9 +1879,6 @@
       </div>
 
 <!--Preferred address end-->
-
-
-
 <!--Second address start-->
 
 <h2 class="govuk-heading-m" style="margin-top: 80px;">Second address</h2>    
@@ -471,48 +2049,39 @@
 
 <!--Second address end-->
 
+        {% else %}
 
-
-<!--Preferred CAS start-->
-
-<h2 class="govuk-heading-m" style="margin-top: 80px;">Preferred CAS area</h2>    
+        <!--You have added one address-->
+        <!--Preferred address start-->
+<h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>  
 
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      CAS area details
+      Address details
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+        <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
       </li>
-    </ul>
+      </ul>
   </div>
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Town or city
+          Address
         </dt>
         <dd class="govuk-summary-list__value">
-          Sheffield
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
         </dd>
         <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
-        </dd>-->
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          County or borough
-        </dt>
-        <dd class="govuk-summary-list__value">
-          South Yorkshire
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
         </dd>-->
       </div>
       <div class="govuk-summary-list__row">
@@ -520,10 +2089,65 @@
           Preference
         </dt>
         <dd class="govuk-summary-list__value">
-          Preferred CAS area
+          Preferred address
         </dd>
         <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred CAS area</span></a>
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+        </dd>-->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Main occupier
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+      </li>
+      <!--<li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+      </li>-->
+      </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+           Sarah Martin
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          020 555 3083
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Relationship to person in prison
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sister
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
         </dd>-->
       </div>
     </dl>
@@ -533,98 +2157,166 @@
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      Additional information
+      Resident 1
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
       </li>
     </ul>
   </div>
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
-        <!--<dt class="govuk-summary-list__key">
-          
-        </dt>-->
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
         <dd class="govuk-summary-list__value">
-          It's important to mention that ...
+          Amelia Martin
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
         </dd>-->
       </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Relationship to person in prison
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Cousin
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+        </dd>-->
+      </div>
+        <!--<div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            2 May 2007
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 1)</span></a>
+          </dd>
+        </div>-->
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Age
+            </dt>
+            <dd class="govuk-summary-list__value">
+              17
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 1)</span></a>
+            </dd>
+          </div>-->
       </div>
     </dl>
   </div>
 
-<!--Preferred CAS end-->
 
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Resident 2
+      </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+        </li>
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            James Martin
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+          </dd>-->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Relationship to person in prison
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Cousin
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+          </dd>-->
+        </div>
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2 May 2007
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+            </dd>
+          </div>-->
+            <!--<div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Age
+              </dt>
+              <dd class="govuk-summary-list__value">
+                17
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (resident 2)</span></a>
+              </dd>
+            </div>-->
+        </div>
+      </dl>
+    </div>
 
-
-
-<!--Second CAS start-->
-
-<h2 class="govuk-heading-m" style="margin-top: 80px;">Second CAS area</h2>    
-
-<div class="govuk-summary-card">
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">
-      CAS area details
-    </h2>
-    <ul class="govuk-summary-card__actions">
-      <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
-      </li>
-      <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove second CAS area<span class="govuk-visually-hidden"></span></a>
-      </li>
-    </ul>
-  </div>
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Town or city
-        </dt>
-        <dd class="govuk-summary-list__value">
-          London
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
-        </dd>-->
+    
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Additional information
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+          </li>
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+          </li>
+        </ul>
       </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          County or borough
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Wimbledon
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
-        </dd>-->
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <!--<dt class="govuk-summary-list__key">
+              
+            </dt>-->
+            <dd class="govuk-summary-list__value">
+              It's important to mention that ...
+            </dd>
+            <!--<dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+            </dd>-->
+          </div>
+          </div>
+        </dl>
       </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Preference
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Second CAS area
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred CAS area</span></a>
-        </dd>-->
-      </div>
-    </dl>
-  </div>
-</div>
 
-<!--Preferred CAS end-->
-        
+<!--Preferred address end-->
+        {% endif%}
 
 
         <form action="../case-overview" method="post" novalidate>
