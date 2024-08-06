@@ -58,26 +58,12 @@ router.post('/add-another-address', function (req, res) {
    else if (addAnotherAddress == "cas2"){
 
     // Send user to cas page nr. 2
-      res.redirect(version + '/afer/address-input/enter-cas-2');
+      res.redirect(version + '/afer/address-input/cas-2');
     }
 });
 
 
-//Preferred cas area
-router.post('/preferred-cas-area', function (req, res) {
-  var preferredCasArea = req.session.data['preferredcasarea']
 
-  // Check whether the variable matches a condition
-  if (preferredCasArea == "yes"){
-   
-   // Send user to enter cas info
-    res.redirect(version + '/afer/address-input/enter-cas')
-  } else {
-    // Send user to add another page
-    res.redirect(version + '/afer/address-input/add-another')
-  }
-
-});
 
 
 

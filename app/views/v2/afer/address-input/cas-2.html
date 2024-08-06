@@ -28,14 +28,14 @@
       <div class="govuk-grid-column-two-thirds">
 
 
-<form action="add-another" method="post">
+<form action="additional-info" method="post">
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
-      Do you have a preferred area?</h1>
-      </legend><br>
+      Where does this person want to be released?</h1>
+      </legend>
       <div class="govuk-form-group">
 
     <!--START set dynamic radio hide/show text-->
@@ -50,7 +50,7 @@
       name: "towncity",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Town/City"
+        text: "Town or city"
       }
     }) }}
 
@@ -61,7 +61,7 @@
       type: "tel",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "County"
+        text: "County or borough"
       }
     }) }}
 
@@ -82,15 +82,15 @@
 
       items: [
       {
-        value: "yes",
-        text: "Yes",
+        value: "specificarea",
+        text: "A specific area",
         conditional: {
           html: textHtmlOther
         }
       },
       {
-        value: "no",
-        text: "No",
+        value: "nopreference",
+        text: "They do not have a preference",
         conditional: {
           html: emailHtml
         }
@@ -99,16 +99,34 @@
     }) }}
  
 
-  
-    <div class="govuk-form-group">
-      <label class="govuk-label" for="more-detail">
-        Additional information
-      </label>
-      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+    <!--If they have provided 2 CAS areas, say if this is their preferred or second address-->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
+        Set address preference 
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Preferred CAS area
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland" checked>
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Second CAS area
+        </label>
+      </div>
     </div>
+  </fieldset>
+</div>
+  
 
-    <input type="hidden" name="communityaccommodation" value="one">
-    <button type="submit" class="govuk-button" data-module="govuk-button">
+  <input type="hidden" name="communityaccommodation" value="two">
+    <button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
       Continue
     </button>
 

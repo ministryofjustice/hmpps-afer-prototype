@@ -29,8 +29,6 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        
- 
         <form action="add-another" method="post" novalidate>
 
           {% if (data.communityaccommodation=="two") %}
@@ -56,7 +54,7 @@
               name: "moreDetailCommunityTwo",
               id: "moreDetailCommunityTwo",
               label: {
-                text: "Add more information"
+                text: "Add more information community 2"
               }
             }) }}
 
@@ -94,7 +92,8 @@
             </fieldset>
             </div>
 
-          {% elseif (data.communityaccommodation=="one") %}
+         
+          {% elseif (data.cas=="specificarea") %}
           
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
@@ -117,7 +116,7 @@
               name: "moreDetailCommunityOne",
               id: "moreDetailCommunityOne",
               label: {
-                text: "Add more information"
+                text: "Add more information community 1"
               }
             }) }}
 
@@ -155,7 +154,68 @@
             </fieldset>
             </div>
 
-          {% elseif (data.postcodelookup=="two") %}
+            {% elseif (data.cas=="nopreference") %}
+          
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
+                </legend>
+                <div id="changedName-hint" class="govuk-hint">
+                  For example, anything the probation practitioner might need to know about this person’s choice. 
+                </div>
+  
+                <div class="govuk-form-group">
+          
+              <!--START set dynamic radio hide/show text-->
+              {% from "govuk/components/radios/macro.njk" import govukRadios %}
+              {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+          
+              {% set textHtmlOther %}
+              
+              {{ govukTextarea({
+                name: "moreDetailnoCAS",
+                id: "moreDetailnoCAS",
+                label: {
+                  text: "Add more information no CAS preference"
+                }
+              }) }}
+  
+              {% endset -%}
+          
+              <!--END set dynamic radio hide/show text-->
+          
+              {{ govukRadios({
+                idPrefix: "additionalinfo",
+                name: "additionalinfo",
+                fieldset: {
+                  legend: {
+                    text: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+          
+                items: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                  conditional: {
+                    html: textHtmlOther
+                  }
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+                ]
+              }) }}
+  
+              </div>
+              </fieldset>
+              </div>
+          
+            {% elseif (data.postcodelookup=="two") %}
           
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
@@ -178,7 +238,7 @@
               name: "moreDetailpostcodeTwo",
               id: "moreDetailpostcodeTwo",
               label: {
-                text: "Add more information"
+                text: "Add more information postcode 2"
               }
             }) }}
 
@@ -239,7 +299,7 @@
                 name: "moreDetailpostcodeOne",
                 id: "moreDetailpostcodeOne",
                 label: {
-                  text: "Add more information"
+                  text: "Add more information postcode one"
                 }
               }) }}
 
@@ -279,21 +339,30 @@
 
           {% endif %}
 
-          
       
       <div class="moj-button-action">
-  
-        {% if (data.postcodelookup=="one") %}
-        <input type="hidden" name="postcodelookup" value="one">
-        {% endif %}
-
-        {% if (data.communityaccommodation=="one") %}
-        <input type="hidden" name="communityaccommodation" value="one">
-        {% endif %}
 
         {% if (data.communityaccommodation=="two") %}
+        cas 2
         <input type="hidden" name="communityaccommodation" value="two">
+      
+        {% elseif (data.cas=="specificarea") %}
+        cas 1
+        <input type="hidden" name="communityaccommodation" value="one">
+        
+        {% elseif (data.cas=="nopreference") %}
+        CAS no preference
+        <input type="hidden" name="communityaccommodation" value="no">
+
+        {% elseif (data.postcodelookup=="two") %}
+        postcode 2
+        <input type="hidden" name="postcodelookup" value="two">
+  
+        {% elseif (data.postcodelookup=="one") %}
+        postcode 1
+        <input type="hidden" name="postcodelookup" value="one">
         {% endif %}
+        
 
         <button type="submit" class="govuk-button" data-module="govuk-button">
          Continue
