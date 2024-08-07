@@ -265,7 +265,7 @@
               </dl>
             </div>
         
-            
+            {%if (data.curfewinfo1) %} 
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
                 <h2 class="govuk-summary-card__title">
@@ -273,10 +273,10 @@
                 </h2>
                 <ul class="govuk-summary-card__actions">
                   <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                   </li>
                   <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                    <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                   </li>
                 </ul>
               </div>
@@ -284,10 +284,9 @@
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <!--<dt class="govuk-summary-list__key">
-                      
                     </dt>-->
                     <dd class="govuk-summary-list__value">
-                      It's important to mention that ...
+                      {{data.curfewinfo1}}
                     </dd>
                     <!--<dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -296,7 +295,8 @@
                   </div>
                 </dl>
               </div>
-        
+              {% else %}
+              {% endif %}
         <!--Preferred address end-->
         <!--Second address start-->
         
@@ -466,6 +466,38 @@
             </dl>
           </div>
         
+          {%if (data.curfewinfo2) %} 
+             <div class="govuk-summary-card">
+               <div class="govuk-summary-card__title-wrapper">
+                 <h2 class="govuk-summary-card__title">
+                   Additional information
+                 </h2>
+                 <ul class="govuk-summary-card__actions">
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                 </ul>
+               </div>
+               <div class="govuk-summary-card__content">
+                 <dl class="govuk-summary-list">
+                   <div class="govuk-summary-list__row">
+                     <!--<dt class="govuk-summary-list__key">
+                     </dt>-->
+                     <dd class="govuk-summary-list__value">
+                      {{data.curfewinfo2}}
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+                   </div>
+                 </dl>
+               </div>
+               {% else %} 
+               {% endif %} 
         <!--Second address end-->
         <!--Preferred CAS start-->
 
@@ -492,7 +524,11 @@
           Town or city
         </dt>
         <dd class="govuk-summary-list__value">
-          Sheffield
+            {%if (data.castowncity1) %}
+              {{data.castowncity1}}
+             {% else %}
+              Sheffield
+             {% endif %}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -503,7 +539,11 @@
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          South Yorkshire
+            {%if (data.cascountyborough1) %}
+              {{data.cascountyborough1}}
+            {% else %}
+             South Yorkshire
+            {% endif %}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -524,6 +564,7 @@
   </div>
 </div>
 
+{%if (data.casinfo1) %} 
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
@@ -531,10 +572,10 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info for preferred cas</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info for preferred cas</span></a>
       </li>
     </ul>
   </div>
@@ -542,10 +583,9 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <!--<dt class="govuk-summary-list__key">
-          
         </dt>-->
         <dd class="govuk-summary-list__value">
-          It's important to mention that ...
+          {{data.casinfo1}}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -554,6 +594,8 @@
       </div>
     </dl>
   </div>
+  {% else %} 
+  {% endif %} 
 
 <!--Preferred CAS end-->
 <!--Second CAS start-->
@@ -581,7 +623,11 @@
           Town or city
         </dt>
         <dd class="govuk-summary-list__value">
-          London
+            {%if (data.castowncity2) %}
+              {{data.castowncity2}}
+            {% else %}
+              London
+            {% endif %}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -592,7 +638,11 @@
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          Wimbledon
+            {%if (data.cascountyborough2) %}
+              {{data.cascountyborough2}}
+            {% else %}
+              Wimbledon
+            {% endif %}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -612,6 +662,39 @@
     </dl>
   </div>
 </div>
+
+{%if (data.casinfo2) %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Additional information
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of second cas</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of second cas</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <!--<dt class="govuk-summary-list__key">
+        </dt>-->
+        <dd class="govuk-summary-list__value">
+          {{data.casinfo2}}
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      </div>
+    </dl>
+  </div>
+  {% else %}
+  {% endif %}
 
 <!--Second CAS end-->
         
@@ -849,7 +932,7 @@
                      </dl>
                    </div>
                
-                   
+                   {%if (data.curfewinfo1) %} 
                    <div class="govuk-summary-card">
                      <div class="govuk-summary-card__title-wrapper">
                        <h2 class="govuk-summary-card__title">
@@ -857,10 +940,10 @@
                        </h2>
                        <ul class="govuk-summary-card__actions">
                          <li class="govuk-summary-card__action">
-                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                          </li>
                          <li class="govuk-summary-card__action">
-                           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                          </li>
                        </ul>
                      </div>
@@ -868,10 +951,9 @@
                        <dl class="govuk-summary-list">
                          <div class="govuk-summary-list__row">
                            <!--<dt class="govuk-summary-list__key">
-                             
                            </dt>-->
                            <dd class="govuk-summary-list__value">
-                             It's important to mention that ...
+                            {{data.curfewinfo1}}
                            </dd>
                            <!--<dd class="govuk-summary-list__actions">
                              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -880,7 +962,8 @@
                          </div>
                        </dl>
                      </div>
-               
+                     {% else %} 
+                     {% endif %} 
                <!--Preferred address end-->
                <!--Second address start-->
                
@@ -1049,8 +1132,41 @@
                      </div>
                    </dl>
                  </div>
+
+                 {%if (data.curfewinfo2) %} 
+             <div class="govuk-summary-card">
+               <div class="govuk-summary-card__title-wrapper">
+                 <h2 class="govuk-summary-card__title">
+                   Additional information
+                 </h2>
+                 <ul class="govuk-summary-card__actions">
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of second curfew</span></a>
+                   </li>
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of second curfew</span></a>
+                   </li>
+                 </ul>
+               </div>
+               <div class="govuk-summary-card__content">
+                 <dl class="govuk-summary-list">
+                   <div class="govuk-summary-list__row">
+                     <!--<dt class="govuk-summary-list__key">
+                     </dt>-->
+                     <dd class="govuk-summary-list__value">
+                      {{data.curfewinfo2}}
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+                   </div>
+                 </dl>
+               </div>
+               {% else %} 
+               {% endif %} 
                
-               <!--Second address end-->
+      <!--Second address end-->
       <!--No CAS preference start-->
       
       <h2 class="govuk-heading-m" style="margin-top: 80px;">Preferred CAS area</h2>    
@@ -1073,10 +1189,10 @@
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                no cas area
+                No preferred CAS area
               </dt>
               <dd class="govuk-summary-list__value">
-                Sheffield
+              This person would like to be referred for CAS but has no preference where they are released
               </dd>
               <!--<dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -1085,6 +1201,39 @@
           </dl>
         </div>
       </div>      
+
+      {%if (data.nocasinfo) %} 
+             <div class="govuk-summary-card">
+               <div class="govuk-summary-card__title-wrapper">
+                 <h2 class="govuk-summary-card__title">
+                   Additional information
+                 </h2>
+                 <ul class="govuk-summary-card__actions">
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                 </ul>
+               </div>
+               <div class="govuk-summary-card__content">
+                 <dl class="govuk-summary-list">
+                   <div class="govuk-summary-list__row">
+                     <!--<dt class="govuk-summary-list__key">
+                     </dt>-->
+                     <dd class="govuk-summary-list__value">
+                      {{data.nocasinfo}}
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+                   </div>
+                 </dl>
+               </div>
+               {% else %} 
+               {% endif %} 
       <!--No CAS preference end-->
         
         {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
@@ -1320,7 +1469,7 @@
                </dl>
              </div>
          
-             
+             {%if (data.curfewinfo1) %} 
              <div class="govuk-summary-card">
                <div class="govuk-summary-card__title-wrapper">
                  <h2 class="govuk-summary-card__title">
@@ -1328,10 +1477,10 @@
                  </h2>
                  <ul class="govuk-summary-card__actions">
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -1339,10 +1488,9 @@
                  <dl class="govuk-summary-list">
                    <div class="govuk-summary-list__row">
                      <!--<dt class="govuk-summary-list__key">
-                       
                      </dt>-->
                      <dd class="govuk-summary-list__value">
-                       It's important to mention that ...
+                      {{data.curfewinfo1}}
                      </dd>
                      <!--<dd class="govuk-summary-list__actions">
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -1351,7 +1499,8 @@
                    </div>
                  </dl>
                </div>
-         
+               {% else %} 
+               {% endif %} 
          <!--Preferred address end-->
          <!--Second address start-->
          
@@ -1520,6 +1669,39 @@
                </div>
              </dl>
            </div>
+
+           {%if (data.curfewinfo2) %} 
+             <div class="govuk-summary-card">
+               <div class="govuk-summary-card__title-wrapper">
+                 <h2 class="govuk-summary-card__title">
+                   Additional information
+                 </h2>
+                 <ul class="govuk-summary-card__actions">
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                 </ul>
+               </div>
+               <div class="govuk-summary-card__content">
+                 <dl class="govuk-summary-list">
+                   <div class="govuk-summary-list__row">
+                     <!--<dt class="govuk-summary-list__key">
+                     </dt>-->
+                     <dd class="govuk-summary-list__value">
+                      {{data.curfewinfo2}}
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+                   </div>
+                 </dl>
+               </div>
+               {% else %} 
+               {% endif %} 
          
          <!--Second address end-->
 <!--Preferred CAS start-->
@@ -1547,7 +1729,11 @@
           Town or city
         </dt>
         <dd class="govuk-summary-list__value">
-          Sheffield
+            {%if (data.castowncity1) %}
+              {{data.castowncity1}}
+             {% else %}
+              Sheffield
+             {% endif %}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -1558,7 +1744,11 @@
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          South Yorkshire
+            {%if (data.cascountyborough1) %}
+              {{data.cascountyborough1}}
+            {% else %}
+              South Yorkshire
+            {% endif %}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
@@ -1579,6 +1769,7 @@
   </div>
 </div>
 
+{%if (data.casinfo1) %}
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
@@ -1586,10 +1777,10 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred cas</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred cas</span></a>
       </li>
     </ul>
   </div>
@@ -1597,10 +1788,9 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <!--<dt class="govuk-summary-list__key">
-          
         </dt>-->
         <dd class="govuk-summary-list__value">
-          It's important to mention that ...
+          {{data.casinfo1}}
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -1609,6 +1799,8 @@
       </div>
     </dl>
   </div>
+  {% else %}
+  {% endif %}
 
 <!--Preferred CAS end-->
 
@@ -1846,7 +2038,7 @@
       </dl>
     </div>
 
-    
+    {%if (data.curfewinfo1) %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
@@ -1854,10 +2046,10 @@
         </h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
         </ul>
       </div>
@@ -1865,10 +2057,9 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <!--<dt class="govuk-summary-list__key">
-              
             </dt>-->
             <dd class="govuk-summary-list__value">
-              It's important to mention that ...
+              {{data.curfewinfo1}}
             </dd>
             <!--<dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -1877,7 +2068,8 @@
           </div>
         </dl>
       </div>
-
+      {% else %}
+      {% endif %}
 <!--Preferred address end-->
 <!--Second address start-->
 
@@ -2046,6 +2238,39 @@
       </div>
     </dl>
   </div>
+
+            {%if (data.curfewinfo2) %} 
+             <div class="govuk-summary-card">
+               <div class="govuk-summary-card__title-wrapper">
+                 <h2 class="govuk-summary-card__title">
+                   Additional information
+                 </h2>
+                 <ul class="govuk-summary-card__actions">
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                   <li class="govuk-summary-card__action">
+                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                   </li>
+                 </ul>
+               </div>
+               <div class="govuk-summary-card__content">
+                 <dl class="govuk-summary-list">
+                   <div class="govuk-summary-list__row">
+                     <!--<dt class="govuk-summary-list__key">
+                     </dt>-->
+                     <dd class="govuk-summary-list__value">
+                      {{data.curfewinfo2}}
+                     </dd>
+                     <!--<dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                     </dd>-->
+                   </div>
+                   </div>
+                 </dl>
+               </div>
+               {% else %} 
+               {% endif %} 
 
 <!--Second address end-->
 
@@ -2283,7 +2508,7 @@
       </dl>
     </div>
 
-    
+    {%if (data.curfewinfo1) %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
@@ -2291,10 +2516,10 @@
         </h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
         </ul>
       </div>
@@ -2302,10 +2527,9 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <!--<dt class="govuk-summary-list__key">
-              
             </dt>-->
             <dd class="govuk-summary-list__value">
-              It's important to mention that ...
+              {{data.curfewinfo1}}
             </dd>
             <!--<dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
@@ -2314,6 +2538,8 @@
           </div>
         </dl>
       </div>
+      {% else %}
+      {% endif %}
 
 <!--Preferred address end-->
         {% endif%}

@@ -80,7 +80,16 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
             <strong>Preferred CAS area</strong></br>
-            Sheffield, South Yorkshire
+            {%if (data.castowncity1) %}
+              {{data.castowncity1}},
+             {% else %}
+              Sheffield,
+             {% endif %}
+             {%if (data.cascountyborough1) %}
+              {{data.cascountyborough1}}
+             {% else %}
+              South Yorkshire
+             {% endif %}
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
@@ -92,7 +101,16 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
             <strong>Second CAS area</strong></br>
-            London, Wimbledon
+            {%if (data.castowncity2) %}
+              {{data.castowncity2}},
+             {% else %}
+              London,
+             {% endif %}
+             {%if (data.cascountyborough2) %}
+              {{data.cascountyborough2}}
+             {% else %}
+              Wimbledon
+             {% endif %}
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
@@ -168,7 +186,16 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
             <strong>Preferred CAS area</strong></br>
-            Sheffield, South Yorkshire
+            {%if (data.castowncity1) %}
+              {{data.castowncity1}},
+             {% else %}
+              Sheffield,
+             {% endif %}
+             {%if (data.cascountyborough1) %}
+              {{data.cascountyborough1}}
+             {% else %}
+              South Yorkshire
+             {% endif %}
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
