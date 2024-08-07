@@ -30,7 +30,7 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
 
-        <p>Case is allocated to Mark Coombes, probation practitioner.</p>
+
 
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2>   
         
@@ -43,7 +43,7 @@
               NG31 6HN
             </dt>
             <dd class="govuk-summary-list__value">
-            </br>Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}
+            </br>Assessed as unsuitable by Mark Coombes, probation practitioner on {{ "today" | duration(-2) | govukDate("truncate") }}
             </dd>
             <dd class="govuk-summary-list__actions">
             </br><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
@@ -119,29 +119,73 @@
         <a href="#" class="govuk-button">Add another CAS area</a>
         
         
-        
-        <h2 class="govuk-heading-m govuk-!-margin-top-6">No further address</h2>
-        
-        <p class="govuk-body">You can close this application when all addresses and CAS areas have been assessed as unsuitable and George Jennings has no more to suggest.</p>
-        
-        <form action="../case-overview" method="post" novalidate>
 
-        <input type="hidden" name="addressinputcomplete" value="view">
-
-          <div class="govuk-button-group">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Close application
-            </button>
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Back to overview
-            </button>
-          </div>
-
-      </form>
         
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+         <!--contacts card start-->
+    <div class="govuk-summary-card" style="margin-top: 40px;">
+    
+      <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Probation Practitioner
+      </h2>
+      </div>
+      
+      <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+      
+       <p>
+        Mark Coombes</br>
+        mark.coombes@justice.gov.uk</br>
+        Team ABC</p>
+      
+      </dl>
+      </div>
+      
+    </div>
+      <!--contact card end-->
+
+        <!--contacts card start-->
+    <div class="govuk-summary-card" style="margin-top: 0px;">
+    
+      <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Actions
+      </h2>
+      </div>
+      
+      <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out.html">Opt in/out</a>
+          </dt>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Close application</a>
+          </dt>
+        </div>
+      
+      </dl>
+      </div>
+      
+    </div>
+      <!--contact card end-->
+
+             
 
       </div>
+
     </div>
   </main>
 </div>
+
+
+
 {% endblock %}
