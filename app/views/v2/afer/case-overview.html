@@ -59,7 +59,29 @@
       <div class="moj-banner__message">George Jennings has opted out of HDC</div>
     
     </div>    
+
+    {% elseif data.postponed=="yes"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
     
+      <div class="moj-banner__message">This application has been postponed</div>
+    
+    </div>    
+    
+    {% elseif data.submitfordecision=="yes"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+    
+      <div class="moj-banner__message">This application has been submitted for decision</div>
+    
+    </div>    
+
     {% else %}
     {% endif %}
 
@@ -72,7 +94,7 @@
     
     
           <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
+            <div class="govuk-grid-column-two-thirds">
     
                     <!--card start-->
     <div class="govuk-summary-card" style="margin-top: 0px;">
@@ -92,7 +114,7 @@
         <dl class="govuk-summary-list">
     
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 30%;">
+            <dt class="govuk-summary-list__key">
               Name
             </dt>
             <dd class="govuk-summary-list__value">
@@ -160,6 +182,18 @@
               <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Main offence
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Concerned in the supply of a controlled drug of Class B - cannabis
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--<span class="moj-badge moj-badge--black">Nomis</span>-->
+            </dd>
+          </div>
       
         </dl>
       </div>
@@ -171,7 +205,7 @@
             </div>
     
     
-           <div class="govuk-grid-column-one-half">
+           <div class="govuk-grid-column-one-third">
     
     <!--contacts card start-->
     <div class="govuk-summary-card" style="margin-top: 0px;">
@@ -190,12 +224,20 @@
             <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out.html">Opt in/out</a>
           </dt>
         </div>
-      
+
+        {% if (data.user=="decisionmaker") or (data.user=="admin") %}
         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html">Postpone application</a>
+          </dt>
+        </div>
+        {% endif %}
+
+        <!--<div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="#">Close case</a>
           </dt>
-        </div>
+        </div>-->
 
         {% if data.user=="probation" %}
         <div class="govuk-summary-list__row">
@@ -366,9 +408,9 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete pre-release checks</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review case and send for decision</h2>
     <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a href="#" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    <a href="./eligibility/tasklist-review.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 
 </article>

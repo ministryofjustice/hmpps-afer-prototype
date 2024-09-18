@@ -70,7 +70,21 @@ router.post('/add-another-address', function (req, res) {
 });
 
 
+//Postpone application
+router.post('/postpone', function (req, res) {
+  var postponeApplication = req.session.data['postponeapplication']
 
+  // Check whether the variable matches a condition
+  if (postponeApplication == "yes"){
+   
+   // Send user to address type page
+    res.redirect(version + '/afer/postpone/postpone-this-application')
+  } else {
+    // Send user to opt out reason page
+    res.redirect(version + '/afer/case-overview')
+  }
+
+});
 
 
 
