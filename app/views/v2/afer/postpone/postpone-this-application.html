@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+                
+                  <form action="../case-overview" method="post" novalidate>
+
+
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="postponereason-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
+                          Postpone this application
+                        </h1>
+                      </legend>
+                      <div id="postponereason-hint" class="govuk-hint">
+                        Choose at least one reason for postponing this application.
+                      </div>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="postponereason" name="postponereason" type="checkbox" value="riskmanagement">
+                          <label class="govuk-label govuk-checkboxes__label" for="postponereason">
+                          Waiting for a risk management plan
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="postponereason-2" name="postponereason" type="checkbox" value="remand">
+                          <label class="govuk-label govuk-checkboxes__label" for="postponereason-2">
+                          On remand
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="postponereason-3" name="postponereason" type="checkbox" value="confiscationorder">
+                          <label class="govuk-label govuk-checkboxes__label" for="postponereason-3">
+                          Would not follow the requirements of a confiscation order if released
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="postponereason-3" name="postponereason" type="checkbox" value="segregated">
+                          <label class="govuk-label govuk-checkboxes__label" for="postponereason-3">
+                          Segregated and the governor has not approved their release yet.</br>This does not apply if they were segregated for their own protection
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="postponereason-3" name="postponereason" type="checkbox" value="committedoffence">
+                          <label class="govuk-label govuk-checkboxes__label" for="postponereason-3">
+                          Committed an offence in prison that has been referred to a law enforcement agency or the independent adjudicator but not resolved
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="postponereason-3" name="postponereason" type="checkbox" value="undulylenientsentence">
+                          <label class="govuk-label govuk-checkboxes__label" for="postponereason-3">
+                          Application pending with the unduly lenient sentence scheme
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                <input type="hidden" name="submitfordecision" value="no">
+                <input type="hidden" name="postponed" value="yes">
+
+                <div class="govuk-button-group">
+
+                 <button type="submit" class="govuk-button" data-module="govuk-button">
+                    Submit
+                  </button>
+                  
+                  <a href="../case-overview.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+
+                </div>
+
+                </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
