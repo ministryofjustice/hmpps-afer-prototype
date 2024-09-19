@@ -1,0 +1,154 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">
+        Assess for early release cases</br>
+      </h1>
+
+
+     <!--Search field start-->
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+        
+        
+            <div class="moj-search govuk-!-margin-bottom-8">
+        
+              <form action="#" method="post">
+            
+                <div class="govuk-form-group">
+                  <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+                    Find a case
+                  </label>
+            
+                  <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
+                    Search by name, prison number or probation practitioner
+                  </div>
+            
+                  <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+                </div>
+            
+                <button class="govuk-button moj-search__button " data-module="govuk-button">
+                  Search
+                </button>
+            
+              </form>
+            </div>
+        
+        
+        </div>
+        </div>
+        
+      <!--Search field start-->
+
+      <!--sub nav start-->
+      <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="case-list">On going</a>
+          </li>
+      
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-done">Done</a>
+          </li>
+        </ul>
+      
+      </nav>      
+      <!--sub nav end-->
+
+
+      <!--tabs start-->
+
+      <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+          Contents
+        </h2>
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#timedout">
+              Timed out
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#outcome">
+              Outcome
+            </a>
+          </li>
+        </ul>
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timedout">
+          <h2 class="govuk-heading-l">Timed out</h2>
+
+          <!--content timed out start-->
+        
+          <!--content timed out end-->
+
+        </div>
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="outcome">
+          <h2 class="govuk-heading-l">Outcome</h2>
+
+          <!--content outcome start-->
+          <p>
+            Not eligible</br>
+            Presumed unsuitable</br>
+            Refused</br>
+            Opted out
+          </p>
+          <!--content outcome end-->
+
+        </div>
+
+
+      </div>
+
+      <!--tabs end-->
+
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

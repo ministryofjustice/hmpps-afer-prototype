@@ -76,22 +76,6 @@
         
       <!--Search field start-->
 
-      <!--sub nav start-->
-      <nav class="moj-sub-navigation" aria-label="Sub navigation">
-
-        <ul class="moj-sub-navigation__list">
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="case-list">On going</a>
-          </li>
-      
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="case-list-done">Done</a>
-          </li>
-        </ul>
-      
-      </nav>      
-      <!--sub nav end-->
-
 
       <!--tabs start-->
 
@@ -118,6 +102,16 @@
           <li class="govuk-tabs__list-item">
             <a class="govuk-tabs__tab" href="#readyforrelease">
               Ready for release
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#timedout">
+              Timed out
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#outcome">
+              Outcome
             </a>
           </li>
         </ul>
@@ -212,6 +206,31 @@
           <!--content ready for release start-->
         
           <!--content ready for release end-->
+      
+        </div>
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timedout">
+          <h2 class="govuk-heading-l">Timed out</h2>
+
+          <!--content timed out start-->
+        
+          <!--content timed out end-->
+      
+        </div>
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="outcome">
+          <h2 class="govuk-heading-l">Outcome</h2>
+
+          <!--content opted out start-->
+        <p>
+          Not eligible</br>
+          Presumed unsuitable</br>
+          Refused</br>
+          Opted out
+        </p>
+          <!--content opted out end-->
       
         </div>
 
