@@ -67,7 +67,18 @@
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
     
-      <div class="moj-banner__message">This application has been postponed</div>
+      <div class="moj-banner__message">This application has been postponed, <a class="govuk-link govuk-link--no-visited-state" href="case-overview#forms">PiP letter</a></div>
+    
+    </div>    
+
+    {% elseif data.resumed=="yes"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+    
+      <div class="moj-banner__message">This application has been resumed</div>
     
     </div>    
     
@@ -228,7 +239,11 @@
         {% if (data.user=="decisionmaker") or (data.user=="admin") %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            {% if data.postponed=="yes"%}
+            <a class="govuk-link govuk-link--no-visited-state" href="postpone/resume-this-application.html">Resume application</a>
+            {% else %}
             <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html">Postpone application</a>
+            {% endif %}
           </dt>
         </div>
         {% endif %}
@@ -260,6 +275,8 @@
       
     </div>
       <!--contact card end-->
+
+    
     
             </div>
           </div>
@@ -290,11 +307,6 @@
       </a>
     </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#summary">
-        Application summary
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#forms">
         Forms
       </a>
@@ -314,8 +326,35 @@
             <h1 class="govuk-heading-l">Tasks</h1>
             
 
+<!--postponed info start-->
+{% if data.postponed=="yes"%}
+<div class="moj-banner" role="region" aria-label="information">
+
+  <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+    <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+  C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+  </svg>
+
+  <div class="moj-banner__message">Application has been postponed</br>
+    <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html">Resume application</a>
+</div>
+
+</div>
+{% else %}
+{% endif %}
+<!--postponed info end-->    
 
 
+<!--
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Application has been postponed</br>
+    <a class="govuk-link govuk-link--no-visited-state" href="#">Resume application</a>
+  </strong>
+</div>
+-->    
 
 
 <!--tasks start-->
@@ -659,6 +698,7 @@
           </div>
           <div class="govuk-grid-column-one-third">
 
+            
             <!--<h2 class="govuk-heading-m" style="margin-top: 20px">Actions</h2>
 
             <p class="govuk-body" style="margin-top: 20px">
@@ -945,528 +985,6 @@
 
   </div>
 
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="summary">
-    <h2 class="govuk-heading-l">Application summary</h2>
-
-
-    <!--application summary start-->
-    
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-         
-
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Assess eligibility and suitability
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-    
-        
-          {% if data.user=="admin"%}
-    
-          {% if data.ineligibleforHDC=="yes"%}
-    
-          <p class="govuk-body"><strong>George Jennings is presumed unsuitable for HDC</strong></br>
-          Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}
-    
-        
-          {% else %}
-          <p class="govuk-body">No information submitted yet</br>
-    
-            <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-              Start
-             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                 </svg>
-                  </a>
-    
-          </p>
-    
-          {% endif %}
-    
-          {% else %}
-    
-          <p class="govuk-body"><strong>George Jennings is eligible and presumed suitable for HDC</strong></br>
-            Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}
-    
-          {% endif %}
-    
-        </div>
-      </div>
-    
-    
-      {% if data.user=="admin"%}
-      {% elseif (data.user=="decisionmaker") or (data.user=="probation")%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Check if an address is suitable
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          {% if data.user=="probation"%}
-          {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
-          <p class="govuk-body">The following area has been found to be suitable:</p>
-    
-          <!--card start-->
-    <div class="govuk-summary-card">
-    
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">
-          Proposed area
-        </h2>
-      </div>
-      
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-      
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Town
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Sheffield
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              County or borough
-            </dt>
-            <dd class="govuk-summary-list__value">
-              South Yorkshire
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Additional Information
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Offending history at mother’s address
-            </dd>
-          </div>
-      
-      
-        </dl>
-      </div>
-      
-      </div>
-      <!--card end-->
-    
-      <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
-    
-          {% else %}
-          <p class="govuk-body">No information submitted yet</br>
-    
-            <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-              Start
-             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                 </svg>
-                  </a>
-    
-          </p>
-    
-          {% endif %}
-          {% endif %}
-    
-    
-    
-          {% if data.user=="decisionmaker"%}
-          <p class="govuk-body">The following address has been found to be suitable:</p>
-    
-    
-          <!--card start-->
-          <div class="govuk-summary-card">
-      
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">
-                Proposed address
-              </h2>
-            </div>
-            
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
-            
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__value">
-                      4 Inner Street</br>
-                      Grantham</br>
-                      NG31 6HN
-                  </dt>
-                  <!--<dd class="govuk-summary-list__key">
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>-->
-                </div>
-            
-            
-              </dl>
-            </div>
-            
-            </div>
-            <!--card end-->
-          {% endif %}
-         
-        </div>
-      </div>
-    
-     
-    
-    
-      {% endif %}
-    
-    
-    
-      {% if data.user=="admin"%}
-      {% elseif (data.user=="decisionmaker") or (data.user=="probation")%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Assess this person’s risk
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          
-          {% if data.user=="probation"%}
-          {% if data.riskAssessed=="yes"%}
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-              <p class="govuk-body"><strong>George Jennings can be managed safely in the community within their proposed area.</strong></p>
-              <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
-            </div>
-          </div>
-          {% else %}    
-          <p class="govuk-body">No information submitted yet</br>
-    
-            <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-              Start
-             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                 </svg>
-                  </a>
-    
-          </p>
-          {% endif %}
-          {% endif %}
-        
-    
-          {% if data.user=="decisionmaker"%}   
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-              <p class="govuk-body">Probation practitioner Mark Coombes has decided that George can be managed safely in the community at their proposed address.</p>
-            </div>
-          </div>
-          {% endif %}
-    
-        </div>
-      </div>
-      {% endif %}
-    
-    
-    
-      {% if data.user=="decisionmaker"%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Create licence 
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-    
-        <h3 class="govuk-heading-s govuk-!-margin-top-0">HDC curfew hours</h3>
-    
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Monday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Tuesday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Wednesday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Thursday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Friday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link govuk-link--no-visited-state" href="#"></a>
-           </dd>
-         </div>
-    
-         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Saturday
-          </dt>
-          <dd class="govuk-summary-list__value">
-            7:00 pm to 7:00 am
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#"></a>
-          </dd>
-        </div>
-    
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Sunday
-          </dt>
-          <dd class="govuk-summary-list__value">
-            7:00 pm to 7:00 am
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#"></a>
-          </dd>
-        </div>
-       
-       </dl>
-       
-    
-    <h3 class="govuk-heading-s govuk-!-margin-top-0">Additional licence conditions (2)</h3>
-    
-    <!--conditions start-->
-    
-    
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-     <div class="govuk-summary-list__row">
-       <dt class="govuk-summary-list__key">
-         Drug testing
-       </dt>
-       <dd class="govuk-summary-list__value">
-         Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
-       </dd>
-     </div>
-    
-     <div class="govuk-summary-list__row">
-       <dt class="govuk-summary-list__key">
-         Possession, ownership, control or inspection of specified items or documents
-       </dt>
-       <dd class="govuk-summary-list__value">
-         Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
-       </dd>
-       
-     </div>
-    
-    </dl>
-    <!--conditions end-->
-    
-    
-         
-        </div>
-      </div>
-      {% endif %}
-    
-    
-    
-      {% if data.user=="decisionmaker"%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Pre-decision checks
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full">
-              <!--check your answers start-->
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Has George committed an offence in prison that is unresolved with the police or independent adjudicator? 
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is George currently on remand?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is George subject to a confiscation order?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is there an outstanding application under the unduly lenient scheme for George?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is George currently segregated (except solely for their own protection)?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                </div>
-            <!--check your answers end-->
-            </div>
-    
-          
-    
-        </div>
-      </div>
-      {% endif %}
-    
-    
-    
-      {% if data.user=="decisionmaker"%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Confirm if George can be released on HDC
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-    
-    
-    {% if data.user=="decisionmaker"%}
-        <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-          Start
-          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-          </svg>
-        </a>
-    {% endif %}
-    
-         
-        </div>
-      </div>
-      {% endif %}
-    
-      {% if data.user=="decisionmaker"%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Approve licence
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          {% if data.user=="probation"%}
-          <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Create or edit licence</a></p>
-          {% endif %}
-    
-    
-          {% if data.user=="decisionmaker"%}
-          <p class="govuk-body">No information submitted yet</br>
-    
-          <a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
-            Start
-           <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-             <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-               </svg>
-              </a>
-          {% endif %}
-        
-        
-         
-        </div>
-      </div>
-      {% endif %}
-    
-    
-    </div>
-    
-    <!--application summary end-->
-  </div>
-
   <!--Forms and letters start-->
 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="forms">
@@ -1474,8 +992,6 @@
 
     <p class="govuk-body">These forms will open in a new tab for printing</p>
 
-    <p class="govuk-body">UCD TO DO: Structure page with subheadings? Only show relevant forms to user?</p>
-    
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
