@@ -36,7 +36,6 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-
       <!--new profile banner start-->
       <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
         <div class="mini-profile-inner">
@@ -132,15 +131,21 @@
                 <a class="govuk-link govuk-link--no-visited-state" href="eligibility/sex-offenders-register.html" aria-describedby="company-information-status">
                   Sex offenders’ register
                 </a>
-                <!--{% if data.sexOffendersRegister=="no"%}--></br>
+                {% if (data.sexOffendersRegister=="yes") or (data.sexOffendersRegister=="no") %}
+                </br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
                   Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
                 </div>
-                <!--{% endif %}-->
+                {% else %}<!--Remove this after UR-->
+                </br>
+                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                  Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                </div>
+                {% endif %}
               </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              <p class="govuk-body" style="text-align: right;">Completed</p>
               <!--{% if data.sexOffendersRegister=="no"%}
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              <p class="govuk-body" style="text-align: right;">Completed</p>
               {% elseif data.sexOffendersRegister=="yes"%}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
               {% else %}
@@ -154,15 +159,21 @@
                 <a class="govuk-link govuk-link--no-visited-state" href="eligibility/extended-sentence.html" aria-describedby="read-declaration-status">
                   Extended sentence for violent or sexual offences
                 </a>
-                <!--{% if data.extendedSentence=="no"%}--></br>
+                {% if (data.extendedSentence=="yes") or (data.extendedSentence=="no") %}
+                </br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
                   Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
                 </div>
-                <!--{% endif %}-->
+                {% else %}<!--Remove this after UR-->
+                </br>
+                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                  Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                </div>
+                {% endif %}
               </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              <p class="govuk-body" style="text-align: right;">Completed</p>
               <!--{% if data.extendedSentence=="no"%}
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              <p class="govuk-body" style="text-align: right;">Completed</p>
               {% elseif data.extendedSentence=="yes"%}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
               {% else %}
@@ -176,15 +187,21 @@
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/rotl.html" aria-describedby="company-information-status">
                       ROTL failure to return
                     </a>
-                    <!--{% if data.ROTLfailure=="no"%}--></br>
+                    {% if (data.ROTLfailure=="yes") or (data.ROTLfailure=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
                     <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
                       Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
                     </div>
-                    <!--{% endif %}-->
+                    {% endif %}
                   </span>
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
                 <!--{% if data.ROTLfailure=="no"%}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                <p class="govuk-body" style="text-align: right;">Completed</p>
                 {% elseif data.ROTLfailure=="yes"%}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
                 {% else %}
@@ -192,23 +209,27 @@
                 {% endif %}-->
                 </li>
 
-                
-                
-
+                                
                 <li class="app-task-list__item">
                   <span class="app-task-list__task-name">
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/community-order-curfew-breach.html" aria-describedby="read-declaration-status">
                       Community order curfew breach
                     </a>
-                    <!--{% if data.communityOrderCurfew=="no"%}--></br>
+                    {% if (data.communityOrderCurfew=="yes") or (data.communityOrderCurfew=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
                     <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
                       Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
                     </div>
-                    <!--{% endif %}-->
+                    {% endif %}
                   </span>
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
                 <!--{% if data.communityOrderCurfew=="no"%}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                <p class="govuk-body" style="text-align: right;">Completed</p>
                 {% elseif data.communityOrderCurfew=="yes"%}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
                 {% else %}
@@ -219,18 +240,24 @@
 
                 <li class="app-task-list__item">
                   <span class="app-task-list__task-name">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/hdc-recall.html" aria-describedby="contact-details-status">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/hdc-recall.html" >
                       Recalled for breaching HDC curfew
                     </a>
-                    <!--{% if data.HDCrecall=="no"%}--></br>
+                    {% if (data.HDCrecall=="yes") or (data.HDCrecall=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
                     <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
                       Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
                     </div>
-                    <!--{% endif %}-->
+                    {% endif %}
                   </span>
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
                 <!--{% if data.HDCrecall=="no"%}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                <p class="govuk-body" style="text-align: right;">Completed</p>
                 {% elseif data.HDCrecall=="yes"%}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
                 {% else %}
@@ -239,16 +266,31 @@
                 </li>
 
 
-                
-
-
                 <li class="app-task-list__item">
                   <span class="app-task-list__task-name">
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/deportation-orders.html" aria-describedby="company-information-status">
                       Deportation orders
                     </a>
+                    {% if (data.recommendedDeportation=="yes") or (data.recommendedDeportation=="no") or (data.deportationOrders=="yes") or (data.deportationOrders=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                      Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% endif %}
                   </span>
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                <!--{% if (data.recommendedDeportation=="no") and (data.deportationOrders=="no") %}
+                <p class="govuk-body" style="text-align: right;">Completed</p>
+                {% elseif (data.recommendedDeportation=="yes") or (data.deportationOrders=="yes") %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                {% endif %}-->
                 </li>
 
 
@@ -257,20 +299,54 @@
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/compassionate-release.html" aria-describedby="list-convictions-status">
                       Recalled from early release on compassionate grounds
                     </a>
+                    {% if (data.compassionateRelease=="yes") or (data.compassionateRelease=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                      Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% endif %}
                   </span>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  <!--{% if data.compassionateRelease=="no"%}
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  {% elseif data.compassionateRelease=="yes"%}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                  {% else %}
                   <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  {% endif %}-->
                 </li>
     
-
-
 
                 <li class="app-task-list__item">
                   <span class="app-task-list__task-name">
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/terrorist-offending-history.html" aria-describedby="list-convictions-status">
                       Terrorism
                     </a>
+                    {% if (data.terroristOffendingHistory=="yes") or (data.terroristOffendingHistory=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                      Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% endif %}
                   </span>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  <!--{% if data.terroristOffendingHistory=="no"%}
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  {% elseif data.terroristOffendingHistory=="yes"%}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                  {% else %}
                   <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  {% endif %}-->
                 </li>
 
 
@@ -279,8 +355,26 @@
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/two-thirds-release.html" aria-describedby="list-convictions-status">
                       Two-thirds release
                     </a>
+                    {% if (data.twothirdsreleaseCriteria=="yes") or (data.twothirdsreleaseCriteria=="no") or (data.twothirdsRelease=="yes") or (data.twothirdsRelease=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                      Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% endif %}
                   </span>
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                <!--{% if (data.twothirdsreleaseCriteria=="no") and (data.twothirdsRelease=="no") %}
+                <p class="govuk-body" style="text-align: right;">Completed</p>
+                {% elseif (data.twothirdsreleaseCriteria=="yes") or (data.twothirdsRelease=="yes") %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                {% endif %}-->
                 </li>
 
 
@@ -289,8 +383,21 @@
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/244ZB-notice.html" aria-describedby="list-convictions-status">
                       Section 244ZB notice
                     </a>
+                  {% if (data.244ZBnotice=="yes") or (data.244ZBnotice=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                  {% else %}
+                  {% endif %}
                   </span>
+                  {% if data.244ZBnotice=="no"%}
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  {% elseif data.244ZBnotice=="yes"%}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                  {% else %}
                   <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  {% endif %}
                 </li>
 
 
@@ -299,10 +406,27 @@
                     <a class="govuk-link govuk-link--no-visited-state" href="eligibility/schedule-20b.html" aria-describedby="list-convictions-status">
                       Schedule 20B release
                     </a>
+                    {% if (data.schedule20b=="yes") or (data.schedule20b=="no") %}
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                     Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% else %}<!--Remove this after UR-->
+                    </br>
+                    <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                      Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                    </div>
+                    {% endif %}
                   </span>
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  <!--{% if data.schedule20b=="no"%}
+                  <p class="govuk-body" style="text-align: right;">Completed</p>
+                  {% elseif data.schedule20b=="yes"%}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                  {% else %}
                   <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  {% endif %}-->
                 </li>
-
 
           </ul>
         </li>
@@ -318,81 +442,270 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/sexual-offending-history.html" aria-describedby="contact-details-status">
-                  Sexual offending history
-                </a>
+              {% if (data.SexualOffendingHistory=="yes") or (data.SexualOffendingHistory=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/sexual-offending-history.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/sexual-offending-history.html">
+              {% else %}
+              {% endif %}
+              Sexual offending history
+              {% if (data.SexualOffendingHistory=="yes") or (data.SexualOffendingHistory=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
+
+                {% if (data.SexualOffendingHistory=="yes") or (data.SexualOffendingHistory=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% else %}
+                {% endif %}
               </span>
+              {% if data.SexualOffendingHistory=="no"%}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif data.SexualOffendingHistory=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
             </li>
 
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/liable-to-deportation.html" aria-describedby="contact-details-status">
-                  Liable to deportation
-                </a>
+              {% if (data.liableDeportation=="yes") or (data.liableDeportation=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/liable-to-deportation.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/liable-to-deportation.html">
+              {% else %}
+              {% endif %}
+              Liable to deportation
+              {% if (data.liableDeportation=="yes") or (data.liableDeportation=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
+
+                {% if (data.liableDeportation=="yes") or (data.liableDeportation=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% else %}
+                {% endif %}
               </span>
+              {% if data.liableDeportation=="no"%}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif data.liableDeportation=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
             </li>
 
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/recall-poor-behaviour.html" aria-describedby="contact-details-status">
-                  Recalled for poor behaviour on HDC
-                </a>
+              {% if (data.recallPoorBehaviour=="yes") or (data.recallPoorBehaviour=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/recall-poor-behaviour.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/recall-poor-behaviour.html">
+              {% else %}
+              {% endif %}
+              Recalled for poor behaviour on HDC
+              {% if (data.recallPoorBehaviour=="yes") or (data.recallPoorBehaviour=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
+                
+                {% if (data.recallPoorBehaviour=="yes") or (data.recallPoorBehaviour=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% else %}
+                {% endif %}
               </span>
+              {% if data.recallPoorBehaviour=="no"%}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif data.recallPoorBehaviour=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
             </li>
 
-
+            
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category.html" aria-describedby="contact-details-status">
-                  Category A
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
+              {% if (data.categoryA=="yes") or (data.categoryA=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category.html">
+              {% else %}
+              {% endif %}
+              Category A
+              {% if (data.categoryA=="yes") or (data.categoryA=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
 
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html" aria-describedby="contact-details-status">
-                  RoSH and MAPPA
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-            </li>
-
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/presumed-unsuitable-offences.html" aria-describedby="eligibility-status">
-                  Presumed unsuitable offences
-                </a>{% if data.presumedunsuitable=="yes"%}</br>
+                {% if (data.categoryA=="yes") or (data.categoryA=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+                </br>
                 <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-                  Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
-                </div>{% endif %}
+                  Checked automatically on {{ "today" |  duration(0) | govukDate("truncate") }}
+                </div>
+                {% else %}
+                {% endif %}
               </span>
-              {% if data.presumedunsuitable=="yes"%}<p class="govuk-body" style="text-align: right;">Completed</p>{% else %}
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>{% endif %}
+              {% if data.categoryA=="no"%}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif data.categoryA=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
             </li>
 
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link govuk-link--no-visited-state" href="suitability/terrorist-history.html" aria-describedby="contact-details-status">
-                  Terrorist offending history
-                </a>
+              {% if (data.seriousHarm=="yes") or (data.seriousHarm=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">
+              {% elseif (data.roshMappa=="yes") or (data.roshMappa=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">
+              {% else %}
+              {% endif %}
+              RoSH and MAPPA
+              {% if (data.seriousHarm=="yes") or (data.seriousHarm=="no") %}
+              </a>
+              {% elseif (data.roshMappa=="yes") or (data.roshMappa=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
+
+                {% if (data.seriousHarm=="yes") or (data.seriousHarm=="no") or (data.roshMappa=="yes") or (data.roshMappa=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+                </br>
+                <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                  Checked automatically on {{ "today" |  duration(0) | govukDate("truncate") }}
+                </div>
+                {% else %}
+                {% endif %}
               </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% if (data.seriousHarm=="no") and (data.roshMappa=="no") %}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif (data.seriousHarm=="yes") or (data.roshMappa=="yes") %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
             </li>
 
 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+              {% if (data.presumedUnsuitableOffences=="yes") or (data.presumedUnsuitableOffences=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/presumed-unsuitable-offences.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/presumed-unsuitable-offences.html">
+              {% else %}
+              {% endif %}
+              Presumed unsuitable offences
+              {% if (data.presumedUnsuitableOffences=="yes") or (data.presumedUnsuitableOffences=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
 
+                {% if (data.presumedUnsuitableOffences=="yes") or (data.presumedUnsuitableOffences=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% else %}
+                {% endif %}
+              </span>
+              {% if data.presumedUnsuitableOffences=="no"%}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif data.presumedUnsuitableOffences=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
+            </li>
 
+            
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+              {% if (data.terroristHistory=="yes") or (data.terroristHistory=="no") %}
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/terrorist-history.html">
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <a class="govuk-link govuk-link--no-visited-state" href="suitability/terrorist-history.html">
+              {% else %}
+              {% endif %}
+              Terrorist offending history
+              {% if (data.terroristHistory=="yes") or (data.terroristHistory=="no") %}
+              </a>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              </a>
+              {% else %}
+              {% endif %}
 
+                {% if (data.terroristHistory=="yes") or (data.terroristHistory=="no") %}
+                  </br>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+                    Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+                  </div>
+                {% else %}
+                {% endif %}
+              </span>
+              {% if data.terroristHistory=="no"%}
+              <p class="govuk-body" style="text-align: right;">Completed</p>
+              {% elseif data.terroristHistory=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% elseif data.244ZBnotice=="no"%}<!--this needs to cover all eligibility questions after UR-->
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+              {% endif %}
+            </li>
+
+            
           </ul>
         </li>
 
@@ -402,6 +715,9 @@
 
 
         <!--task list end-->
+
+
+        
 
 
       </div>

@@ -27,26 +27,25 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form action="../tasklist" method="post" novalidate>
+        <form action="../outcomes/confirmation-eligible" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
                   Does this person have a history of terrorist or terrorist connected offending?
                 </h1>
               </legend>
-              
-              <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                  <input class="govuk-radios__input" id="terroristHistory" name="terroristHistory" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="terroristHistory">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                  <input class="govuk-radios__input" id="terroristHistory-2" name="terroristHistory" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="terroristHistory-2">
                     No
                   </label>
                 </div>
