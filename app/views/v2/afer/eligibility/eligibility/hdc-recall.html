@@ -32,25 +32,23 @@
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <!--<span class="govuk-caption-l">Question 3 of 9</span>-->
-                <span class="govuk-caption-l govuk-!-static-margin-top-6">Recall</span>
-                <h1 class="govuk-fieldset__heading">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
                   Has this person been recalled for breaching their HDC curfew within 2 years of their current sentence date?
                 </h1>
               </legend>
               <!--<div id="changedName-hint" class="govuk-hint">
                 This will be shown as a recall under section 39 of the Criminal Justice Act 1991 or section 254 of the Criminal Justice Act 2003
               </div>-->
-              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                  <input class="govuk-radios__input" id="HDCrecall" name="HDCrecall" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="HDCrecall">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                  <input class="govuk-radios__input" id="HDCrecall-2" name="HDCrecall" type="radio" value="no" checked>
+                  <label class="govuk-label govuk-radios__label" for="HDCrecall-2">
                     No
                   </label>
                 </div>
@@ -58,8 +56,6 @@
               </div>
             </fieldset>
           </div>
-
-          <input type="hidden" name="recalledhdc" value="no">
 
           <div class="govuk-button-group">
 
