@@ -119,8 +119,6 @@
       {% endif %}
 
 
-      <p><a class="govuk-link govuk-link--no-visited-state" href="#">View case history</a></p>
-
       <ol class="app-task-list govuk-!-margin-top-8">
 
       
@@ -135,7 +133,14 @@
                   Sex offenders’ register
                 </a>
               </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              <!--{% if data.sexOffendersRegister=="no"%}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              {% elseif data.sexOffendersRegister=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% else %}
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% endif %}-->
             </li>
 
 
@@ -145,7 +150,14 @@
                   Extended sentence for violent or sexual offences
                 </a>
               </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              <!--{% if data.extendedSentence=="no"%}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+              {% elseif data.extendedSentence=="yes"%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+              {% else %}
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+              {% endif %}-->
             </li>
 
 
@@ -155,8 +167,17 @@
                       ROTL failure to return
                     </a>
                   </span>
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                <!--{% if data.ROTLfailure=="no"%}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Complete</strong>
+                {% elseif data.ROTLfailure=="yes"%}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Ineligible</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+                {% endif %}-->
                 </li>
+
+                
 
 
                 <li class="app-task-list__item">
