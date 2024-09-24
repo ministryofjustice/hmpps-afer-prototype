@@ -242,6 +242,8 @@
         </div>
 
         {% if (data.user=="decisionmaker") or (data.user=="admin") %}
+        <!--this needs to change once we have a value for PP task-->
+        {% if data.addressinputcomplete=="yes"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <!--only display once address has been entered-->
@@ -253,6 +255,7 @@
             <!--only display once address has been entered-->
           </dt>
         </div>
+        {% endif %}
         {% endif %}
 
         <!--{% if data.user=="admin" %}
@@ -318,11 +321,13 @@
         Application summary
       </a>
     </li>
+    {% if data.user!=="decisionmaker"%}
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#forms">
         Forms
       </a>
     </li>
+    {% endif %}
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#contacts">
         Key contacts
@@ -348,6 +353,14 @@
   </svg>
 
   <div class="moj-banner__message">Application has been postponed</br>
+    Reason: 
+    {% if data.postponereason=="riskmanagement"%}Waiting for a risk management plan</br>{% endif %}
+    {% if data.postponereason=="remand"%}On remand</br>{% endif %}
+    {% if data.postponereason=="confiscationorder"%}Would not follow the requirements of a confiscation order if released</br>{% endif %}
+    {% if data.postponereason=="segregated"%}Segregated and the governor has not approved their release yet.
+    This does not apply if they were segregated for their own protection</br>{% endif %}
+    {% if data.postponereason=="committedoffence"%}Committed an offence in prison that has been referred to a law enforcement agency or the independent adjudicator but not resolved</br>{% endif %}
+    {% if data.postponereason=="undulylenientsentence"%}Application pending with the unduly lenient sentence scheme</br>{% endif %}
     <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html">Resume application</a>
 </div>
 
@@ -512,92 +525,6 @@
   </section>
 
 </article>
-
-
-<!--<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Assess eligibility and suitability</h2>
-  </div>
-  <div class="govuk-grid-column-one-third">
-
-    {% if data.ineligibleforHDC=="yes"%}
-
-    <a href="./eligibility/tasklist" class="govuk-button" style="margin-top: 17px;">View assessment</a></br>
-
-    {% else %}
-    <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-    {% endif %}
-
-  </div>
-</div>
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Enter curfew address or CAS area</h2>
-  </div>
-  <div class="govuk-grid-column-one-third">
-
-    <a href="./address-input/opt-out.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-  </div>
-</div>
-
-
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Complete pre-release checks</h2>
-  </div>
-  <div class="govuk-grid-column-one-third">
-
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-  </div>
-</div>
-
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Print licence</h2>
-  </div>
-  <div class="govuk-grid-column-one-third">
-
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-  </div>
-</div>
-
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">-->
 
 {% endif %}
 <!--tasks end-->
@@ -805,7 +732,7 @@
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Enter HMP Wandsworth</h2>
+      <h2 class="moj-timeline__title">Sentence started</h2>
     </div>
 
     <p class="moj-timeline__date">
@@ -1632,11 +1559,29 @@
 
 
   <!--Forms and letters start-->
-
+  {% if data.user!=="decisionmaker"%}
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="forms">
     <h2 class="govuk-heading-l">Forms</h2>
 
     <p class="govuk-body">These forms will open in a new tab for printing</p>
+
+    <!--<p class="govuk-body">
+      <a class="govuk-link govuk-link--no-visited-state" href="#">
+        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+        </svg>
+        Not eligible
+      </a>
+    </p>-->
+
+    <!--<p class="govuk-body">
+      <a class="govuk-link govuk-link--no-visited-state" href="#">
+        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+        </svg>
+        Not suitable
+      </a>
+    </p>-->
 
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
@@ -1644,24 +1589,6 @@
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Eligible
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Not eligible
-      </a>
-    </p>
-
-    <p class="govuk-body">
-      <a class="govuk-link govuk-link--no-visited-state" href="#">
-        <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
-          <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
-        </svg>
-        Not suitable
       </a>
     </p>
 
@@ -1683,15 +1610,16 @@
       </a>
     </p>
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Address unsuitable
       </a>
-    </p>
+    </p>-->
 
+    {% if data.optoutreason=="yes"%}
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
@@ -1700,7 +1628,9 @@
         Opt out
       </a>
     </p>
+    {% endif %}
 
+    {% if data.postponed=="yes"%}
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
@@ -1709,63 +1639,64 @@
         Postponed
       </a>
     </p>
+    {% endif %}
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Not enough time
       </a>
-    </p>
+    </p>-->
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Refused
       </a>
-    </p>
+    </p>-->
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Approved
       </a>
-    </p>
+    </p>-->
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Agency notification
       </a>
-    </p>
+    </p>-->
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Cancel agency notification
       </a>
-    </p>
+    </p>-->
 
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Licence variation
       </a>
-    </p>
+    </p>-->
 
   </div>
-
+  {% endif %}
   <!--Forms and letters end-->
 
   <div class="govuk-tabs__panel" id="contacts">
@@ -1779,36 +1710,47 @@
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Case Admin</th>
+          <th scope="row" class="govuk-table__header" style="width: 250px;">Case administrator</th>
           <td class="govuk-table__cell">
+            {% if data.addressinputcomplete=="yes"%}
             Jessica Smith</br>
             jessica.smith@justice.gov.uk</br>
-            HMP Wandsworth</td>
+            HMP Wandsworth
+            {% else %}
+            No case administrator has worked on this application yet
+            {% endif%}
+          </td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Prison Offender Manager</th>
+          <th scope="row" class="govuk-table__header">Prison offender manager</th>
           <td class="govuk-table__cell">
-            Michaela Sharrow</br>
+            No prison offender manager has worked on this application yet
+            <!--Michaela Sharrow</br>
             michaela.sharrows@justice.gov.uk</br>
-            HMP Wandsworth</td>
+            HMP Wandsworth-->
+          </td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Probation Practitioner</th>
-          <td class="govuk-table__cell">No probation practitioner has been allocated to work with this person</td>
+          <th scope="row" class="govuk-table__header">Probation practitioner</th>
+          <!--this needs to change once we have a value for PP task-->
+          <td class="govuk-table__cell">Allocation due by {{ "today" |  duration(1) | govukDate("truncate") }}
+          <!--DESIGN overdue state-->
+          <!--Jonathan Amble</br>
+            jonathan.amble@justice.gov.uk</br>
+            Wales</td>-->
+          </td>
         </tr>
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Decision maker</th>
           <td class="govuk-table__cell">
+            {% if data.submitfordecision=="yes"%}
             Ade Cooper, Head of Offender Management Services</br>
             ade.cooper@justice.gov.uk</br>
-            HMP Wandsworth</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Decision maker</th>
-          <td class="govuk-table__cell">
-          Nicky Thomson, Head of Resettlement</br>
-          nicky.thomson@justice.gov.uk</br>
-          HMP Wandsworth</td>
+            HMP Wandsworth
+            {% else %}
+            No decision maker has worked on this application yet
+            {% endif %}
+          </td>
         </tr>
       </tbody>
     </table>
