@@ -497,24 +497,31 @@
 {% endif %}
 
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
+  
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+    <input type="hidden" name="predecisioncheck" value="yes">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
     <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a href="./eligibility/tasklist-review.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
   </section>
-
+  </form>
 </article>
+
 
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+      <input type="hidden" name="prepareforrelease" value="yes">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
     <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a href="#" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
   </section>
+  </form>
 
 </article>
+
 
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
