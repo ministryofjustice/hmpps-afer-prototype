@@ -42,7 +42,7 @@
 
 
      <!--Search field start-->
-
+     
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-half">
         
@@ -56,9 +56,15 @@
                     Find a case
                   </label>
             
+                  {% if (data.user=="admin") or (data.user=="decisionmaker") %}
                   <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
                     Search by name, prison number or probation practitioner
                   </div>
+                  {% else %}
+                  <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
+                    Search by name, CRN or probation practitioner
+                  </div>
+                  {% endif %}
             
                   <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
                 </div>
@@ -81,11 +87,11 @@
 
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="case-list">On going</a>
+            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-active">Active</a>
           </li>
       
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="case-list-done">Done</a>
+            <a class="moj-sub-navigation__link" href="case-list-inactive">Inactive</a>
           </li>
         </ul>
       
@@ -101,13 +107,13 @@
         </h2>
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#todo">
-              To do
+            <a class="govuk-tabs__tab" href="#yourwork">
+              To work on by you
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#waiting">
-              Waiting
+            <a class="govuk-tabs__tab" href="#otherswork">
+              To work on by others
             </a>
           </li>
           <li class="govuk-tabs__list-item">
@@ -120,11 +126,16 @@
               Ready for release
             </a>
           </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#released">
+              Released on HDC
+            </a>
+          </li>
         </ul>
 
 
-        <div class="govuk-tabs__panel" id="todo">
-          <h2 class="govuk-heading-l">To do</h2>
+        <div class="govuk-tabs__panel" id="yourwork">
+          <h2 class="govuk-heading-l">To work on by you</h2>
 
           <!--content do do start-->
           <p><a class="govuk-link govuk-link--no-visited-state" href="./case-overview">Jose Rodriguez - Scenario 1 (Ineligible)</a></p>
@@ -140,17 +151,13 @@
           
                 <th scope="col" class="govuk-table__header" aria-sort="ascending">Name</th>
           
-                <th scope="col" class="govuk-table__header" aria-sort="none">Prison number</th>
-          
                 <th scope="col" class="govuk-table__header" aria-sort="none">HDCED</th>
           
-                <th scope="col" class="govuk-table__header" aria-sort="none">Remaining days</th>
+                <th scope="col" class="govuk-table__header" aria-sort="none">Working days to HDCED</th>
           
                 <th scope="col" class="govuk-table__header" aria-sort="none">Last worked on by</th>
           
-                <th scope="col" class="govuk-table__header" aria-sort="none">Case progress</th>
-          
-                <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+                <th scope="col" class="govuk-table__header" aria-sort="none">Task</th>
           
               </tr>
             </thead>
@@ -160,9 +167,8 @@
               {% for task in data['tasks'] %}
               <tr class="govuk-table__row">
           
-                <td class="govuk-table__cell">{{task.name}}</td>
-          
-                <td class="govuk-table__cell">{{task.prisonnumber}}</td>
+                <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="./case-overview-{{task.prisonnumber}}">{{task.name}}</a>
+                </br>{{task.prisonnumber}}</td>
           
                 <td class="govuk-table__cell">{{task.eligibilitydate}}</td>
           
@@ -171,10 +177,7 @@
                 <td class="govuk-table__cell">{{task.staffname}}</td>
           
                 <td class="govuk-table__cell">{{task.caseprogress}}</td>
-          
-                <td class="govuk-table__cell">{{task.status}}</td>
-          
-          
+
               </tr>
               {% endfor %}
           
@@ -188,10 +191,19 @@
         </div>
 
 
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="waiting">
-          <h2 class="govuk-heading-l">Waiting</h2>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="otherswork">
+          <h2 class="govuk-heading-l">To work on by others</h2>
 
           <!--content waiting start-->
+
+          <!--table start-->
+
+
+
+
+
+
+          <!--table end-->
         
           <!--content waiting end-->
 
@@ -202,6 +214,15 @@
           <h2 class="govuk-heading-l">Postponed</h2>
 
           <!--content postponed start-->
+
+          <!--table start-->
+
+
+
+
+
+
+          <!--table end-->
         
           <!--content postponed end-->
 
@@ -212,6 +233,33 @@
           <h2 class="govuk-heading-l">Ready for release</h2>
 
           <!--content ready for release start-->
+        
+          <!--table start-->
+
+
+
+
+
+
+          <!--table end-->
+
+          <!--content ready for release end-->
+      
+        </div>
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="released">
+          <h2 class="govuk-heading-l">Released on HDC</h2>
+
+          <!--content ready for release start-->
+          <!--table start-->
+
+
+
+
+
+
+          <!--table end-->
         
           <!--content ready for release end-->
       

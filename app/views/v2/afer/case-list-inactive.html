@@ -56,9 +56,15 @@
                     Find a case
                   </label>
             
+                  {% if (data.user=="admin") or (data.user=="decisionmaker") %}
                   <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
                     Search by name, prison number or probation practitioner
                   </div>
+                  {% else %}
+                  <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
+                    Search by name, CRN or probation practitioner
+                  </div>
+                  {% endif %}
             
                   <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
                 </div>
@@ -81,11 +87,11 @@
 
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="case-list">On going</a>
+            <a class="moj-sub-navigation__link" href="case-list-active">Active</a>
           </li>
       
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-done">Done</a>
+            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-inactive">Inactive</a>
           </li>
         </ul>
       
@@ -93,57 +99,17 @@
       <!--sub nav end-->
 
 
-      <!--tabs start-->
+      <h2 class="govuk-heading-l">Inactive</h2>
 
-      <div class="govuk-tabs" data-module="govuk-tabs">
-        <h2 class="govuk-tabs__title">
-          Contents
-        </h2>
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#timedout">
-              Timed out
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#outcome">
-              Outcome
-            </a>
-          </li>
-        </ul>
-
-
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timedout">
-          <h2 class="govuk-heading-l">Timed out</h2>
-
-          <!--content timed out start-->
-        
-          <!--content timed out end-->
-
-        </div>
-
-
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="outcome">
-          <h2 class="govuk-heading-l">Outcome</h2>
-
-          <!--content outcome start-->
-          <p>
-            Not eligible</br>
-            Presumed unsuitable</br>
-            Refused</br>
-            Opted out
-          </p>
-          <!--content outcome end-->
-
-        </div>
-
-
-      </div>
-
-      <!--tabs end-->
+      
+      <!--table start-->
 
 
 
+
+
+
+      <!--table end-->
 
 
       </div>

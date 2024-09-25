@@ -6,7 +6,7 @@
       "daysremaining": 12,
       "staffname": "Patel, Priya",
       "caseprogress": "in progress",
-      "status": "eligible"
+      "status": "overviewpage"
     },
     {
       "name": "Zhang, Wei",
@@ -15,7 +15,7 @@
       "daysremaining": 18,
       "staffname": "O'Sullivan, Aisling",
       "caseprogress": "not started",
-      "status": "ineligible"
+      "status": "overviewpage"
     },
     {
       "name": "Brown, Marcus",
@@ -24,7 +24,7 @@
       "daysremaining": 23,
       "staffname": "Chen, Li",
       "caseprogress": "awaiting pp checks",
-      "status": "unsuitable"
+      "status": "overviewpage"
     },
     {
       "name": "Khan, Ahmed",
@@ -33,7 +33,7 @@
       "daysremaining": 28,
       "staffname": "Johnson, Emily",
       "caseprogress": "awaiting dm decision",
-      "status": "opted out"
+      "status": "overviewpage"
     },
     {
       "name": "Garcia, Luis",
@@ -42,7 +42,7 @@
       "daysremaining": 30,
       "staffname": "Kim, Soo-min",
       "caseprogress": "in progress",
-      "status": "eligible"
+      "status": "overviewpage"
     },
     {
       "name": "Nwosu, Chike",
@@ -51,7 +51,7 @@
       "daysremaining": 33,
       "staffname": "Hernandez, Maria",
       "caseprogress": "awaiting pp checks",
-      "status": "rejected"
+      "status": "overviewpage"
     },
     {
       "name": "Lee, David",
@@ -60,7 +60,7 @@
       "daysremaining": 36,
       "staffname": "Smith, Robert",
       "caseprogress": "awaiting dm decision",
-      "status": "unsuitable"
+      "status": "overviewpage"
     },
     {
       "name": "Rodriguez, Jose",
@@ -69,7 +69,7 @@
       "daysremaining": 38,
       "staffname": "Robinson, Sarah",
       "caseprogress": "not started",
-      "status": "ineligible"
+      "status": "overviewpage"
     },
     {
       "name": "Patel, Arjun",
@@ -78,7 +78,7 @@
       "daysremaining": 40,
       "staffname": "Williams, James",
       "caseprogress": "in progress",
-      "status": "opted out"
+      "status": "overviewpage"
     },
     {
       "name": "Johnson, Michael",
@@ -87,7 +87,7 @@
       "daysremaining": 42,
       "staffname": "Singh, Anjali",
       "caseprogress": "awaiting pp checks",
-      "status": "eligible"
+      "status": "overviewpage"
     }
   ]
   
