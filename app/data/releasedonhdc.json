@@ -1,0 +1,93 @@
+[
+    {
+      "name": "Mccormick, Gregory",
+      "prisonnumber": "G50558",
+      "detail": "case-overview",
+      "eligibilitydate": "05-11-2024",
+      "daysremaining": 40,
+      "staffname": "Myers, Christopher",
+      "caseprogress": "Review application and send for decision"
+    },
+    {
+      "name": "Montgomery, Ryan",
+      "prisonnumber": "G52370",
+      "detail": "case-overview-G52370",
+      "eligibilitydate": "06-11-2024",
+      "daysremaining": 41,
+      "staffname": "Cobb, Alexis",
+      "caseprogress": "Assess eligibility and suitability"
+    },
+    {
+      "name": "Jones, Jeffrey",
+      "prisonnumber": "G63902",
+      "detail": "case-overview-G63902",
+      "eligibilitydate": "08-11-2024",
+      "daysremaining": 43,
+      "staffname": "Williams, Alexandra",
+      "caseprogress": "Enter curfew addresses and CAS areas"
+    },
+    {
+      "name": "Watson, Jonathan",
+      "prisonnumber": "G94128",
+      "detail": "case-overview-G94128",
+      "eligibilitydate": "10-11-2024",
+      "daysremaining": 45,
+      "staffname": "Rice, Brittany",
+      "caseprogress": "Assess eligibility and suitability"
+    },
+    {
+      "name": "Velasquez, Jordan",
+      "prisonnumber": "G96483",
+      "detail": "case-overview-G96483",
+      "eligibilitydate": "13-11-2024",
+      "daysremaining": 48,
+      "staffname": "Stanley, William",
+      "caseprogress": "Assess eligibility and suitability"
+    },
+    {
+      "name": "Heath, Jeffrey",
+      "prisonnumber": "G75221",
+      "detail": "case-overview-G75221",
+      "eligibilitydate": "18-11-2024",
+      "daysremaining": 53,
+      "staffname": "White, Emily",
+      "caseprogress": "Review application and send for decision"
+    },
+    {
+      "name": "Palmer, Dennis",
+      "prisonnumber": "G11818",
+      "detail": "case-overview-G11818",
+      "eligibilitydate": "18-11-2024",
+      "daysremaining": 53,
+      "staffname": "Jackson, Tonya",
+      "caseprogress": "Prepare for release"
+    },
+    {
+      "name": "Caldwell, Eric",
+      "prisonnumber": "G68016",
+      "detail": "case-overview",
+      "eligibilitydate": "22-11-2024",
+      "daysremaining": 57,
+      "staffname": "Gibson, Brittany",
+      "caseprogress": "Assess eligibility and suitability"
+    },
+    {
+      "name": "Vargas, Mark",
+      "prisonnumber": "G41342",
+      "detail": "case-overview-G41342",
+      "eligibilitydate": "23-11-2024",
+      "daysremaining": 58,
+      "staffname": "Pratt, Melissa",
+      "caseprogress": "Prepare for release"
+    },
+    {
+      "name": "Kerr, Kevin",
+      "prisonnumber": "G55147",
+      "detail": "case-overview",
+      "eligibilitydate": "29-11-2024",
+      "daysremaining": 64,
+      "staffname": "Jennings, Thomas",
+      "caseprogress": "Review application and send for decision"
+    }
+  ]
+  
