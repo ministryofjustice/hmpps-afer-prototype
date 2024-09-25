@@ -24,65 +24,122 @@
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
+
+    <form action="../tasklist" method="post" novalidate>
+
+<!--columns start-->
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form action="../tasklist" method="post" novalidate>
-          <div class="govuk-form-group">
-            <div class="govuk-form-group govuk-!-margin-bottom-6">
-              <div class="govuk-radios govuk-radios--inline">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-top-6">
-                Is this person a foreign national who has been recommended for deportation?
-                </legend>    
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="recommendedDeportation" name="recommendedDeportation" type="radio" value="yes">
-                      <label class="govuk-label govuk-radios__label" for="recommendedDeportation">
-                      Yes
-                      </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="recommendedDeportation" name="recommendedDeportation" type="radio" value="no" checked>
-                      <label class="govuk-label govuk-radios__label" for="recommendedDeportation-2">
-                      No
-                      </label>
-                  </div>
-              </div>
-            </div>
-            
+        <!--content start-->
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-6">Checked automatically</h2>
+  <div class="govuk-body">This question has been answered automatically using information from NOMIS. You can change the answer if something looks wrong.</div>
   
+  <div class="govuk-form-group govuk-!-margin-bottom-6">
     <div class="govuk-radios govuk-radios--inline">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Is this person a foreign national who has been recommended for deportation ?
+      </legend>    
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes" checked="checked">
+        <label class="govuk-label govuk-radios__label" for="seriousHarm">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="seriousHarm-2" name="seriousHarm" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="seriousHarm-2">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="govuk-radios govuk-radios--inline">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         Is this person a foreign national who is liable to deportation and been served with a decision to deport? 
       </legend>  
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="deportationOrders" name="deportationOrders" type="radio" value="yes">
-        <label class="govuk-label govuk-radios__label" for="deportationOrders">
+        <input class="govuk-radios__input" id="roshMappa" name="roshMappa" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="roshMappa">
           Yes
         </label>
       </div>
       <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="deportationOrders-2" name="deportationOrders" type="radio" value="no" checked>
-          <label class="govuk-label govuk-radios__label" for="deportationOrders-2">
+          <input class="govuk-radios__input" id="roshMappa-2" name="roshMappa" type="radio" value="no" checked="checked">
+          <label class="govuk-label govuk-radios__label" for="roshMappa-2">
            No
           </label>
         </div>
       </div>
     </div>
-        <br /><br />
   
-          </div>
-        
-          <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: -40px;">
-            Continue
-          </button>
+  <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 20px;">
+    Continue
+  </button>
 
-        </form>
+  </form>
+
+
+        <!--content end-->
+
+      </div>
+
+
+      <div class="govuk-grid-column-one-third">
+
+        <!--<h2 class="govuk-heading-s" style="margin-top: 90px;">Information from NOMIS</h2>-->
+        
+        
+
+               <!--card start-->
+               <div class="govuk-summary-card" style="margin-top: 100px;">
+
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Information from NOMIS
+                  </h2>
+                </div>
+              
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+              
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        <p>Court case outcome:</br>
+                          
+                          <strong>Immigration detainee</strong><span class="moj-badge moj-badge--black" style="margin-left: 10px;">Nomis</span></p></br>
+                          <!--<strong>Extradited</strong><span class="moj-badge moj-badge--black" style="margin-left: 10px;">Nomis</span></p></br>-->
+                          <!--<strong>Deportation recommended</strong><span class="moj-badge moj-badge--black" style="margin-left: 0px; margin-top: 5px;">Nomis</span></p></br>-->
+                          <!--<strong>Immigration decision to deport</strong><span class="moj-badge moj-badge--black" style="margin-left: 10px;">Nomis</span></p></br>-->
+
+                        <p>This person may be held on immigration grounds at their CRD.</p>
+                      </dd>
+                    </div>
+              
+                  </dl>
+                </div>
+                
+              </div>
+              <!--card end-->
 
 
       </div>
     </div>
   </main>
 </div>
+
+<!--columns end-->
+
+
+
+
+
+
+
 
 {% endblock %}
