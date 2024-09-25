@@ -20,7 +20,17 @@
 {% endblock %}
 
 {% block content %}
-{% include "layouts/layout-name-raul.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"><br>
+    
+      <span class="govuk-caption-m">CRN: G579362 | CRD: {{ "today" | duration(2) | govukDate("truncate") }} | Date of birth: 3 Dec 1990</span>
+        <h1 class="govuk-heading-m">Raul Gomez</h1>
+
+  </div>
+</div>
+<hr class="gov-section-break gov-section-break-visible">
+
 <br />
 
 
@@ -61,7 +71,7 @@
               John Farrell
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="meet-change">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"></span>
               </a>
             </dd>
@@ -104,7 +114,7 @@
             </dd>
 
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="address-change">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"> licence type</span>
               </a>
             </dd>
@@ -123,7 +133,7 @@
             </dd>
 
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="phone-number-change">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"> </span>
               </a>
             </dd>
@@ -137,7 +147,7 @@
               {{ 14 | govukDate }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="when-change-pp-approved.html">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"> </span>
               </a>
             </dd>
@@ -151,7 +161,7 @@
               4:30pm
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="when-change-pp-approved.html">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"></span>
               </a>
             </dd>
@@ -206,8 +216,9 @@ Maintaining contact
 
       <!--<a href="#" class="govuk-button">Save changes</a>-->
            
-    <a href="/v23/licence-pdf-print" class="govuk-button" target="_blank">View and print licence PDF</a>
-    <a href="/v23/list" class="govuk-button govuk-button--secondary">Return to case list</a>
+    <a href="licence-pdf-print" class="govuk-button" target="_blank">View and print licence PDF</a>
+    <a href="../../afer/case-overview" class="govuk-button govuk-button--secondary">Return to AFER (TOM)</a>
+    <a href="list" class="govuk-link govuk-link--no-visited-state">Go to CVL (TOM)</a>
 
   </div>
 
