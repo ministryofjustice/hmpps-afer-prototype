@@ -1127,39 +1127,103 @@
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="application">
     <h2 class="govuk-heading-l">Application summary</h2>
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
     <!--Eligiblity and suitability-->
-    <h3 class="govuk-heading-m">Eligibility and suitability</h3>
+    <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
 
+    
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Eligibility and suitability</h2>
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+
+          <!--eligible and suitable-->
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 80%;">
               Is this person eligible for HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key" style="width: 20%;">
               Yes
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__value">
               Is this person suitable for HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key">
+              Yes
+            </dd>
+          </div>-->
+
+          <!--ineligible-->
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 50%;">
+              Is this person eligible for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key" style="width: 50%;">
+              No
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Reason
+            </dt>
+            <dd class="govuk-summary-list__key">
+              [List reason]
+            </dd>
+          </div>-->
+          
+          <!--Presumed unsuitable-->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 50%;">
+              Is this person eligible for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key" style="width: 50%;">
               Yes
             </dd>
           </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Is this person suitable for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key">
+              No
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Reason
+            </dt>
+            <dd class="govuk-summary-list__key">
+              They are are serving a sentence for an offence for one of these categories of offence:</br>
+    
+              <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
+                <strong><li>Homicide</li>
+                <li>Explosives</li>
+                <li>Possession of an offensive weapon</li>
+                <li>Possession of firearms with intent</li>
+                <li>Cruelty to children</li>
+                <li>Racially aggravated offences</li>
+                <li>Stalking, harassment and other offences linked to domestic abuse</li>
+                <li>Terrorist offences not described in section 247A(2) of the Criminal Justice Act 2003</li></strong>
+              </ul>
+
+            </dd>
+          </div>
+
+
         </dl>
       </div>
     </div>
-    
-    
+
+        
     <!--Curfew addresses and CAS areas-->
-    <h3 class="govuk-heading-m">Curfew addresses and CAS areas</h3>
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Curfew addresses and CAS areas</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
 
     <div class="govuk-summary-card">
@@ -1214,10 +1278,9 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
-              <strong>Third address</strong></br>
-              72 Guild Street</br>
-              London</br>
-              SE23 6FH
+              <strong>Preferred CAS area</strong></br>
+              Sheffield</br>
+              South Yorkshire
             </dt>
             <dd class="govuk-summary-list__value">
               </br>Saved by Jessica Smith on {{ "today" |  duration(-37) | govukDate("truncate") }}
@@ -1228,10 +1291,9 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
-              <strong>Third address</strong></br>
-              72 Guild Street</br>
+              <strong>Second CAS area</strong></br>
               London</br>
-              SE23 6FH
+              Wimbledon
             </dt>
             <dd class="govuk-summary-list__value">
               </br>Saved by Jessica Smith on {{ "today" |  duration(-37) | govukDate("truncate") }}
@@ -1244,78 +1306,30 @@
       </div>
     </div>
     
-
-
-
-
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1.html"><strong>Preferred address</strong></a></br>
-              4 Inner Street</br>
-              Grantham</br>
-              NG31 6HN
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2.html"><strong>Second address</strong></a></br>
-              49 Hill Street</br>
-              Grantham</br>
-              N1J 5NB
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--blue">I<span style="text-transform: lowercase;">n progress</span></strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="#"><strong>Third address</strong></a></br>
-              72 Guild Street</br>
-              London</br>
-              SE23 6FH
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Saved by Jessica Smith on {{ "today" | duration(0) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-            </dd>
-          </div>
-        </dl>
-
     
-
     <!--Risk assessment-->
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Risk assessment</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Risk assessment</h2>
-        <p class="govuk-body">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__value" style="width: 80%;">
               Can George be managed safely in the community if they are released to the proposed address/area?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key" style="width: 20%;">
               Yes
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__value">
               Are any risk management planning actions needed prior to release before the address can be suitable?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key">
               Yes
             </dd>
           </div>
@@ -1324,9 +1338,10 @@
     </div>
         
     
-
-
     <!--Pre-decision check-->
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Pre-decision check</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
@@ -1336,37 +1351,46 @@
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__value" style="width: 50%;">
               Is this person still eligible for HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key" style="width: 50%;">
               Yes
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__value">
               Is this person still suitable for HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key">
               Yes
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__value">
               Does this application need to be postponed?
             </dt>
-            <dd class="govuk-summary-list__value">
-              No
+            <dd class="govuk-summary-list__key">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 50%;">
+              Reason
+            </dt>
+            <dd class="govuk-summary-list__key" style="width: 50%;">
+              Committed an offence in prison that has been referred to a law enforcement agency or the independent adjudicator but not resolved
             </dd>
           </div>
         </dl>
       </div>
     </div>
     
-    <p class="govuk-body">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
-
-
+    
     <!--Release decision-->
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Release decision</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by DM at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
@@ -1376,10 +1400,10 @@
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__value" style="width: 80%;">
               Can this person be released on HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key" style="width: 20%;">
               Yes
             </dd>
           </div>
@@ -1387,13 +1411,11 @@
       </div>
     </div>
     
-    <p class="govuk-body">Completed by DM at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
-
-
+    
     <!--Licence-->
-    <h3 class="govuk-heading-s">Licence</h3>
-    <p class="govuk-body">Created by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
-    <!--<p class="govuk-body">Approved by DM on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>-->
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Licence</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Created by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
+    <!--<p class="govuk-body" style="margin-top: -10px;">Approved by DM on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>-->
 
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
@@ -1404,15 +1426,15 @@
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key" style="width: 30%;">
               Monday
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="width: 70%;">
               7:00 pm to 7:00 am
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Tuesday
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1420,7 +1442,7 @@
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Wednesday
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1428,7 +1450,7 @@
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Thursday
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1436,7 +1458,7 @@
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Friday
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1444,7 +1466,7 @@
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Saturday
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1452,7 +1474,7 @@
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Sunday
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1472,15 +1494,15 @@
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key" style="width: 30%;">
               Drug testing
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="width: 70%;">
               Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key">
               Possession, ownership, control or inspection of specified items or documents
             </dt>
             <dd class="govuk-summary-list__value">
@@ -1500,10 +1522,10 @@
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__key" style="width: 30%;">
               Bespoke condition
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="width: 70%;">
               This is a bespoke condition...
             </dd>
           </div>
@@ -1512,37 +1534,37 @@
     </div>
         
     
-
-
     <!--Pre-release check-->
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Pre-release check</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Pre-release check</h2>
-        <p class="govuk-body">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="width: 300px;">
+            <dt class="govuk-summary-list__value" style="width: 80%;">
               Is this person still eligible for HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key" style="width: 20%;">
               Yes
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__value">
               Is this person still suitable for HDC?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key">
               Yes
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__value">
               Does this application need to be postponed?
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__key">
               No
             </dd>
           </div>
@@ -1551,9 +1573,11 @@
     </div>
     
 
-
-  
   </div>
+
+
+</div>
+</div>
   <!--Application summary end-->
 
 
