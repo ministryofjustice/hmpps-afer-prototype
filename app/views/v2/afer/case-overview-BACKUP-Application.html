@@ -1127,13 +1127,12 @@
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="application">
     <h2 class="govuk-heading-l">Application summary</h2>
 
-    <!--Eligiblity and suitability-->
-    <h3 class="govuk-heading-m">Eligibility and suitability</h3>
-    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
 
+    <!--Eligiblity and suitability-->
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Eligibility and suitability</h2>
+        <p class="govuk-body">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
@@ -1158,96 +1157,11 @@
     </div>
     
     
+
+
     <!--Curfew addresses and CAS areas-->
-    <h3 class="govuk-heading-m">Curfew addresses and CAS areas</h3>
-    <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
-
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">
-          Curfew addresses and CAS areas
-        </h2>
-      </div>
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Preferred address</strong></br>
-              4 Inner Street</br>
-              Grantham</br>
-              NG31 6HN
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>Unsuitable
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Second address</strong></br>
-              49 Hill Street</br>
-              Grantham</br>
-              N1J 5NB
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-37) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>In progress
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Third address</strong></br>
-              72 Guild Street</br>
-              London</br>
-              SE23 6FH
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-37) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>Not started
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Third address</strong></br>
-              72 Guild Street</br>
-              London</br>
-              SE23 6FH
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-37) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>Not started
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Third address</strong></br>
-              72 Guild Street</br>
-              London</br>
-              SE23 6FH
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-37) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>Not started
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-    
-
-
-
-
+    <h3 class="govuk-heading-s">Curfew addresses and CAS areas</h3>   
+        
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
@@ -1293,7 +1207,8 @@
           </div>
         </dl>
 
-    
+    <p class="govuk-body">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
+
 
     <!--Risk assessment-->
     <div class="govuk-summary-card">
