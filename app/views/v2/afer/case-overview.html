@@ -509,13 +509,37 @@
 </article>
 
 
+
+
+<!--Print licence - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+      <input type="hidden" name="prepareforrelease" value="yes">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    <p class="govuk-body">Waiting for x</p>
+    <!--<button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>-->
+  </section>
+  </form>
+
+</article>
+
+
+<!--Print licence - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
   <form action="./eligibility/tasklist-review" method="post" novalidate>
       <input type="hidden" name="prepareforrelease" value="yes">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
     <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
   </section>
   </form>
@@ -523,6 +547,62 @@
 </article>
 
 
+<!--Print licence - In progress-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+      <input type="hidden" name="prepareforrelease" value="yes">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 70px; margin-top: 5px;">In <span style="text-transform: lowercase;">progress</span></span>
+      </div>
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Continue</button>
+  </section>
+  </form>
+
+</article>
+
+
+<!--Print licence - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+
+  <!--<form action="./eligibility/tasklist-review" method="post" novalidate>-->
+      <!--<input type="hidden" name="prepareforrelease" value="yes">-->
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review" style="margin-top: 15px;">Change</a></p>
+  </section>
+  <!--</form>-->
+
+</article>
+
+
+
+<!--Print licence - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
+    <p class="govuk-body">Waiting for x</p>
+    <!--<a href="../cvl/ca/print-licence.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View and print licence</a>-->
+  </section>
+
+</article>
+
+
+<!--Print licence - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -532,6 +612,7 @@
   </section>
 
 </article>
+
 
 {% endif %}
 <!--tasks end-->
@@ -1046,520 +1127,11 @@
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="application">
     <h2 class="govuk-heading-l">Application summary</h2>
 
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-         
-
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Assess eligibility and suitability
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-    
-        
-          <!--{% if data.user=="admin"%}-->
-    
-          <!--{% if data.ineligibleforHDC=="yes"%}-->
-    
-          <p class="govuk-body"><strong>George Jennings is presumed unsuitable for HDC</strong></br>
-          Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}
-    
-        
-          <!--{% else %}-->
-          <p class="govuk-body">No information submitted yet</br>
-    
-            <a href="./eligibility/tasklist.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-              Start
-             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                 </svg>
-                  </a>
-    
-          </p>
-    
-          <!--{% endif %}-->
-    
-          <!--{% else %}-->
-    
-          <p class="govuk-body"><strong>George Jennings is eligible and presumed suitable for HDC</strong></br>
-            Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}
-    
-          <!--{% endif %}-->
-    
-        </div>
-      </div>
-    
-    
-      <!--{% if data.user=="admin"%}
-      {% elseif (data.user=="decisionmaker") or (data.user=="probation")%}-->
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Check if an address is suitable
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          <!--{% if data.user=="probation"%}
-          {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}-->
-          <p class="govuk-body">The following area has been found to be suitable:</p>
-    
-          <!--card start-->
-    <div class="govuk-summary-card">
-    
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">
-          Proposed area
-        </h2>
-      </div>
-      
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-      
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Town
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Sheffield
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              County or borough
-            </dt>
-            <dd class="govuk-summary-list__value">
-              South Yorkshire
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Additional Information
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Offending history at mother’s address
-            </dd>
-          </div>
-      
-      
-        </dl>
-      </div>
-      
-      </div>
-      <!--card end-->
-    
-      <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
-    
-          <!--{% else %}-->
-          <p class="govuk-body">No information submitted yet</br>
-    
-            <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-              Start
-             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                 </svg>
-                  </a>
-    
-          </p>
-    
-         <!-- {% endif %}
-          {% endif %}-->
-    
-    
-    
-          <!--{% if data.user=="decisionmaker"%}-->
-          <p class="govuk-body">The following address has been found to be suitable:</p>
-    
-    
-          <!--card start-->
-          <div class="govuk-summary-card">
-      
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">
-                Proposed address
-              </h2>
-            </div>
-            
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
-            
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__value">
-                      4 Inner Street</br>
-                      Grantham</br>
-                      NG31 6HN
-                  </dt>
-                  <!--<dd class="govuk-summary-list__key">
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>-->
-                </div>
-            
-            
-              </dl>
-            </div>
-            
-            </div>
-            <!--card end-->
-          <!--{% endif %}-->
-         
-        </div>
-      </div>
-    
-     
-    
-    
-     <!-- {% endif %}-->
-    
-    
-    
-      <!--{% if data.user=="admin"%}
-      {% elseif (data.user=="decisionmaker") or (data.user=="probation")%}-->
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Assess this person’s risk
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          
-          <!--{% if data.user=="probation"%}
-          {% if data.riskAssessed=="yes"%}-->
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-              <p class="govuk-body"><strong>George Jennings can be managed safely in the community within their proposed area.</strong></p>
-              <p>Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
-            </div>
-          </div>
-          <!--{% else %}-->    
-          <p class="govuk-body">No information submitted yet</br>
-    
-            <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-              Start
-             <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                 </svg>
-                  </a>
-    
-          </p>
-         <!-- {% endif %}
-          {% endif %}-->
-        
-    
-          <!--{% if data.user=="decisionmaker"%}   -->
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-              <p class="govuk-body">Probation practitioner Mark Coombes has decided that George can be managed safely in the community at their proposed address.</p>
-            </div>
-          </div>
-          <!--{% endif %}-->
-    
-        </div>
-      </div>
-      <!--{% endif %}-->
-    
-    
-    
-      <!--{% if data.user=="decisionmaker"%}-->
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Create licence 
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-    
-        <h3 class="govuk-heading-s govuk-!-margin-top-0">HDC curfew hours</h3>
-    
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Monday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Tuesday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Wednesday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Thursday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="#">
-       
-             </a>
-           </dd>
-         </div>
-       
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-             Friday
-           </dt>
-           <dd class="govuk-summary-list__value">
-             7:00 pm to 7:00 am
-           </dd>
-           <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="#"></a>
-           </dd>
-         </div>
-    
-         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Saturday
-          </dt>
-          <dd class="govuk-summary-list__value">
-            7:00 pm to 7:00 am
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#"></a>
-          </dd>
-        </div>
-    
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Sunday
-          </dt>
-          <dd class="govuk-summary-list__value">
-            7:00 pm to 7:00 am
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#"></a>
-          </dd>
-        </div>
-       
-       </dl>
-       
-    
-    <h3 class="govuk-heading-s govuk-!-margin-top-0">Additional licence conditions (2)</h3>
-    
-    <!--conditions start-->
-    
-    
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-     <div class="govuk-summary-list__row">
-       <dt class="govuk-summary-list__key">
-         Drug testing
-       </dt>
-       <dd class="govuk-summary-list__value">
-         Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
-       </dd>
-     </div>
-    
-     <div class="govuk-summary-list__row">
-       <dt class="govuk-summary-list__key">
-         Possession, ownership, control or inspection of specified items or documents
-       </dt>
-       <dd class="govuk-summary-list__value">
-         Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
-       </dd>
-       
-     </div>
-    
-    </dl>
-    <!--conditions end-->
-    
-    
-         
-        </div>
-      </div>
-     <!-- {% endif %}-->
-    
-    
-    
-      <!--{% if data.user=="decisionmaker"%}-->
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Pre-decision checks
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full">
-              <!--check your answers start-->
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Has George committed an offence in prison that is unresolved with the police or independent adjudicator? 
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is George currently on remand?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is George subject to a confiscation order?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is there an outstanding application under the unduly lenient scheme for George?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Is George currently segregated (except solely for their own protection)?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <dd class="govuk-summary-list__actions">
-                  </dd>
-                </div>
-                </div>
-            <!--check your answers end-->
-            </div>
-    
-          
-    
-        </div>
-      </div>
-     <!-- {% endif %}-->
-    
-    
-    
-      {% if data.user=="decisionmaker"%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Confirm if George can be released on HDC
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-    
-    
-    {% if data.user=="decisionmaker"%}
-        <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-          Start
-          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-          </svg>
-        </a>
-    {% endif %}
-    
-         
-        </div>
-      </div>
-      {% endif %}
-    
-      {% if data.user=="decisionmaker"%}
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Approve licence
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-    
-          {% if data.user=="probation"%}
-          <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Create or edit licence</a></p>
-          {% endif %}
-    
-    
-          {% if data.user=="decisionmaker"%}
-          <p class="govuk-body">No information submitted yet</br>
-    
-          <a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
-            Start
-           <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-             <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-               </svg>
-              </a>
-          {% endif %}
-        
-        
-         
-        </div>
-      </div>
-      {% endif %}
-    
-    
-    </div>
-
-    
-
+  
+  <!---->
+  
+  
+  
   </div>
 
   <!--Application summary end-->
