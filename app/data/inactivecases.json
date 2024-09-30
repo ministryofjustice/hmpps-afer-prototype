@@ -1,93 +1,66 @@
 [
-    {
-      "name": "Smith, John",
-      "prisonnumber": "G12345",
-      "eligibilitydate": "4 Aug 2024",
-      "daysremaining": 12,
-      "staffname": "Patel, Priya",
-      "caseprogress": "in progress",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Zhang, Wei",
-      "prisonnumber": "G23456",
-      "eligibilitydate": "10 Aug 2024",
-      "daysremaining": 18,
-      "staffname": "O'Sullivan, Aisling",
-      "caseprogress": "not started",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Brown, Marcus",
-      "prisonnumber": "G34567",
-      "eligibilitydate": "15 Aug 2024",
-      "daysremaining": 23,
-      "staffname": "Chen, Li",
-      "caseprogress": "awaiting pp checks",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Khan, Ahmed",
-      "prisonnumber": "G45678",
-      "eligibilitydate": "20 Aug 2024",
-      "daysremaining": 28,
-      "staffname": "Johnson, Emily",
-      "caseprogress": "awaiting dm decision",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Garcia, Luis",
+  {
+      "name": "Williams, Kofi",
+      "prisonnumber": "G67891",
+      "hdcreleasedate": "03 September 2024",
+      "conditionalreleasedate": "14 September 2024",
+      "staffname": "Ben Okoro",
+      "outcome": "Refused"
+  },
+  {
+      "name": "Singh, Harinder",
       "prisonnumber": "G56789",
-      "eligibilitydate": "22 Aug 2024",
-      "daysremaining": 30,
-      "staffname": "Kim, Soo-min",
-      "caseprogress": "in progress",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Nwosu, Chike",
+      "hdcreleasedate": "21 August 2024",
+      "conditionalreleasedate": "01 September 2024",
+      "staffname": "Maria O'Sullivan",
+      "outcome": "Timed out"
+  },
+  {
+      "name": "Ahmed, Yusuf",
+      "prisonnumber": "G45678",
+      "hdcreleasedate": "09 July 2024",
+      "conditionalreleasedate": "20 July 2024",
+      "staffname": "Oliver Roberts",
+      "outcome": "Not eligible"
+  },
+  {
+      "name": "Garcia, Alejandro",
+      "prisonnumber": "G34567",
+      "hdcreleasedate": "24 June 2024",
+      "conditionalreleasedate": "05 July 2024",
+      "staffname": "Emily Hernandez",
+      "outcome": "Presumed unsuitable"
+  },
+  {
+      "name": "Zhang, Wei",
+      "prisonnumber": "G98765",
+      "hdcreleasedate": "12 June 2024",
+      "conditionalreleasedate": "23 June 2024",
+      "staffname": "Martin Davies",
+      "outcome": "Opted out"
+  },
+  {
+      "name": "Okoro, Chinedu",
+      "prisonnumber": "G23456",
+      "hdcreleasedate": "30 May 2024",
+      "conditionalreleasedate": "10 June 2024",
+      "staffname": "Jessica Patel",
+      "outcome": "Refused"
+  },
+  {
+      "name": "Johnson, Marcus",
       "prisonnumber": "G67890",
-      "eligibilitydate": "25 Aug 2024",
-      "daysremaining": 33,
-      "staffname": "Hernandez, Maria",
-      "caseprogress": "awaiting pp checks",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Lee, David",
-      "prisonnumber": "G78901",
-      "eligibilitydate": "28 Aug 2024",
-      "daysremaining": 36,
-      "staffname": "Smith, Robert",
-      "caseprogress": "awaiting dm decision",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Rodriguez, Jose",
-      "prisonnumber": "G89012",
-      "eligibilitydate": "30 Aug 2024",
-      "daysremaining": 38,
-      "staffname": "Robinson, Sarah",
-      "caseprogress": "not started",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Patel, Arjun",
-      "prisonnumber": "G90123",
-      "eligibilitydate": "1 Sept 2024",
-      "daysremaining": 40,
-      "staffname": "Williams, James",
-      "caseprogress": "in progress",
-      "status": "overviewpage"
-    },
-    {
-      "name": "Johnson, Michael",
-      "prisonnumber": "G01234",
-      "eligibilitydate": "3 Sept 2024",
-      "daysremaining": 42,
-      "staffname": "Singh, Anjali",
-      "caseprogress": "awaiting pp checks",
-      "status": "overviewpage"
-    }
-  ]
-  
+      "hdcreleasedate": "15 May 2024",
+      "conditionalreleasedate": "26 May 2024",
+      "staffname": "Amir Khan",
+      "outcome": "Not eligible"
+  },
+  {
+      "name": "Patel, Rajesh",
+      "prisonnumber": "G12345",
+      "hdcreleasedate": "02 May 2024",
+      "conditionalreleasedate": "13 May 2024",
+      "staffname": "Sarah Williams",
+      "outcome": "Timed out"
+  }
+]
