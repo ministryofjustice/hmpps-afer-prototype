@@ -54,18 +54,26 @@
                             Yes – postpone this application
                           </label>
                         </div>
+                        {% if data.predecisioncheck=="yes"%}
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="postponeapplication-2" name="postponeapplication" type="radio" value="no">
                           <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
                             No – submit for decision
                           </label>
                         </div>
+                        {% elseif data.prepareforrelease=="yes"%}
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="prepareforrelease" name="prepareforrelease" type="radio" value="complete">
+                          <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
+                            No – ready for release
+                          </label>
+                        </div>
+                        {% endif %}
                       </div>
                     </fieldset>
                   </div>
 
                 <input type="hidden" name="submitfordecision" value="yes">
-                <input type="hidden" name="postponed" value="no">
 
                 <div class="govuk-button-group">
 
