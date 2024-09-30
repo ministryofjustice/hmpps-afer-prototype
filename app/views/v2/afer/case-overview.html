@@ -67,7 +67,21 @@
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
     
-      <div class="moj-banner__message">This application has been postponed, <a class="govuk-link govuk-link--no-visited-state" href="case-overview#forms">PiP letter</a></div>
+      <div class="moj-banner__message">
+      <strong>Application for George postponed by Jessica Smith on {{ "today" |  duration(0) | govukDate }}</br></strong>
+
+    <p class="govuk-body">This is because they 
+    {% if data.postponereason=="riskmanagement"%} need a risk management plan.</br>{% endif %}
+    {% if data.postponereason=="remand"%} are on remand.</br>{% endif %}
+    {% if data.postponereason=="confiscationorder"%} would not follow confiscation order.</br>{% endif %}
+    {% if data.postponereason=="segregated"%} are segregated.</br>{% endif %}
+    {% if data.postponereason=="committedoffence"%} are being investigated for an offence committed in prison.</br>{% endif %}
+    {% if data.postponereason=="undulylenientsentence"%} have an application pending with the unduly lenient sentence scheme.</br>{% endif %}
+
+    Download <a class="govuk-link govuk-link--no-visited-state" href="#">this letter (opens in new tab)</a> to tell them the application is postponed.</p>
+        
+        
+     </div>
     
     </div>    
 
@@ -345,14 +359,35 @@
 
 <!--postponed info start-->
 {% if data.postponed=="yes"%}
-<div class="moj-banner" role="region" aria-label="information">
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Application for George postponed by Jessica Smith on {{ "today" |  duration(0) | govukDate }}
+
+    because they 
+    {% if data.postponereason=="riskmanagement"%} need a risk management plan.{% endif %}
+    {% if data.postponereason=="remand"%} are on remand.{% endif %}
+    {% if data.postponereason=="confiscationorder"%} would not follow confiscation order.{% endif %}
+    {% if data.postponereason=="segregated"%} are segregated.{% endif %}
+    {% if data.postponereason=="committedoffence"%} are being investigated for an offence committed in prison.{% endif %}
+    {% if data.postponereason=="undulylenientsentence"%} have an application pending with the unduly lenient sentence scheme.{% endif %}
+
+  <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html"> Resume application</a>
+  </strong>
+</div>
+
+
+
+<!--<div class="moj-banner" role="region" aria-label="information">
 
   <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
     <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
   C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
   </svg>
 
-  <div class="moj-banner__message">Application has been postponed</br>
+  <div class="moj-banner__message">
     Reason: 
     {% if data.postponereason=="riskmanagement"%}Waiting for a risk management plan</br>{% endif %}
     {% if data.postponereason=="remand"%}On remand</br>{% endif %}
@@ -364,7 +399,7 @@
     <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html">Resume application</a>
 </div>
 
-</div>
+</div>-->
 {% else %}
 {% endif %}
 <!--postponed info end-->
@@ -401,68 +436,63 @@
 -->    
 
 
-<!--tasks start-->
-{% if data.user=="decisionmaker"%}
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m" style="margin-top: 25px;">Confirm if George can be released on HDC</h2>
-  </div>
-  <div class="govuk-grid-column-one-third">
-    
-    <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
-      Start
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg>
-    </a>
-
-  </div>
-</div>
-
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-<h2 class="govuk-heading-m" style="margin-top: 25px;">Approve licence</h2>
-</div>
-<div class="govuk-grid-column-one-third">
-
-<a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
-  Start
-  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-  </svg>
-</a>
-
-</div>
-</div>
-
-
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-
-{% endif %}
-<!--tasks end-->
 
 <!--tasks CA start-->
 {% if data.user=="admin"%}
 
 
+{% if (data.eligiblepresumedsuitable=="yes") %}
+<!--Eligibility and suitability checks - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View or change</a></p>
+  </section>
+</article>
+{% else %}
+<!--Eligibility and suitability checks - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
+        <p class="govuk-body"> To do by {{ "today" |  duration(5) | govukDate("truncate") }}</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
     <a href="./eligibility/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
-
 </article>
 
+<!--Eligibility and suitability checks - In progress-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
+      </div>
+    </div>
+    <a href="./eligibility/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Continue</a>
+  </section>
+</article>-->
+{% endif %}
 
+
+
+
+{% if (data.eligiblepresumedsuitable=="yes") %}
 {% if (data.addressinputcomplete=="view") %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
@@ -474,61 +504,158 @@
 
 </article>
 
-{% elseif (data.addressinputcomplete=="yes") %}
+{% elseif (data.addressinput=="complete") %}
+<!--Curfew addresses and CAS areas - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a href="./address-input/view-address-input.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View</a>
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input.html" style="margin-top: 15px;">View or change</a></p>
   </section>
-
 </article>
 {% else %}
+<!--Curfew addresses and CAS areas - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
     <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
+</article>
 
+<!--Curfew addresses and CAS areas - In progress-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+        <p class="govuk-body">To do by [hdced - 12 weeks]</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
+      </div>
+    </div>
+    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Continue</a>
+  </section>
+</article>-->
+{% endif %}
+
+{% else %}
+<!--Curfew addresses and CAS areas - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses or CAS areas</h2>
+    <p class="govuk-body">You can start this task if George is eligible and suitable for HDC.</p>
+  </section>
 </article>
 {% endif %}
 
+
+
+{% if data.submitfordecision=="yes"%}
+<!--Review application and send for decision - Done-->
+<form action="./eligibility/tasklist-review" method="post" novalidate>
+  <input type="hidden" name="predecisioncheck" value="yes">
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review" style="margin-top: 15px;">View or change</a></p>
+  </section>
+</article>
+</form>
+{% elseif data.postponed=="yes"%}
+<!--Review application and send for decision - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+    <p class="govuk-body">Application postponed</p>
+  </section>
+</article>
+
+<!--Review application and send for decision - In progress-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <form action="./eligibility/tasklist-review" method="post" novalidate>
     <input type="hidden" name="predecisioncheck" value="yes">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
+      </div>
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Continue</button>
+  </section>
+</form>
+</article>00>
+{% elseif (data.addressinput=="complete") %}--><!--CHANGE THIS BASED ON PP INPUT TO addresscheck complete-->
+<!--Review application and send for decision - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+    <input type="hidden" name="predecisioncheck" value="yes">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
     <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
   </section>
-  </form>
+</form>
 </article>
-
-
-
-
-<!--Print licence - Cannot start yet-->
+{% elseif (data.eligiblepresumedsuitable=="yes") %}
+<!--Review application and send for decision - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+    <p class="govuk-body">You can complete this task if a probation practitioner finds a suitable address and agrees George can be released on HDC.</p>
+  </section>
+</article>
+{% else %}
+<!--Review application and send for decision - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+    <p class="govuk-body">You can complete this task if a probation practitioner finds a suitable address and agrees George can be released on HDC.</p>
+  </section>
+</article>
+{% endif %}
 
-  <form action="./eligibility/tasklist-review" method="post" novalidate>
-      <input type="hidden" name="prepareforrelease" value="yes">
+
+{% if data.postponed=="yes"%}
+<!--Prepare for release - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
-    <!--<p class="govuk-body">Waiting for x</p>-->
-    <!--<button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>-->
+    <p class="govuk-body">Application postponed</p>
   </section>
-  </form>
-
 </article>
-
-
-<!--Print licence - Start-->
+{% elseif data.submitfordecision=="yes"%}
+<!--Prepare for release - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
   <form action="./eligibility/tasklist-review" method="post" novalidate>
       <input type="hidden" name="prepareforrelease" value="yes">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -543,13 +670,9 @@
     <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
   </section>
   </form>
-
 </article>
-
-
-<!--Print licence - In progress-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
+<!--Prepare for release - In progress-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <form action="./eligibility/tasklist-review" method="post" novalidate>
       <input type="hidden" name="prepareforrelease" value="yes">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -564,13 +687,18 @@
     <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Continue</button>
   </section>
   </form>
-
+</article>-->
+{% elseif (data.eligiblepresumedsuitable=="yes") %}
+<!--Prepare for release - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
+  </section>
 </article>
-
-
+{% elseif (data.prepareforrelease=="complete") %}
 <!--Prepare for release - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
   <!--<form action="./eligibility/tasklist-review" method="post" novalidate>-->
       <!--<input type="hidden" name="prepareforrelease" value="yes">-->
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -585,34 +713,49 @@
     <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review" style="margin-top: 15px;">View or change</a></p>
   </section>
   <!--</form>-->
-
 </article>
+{% else %}
+<!--Prepare for release - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
+  </section>
+</article>
+{% endif %}
 
 
 
+
+
+
+
+{% if data.postponed=="yes"%}
 <!--Print licence - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p class="govuk-body">Waiting for x</p>
-    <!--<a href="../cvl/ca/print-licence.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View and print licence</a>-->
+    <p class="govuk-body">Application postponed</p>
   </section>
-
 </article>
-
-
+{% elseif (data.prepareforrelease=="complete") %}
 <!--Print licence - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
     <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
     <a href="../cvl/ca/print-licence.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View and print licence</a>
   </section>
-
 </article>
-
+{% else %}
+<!--Print licence - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
+    <p class="govuk-body">You can view information about a licence as soon as it has been started and print it once approved.</p>
+  </section>
+</article>
+{% endif %}
 
 {% endif %}
 <!--tasks end-->
@@ -620,7 +763,7 @@
 
 
 
-
+<!--Probation tasks start-->
 {% if data.user=="probation"%}
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -745,7 +888,55 @@
 {% endif %}
 
 
-<!--tasks end-->
+<!--Probation tasks end-->
+
+
+<!--DM tasks start-->
+{% if data.user=="decisionmaker"%}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">Confirm if George can be released on HDC</h2>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    
+    <a href="./decision/confirm-release.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
+      Start
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-m" style="margin-top: 25px;">Approve licence</h2>
+</div>
+<div class="govuk-grid-column-one-third">
+
+<a href="../cvl/approvals/hdc.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;" disabled aria-disabled="true">
+  Start
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg>
+</a>
+
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+{% endif %}
+<!--DM tasks end-->
 
 
 

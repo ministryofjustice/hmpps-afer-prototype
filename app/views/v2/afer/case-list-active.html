@@ -174,7 +174,13 @@
                 <td class="govuk-table__cell">{{ "today" |  duration(100) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">100</td>
                 <td class="govuk-table__cell"></td>
-                <td class="govuk-table__cell">Assess eligibility and suitability</td>
+                <td class="govuk-table__cell">
+                  {% if (data.eligiblepresumedsuitable=="yes") %}
+                  Enter curfew addresses and CAS areas
+                  {% else %}
+                  Assess eligibility and suitability
+                  {% endif %}
+                </td>
               </tr>
 
               <tr class="govuk-table__row">

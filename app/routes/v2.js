@@ -4,6 +4,7 @@ var version = '/v2';
 
 //CA journey routes
 
+
 //Opting in and out question
 router.post('/optout', function (req, res) {
   var optoutDecision = req.session.data['optoutdecision']
