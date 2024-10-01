@@ -13,34 +13,34 @@
     <h1 class="govuk-heading-l">Assess for Early Release</h1>
 
    
-      <form action="./journeys" method="post">
+      <form action="./dps/dps-home" method="post">
 
       <div class="govuk-form-group govuk-!-margin-bottom-8">
       <div class="govuk-radios">
         <label class="govuk-label govuk-!-font-weight-bold" for="user">
-          Show the journey for
+          Journey:
         </label>
 
         <p><a class="govuk-link govuk-link--no-visited-state" href="https://hmpps-afer-prototype-main.apps.live.cloud-platform.service.justice.gov.uk/manage-prototype/clear-data">Clear data</a> before starting a new journey</p>
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="user-admin" name="user" type="radio" value="admin" checked="checked">
-          <label class="govuk-label govuk-radios__label" for="user-admin">
-            Prison Admin
+          <input class="govuk-radios__input" id="ineligible-journey" name="journey" type="radio" value="ineligiblejourney" checked="checked">
+          <label class="govuk-label govuk-radios__label" for="ineligible-journey">
+            Scenario 1
           </label>
         </div>
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="user-probation" name="user" type="radio" value="probation">
-          <label class="govuk-label govuk-radios__label" for="user-probation" >
-            Probation Practitioner
+          <input class="govuk-radios__input" id="eligible-journey" name="journey" type="radio" value="eligiblejourney">
+          <label class="govuk-label govuk-radios__label" for="eligible-journey" >
+            Scenario 2
           </label>
         </div>
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="user-employer" name="user" type="radio" value="decisionmaker">
-          <label class="govuk-label govuk-radios__label" for="user-decisionmaker">
-            Decision maker
+          <input class="govuk-radios__input" id="28days-journey" name="journey" type="radio" value="28daysjourney">
+          <label class="govuk-label govuk-radios__label" for="dm-28days-journey">
+            Scenario 3
           </label>
         </div>
 

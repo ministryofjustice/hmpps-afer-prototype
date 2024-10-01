@@ -124,7 +124,13 @@
 
     {% endif %}
 
-    <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for George Jennings</h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for
+      {% if data.journey=="ineligiblejourney"%}
+      Jose Rodriguez
+      {% else %}
+      George Jennings
+      {% endif %}
+    </h1>
      
           
     </div>
@@ -157,7 +163,11 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
+              {% if data.journey=="ineligiblejourney"%}
+              Jose Rodriguez
+              {% else %}
               George Jennings
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
