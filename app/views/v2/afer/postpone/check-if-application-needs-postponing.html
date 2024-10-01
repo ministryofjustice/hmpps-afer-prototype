@@ -27,7 +27,11 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+                {% if data.prepareforrelease=="yes"%}
+                <h1 class="govuk-heading-l govuk-!-margin-top-6">Check if the application needs to be postponed before release</h1>
+                {% else %}
                 <h1 class="govuk-heading-l govuk-!-margin-top-6">Check if the application needs to be postponed</h1>
+                {% endif %}
                 
                 <p class="govuk-body">You must postpone the application if this person:</p>
 
@@ -54,26 +58,27 @@
                             Yes – postpone this application
                           </label>
                         </div>
-                        {% if data.predecisioncheck=="yes"%}
                         <div class="govuk-radios__item">
+                          {% if data.prepareforrelease=="yes"%}
+                          <input class="govuk-radios__input" id="prepareforrelease" name="prepareforrelease" type="radio" value="complete">
+                          <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
+                            No
+                          </label>
+                          {% elseif data.predecisioncheck=="yes"%}
                           <input class="govuk-radios__input" id="postponeapplication-2" name="postponeapplication" type="radio" value="no">
                           <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
                             No – submit for decision
                           </label>
+                          {% endif %}
                         </div>
-                        {% elseif data.prepareforrelease=="yes"%}
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="prepareforrelease" name="prepareforrelease" type="radio" value="complete">
-                          <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
-                            No – ready for release
-                          </label>
-                        </div>
-                        {% endif %}
                       </div>
                     </fieldset>
                   </div>
 
+                {% if data.predecisioncheck=="yes"%}
                 <input type="hidden" name="submitfordecision" value="yes">
+                {% else %}
+                {% endif %}
 
                 <div class="govuk-button-group">
 
