@@ -38,7 +38,8 @@
         <div class="govuk-grid-column-full">
 
 
-    {% if (data.prepareforrelease=="complete") %}
+    {% if (data.printlicence=="complete") %}
+    {% elseif (data.prepareforrelease=="complete") %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -739,9 +740,23 @@
 
 
 
-
-
-{% if (data.postponed=="yes") or (data.resumeapplication=="no") %}
+{% if (data.printlicence=="complete") %}
+<!--Print licence - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 95px; margin-top: 5px;">Viewed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="../cvl/ca/print-licence" style="margin-top: 15px;">View and print licence</a></p>
+  </section>
+  <!--</form>-->
+</article>
+{% elseif (data.postponed=="yes") or (data.resumeapplication=="no") %}
 <!--Print licence - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
@@ -752,11 +767,13 @@
 {% elseif (data.prepareforrelease=="complete") %}
 <!--Print licence - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <form action="../cvl/ca/print-licence" method="post" novalidate>
+    <input type="hidden" name="printlicence" value="complete">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <!--<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-    <a href="../cvl/ca/print-licence.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View and print licence</a>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">View and print licence</button>
   </section>
+  </form>
 </article>
 {% else %}
 <!--Print licence - Cannot start yet-->
@@ -1167,7 +1184,7 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Create licence</h2>
     </div>
-    {% if data.predecisioncheck=="complete" %}
+    {% if data.prepareforrelease=="complete" %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-22) | govukDate }}</time>
     </p>
@@ -1180,7 +1197,7 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Approve licence</h2>
     </div>
-    {% if data.predecisioncheck=="complete" %}
+    {% if data.prepareforrelease=="complete" %}
       <p class="moj-timeline__date">
         <time datetime="2019-05-28T10:15:00.000Z">Completed by Ade Cooper at HMP Wandsworth on {{ "today" |  duration(-22) | govukDate }}</time>
       </p>
@@ -1206,6 +1223,12 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Print licence</h2>
     </div>
+    {% if (data.printlicence=="complete") %}
+      <p class="moj-timeline__date">
+       <time datetime="2019-05-28T10:15:00.000Z">Viewed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-22) | govukDate }}</time>
+      </p>
+    {% else %}
+    {% endif %}
   </div>
 
 
@@ -1598,8 +1621,13 @@
     <!--Licence-->
     {% if (data.prepareforrelease=="complete") %}
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Licence</h3>
-    <p class="govuk-body" style="margin-top: -10px;">Created by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>
-    <!--<p class="govuk-body" style="margin-top: -10px;">Approved by DM on {{ "today" |  duration(-37) | govukDate("truncate") }}</p>-->
+    {% if (data.printlicence=="complete") %}
+    <p class="govuk-body" style="margin-top: -10px;">Viewed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-37) | govukDate }}</p>
+    {% else %}
+    <!--<p class="govuk-body" style="margin-top: -10px;">Created by probation practitioner Mark Coombes on {{ "today" |  duration(-37) | govukDate }}</p>-->
+    <p class="govuk-body" style="margin-top: -10px;">Approved by Ade Cooper at HMP Wandsworth on {{ "today" |  duration(-37) | govukDate }}</p>
+    {% endif %}
+
 
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
