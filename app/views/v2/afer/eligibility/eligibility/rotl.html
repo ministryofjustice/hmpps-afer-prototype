@@ -44,7 +44,11 @@
                   </label>
                 </div>
                 <div class="govuk-radios__item">
+                  {% if data.journey=="ineligiblejourney" %}
+                  <input class="govuk-radios__input" id="ROTLfailure-2" name="ROTLfailure" type="radio" value="no">
+                  {% else %}
                   <input class="govuk-radios__input" id="ROTLfailure-2" name="ROTLfailure" type="radio" value="no" checked>
+                  {% endif %}
                   <label class="govuk-label govuk-radios__label" for="ROTLfailure-2">
                     No
                   </label>

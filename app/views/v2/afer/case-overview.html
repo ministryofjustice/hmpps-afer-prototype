@@ -464,7 +464,7 @@
 {% if data.user=="admin"%}
 
 
-{% if (data.eligiblepresumedsuitable=="yes") %}
+{% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
 <!--Eligibility and suitability checks - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -577,7 +577,11 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses or CAS areas</h2>
+    {% if data.ineligible=="yes"%}
+    <p class="govuk-body">Ineligible</p>
+    {% else %}
     <p class="govuk-body">You can start this task if George is eligible and suitable for HDC.</p>
+    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -659,7 +663,11 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+    {% if data.ineligible=="yes"%}
+    <p class="govuk-body">Ineligible</p>
+    {% else %}
     <p class="govuk-body">You can complete this task if a probation practitioner finds a suitable address and agrees George can be released on HDC.</p>
+    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -741,7 +749,11 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    {% if data.ineligible=="yes"%}
+    <p class="govuk-body">Ineligible</p>
+    {% else %}
     <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
+    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -790,7 +802,11 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
+    {% if data.ineligible=="yes"%}
+    <p class="govuk-body">Ineligible</p>
+    {% else %}
     <p class="govuk-body">You can view information about a licence as soon as it has been started and print it once approved.</p>
+    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -1060,7 +1076,7 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Assess eligibility and suitability</h2>
     </div>
-    {% if (data.eligiblepresumedsuitable=="yes") %}
+    {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
       <p class="moj-timeline__date">
         <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</time>
       </p>
@@ -1273,7 +1289,7 @@
       <div class="govuk-grid-column-two-thirds">
 
     <!--Eligiblity and suitability-->
-    {% if (data.eligiblepresumedsuitable=="yes") %}
+    {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
 
@@ -1286,6 +1302,7 @@
         <dl class="govuk-summary-list">
 
           <!--eligible and suitable-->
+          {% if data.eligiblepresumedsuitable=="yes" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value" style="width: 80%;">
               Is this person eligible for HDC?
@@ -1304,7 +1321,8 @@
           </div>
 
           <!--ineligible-->
-          <!--<div class="govuk-summary-list__row">
+          {% elseif data.ineligible=="yes" %}
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value" style="width: 50%;">
               Is this person eligible for HDC?
             </dt>
@@ -1317,9 +1335,9 @@
               Reason
             </dt>
             <dd class="govuk-summary-list__key">
-              [List reason]
+              Deportation orders
             </dd>
-          </div>-->
+          </div>
           
           <!--Presumed unsuitable-->
           <!--<div class="govuk-summary-list__row">
@@ -1358,6 +1376,7 @@
 
             </dd>
           </div>-->
+          {% endif %}
 
 
         </dl>
@@ -1819,14 +1838,16 @@
 
     <p class="govuk-body">These forms will open in a new tab for printing</p>
 
-    <!--<p class="govuk-body">
+    {% if data.ineligible=="yes" %}
+    <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
           <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
         </svg>
         Not eligible
       </a>
-    </p>-->
+    </p>
+    {% endif %}
 
     <!--<p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
@@ -1972,7 +1993,7 @@
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header" style="width: 250px;">Case administrator</th>
           <td class="govuk-table__cell">
-            {% if (data.eligiblepresumedsuitable=="yes") %}
+            {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
             Jessica Smith</br>
             jessica.smith@justice.gov.uk</br>
             HMP Wandsworth

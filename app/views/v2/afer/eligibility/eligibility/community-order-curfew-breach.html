@@ -44,7 +44,11 @@
                   </label>
                 </div>
                 <div class="govuk-radios__item">
+                  {% if data.journey=="ineligiblejourney" %}
+                  <input class="govuk-radios__input" id="communityOrderCurfew-2" name="communityOrderCurfew" type="radio" value="no">
+                  {% else %}
                   <input class="govuk-radios__input" id="communityOrderCurfew-2" name="communityOrderCurfew" type="radio" value="no" checked>
+                  {% endif %}
                   <label class="govuk-label govuk-radios__label" for="communityOrderCurfew-2">
                     No
                   </label>

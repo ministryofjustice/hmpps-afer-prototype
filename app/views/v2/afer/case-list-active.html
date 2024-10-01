@@ -157,6 +157,8 @@
           
             <tbody class="govuk-table__body">
 
+              {% if data.ineligible=="yes"%}
+              {% else %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
                   {% if data.journey=="ineligiblejourney"%}
@@ -171,6 +173,7 @@
                 <td class="govuk-table__cell"></td>
                 <td class="govuk-table__cell">Assess eligibility and suitability</td>
               </tr>
+              {% endif %}
 
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">

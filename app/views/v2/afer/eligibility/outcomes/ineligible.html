@@ -40,7 +40,15 @@
 
         <div class="govuk-inset-text">
 
+          {% if data.ineligiblereason=="deportationorders"%}
+
+          text tom
+
+          {% else %}
+
           [REASON]
+
+          {% endif %}
           
         </div>
 
@@ -60,25 +68,25 @@
 
         </p>
 
+
+
+
         <!--FIX INTERACTION-->
-
-        <form class="form" action="../case-list" method="post" novalidate>
-
-        <input type="hidden" name="presumedunsuitableHDC" value="yes">
-
         <div class="govuk-button-group" style="margin-top: 40px;">
+        
+        <form class="form" action="../../case-list-inactive" method="post" novalidate>
+        <input type="hidden" name="ineligible" value="yes">
+
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Return to case list
           </button>
+  
+        </form>
 
-          <a href="./tasklist.html" class="govuk-button govuk-button--secondary">Back to assessment</a></br>
+        <a href="../tasklist" class="govuk-button govuk-button--secondary">Back to assessment</a></br>
 
         </div>
 
-    
-
-
-        </form>
 
 
         <p class="govuk-body" style="margin-top: 50px; margin-bottom: -50px;">

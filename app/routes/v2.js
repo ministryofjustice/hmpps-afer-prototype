@@ -71,7 +71,7 @@ router.post('/add-another-address', function (req, res) {
 });
 
 
-//Postpone application
+//Postpone application during pre decision checks
 router.post('/postpone', function (req, res) {
   var postponeApplication = req.session.data['postponeapplication']
 
@@ -80,6 +80,25 @@ router.post('/postpone', function (req, res) {
    
    // Send user to address type page
     res.redirect(version + '/afer/postpone/postpone-this-application')
+    
+  } else {
+    // Send user to opt out reason page
+    res.redirect(version + '/afer/case-overview')
+  }
+
+});
+
+
+//Postpone application during pre release checks
+router.post('/postponeprepareforrelease', function (req, res) {
+  var PrepareForRelease = req.session.data['prepareforrelease']
+
+  // Check whether the variable matches a condition
+  if (PrepareForRelease == "no"){
+   
+   // Send user to address type page
+    res.redirect(version + '/afer/postpone/postpone-this-application')
+    
   } else {
     // Send user to opt out reason page
     res.redirect(version + '/afer/case-overview')
