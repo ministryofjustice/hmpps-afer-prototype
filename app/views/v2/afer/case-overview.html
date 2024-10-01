@@ -127,6 +127,8 @@
     <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for
       {% if data.journey=="ineligiblejourney"%}
       Jose Rodriguez
+      {% elseif data.journey=="28daysjourney" %}
+      David Lee
       {% else %}
       George Jennings
       {% endif %}
@@ -165,6 +167,8 @@
             <dd class="govuk-summary-list__value">
               {% if data.journey=="ineligiblejourney"%}
               Jose Rodriguez
+              {% elseif data.journey=="28daysjourney" %}
+              David Lee
               {% else %}
               George Jennings
               {% endif %}
@@ -201,7 +205,11 @@
               HDCED
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ "today" |  duration(93) | govukDate("truncate") }}
+              {% if data.journey=="28daysjourney" %}
+              {{ "today" |  duration(28) | govukDate }}
+              {% else %}
+              {{ "today" |  duration(93) | govukDate }}
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <span class="moj-badge moj-badge--black">Nomis</span>
@@ -213,7 +221,11 @@
               CRD
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ "today" |  duration(126) | govukDate("truncate") }}
+              {% if data.journey=="28daysjourney" %}
+              {{ "today" |  duration(38) | govukDate }}
+              {% else %}
+              {{ "today" |  duration(126) | govukDate }}
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <span class="moj-badge moj-badge--black">Nomis</span>
@@ -429,21 +441,37 @@
 
 
 <!--28 days info start-->
-<!--<div class="moj-banner moj-banner--warning" role="region" aria-label="Warning">
+{% if data.28daysapproval=="yes" %}
+{% elseif data.journey=="28daysjourney" %}
+<!--<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Decision maker approval required
+    <p>There are 28 days or less to this person’s CRD on {{ "today" |  duration(38) | govukDate }}.</br>
+      The last day this person can be released on HDC is {{ "today" |  duration(28) | govukDate }}.</br></br>
+      You must get approval from a decision maker to continue this application.
+      <a class="govuk-link govuk-link--no-visited-state" href="">Enter approval</a></p>
+  </strong>
+</div>-->
+
+<div class="moj-banner moj-banner--warning" role="region" aria-label="Warning">
 
   <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
     <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
   </svg>
 
   <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
-    There are 28 days or less to this person’s CRD on [CRD].</br>
-    The last day this person can be released on HDC is [DATE].</br></br>
+    There are 28 days or less to this person’s CRD on {{ "today" |  duration(38) | govukDate }}.
+    The last day this person can be released on HDC is {{ "today" |  duration(28) | govukDate }}.</br></br>
     You must get approval from a decision maker to continue this application.
-
-    <a class="govuk-link govuk-link--no-visited-state" href="">Enter approval</a>
+    <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
   </div>
 
-</div>-->
+</div>
+
+
+{% endif %}
 <!--28 days info end-->    
 
 
@@ -464,7 +492,7 @@
 {% if data.user=="admin"%}
 
 
-{% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
+{% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
 <!--Eligibility and suitability checks - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -523,7 +551,6 @@
     <a href="./address-input/view-address-input.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View</a>
   </section>
 </article>
-
 {% elseif (data.addressinput=="complete") %}
 <!--Curfew addresses and CAS areas - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -572,6 +599,21 @@
 </article>-->
 {% endif %}
 
+{% elseif data.28daysapproval=="yes" %}
+<!--Curfew addresses and CAS areas - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
 {% else %}
 <!--Curfew addresses and CAS areas - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1076,7 +1118,7 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Assess eligibility and suitability</h2>
     </div>
-    {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
+    {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
       <p class="moj-timeline__date">
         <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</time>
       </p>
@@ -1258,6 +1300,16 @@
   </div>
 
 
+  {% if data.journey=="28daysjourney" %}
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(28) | govukDate }}</h2>
+    </div>
+    <p class="moj-timeline__date">
+      <time datetime="2019-06-07T12:32:00.000Z">28 days left until HDCED</time>
+    </p>
+  </div>
+  {% else %}
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(93) | govukDate }}</h2>
@@ -1266,14 +1318,23 @@
       <time datetime="2019-06-07T12:32:00.000Z">93 days left until HDCED</time>
     </p>
   </div>
+  {% endif %}
 
-
+  
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">CRD: {{ "today" |  duration(126) | govukDate }}</h2>
+      <h2 class="moj-timeline__title">
+        {% if data.journey=="28daysjourney" %}
+        {{ "today" |  duration(38) | govukDate }}
+        {% else %}
+        CRD: {{ "today" |  duration(126) | govukDate }}
+        {% endif %}
+      </h2>
     </div>
   </div>
 </div>
+
+              
 
 
 <!--Timeline end-->
@@ -1289,7 +1350,7 @@
       <div class="govuk-grid-column-two-thirds">
 
     <!--Eligiblity and suitability-->
-    {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
+    {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
 
@@ -1302,7 +1363,7 @@
         <dl class="govuk-summary-list">
 
           <!--eligible and suitable-->
-          {% if data.eligiblepresumedsuitable=="yes" %}
+          {% if (data.eligiblepresumedsuitable=="yes") or (data.journey=="28daysjourney") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value" style="width: 80%;">
               Is this person eligible for HDC?
@@ -1858,7 +1919,7 @@
       </a>
     </p>-->
 
-    {% if (data.eligiblepresumedsuitable=="yes") %}
+    {% if (data.eligiblepresumedsuitable=="yes") or (data.journey=="28daysjourney") %}
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
@@ -1993,7 +2054,7 @@
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header" style="width: 250px;">Case administrator</th>
           <td class="govuk-table__cell">
-            {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
+            {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
             Jessica Smith</br>
             jessica.smith@justice.gov.uk</br>
             HMP Wandsworth
