@@ -1,66 +1,74 @@
 [
-  {
-      "name": "Williams, Kofi",
-      "prisonnumber": "G67891",
-      "hdcreleasedate": "03 September 2024",
-      "conditionalreleasedate": "14 September 2024",
-      "staffname": "Ben Okoro",
-      "outcome": "Refused"
-  },
-  {
-      "name": "Singh, Harinder",
-      "prisonnumber": "G56789",
-      "hdcreleasedate": "21 August 2024",
-      "conditionalreleasedate": "01 September 2024",
-      "staffname": "Maria O'Sullivan",
-      "outcome": "Timed out"
-  },
-  {
-      "name": "Ahmed, Yusuf",
-      "prisonnumber": "G45678",
-      "hdcreleasedate": "09 July 2024",
-      "conditionalreleasedate": "20 July 2024",
-      "staffname": "Oliver Roberts",
-      "outcome": "Not eligible"
-  },
-  {
-      "name": "Garcia, Alejandro",
-      "prisonnumber": "G34567",
-      "hdcreleasedate": "24 June 2024",
-      "conditionalreleasedate": "05 July 2024",
-      "staffname": "Emily Hernandez",
-      "outcome": "Presumed unsuitable"
-  },
-  {
-      "name": "Zhang, Wei",
-      "prisonnumber": "G98765",
-      "hdcreleasedate": "12 June 2024",
-      "conditionalreleasedate": "23 June 2024",
-      "staffname": "Martin Davies",
-      "outcome": "Opted out"
-  },
-  {
-      "name": "Okoro, Chinedu",
-      "prisonnumber": "G23456",
-      "hdcreleasedate": "30 May 2024",
-      "conditionalreleasedate": "10 June 2024",
-      "staffname": "Jessica Patel",
-      "outcome": "Refused"
-  },
-  {
-      "name": "Johnson, Marcus",
-      "prisonnumber": "G67890",
-      "hdcreleasedate": "15 May 2024",
-      "conditionalreleasedate": "26 May 2024",
-      "staffname": "Amir Khan",
-      "outcome": "Not eligible"
-  },
-  {
-      "name": "Patel, Rajesh",
-      "prisonnumber": "G12345",
-      "hdcreleasedate": "02 May 2024",
-      "conditionalreleasedate": "13 May 2024",
-      "staffname": "Sarah Williams",
-      "outcome": "Timed out"
-  }
+    {
+        "name": "Williams, Kofi",
+        "prisonnumber": "G67891",
+        "hdcreleasedate": "03 Sep 2024",
+        "conditionalreleasedate": "14 Sep 2024",
+        "staffname": "Ben Okoro",
+        "outcome": "Refused",
+        "probationpractitioner": "Fatima Al-Farsi"
+    },
+    {
+        "name": "Singh, Harinder",
+        "prisonnumber": "G56789",
+        "hdcreleasedate": "21 Aug 2024",
+        "conditionalreleasedate": "01 Sep 2024",
+        "staffname": "Maria O'Sullivan",
+        "outcome": "Timed out",
+        "probationpractitioner": "David Kim"
+    },
+    {
+        "name": "Ahmed, Yusuf",
+        "prisonnumber": "G45678",
+        "hdcreleasedate": "09 Jul 2024",
+        "conditionalreleasedate": "20 Jul 2024",
+        "staffname": "Oliver Roberts",
+        "outcome": "Not eligible",
+        "probationpractitioner": "Isabella Romero"
+    },
+    {
+        "name": "Garcia, Alejandro",
+        "prisonnumber": "G34567",
+        "hdcreleasedate": "24 Jun 2024",
+        "conditionalreleasedate": "05 Jul 2024",
+        "staffname": "Emily Hernandez",
+        "outcome": "Presumed unsuitable",
+        "probationpractitioner": "Kwame Mensah"
+    },
+    {
+        "name": "Zhang, Wei",
+        "prisonnumber": "G98765",
+        "hdcreleasedate": "12 Jun 2024",
+        "conditionalreleasedate": "23 Jun 2024",
+        "staffname": "Martin Davies",
+        "outcome": "Opted out",
+        "probationpractitioner": "Naomi Shimizu"
+    },
+    {
+        "name": "Okoro, Chinedu",
+        "prisonnumber": "G23456",
+        "hdcreleasedate": "30 May 2024",
+        "conditionalreleasedate": "10 Jun 2024",
+        "staffname": "Jessica Patel",
+        "outcome": "Refused",
+        "probationpractitioner": "Derek Johnson"
+    },
+    {
+        "name": "Johnson, Marcus",
+        "prisonnumber": "G67890",
+        "hdcreleasedate": "15 May 2024",
+        "conditionalreleasedate": "26 May 2024",
+        "staffname": "Amir Khan",
+        "outcome": "Not eligible",
+        "probationpractitioner": "Grace Lin"
+    },
+    {
+        "name": "Patel, Rajesh",
+        "prisonnumber": "G12345",
+        "hdcreleasedate": "02 May 2024",
+        "conditionalreleasedate": "13 May 2024",
+        "staffname": "Sarah Williams",
+        "outcome": "Timed out",
+        "probationpractitioner": "Alex Martinez"
+    }
 ]
