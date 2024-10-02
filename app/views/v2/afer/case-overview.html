@@ -182,7 +182,13 @@
               Prison number
             </dt>
             <dd class="govuk-summary-list__value">
+              {% if data.journey=="ineligiblejourney"%}
+              G56791
+              {% elseif data.journey=="28daysjourney" %}
+              G93332
+              {% else %}
               G5613GT
+              {% endif %}              
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
