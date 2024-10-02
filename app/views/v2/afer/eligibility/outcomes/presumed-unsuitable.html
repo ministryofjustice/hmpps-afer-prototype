@@ -71,25 +71,24 @@
         </p>
 
         
-        <!--FIX INTERACTION-->
-        <form class="form" action="../../case-list-active" method="post" novalidate>
-          <input type="hidden" name="presumedunsuitableHDC" value="yes">
+
+          <form action="/unsuitableoutcome" method="post" novalidate>
+            <input type="hidden" name="presumedunsuitableHDC" value="yes">
   
-            <button type="submit" class="govuk-button" data-module="govuk-button">
+          <div class="govuk-button-group" style="margin-top: 40px;">
+            <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="caselist">
               Return to case list
             </button>
-    
-          </form>
-  
-          <a href="../tasklist" class="govuk-button govuk-button--secondary">Back to assessment</a></br>
-  
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="tasklist">
+              Back to assessment
+            </button>
           </div>
-
+          
+          </form>
     
 
 
-        
-
+      
 
         <p class="govuk-body" style="margin-top: 50px; margin-bottom: -50px;">
           <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)

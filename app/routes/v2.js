@@ -22,6 +22,58 @@ router.post('/optout', function (req, res) {
 });
 
 
+//Confirmation of inital assessment outcome: Eligible
+router.post('/eligibleoutcome', function (req, res) {
+  var ConfirmationNav = req.session.data['confirmationnav']
+
+  // Check whether the variable matches a condition
+  if (ConfirmationNav == "caselist"){
+   
+   // Send user to case list page
+    res.redirect(version + '/afer/case-list-active')
+  } else {
+    // Send user to task list page
+    res.redirect(version + '/afer/eligibility/tasklist')
+  }
+
+});
+
+
+//Confirmation of inital assessment outcome: Ineligible
+router.post('/ineligibleoutcome', function (req, res) {
+  var ConfirmationNav = req.session.data['confirmationnav']
+
+  // Check whether the variable matches a condition
+  if (ConfirmationNav == "caselist"){
+   
+   // Send user to case list page
+    res.redirect(version + '/afer/case-list-active')
+  } else {
+    // Send user to task list page
+    res.redirect(version + '/afer/eligibility/tasklist')
+  }
+
+});
+
+
+//Confirmation of inital assessment outcome: Unsuitable
+router.post('/unsuitableoutcome', function (req, res) {
+  var ConfirmationNav = req.session.data['confirmationnav']
+
+  // Check whether the variable matches a condition
+  if (ConfirmationNav == "caselist"){
+   
+   // Send user to case list page
+    res.redirect(version + '/afer/case-list-active')
+  } else {
+    // Send user to task list page
+    res.redirect(version + '/afer/eligibility/tasklist')
+  }
+
+});
+
+
+
 //Address type question
 router.post('/addresstype', function (req, res) {
   var addresstypeQuestion = req.session.data['curfewcasAddress']

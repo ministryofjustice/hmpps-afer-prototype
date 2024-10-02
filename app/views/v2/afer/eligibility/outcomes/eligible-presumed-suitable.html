@@ -76,19 +76,20 @@
         </p>
 
 
-        <!--FIX INTERACTION-->
-        <form class="form" action="../../case-list-active" method="post" novalidate>
+
+        <form action="/eligibleoutcome" method="post" novalidate>
           <input type="hidden" name="eligiblepresumedsuitable" value="yes">
-  
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Return to case list
-            </button>
-    
-          </form>
-  
-          <a href="../tasklist" class="govuk-button govuk-button--secondary">Back to assessment</a></br>
-  
-          </div>
+
+        <div class="govuk-button-group" style="margin-top: 40px;">
+          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="caselist">
+            Return to case list
+          </button>
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="tasklist">
+            Back to assessment
+          </button>
+        </div>
+        
+        </form>
 
       
 
