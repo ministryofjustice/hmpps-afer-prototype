@@ -625,11 +625,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses or CAS areas</h2>
-    {% if data.ineligible=="yes"%}
-    <p class="govuk-body">Ineligible</p>
-    {% else %}
     <p class="govuk-body">You can start this task if George is eligible and suitable for HDC.</p>
-    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -711,11 +707,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
-    {% if data.ineligible=="yes"%}
-    <p class="govuk-body">Ineligible</p>
-    {% else %}
     <p class="govuk-body">You can complete this task if a probation practitioner finds a suitable address and agrees George can be released on HDC.</p>
-    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -797,11 +789,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
-    {% if data.ineligible=="yes"%}
-    <p class="govuk-body">Ineligible</p>
-    {% else %}
     <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
-    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -850,11 +838,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    {% if data.ineligible=="yes"%}
-    <p class="govuk-body">Ineligible</p>
-    {% else %}
     <p class="govuk-body">You can view information about a licence as soon as it has been started and print it once approved.</p>
-    {% endif %}
   </section>
 </article>
 {% endif %}
@@ -1585,7 +1569,7 @@
     
 
     <!--Pre-decision check-->
-    {% if (data.postponed=="yes") or (data.resumeapplication=="no") or (data.resumeapplication=="yes") %}
+    {% if (data.postponed=="yes") or (data.resumeapplication=="no") or (data.resumeapplication=="yes") or (data.prepareforrelease=="complete") %}
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Pre-decision check</h3>
     <p class="govuk-body" style="margin-top: 0px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-363) | govukDate("truncate") }}</p>
     <div class="govuk-summary-card">
