@@ -28,22 +28,27 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-          <div class="govuk-width-container">
-            <main class="govuk-main-wrapper" id="main-content">
-             
-                <h1 class="govuk-heading-l govuk-!-margin-top-6">Find an address</h1>
+        <fieldset class="govuk-fieldset govuk-!-margin-top-6">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">Select an address</h1>
+          </legend>
 
-                <form action="postcode-lookup-results-2" method="post" novalidate>
+          <p>1 address found for <strong>N1J 5NB</strong>. <a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-2">Search again</a></p>
 
-                <div class="moj-search">
-                  <div class="govuk-form-group">
-                      <label class="govuk-label govuk-label--s" for="event-name">Type an address or postcode</label>
-                      <input class="govuk-input" name="eventName" type="text" id="query" type="search" style="width: 300px;">
-                  </div>
-                    <button id="submit" type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 30px; margin-left: 10px;">Search</button>
-                </div>
+          <div class="govuk-inset-text">
+            49 Hill Street</br>
+            Grantham N1J 5NB
+          </div>
 
-                </form>
+    
+        <form method="" action="enter-info-2">
+        <button class="govuk-button" data-module="govuk-button">
+          Use this address
+        </button>
+      </form>
+    
+    
+        <p><a class="govuk-link govuk-link--no-visited-state" href="#">Enter address manually</a></p>
 
 
       </div>
