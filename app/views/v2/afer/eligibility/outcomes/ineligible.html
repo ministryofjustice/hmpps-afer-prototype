@@ -42,7 +42,7 @@
 
           {% if data.ineligiblereason=="deportationorders"%}
 
-          text tom
+          They are liable to deportation
 
           {% else %}
 
@@ -74,7 +74,7 @@
         <!--FIX INTERACTION-->
         <div class="govuk-button-group" style="margin-top: 40px;">
         
-        <form class="form" action="../../case-list-inactive" method="post" novalidate>
+        <form class="form" action="../../case-list-active" method="post" novalidate>
         <input type="hidden" name="ineligible" value="yes">
 
           <button type="submit" class="govuk-button" data-module="govuk-button">
