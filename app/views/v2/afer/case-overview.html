@@ -218,7 +218,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data.journey=="ineligiblejourney"%}
-              {{ "today" |  duration(0) | govukDate }}
+              {{ "today" |  duration(128) | govukDate }}
               {% elseif data.journey=="28daysjourney" %}
               {{ "today" |  duration(0) | govukDate }}
               {% else %}
@@ -236,7 +236,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data.journey=="ineligiblejourney"%}
-              {{ "today" |  duration(0) | govukDate }}
+              {{ "today" |  duration(185) | govukDate }}
               {% elseif data.journey=="28daysjourney" %}
               {{ "today" |  duration(0) | govukDate }}
               {% else %}
@@ -530,7 +530,13 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
-        <p class="govuk-body"> To do by {{ "today" |  duration(5) | govukDate("truncate") }}</p>
+        <p class="govuk-body"> To do by
+          {% if data.journey=="ineligiblejourney" %}
+          {{ "today" |  duration(9) | govukDate("truncate") }}
+          {% else %}
+          {{ "today" |  duration(5) | govukDate("truncate") }}
+          {% endif %}
+        </p>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
@@ -1109,7 +1115,13 @@
       <h2 class="moj-timeline__title">Sentence started</h2>
     </div>
     <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">On {{ "today" |  duration(-3) | govukDate }}</time>
+      <time datetime="2019-05-21T13:15:00.000Z">On
+        {% if data.journey=="ineligiblejourney" %}
+        {{ "today" |  duration(-1) | govukDate }}
+        {% else %}
+        {{ "today" |  duration(-3) | govukDate }}
+        {% endif %}
+      </time>
     </p>
   </div>
 
@@ -1128,7 +1140,13 @@
     </p>
     {% else %}
       <div class="moj-timeline__description">
-        <div class="govuk-inset-text">To do by {{ "today" |  duration(5) | govukDate }}</div>
+        <div class="govuk-inset-text">To do by
+          {% if data.journey=="ineligiblejourney" %}
+          {{ "today" |  duration(9) | govukDate }}
+          {% else %}
+          {{ "today" |  duration(5) | govukDate }}
+          {% endif %}
+        </div>
       </div>
     <!--DESIGN OVERDUE TASKS-->
     {% endif %}
@@ -1307,15 +1325,19 @@
   
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
-      {% if data.journey=="28daysjourney" %}
+      {% if data.journey=="ineligiblejourney" %}
+      <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(128) | govukDate }}</h2>
+      {% elseif data.journey=="28daysjourney" %}
       <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(0) | govukDate }}</h2>
       {% else %}
       <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(96) | govukDate }}</h2>
       {% endif %}
     </div>
     <p class="moj-timeline__date">
-      {% if data.journey=="28daysjourney" %}
-      <time datetime="2019-06-07T12:32:00.000Z">28 days left until HDCED</time>
+      {% if data.journey=="ineligiblejourney" %}
+      <time datetime="2019-06-07T12:32:00.000Z">128 days left until HDCED</time>
+      {% elseif data.journey=="28daysjourney" %}
+      <time datetime="2019-06-07T12:32:00.000Z">0 days left until HDCED</time>
       {% else %}
       <time datetime="2019-06-07T12:32:00.000Z">96 days left until HDCED</time>
       {% endif %}
@@ -1327,11 +1349,13 @@
   
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">
-        {% if data.journey=="28daysjourney" %}
+      <h2 class="moj-timeline__title">CRD: 
+        {% if data.journey=="ineligiblejourney" %}
+        {{ "today" |  duration(185) | govukDate }}
+        {% elseif data.journey=="28daysjourney" %}
         {{ "today" |  duration(0) | govukDate }}
         {% else %}
-        CRD: {{ "today" |  duration(153) | govukDate }}
+        {{ "today" |  duration(153) | govukDate }}
         {% endif %}
       </h2>
     </div>
