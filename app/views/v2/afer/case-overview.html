@@ -37,6 +37,25 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
 
+          <!--{% if data.journey=="28daysjourney" %}
+          
+          <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
+          
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+              <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
+            </svg>
+          
+            <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
+              There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.</br>
+              The last day this person can be released on HDC is {{ "today" |  duration(20) | govukDate }}.</br></br>
+              You must get approval from a decision maker to continue this application.
+              <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
+            </div>
+          
+          </div>
+          
+          {% endif %}-->
+
 
     {% if (data.printlicence=="complete") %}
     {% elseif (data.prepareforrelease=="complete") %}
@@ -220,7 +239,7 @@
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(128) | govukDate }}
               {% elseif data.journey=="28daysjourney" %}
-              {{ "today" |  duration(0) | govukDate }}
+              {{ "today" |  duration(20) | govukDate }}
               {% else %}
               {{ "today" |  duration(96) | govukDate }}
               {% endif %}
@@ -238,7 +257,7 @@
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(185) | govukDate }}
               {% elseif data.journey=="28daysjourney" %}
-              {{ "today" |  duration(0) | govukDate }}
+              {{ "today" |  duration(36) | govukDate }}
               {% else %}
               {{ "today" |  duration(153) | govukDate }}
               {% endif %}
@@ -478,8 +497,8 @@
   </svg>
 
   <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
-    There are 28 days or less to this person’s CRD on {{ "today" |  duration(38) | govukDate }}.
-    The last day this person can be released on HDC is {{ "today" |  duration(28) | govukDate }}.</br></br>
+    There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.
+    The last day this person can be released on HDC is {{ "today" |  duration(20) | govukDate }}.</br></br>
     You must get approval from a decision maker to continue this application.
     <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
   </div>
@@ -1118,6 +1137,8 @@
       <time datetime="2019-05-21T13:15:00.000Z">On
         {% if data.journey=="ineligiblejourney" %}
         {{ "today" |  duration(-1) | govukDate }}
+        {% elseif data.journey=="28daysjourney" %}
+        {{ "today" |  duration(-2) | govukDate }}
         {% else %}
         {{ "today" |  duration(-3) | govukDate }}
         {% endif %}
@@ -1136,7 +1157,7 @@
       </p>
     {% elseif data.journey=="28daysjourney" %}
     <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-3) | govukDate }}</time>
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-1) | govukDate }}</time>
     </p>
     {% else %}
       <div class="moj-timeline__description">
@@ -1328,7 +1349,7 @@
       {% if data.journey=="ineligiblejourney" %}
       <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(128) | govukDate }}</h2>
       {% elseif data.journey=="28daysjourney" %}
-      <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(0) | govukDate }}</h2>
+      <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(20) | govukDate }}</h2>
       {% else %}
       <h2 class="moj-timeline__title">HDCED: {{ "today" |  duration(96) | govukDate }}</h2>
       {% endif %}
@@ -1337,7 +1358,7 @@
       {% if data.journey=="ineligiblejourney" %}
       <time datetime="2019-06-07T12:32:00.000Z">128 days left until HDCED</time>
       {% elseif data.journey=="28daysjourney" %}
-      <time datetime="2019-06-07T12:32:00.000Z">0 days left until HDCED</time>
+      <time datetime="2019-06-07T12:32:00.000Z">20 days left until HDCED</time>
       {% else %}
       <time datetime="2019-06-07T12:32:00.000Z">96 days left until HDCED</time>
       {% endif %}
@@ -1353,7 +1374,7 @@
         {% if data.journey=="ineligiblejourney" %}
         {{ "today" |  duration(185) | govukDate }}
         {% elseif data.journey=="28daysjourney" %}
-        {{ "today" |  duration(0) | govukDate }}
+        {{ "today" |  duration(36) | govukDate }}
         {% else %}
         {{ "today" |  duration(153) | govukDate }}
         {% endif %}
@@ -1380,9 +1401,13 @@
     <!--Eligiblity and suitability-->
     {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
-    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
-
     
+    {% if data.journey=="28daysjourney" %}
+    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-1) | govukDate("truncate") }}</p>
+    {% else %}
+    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+    {% endif %}
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Summary</h2>
@@ -2095,8 +2120,14 @@
             jonathan.amble@justice.gov.uk</br>
             Wales
           {% else %}
+
+          {% if data.journey=="28daysjourney" %}
+          Allocation due by {{ "today" |  duration(10) | govukDate }}
+          {% else %}
           Allocation due by {{ "today" |  duration(27) | govukDate }}
+          {% endif %}
           <!--DESIGN overdue state-->
+
           {% endif%}
           </td>
         </tr>
