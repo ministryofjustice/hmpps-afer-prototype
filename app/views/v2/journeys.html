@@ -12,8 +12,11 @@
     <span class="govuk-caption-l govuk-!-margin-top-8">Prototype v2 Private Beta</span>
     <h1 class="govuk-heading-l">Assess for Early Release</h1>
 
-   
+      {% if (data.user=="decisionmaker") or (data.user=="admin") %}
       <form action="./dps/dps-home" method="post">
+      {% elseif data.user=="probation" %}
+      <form action="./ndelius/ndelius-home" method="post">
+      {% endif %}
 
       <div class="govuk-form-group govuk-!-margin-bottom-8 govuk-!-margin-top-8">
       <div class="govuk-radios">

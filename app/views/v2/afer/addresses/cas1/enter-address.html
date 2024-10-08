@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form action="../tasklist" method="post" novalidate>
+
+         
+          <h1 class="govuk-heading-l">
+            CAS 1 
+          </h1>
+          <p class="govuk-body">
+            It is the Probation Service’s responsibility to make a referral to approved premises.  
+            Once you have the address of the approved premises, you can enter it here.
+          </p>
+
+         
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  What is the confirmed CAS1 address?
+                </legend>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-line-1">
+                    Address line 1
+                  </label>
+                  <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-line-2">
+                    Address line 2 (optional)
+                  </label>
+                  <input class="govuk-input" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-town">
+                    Town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-postcode">
+                    Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+                </div>
+              </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button">
+                Save
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Skip for now
+              </button>
+            </div>
+
+
+        </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

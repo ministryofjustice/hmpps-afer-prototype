@@ -146,7 +146,10 @@
               <tr class="govuk-table__row">
           
                 <th scope="col" class="govuk-table__header" aria-sort="none" style="width: 18%;">Name</th>
+                {% if data.user=="probation"%}
+                {% else %}
                 <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+                {% endif %}
                 <th scope="col" class="govuk-table__header" aria-sort="ascending">HDCED</th>
                 <th scope="col" class="govuk-table__header" aria-sort="none">Working days to HDCED</th>
                 <th scope="col" class="govuk-table__header" aria-sort="none">Last worked on by</th>
@@ -157,6 +160,8 @@
           
             <tbody class="govuk-table__body">
 
+              {% if data.user=="admin"%}
+
               {% if data.ineligible=="yes"%}
               {% else %}
               <tr class="govuk-table__row">
@@ -166,14 +171,22 @@
                   {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Rodriguez, Jose</a>
                   {% endif %}
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G56791</div></td>
+                </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G56791</div></td>
+                {% if data.user=="probation"%}
+                {% else %}
                 <td class="govuk-table__cell">Emily Zhang</td>
+                {% endif %}
                 <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(119) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">100</td>
                 <td class="govuk-table__cell"></td>
                 <td class="govuk-table__cell">Assess eligibility and suitability</td>
               </tr>
               {% endif %}
+
+              {% else %}
+              {% endif %}
+
+
 
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
@@ -182,24 +195,52 @@
                   {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Jennings, George</a>
                   {% endif %}
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G5613GT</div></td>
+                </br>
+                {% if data.user=="probation"%}
+                <div class="govuk-hint govuk-!-font-size-16">CRN: G5613GT</div>
+                {% else %}
+                <div class="govuk-hint govuk-!-font-size-16">Prison number: G5613GT</div>
+                {% endif %}
+                </td>
+                {% if data.user=="probation"%}
+                {% else %}
                 <td class="govuk-table__cell">Michael Adeyemi</td>
+                {% endif %}
                 <td class="govuk-table__cell" data-sort-value="2">{{ "today" |  duration(96) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">96</td>
                 <td class="govuk-table__cell">
+                  {% if data.user=="admin"%}
+
                   {% if (data.eligiblepresumedsuitable=="yes") %}
+                  Jessica Smith
+                  {% else %}
+                  {% endif %}
+
+                  {% elseif data.user=="probation"%}
                   Jessica Smith
                   {% else %}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
+                  {% if data.user=="probation"%}
+                  Check addresses or community accommodation
+                  {% elseif data.user=="admin"%}
+
                   {% if (data.eligiblepresumedsuitable=="yes") %}
                   Enter curfew addresses and CAS areas
                   {% else %}
                   Assess eligibility and suitability
                   {% endif %}
+
+                  {% else %}
+
+                  {% endif %}
                 </td>
               </tr>
+
+
+
+              {% if data.user=="admin"%}
 
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
@@ -208,19 +249,23 @@
                   {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Lee, David</a>
                   {% endif %}
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G93332</div></td>
+                </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G93332</div></td>
+                {% if data.user=="probation"%}
+                {% else %}
                 <td class="govuk-table__cell">Aisha Thompson</td>
+                {% endif %}
                 <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(100) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">100</td>
                 <td class="govuk-table__cell">Jessica Smith</td>
                 <td class="govuk-table__cell">Enter curfew addresses or CAS areas</td>
               </tr>
+              {% else %}
+              {% endif %}
 
               
           
             </tbody>
           </table>
-          
           <!--table end-->
 
           <!--content do do end-->
@@ -255,7 +300,7 @@
                       <tr class="govuk-table__row">
                   
                         <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="./case-overview">{{yourcase.name}}</a>
-                        </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: {{yourcase.prisonnumber}}</div></td>
+                        </br><div class="govuk-hint govuk-!-font-size-16">Prison number: {{yourcase.prisonnumber}}</div></td>
                   
                         <td class="govuk-table__cell">{{yourcase.probationpractitioner}}</td>
 
@@ -307,7 +352,7 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Chen, Wei</a>
-      </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G98765</div></td>
+      </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G98765</div></td>
       <td class="govuk-table__cell">Aisha Thompson</td>
       <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(10) | govukDate("truncate") }}</td>
       <td class="govuk-table__cell">10</td>
@@ -352,7 +397,7 @@
           
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Khan, Amir</a>
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G12345</div></td>
+                </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G12345</div></td>
                 <td class="govuk-table__cell">Emily Zhang</td>
                 <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(1) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">1</td>
@@ -362,7 +407,7 @@
 
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Patel, Rajesh</a>
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G67890</div></td>
+                </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G67890</div></td>
                 <td class="govuk-table__cell">Michael Adeyemi</td>
                 <td class="govuk-table__cell" data-sort-value="2">{{ "today" |  duration(2) | govukDate }}</td>
                 <td class="govuk-table__cell">2</td>
@@ -372,7 +417,7 @@
 
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Gonzalez, Miguel</a>
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G54321</div></td>
+                </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G54321</div></td>
                 <td class="govuk-table__cell">Michael Adeyemi</td>
                 <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(3) | govukDate }}</td>
                 <td class="govuk-table__cell">3</td>
@@ -414,7 +459,7 @@
                     
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Santos, Miguel</a>
-                          </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G92638</div></td>
+                          </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G92638</div></td>
                           <td class="govuk-table__cell">Aisha Thompson</td>
                           <td class="govuk-table__cell">{{ "today" |  duration(-20) | govukDate("truncate") }}</td>
                           <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(-9) | govukDate("truncate") }}</td>
@@ -423,7 +468,7 @@
 
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Patel, Rakesh</a>
-                          </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G58342</div></td>
+                          </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G58342</div></td>
                           <td class="govuk-table__cell">Michael Adeyemi</td>
                           <td class="govuk-table__cell">{{ "today" |  duration(-40) | govukDate("truncate") }}</td>
                           <td class="govuk-table__cell" data-sort-value="2">{{ "today" |  duration(-31) | govukDate("truncate") }}</td>
@@ -432,7 +477,7 @@
 
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Ahmed, Omar</a>
-                          </br><div class="govuk-hint govuk-!-font-size-16">Prison nr: G73425</div></td>
+                          </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G73425</div></td>
                           <td class="govuk-table__cell">Emily Zhang</td>
                           <td class="govuk-table__cell">{{ "today" |  duration(-90) | govukDate("truncate") }}</td>
                           <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(-79) | govukDate("truncate") }}</td>

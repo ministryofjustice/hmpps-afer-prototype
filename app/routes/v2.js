@@ -160,6 +160,30 @@ router.post('/postponeprepareforrelease', function (req, res) {
 
 
 
+//PP journey routes
+
+
+//Choosing type of community accommodation: CAS1 or CAS2
+router.post('/communitytype', function (req, res) {
+  var AccomodationType = req.session.data['accomodationType']
+
+  // Check whether the variable matches a condition
+  if (AccomodationType == "cas1"){
+   
+   // Send user to case list page
+    res.redirect(version + '/afer/addresses/cas1/enter-address')
+  } else {
+    // Send user to task list page
+    res.redirect(version + '/afer/addresses/community2/suitability')
+  }
+
+});
+
+
+
+
+
+
 
 //THE END OF AFER ROUTES
 
