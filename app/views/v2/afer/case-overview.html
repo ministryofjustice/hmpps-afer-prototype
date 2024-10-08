@@ -37,6 +37,31 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
 
+        
+        <!--PP banners start-->
+        {% if data.user=="probation"%}
+
+        {% if data.accomodationType=="cas1"%}
+        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+          </svg>
+          <div class="moj-banner__message">You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
+            If approved, you will need to <a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas1/enter-address">enter the address of the accommodation.</a>
+          </div>
+        </div>
+        {% else %}
+        {% endif %}
+
+        {% endif %}
+        <!--PP banners end-->
+
+
+
+
+
+
+
           <!--{% if data.journey=="28daysjourney" %}
           
           <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
@@ -879,13 +904,16 @@
 {% endif %}
 
 {% endif %}
-<!--tasks end-->
+<!--tasks CA end-->
 
 
 
 
 <!--Probation tasks start-->
 {% if data.user=="probation"%}
+
+
+
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row">
@@ -1006,9 +1034,27 @@
 
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+
+<!--Enter CAS1 address - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter Approved Premises (CAS-1) address</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/cas1/enter-address" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+
+
+
 {% endif %}
-
-
 <!--Probation tasks end-->
 
 

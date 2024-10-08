@@ -232,6 +232,28 @@
           Offending history at mother’s address
         </dd>
       </div>
+      {% if data.accomodationType=="cas1"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS1 referral
+        </dt>
+        <dd class="govuk-summary-list__value">
+          [status]
+        </dd>
+      </div>
+      {% elseif data.accomodationType=="cas2"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS2 referral
+        <dd class="govuk-summary-list__value">
+          [status]
+        </dd>
+      </div>
+      {% endif %}
+
+
+
+
      <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           {% if data.cas2suitable=="yes"%}
@@ -290,6 +312,8 @@
                 Prisoner has offending history in Edmonton, so that area should be avoided
               </dd>
             </div>
+            
+            
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 {% if data.cas2suitable=="yes"%}
