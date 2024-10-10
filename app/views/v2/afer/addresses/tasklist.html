@@ -62,8 +62,49 @@
     </div>
       <!--new profile banner end-->
 
+
+      
+      {% if data.editchecks=="yes"%}
+      
+      {% elseif data.accomodationType=="cas1"%}
+
+      {% if data.cas1addressadded=="yes"%}
+      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+        </svg>
+        <div class="moj-banner__message">Confirm entry</a>
+        </div>
+      {% else %}
+      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+        </svg>
+        <div class="moj-banner__message">You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
+          If approved, you will need to <a class="govuk-link govuk-link--no-visited-state" href="cas1/enter-address">enter the address of the accommodation.</a>
+        </div>
+      {% endif %}
+
+      {% elseif data.accomodationType=="cas2"%}
+
+      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+        </svg>
+        <div class="moj-banner__message">
+          A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2).</br>
+          If approved, enter the address of the accommodation. (Comment CA will enter this)
+        </div>      
+      {% endif %}
+
+
+
 </div>
 </div>
+
+
+
+
 
 
   <div class="govuk-grid-row">
@@ -238,7 +279,7 @@
           CAS1 referral
         </dt>
         <dd class="govuk-summary-list__value">
-          [status]
+          [status from CAS1 digital service]
         </dd>
       </div>
       {% elseif data.accomodationType=="cas2"%}
@@ -246,7 +287,32 @@
         <dt class="govuk-summary-list__key">
           CAS2 referral
         <dd class="govuk-summary-list__value">
-          [status]
+          [status from CAS2 digital service]
+        </dd>
+      </div>
+      {% endif %}
+      {% if data.accomodationType=="cas1"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS1 address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data.cas1addressadded=="yes"%}
+          Address bla bla
+          {% else %}
+          Empty state
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="cas1/enter-address">Action link</a>
+        </dd>
+      </div>
+      {% elseif data.accomodationType=="cas2"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS2 address
+        <dd class="govuk-summary-list__value">
+          [Entered by CA]
         </dd>
       </div>
       {% endif %}
@@ -256,8 +322,16 @@
 
      <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
+          {% if data.accomodationType=="cas1"%}
+          <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter address</a>
+
+          {% elseif data.accomodationType=="cas2"%}
+
           {% if data.cas2suitable=="yes"%}
-          <a href="#" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a>
+          <a href="./community2/suitability" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a>
+          {% else %}
+          {% endif %}
+
           {% else %}
           <a href="accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Check this area</a>
           {% endif %}
