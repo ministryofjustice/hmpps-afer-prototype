@@ -93,7 +93,7 @@
         </svg>
         <div class="moj-banner__message">
           A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2).</br>
-          If approved, enter the address of the accommodation. (Comment CA will enter this)
+
         </div>      
       {% endif %}
 
@@ -323,7 +323,7 @@
      <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           {% if data.accomodationType=="cas1"%}
-          <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter address</a>
+          <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter CAS1 address</a>
 
           {% elseif data.accomodationType=="cas2"%}
 
@@ -364,7 +364,9 @@
               <dd class="govuk-summary-list__value">
                 London
               </dd>
-              {% if data.cas2suitable=="yes"%}
+              {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
+              <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--grey">C<span style="text-transform: lowercase;">annot start</span></strong>
+              </dd>
               {% else %}
               <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
               </dd>
@@ -390,7 +392,7 @@
             
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                {% if data.cas2suitable=="yes"%}
+                {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
                 <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">
                   Check this area
                 </button>
