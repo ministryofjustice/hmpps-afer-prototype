@@ -171,7 +171,7 @@ router.post('/communitytype', function (req, res) {
   if (AccomodationType == "cas1"){
    
    // Send user to case list page
-    res.redirect(version + '/afer/addresses/cas1/enter-address')
+    res.redirect(version + '/afer/addresses/tasklist')
   } else {
     // Send user to task list page
     res.redirect(version + '/afer/addresses/community2/suitability')

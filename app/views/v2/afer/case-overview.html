@@ -50,6 +50,7 @@
             If approved, you will need to <a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas1/enter-address">enter the address of the accommodation.</a>
           </div>
         </div>
+        {% elseif data.accomodationType=="cas2"%}
         {% else %}
         {% endif %}
 
@@ -924,7 +925,14 @@
     
 
     {% if (data.cas2suitable=="yes") or (data.suitabilityDecision=="no") %}
-    <a href="./addresses/tasklist" class="govuk-button govuk-button--secondary" style="margin-top: 17px;">Edit checks</a>
+
+    <form action="./addresses/tasklist" method="post" novalidate>
+      <input type="hidden" name="editchecks" value="yes">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-top: 30px;">
+          Edit checks
+        </button>
+    </form>
+
     {% else %}
     <a href="./addresses/tasklist" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="margin-top: 17px;">
       Start
