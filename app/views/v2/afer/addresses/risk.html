@@ -132,7 +132,13 @@
  <!--VLO: Only to show if YES is selected--> 
 
   <div class="govuk-form-group govuk-!-margin-top-4">
-    <label class="govuk-label" for="moreDetailvlo">Give details of any concerns victims have about George being released to the proposed address.</label>
+    <label class="govuk-label" for="moreDetailvlo">
+      {% if data.accomodationType=="cas2"%}
+      Give details of any concerns victims have about George being released to the proposed area.
+      {% else %}
+      Give details of any concerns victims have about George being released to the proposed address.
+      {% endif %}
+    </label>
     <textarea class="govuk-textarea" id="moreDetailvlo" name="moreDetailvlo" rows="5"></textarea>
   </div>
 
