@@ -28,50 +28,19 @@
 {% endblock %}
 
 {% block content %}
-<main class="govuk-main-wrapper">
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
   <div class="govuk-grid-row">
-    
-<!--side nav start-->
-<div class="govuk-grid-column-one-third">
-<nav class="moj-side-navigation govuk-!-margin-top-8" aria-label="Side navigation">
-<h4 class="moj-side-navigation__title">Check if an address is suitable for HDC</h4>
-<ul class="moj-side-navigation__list">
-  <li class="moj-side-navigation__item">
-    <a href="../tasklist">Release someone on HDC</a>
-  </li>
+    <div class="govuk-grid-column-three-quarters">
 
-  <li class="moj-side-navigation__item moj-side-navigation__item--active">
-    <a href="#" aria-current="location">Address information</a>
-  </li>
-
-  <li class="moj-side-navigation__item">
-    <a href="occupier-check">Occupier</a>
-  </li>
-
-  <li class="moj-side-navigation__item">
-    <a href="police-check">Police</a>
-  </li>
-
-  <li class="moj-side-navigation__item">
-    <a href="socialservices-check">Social services</a>
-  </li>
-
-  <li class="moj-side-navigation__item">
-    <a href="#3">Suitablity</a>
-  </li>
-
-</ul>
-</nav>
-</div>
-<!--side nav end-->      
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Address information from George</h1>
 
 
-    <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-l govuk-!-margin-top-8">Address information from George</h2>
+<!--Second address start-->
 
-      <!--content 2/3 start-->
-      
-      <!--card start-->
+<!--card start-->
 <div class="govuk-summary-card">
 
   <div class="govuk-summary-card__title-wrapper">
@@ -98,6 +67,13 @@
   </div>
   <!--card end-->
 
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      This address has been checked before. <a class="govuk-link govuk-link--no-visited-state" href="#">View history</a>
+    </strong>
+  </div>
 
   <h3 class="govuk-heading-s govuk-!-margin-top-8">Details of residents</h3>
 
@@ -207,17 +183,17 @@ Details of convictions or cautions
 
 
 <div class="govuk-button-group">
-  <a href="occupier-check" class="govuk-button">Check occupier xxx</a>
-  <a href="../tasklist" class="govuk-button govuk-button--secondary">Back</a>
-  </div>
-
-      
-      <!--content 2/3 end-->
-    
-    </div>
-
-
-  </div>
-</main>
+<a href="occupier-check" class="govuk-button">Continue</a>
+<a href="../tasklist" class="govuk-button govuk-button--secondary">Back</a>
 </div>
+
+
+<!--Second address end-->
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
 {% endblock %}

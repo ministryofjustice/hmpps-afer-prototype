@@ -29,67 +29,41 @@
 
 {% block content %}
 
-<!--new profile banner start-->
-<div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
-  <div class="mini-profile-inner">
-      <div class="mini-profile-left">
-          <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
-      </div>
-      <div class="mini-profile-right">
-          <ul class="mini-profile-info">
-              <li>
-                  <p class="govuk-heading-s govuk-!-margin-bottom-1">
-                      <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
-                  </p>
-                  <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
-              </li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
-              <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(93) | govukDate("truncate") }}</span></li>
-              <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(126) | govukDate("truncate") }}</span></li>
-          </ul>
-      </div>
-  </div>
-</div>
-<!--new profile banner end-->
-
-<main class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    
-
-<div class="govuk-grid-column-one-third">
-
-<!--side nav start-->
-<nav class="moj-side-navigation govuk-!-margin-top-8" aria-label="Side navigation">
-<h4 class="moj-side-navigation__title">Check addresses or community accommodation</h4>
-<ul class="moj-side-navigation__list">
-
-  <li class="moj-side-navigation__item">
-    <a href="../case-overview">Back to overview</a>
-  </li>
-
-</ul>
-</nav>
-<!--side nav end-->   
-
-<!--deadline start-->
-<div class="govuk-inset-text">
-  Finish checking addresses by</br>
-  {{ "today" |  duration(13) | govukDate("truncate") }}
-</div>
-<!--deadline end-->
-
-</div>
-   
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
 
 
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+      <!--new profile banner start-->
+      <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
+        <div class="mini-profile-inner">
+            <div class="mini-profile-left">
+                <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+            </div>
+            <div class="mini-profile-right">
+                <ul class="mini-profile-info">
+                    <li>
+                        <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                        </p>
+                        <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
+                    </li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                    <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(93) | govukDate("truncate") }}</span></li>
+                    <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(126) | govukDate("truncate") }}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      <!--new profile banner end-->
+
+
       
-
-      <!--content 2/3 start-->
-    
-            
       {% if data.editchecks=="yes"%}
       
       {% elseif data.accomodationType=="cas1"%}
@@ -126,11 +100,35 @@
 
 
 
-      <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Release someone on HDC</h1>
+</div>
+</div>
 
 
-      <h2 class="govuk-heading-m">Proposed addresses</h2>
-        
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Release someone on HDC</h1>
+
+
+      <div class="govuk-inset-text">
+        Finish checking addresses by {{ "today" |  duration(13) | govukDate("truncate") }}
+      </div>
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m">Proposed addresses</h2>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../case-overview.html" style="margin-left: 55px;">Back to application</a></p>
+        </div>
+      </div>
+
+
 
           <!--card start-->
 <div class="govuk-summary-card">
@@ -217,9 +215,14 @@
 
 
 
-
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">Proposed CAS areas</h2>
-    
+  <div class="govuk-grid-row govuk-!-margin-top-8">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Proposed CAS areas</h2>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../case-overview.html" style="margin-left: 55px;">Back to application</a></p>
+    </div>
+  </div>
 
 
        <!--card start-->
@@ -327,28 +330,28 @@
 
 
 
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              {% if data.accomodationType=="cas1"%}
-              <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter CAS-1 address</a>
+     <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          {% if data.accomodationType=="cas1"%}
+          <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter CAS-1 address</a>
 
-              {% elseif data.accomodationType=="cas2"%}
+          {% elseif data.accomodationType=="cas2"%}
 
-              {% if data.cas2suitable=="yes"%}
-              <a href="./community2/suitability" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a>
-              {% else %}
-              {% endif %}
+          {% if data.cas2suitable=="yes"%}
+          <a href="./community2/suitability" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a>
+          {% else %}
+          {% endif %}
 
-              {% else %}
-              <a href="accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Check this area</a>
-              {% endif %}
-            </dt>
-          </div>
-        </dl>
+          {% else %}
+          <a href="accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Check this area</a>
+          {% endif %}
+        </dt>
       </div>
-      
-      </div>
-      <!--card end-->
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
 
   
 
@@ -416,12 +419,9 @@
 
 
 
-      <!--content 2/3 end-->
-    
+      </div>
     </div>
-
-
-  </div>
-</main>
+  </main>
 </div>
+
 {% endblock %}

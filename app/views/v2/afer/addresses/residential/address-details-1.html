@@ -70,13 +70,7 @@
   </div>
   <!--card end-->
 
-  <div class="govuk-warning-text">
-    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-    <strong class="govuk-warning-text__text">
-      <span class="govuk-visually-hidden">Warning</span>
-      This address has been checked before. <a class="govuk-link govuk-link--no-visited-state" href="#">View history</a>
-    </strong>
-  </div>
+
 
   <h3 class="govuk-heading-s">Details of residents</h3>
 
@@ -184,16 +178,79 @@
   
   </div>
   <!--card end-->
+
+  <!--tasklist start-->
+
+  <h2 class="app-task-list__section"><!--<span class="app-task-list__section-number">1. </span>-->Checks to do</h2>
+  <ul class="app-task-list__items">
+
+
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="occupier-check-1">
+             Occupier
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="police-check-1">
+             Police
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="socialservices-check-1">
+             Social services
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-1">
+             Suitablity decision
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Jessica Smith
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+
+   
+
+  </ul>
+
+
+<!--tasklist end-->
        
 
-
 <div class="govuk-button-group">
-  <a href="suitability-1" class="govuk-button">Suitablity check</a>
   <a href="../tasklist" class="govuk-button govuk-button--secondary">Back</a>
   </div>
-
-
-
 
 
       </div>
