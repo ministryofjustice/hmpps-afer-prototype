@@ -29,6 +29,10 @@
 
 {% block content %}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+ 
+
 <!--new profile banner start-->
 <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
   <div class="mini-profile-inner">
@@ -53,6 +57,48 @@
   </div>
 </div>
 <!--new profile banner end-->
+
+      <!--banner start-->    
+      {% if data.editchecks=="yes"%}
+      
+      {% elseif data.accomodationType=="cas1"%}
+
+      {% if data.cas1addressadded=="yes"%}
+      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+        </svg>
+        <div class="moj-banner__message">Confirm entry</a>
+        </div>
+      {% else %}
+      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+        </svg>
+        <div class="moj-banner__message">You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
+          If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="cas1/enter-address">enter the address of the accommodation.</a>
+        </div>
+      {% endif %}
+
+      {% elseif data.accomodationType=="cas2"%}
+
+      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+        </svg>
+        <div class="moj-banner__message">
+          A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2).
+          If approved, they will enter the accommodation address for this person’s licence.</br>
+          You will be able to <a href="#" class="govuk-link govuk-link--no-visited-state">view the address here</a>.</br>
+
+        </div>      
+      {% endif %}
+      <!--banner end-->   
+
+
+    
+    </div>
+  </div>
 
 <main class="govuk-main-wrapper">
   <div class="govuk-grid-row">
@@ -89,42 +135,6 @@
 
       <!--content 2/3 start-->
     
-            
-      {% if data.editchecks=="yes"%}
-      
-      {% elseif data.accomodationType=="cas1"%}
-
-      {% if data.cas1addressadded=="yes"%}
-      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
-        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-        </svg>
-        <div class="moj-banner__message">Confirm entry</a>
-        </div>
-      {% else %}
-      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
-        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-        </svg>
-        <div class="moj-banner__message">You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
-          If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="cas1/enter-address">enter the address of the accommodation.</a>
-        </div>
-      {% endif %}
-
-      {% elseif data.accomodationType=="cas2"%}
-
-      <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
-        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-          <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-        </svg>
-        <div class="moj-banner__message">
-          A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2). <br>
-          If approved, they will enter the accommodation address for this person’s licence. You will be able to <a href="#">view the address here</a>.</br>
-
-        </div>      
-      {% endif %}
-
-
 
       <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Release someone on HDC</h1>
 
@@ -139,7 +149,13 @@
     <h2 class="govuk-summary-card__title">
       Preferred address
     </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+      </li>
+    </ul>
   </div>
+
   
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
@@ -149,13 +165,9 @@
             4 Inner Street</br>
             Grantham</br>
             NG31 6HN</br></br>
-
-
             <a href="../addresses/residential/address-details-1" class="govuk-button govuk-button--secondary">Edit checks</a></br>
-
-
         </dt>
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
+        <dd class="govuk-summary-list__actions">
         </dd>
       </div>
   
@@ -178,8 +190,17 @@
     <h2 class="govuk-summary-card__title">
       Second address
     </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        {% if data.AddressSuitabilityDecision=="no"%}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+        {% else %}
+        {% endif %}
+      </li>
+    </ul>
   </div>
   
+
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
   
@@ -194,17 +215,7 @@
         {% else %}
         <a href="residential/address-details-2" class="govuk-button">Check this address</a>
         {% endif %}
-
-
         </dt>
-
-        {% if data.AddressSuitabilityDecision=="no"%}
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
-        </dd>
-        {% else %}
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-        </dd>
-        {% endif %}
 
       </div>
   
@@ -229,13 +240,18 @@
     <h2 class="govuk-summary-card__title">
       Preferred area
     </h2>
-    {% if data.accomodationType=="cas1"%}
-    <p class="govuk-body" style="margin-top: 10px;">Approved Premises <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a></p>
-    {% endif %}
-    {% if data.accomodationType=="cas2"%}
-    <p class="govuk-body" style="margin-top: 10px;">CAS2 <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a></p>
-    {% endif %}
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        {% if data.cas2suitable=="yes"%}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+        {% else %}
+        {% endif %}
+      </li>
+    </ul>
   </div>
+
+
+
   
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
@@ -247,13 +263,6 @@
         <dd class="govuk-summary-list__value">
           Sheffield
         </dd>
-        {% if data.cas2suitable=="yes"%}
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--turquoise">S<span style="text-transform: lowercase;">uitable</span></strong>
-        </dd>
-        {% else %}
-        <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-        </dd>
-        {% endif %}
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -271,6 +280,30 @@
           Offending history at mother’s address
         </dd>
       </div>
+      {% if data.accomodationType=="cas1"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Label???
+        <dd class="govuk-summary-list__value">
+          Approved Premises (CAS-1)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a>
+        </dd>
+      </div>
+      {% elseif data.accomodationType=="cas2"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Label???
+        <dd class="govuk-summary-list__value">
+          Short-term accommodation (CAS-2)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a>
+        </dd>
+      </div>
+      {% else %}
+      {% endif %}
       {% if data.accomodationType=="cas1"%}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -311,7 +344,7 @@
           {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link govuk-link--no-visited-state" href="cas1/enter-address">Action link</a>
+          <!--<a class="govuk-link govuk-link--no-visited-state" href="cas1/enter-address">Action link</a>-->
         </dd>
       </div>
       {% elseif data.accomodationType=="cas2"%}
@@ -329,8 +362,11 @@
 
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              {% if data.accomodationType=="cas1"%}
-              <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter CAS-1 address</a>
+              {% if data.cas1addressadded=="yes"%}
+              <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Change address??</a>
+
+              {% elseif data.accomodationType=="cas1"%}
+              <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter address</a>
 
               {% elseif data.accomodationType=="cas2"%}
 
@@ -371,13 +407,6 @@
               <dd class="govuk-summary-list__value">
                 London
               </dd>
-              {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
-              <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--grey">C<span style="text-transform: lowercase;">annot start</span></strong>
-              </dd>
-              {% else %}
-              <dd class="govuk-summary-list__actions"><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-              </dd>
-              {% endif %}
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
