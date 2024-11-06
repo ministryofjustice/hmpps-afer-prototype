@@ -24,170 +24,174 @@
   </p>
 </div>
 
-<!--<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>-->
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
 {% endblock %}
 
 {% block content %}
 
-
-      <main class="govuk-main-wrapper">
-        <div class="govuk-grid-row">
-          
-<!--side nav start-->
-  <div class="govuk-grid-column-one-third">
-    <nav class="moj-side-navigation govuk-!-margin-top-8" aria-label="Side navigation">
-      <h4 class="moj-side-navigation__title">Check if an address is suitable for HDC</h4>
-      <ul class="moj-side-navigation__list">
-        <li class="moj-side-navigation__item">
-          <a href="../tasklist">Release someone on HDC</a>
-        </li>
-
-        <li class="moj-side-navigation__item">
-          <a href="address-details-2">Address information</a>
-        </li>
-
-        <li class="moj-side-navigation__item">
-          <a href="occupier-check">Occupier</a>
-        </li>
-
-        <li class="moj-side-navigation__item moj-side-navigation__item--active">
-          <a href="#" aria-current="location">Police</a>
-        </li>
-
-        <li class="moj-side-navigation__item">
-          <a href="socialservices-check">Social services</a>
-        </li>
-
-        <li class="moj-side-navigation__item">
-          <a href="#3">Suitablity</a>
-        </li>
-
-      </ul>
-    </nav>
-  </div>
-<!--side nav end-->      
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
 
 
-          <div class="govuk-grid-column-two-thirds">
-            <h2 class="govuk-heading-l govuk-!-margin-top-8">Police</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-            <!--content 2/3 start-->
-            <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-4">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Have you received and considered information from the police about domestic abuse and safeguarding?
-              </legend>    
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="policeCheck" name="policeCheck" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="policeCheck">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="policeCheck-2" name="policeCheck" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="policeCheck-2">
-                   No
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Police checks</h1>
+
+      <p class="govuk-body">
+        You must request and consider information from the police about the domestic abuse and child wellbeing risks of releasing this person to the proposed address.
+      </p>
+
+      <!--If delay has been reported-->
+      <!--Before deadline-->
+      <!--ADD RULES-->
+      <div class="govuk-inset-text">
+        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
+        You have reported a delay to other people working on this application.</br>
+        <!--<a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.-->
+      </div>
+      <!--ADD RULES-->
+
+      <!--After deadline-->
+      <!--ADD RULES-->
+      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
+        <strong>Checks overdue</strong></br>
+        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+        You have reported a delay to other people working on this application.
+      </div>-->
+      <!--ADD RULES-->
+
+      <!--If delay has NOT been reported-->
+      <!--Before deadline-->
+      <!--ADD RULES-->
+      <!--<div class="govuk-inset-text">
+        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
+        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
+      </div>-->
+      <!--ADD RULES-->
+
+      <!--After deadline-->
+      <!--ADD RULES-->
+      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
+        <strong>Checks overdue</strong></br>
+        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+        You must <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.
+      </div>-->
+      <!--ADD RULES-->
+      
+
+      <form action="/form-handler" method="post" novalidate>
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Enter the date that you requested this information
+            </legend>
+            <div id="expiry-hint" class="govuk-hint">
+              For example, 31 3 1980
+            </div>
+            <div class="govuk-date-input" id="expiry">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                    Day
                   </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
                 </div>
               </div>
             </div>
-          
-          
-          
-            <div class="govuk-form-group govuk-!-margin-top-6">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  Enter the date that you requested this information
-                </legend>
-                <div id="expiry-hint" class="govuk-hint">
-                  For example, 31 3 1980
-                </div>
-                <div class="govuk-date-input" id="expiry">
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="expiry-day">
-                        Day
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="expiry-month">
-                        Month
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="expiry-year">
-                        Year
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-          
-          
-          
-            <div class="govuk-form-group govuk-!-margin-top-6">
-              <label class="govuk-label" for="moreDetailpolice"><strong>Summarise the information the police provided</strong></label>
-              <textarea class="govuk-textarea" id="moreDetailpolice" name="moreDetailpolice" rows="5"></textarea>
-            </div>
-          
-          
-            <div class="govuk-form-group govuk-!-margin-top-6">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  Enter the date that the police sent this information
-                </legend>
-                <div id="expiry-hint" class="govuk-hint">
-                  For example, 31 3 1980
-                </div>
-                <div class="govuk-date-input" id="expiry">
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="expiry-day">
-                        Day
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="expiry-month">
-                        Month
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="expiry-year">
-                        Year
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
+          </fieldset>
 
 
-            <div class="govuk-button-group">
-              <a href="address-details-1" class="govuk-button">Save</a>
-              <a href="../tasklist" class="govuk-button govuk-button--secondary">Cancel</a>         
-            </div>
 
-            <!--content 2/3 end-->
           
+          <fieldset class="govuk-fieldset govuk-!-margin-top-8" role="group" aria-describedby="expiry-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Enter the date that children’s services sent this information
+            </legend>
+            <div id="expiry-hint" class="govuk-hint">
+              For example, 31 3 1980
+            </div>
+            <div class="govuk-date-input" id="expiry">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+
+
+          <div class="govuk-form-group govuk-!-margin-top-6">
+            <label class="govuk-label" for="moreDetailpolice"><strong>Summarise the information that children’s services provided</strong></label>
+            <textarea class="govuk-textarea" id="moreDetailpolice" name="moreDetailpolice" rows="6"></textarea>
           </div>
 
 
+
+
         </div>
-      </main>
+
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save
+          </button>
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Cancel
+          </button>
+        </div>
+
+
+      </form>
+
+     
+  
+  <!--<div class="govuk-button-group">
+    <a href="address-details-1" class="govuk-button">Save</a>
+    <a href="../tasklist" class="govuk-button govuk-button--secondary">Cancel</a>         
+  </div>-->
+  
+  
+
+
+      </div>
     </div>
+  </main>
+</div>
 {% endblock %}

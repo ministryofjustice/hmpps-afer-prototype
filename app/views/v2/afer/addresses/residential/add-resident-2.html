@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+
+      
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading govuk-!-margin-top-8">
+            Add another resident
+          </h1>
+        </legend>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">
+            Name
+          </label>
+          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">
+            Relation
+          </label>
+          <input class="govuk-input" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+  
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Date of birth (optional)
+            </legend>
+  
+            <div id="date-of-birth-hint" class="govuk-hint">
+              For example, 31 3 1980
+            </div>
+  
+            <div class="govuk-date-input" id="date-of-birth">
+  
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="person[0][dob][day]">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="person[0][dob][day]" name="person[0][dob][day]" type="text" inputmode="numeric" data-name="person[%index%][dob][day]" data-id="person[%index%][dob][day]">
+                </div>
+              </div>
+  
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="person[0][dob][month]">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="person[0][dob][month]" name="person[0][dob][month]" type="text" inputmode="numeric" data-name="person[%index%][dob][month]" data-id="person[%index%][dob][month]">
+                </div>
+              </div>
+  
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="person[0][dob][year]">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="person[0][dob][year]" name="person[0][dob][year]" type="text" inputmode="numeric" data-name="person[%index%][dob][year]" data-id="person[%index%][dob][year]">
+                </div>
+              </div>
+  
+            </div>
+
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="width-3">
+            Age
+          </label>
+          <input class="govuk-input govuk-input--width-3" id="width-3" name="width3" type="text">
+        </div>
+
+      </fieldset>
+
+    
+
+  
+  <div class="govuk-button-group">
+    <a href="occupier-check-2" class="govuk-button">Save</a>
+    <a href="occupier-check-2" class="govuk-button govuk-button--secondary">Cancel</a>         
+  </div>
+  
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

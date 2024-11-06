@@ -44,12 +44,12 @@
   
 
 
-              <div class="govuk-form-group govuk-!-margin-top-4">
+              <div class="govuk-form-group govuk-!-margin-top-6">
                 <label class="govuk-label" for="moredetailPOM">
                   <strong>What information has the POM provided about the behaviour of George while in prison?</strong>
                 </label>
                 <div id="dob-hint" class="govuk-hint">
-                  Find out if there are any concerns about them being released on HDC.
+                  Find out if there are any concerns about them being released on HDC or if there have been any changes to their level of risk.
                 </div>
                 <textarea class="govuk-textarea" id="moredetailPOM" name="moredetailPOM" rows="5"></textarea>
               </div>
@@ -60,8 +60,11 @@
   <div class="govuk-form-group govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Does George need a mental health plan to help manage risk?
+        Does George need any mental health treatment to help manage risk?
       </legend>
+      <div id="dob-hint" class="govuk-hint">
+        If so, it should be considered as part of your risk management planning actions.
+      </div>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="mentalHealth" name="mentalHealth" type="radio" value="yes">
@@ -106,74 +109,94 @@
   </div>
 
 
-  <div class="govuk-form-group govuk-!-margin-top-8">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Is there a victim liaison officer (VLO) for this case?
-      </legend>
-      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="vloCase" name="vloCase" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="vloCase">
-            Yes
-          </label>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="vloCase-2" name="vloCase" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="vloCase-2">
-            No
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
+
+                <!--START set dynamic radio hide/show text-->
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+            
+                {% set textHtmlOther %}
+                
+                {{ govukTextarea({
+                  name: "victimConcerns",
+                  id: "victimConcerns",
+                  rows: "6",
+                  label: {
+                    text: "Give details of any concerns victims have about George being released to the proposed address or area."
+                  }
+                }) }}
+      
+                {% endset -%}
+                <!--END set dynamic radio hide/show text-->
+      
+                {{ govukRadios({
+                  name: "vlo",
+                  fieldset: {
+                    legend: {
+                      text: "Is there a victim liaison officer (VLO) for this case?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "vloYes",
+                    text: "Yes",
+                    conditional: {
+                      html: textHtmlOther
+                    }
+                  },
+                    {
+                      value: "vloNo",
+                      text: "No"
+                    }
+                    
+                  ]
+                }) }}
 
 
- <!--VLO: Only to show if YES is selected--> 
 
-  <div class="govuk-form-group govuk-!-margin-top-4">
-    <label class="govuk-label" for="moreDetailvlo">
-      {% if data.accomodationType=="cas2"%}
-      Give details of any concerns victims have about George being released to the proposed area.
-      {% else %}
-      Give details of any concerns victims have about George being released to the proposed address.
-      {% endif %}
-    </label>
-    <textarea class="govuk-textarea" id="moreDetailvlo" name="moreDetailvlo" rows="5"></textarea>
-  </div>
-
-  <!--VLO: end--> 
-
-
-  <div class="govuk-form-group govuk-!-margin-top-8">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Is there any information that cannot be disclosed to George?
-      </legend>
-      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="infoDisclosure" name="infoDisclosure" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="infoDisclosure">
-            Yes
-          </label>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="infoDisclosure-2" name="infoDisclosure" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="infoDisclosure-2">
-            No
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-
-
- <!--Only to show if YES is selected--> 
-
-  <div class="govuk-form-group govuk-!-margin-top-4">
-    <label class="govuk-label" for="moreDetaildisclosure">Give details of information that cannot be disclosed</label>
-    <textarea class="govuk-textarea" id="moreDetaildisclosure" name="moreDetaildisclosure" rows="5"></textarea>
-  </div>
+                              <!--START set dynamic radio hide/show text-->
+                              {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                              {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+                          
+                              {% set moreDetailledinfo %}
+                              
+                              {{ govukTextarea({
+                                name: "cannotDiscloseDetails",
+                                id: "cannotDiscloseDetails",
+                                rows: "6",
+                                label: {
+                                  text: "Give details of information that cannot be disclosed"
+                                }
+                              }) }}
+                    
+                              {% endset -%}
+                              <!--END set dynamic radio hide/show text-->
+                    
+                              {{ govukRadios({
+                                name: "cannotDisclose",
+                                fieldset: {
+                                  legend: {
+                                    text: "Is there any information that cannot be disclosed to George?",
+                                    isPageHeading: false,
+                                    classes: "govuk-fieldset__legend--s"
+                                  }
+                                },
+                                items: [
+                                {
+                                  value: "cannotDiscloseYes",
+                                  text: "Yes",
+                                  conditional: {
+                                    html: moreDetailledinfo
+                                  }
+                                },
+                                  {
+                                    value: "cannotDiscloseNo",
+                                    text: "No"
+                                  }
+                                  
+                                ]
+                              }) }}
 
 
   <input type="hidden" name="riskAssessed" value="yes">
