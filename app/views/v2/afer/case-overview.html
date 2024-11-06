@@ -351,6 +351,14 @@
         {% endif %}
         {% endif %}
 
+        {% if data.user=="probation" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
+          </dt>
+        </div>
+        {% endif %}
+
         <!--{% if data.user=="admin" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -933,6 +941,14 @@
     <a href="./addresses/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
+
+<!--Check addresses or community accommodation - Cannot start yet-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation </h2>
+    <p class="govuk-body">You can start this task when the prison submits address details.</p>
+  </section>
+</article>-->
 {% endif %}
 
 
@@ -972,7 +988,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess this person’s risk</h2>
-    <p class="govuk-body">Copy</p>
+    <p class="govuk-body">This task will be available once you have identified somewhere for George to be released.</p>
   </section>
 </article>
 {% endif %}
@@ -1014,7 +1030,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Make a risk management decision</h2>
-    <p class="govuk-body">Copy</p>
+    <p class="govuk-body">Start this task when you know where George will be released.</p>
   </section>
 </article>
 {% endif %}
@@ -1056,7 +1072,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
-    <p class="govuk-body">Copy</p>
+    <p class="govuk-body">Do this when you have completed address and risk checks.</p>
   </section>
 </article>
 {% endif %}
@@ -1098,7 +1114,7 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-    <p class="govuk-body">Copy</p>
+    <p class="govuk-body">You can do this if a decision maker in prison approves George for HDC release.</p>
   </section>
 </article>
 {% endif %}
@@ -1122,8 +1138,9 @@
 </article>
 {% else %}
 {% endif %}
-{% endif %}
 
+
+{% endif %}
 <!--Probation tasks end-->
 
 
