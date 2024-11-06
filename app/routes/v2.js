@@ -30,7 +30,7 @@ router.post('/eligibleoutcome', function (req, res) {
   if (ConfirmationNav == "caselist"){
    
    // Send user to case list page
-    res.redirect(version + '/afer/case-list-active')
+    res.redirect(version + '/afer/case-list-tab-one')
   } else {
     // Send user to task list page
     res.redirect(version + '/afer/eligibility/tasklist')
@@ -47,7 +47,7 @@ router.post('/ineligibleoutcome', function (req, res) {
   if (ConfirmationNav == "caselist"){
    
    // Send user to case list page
-    res.redirect(version + '/afer/case-list-active')
+    res.redirect(version + '/afer/case-list-tab-one')
   } else {
     // Send user to task list page
     res.redirect(version + '/afer/eligibility/tasklist')
@@ -64,7 +64,7 @@ router.post('/unsuitableoutcome', function (req, res) {
   if (ConfirmationNav == "caselist"){
    
    // Send user to case list page
-    res.redirect(version + '/afer/case-list-active')
+    res.redirect(version + '/afer/case-list-tab-one')
   } else {
     // Send user to task list page
     res.redirect(version + '/afer/eligibility/tasklist')

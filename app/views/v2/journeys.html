@@ -24,6 +24,7 @@
           Choose a journey:
         </label>
 
+        {% if data.user=="admin" %}
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="ineligible-journey" name="journey" type="radio" value="ineligiblejourney">
           <label class="govuk-label govuk-radios__label" for="ineligible-journey">
@@ -44,6 +45,19 @@
             Scenario 3 - David Lee
           </label>
         </div>
+        {% elseif data.user=="probation" %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="eligible-journey" name="journey" type="radio" value="eligiblejourney">
+          <label class="govuk-label govuk-radios__label" for="eligible-journey" >
+            Scenario 2 - George Jennings
+          </label>
+        </div>
+
+        </br></br>
+        <p>Scenario 4 (WIP)</br>
+          Scenario 5 (WIP)</p>
+
+        {% endif %}
 
         <!--<div class="govuk-radios__item">
           <input class="govuk-radios__input" id="user-employer" name="user" type="radio" value="governor">
@@ -54,7 +68,7 @@
 
        <!--<div class="govuk-radios__item">
           <input class="govuk-radios__input" id="user-aco" name="user" type="radio" value="aco">
-          <label class="govuk-label govuk-radios__label" for="user-aco" >
+          <label class="govuk-label govuk-radios__label" for="user-aco">
             PDU Head
           </label>
         </div>-->
