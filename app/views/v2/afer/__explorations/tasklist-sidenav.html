@@ -104,6 +104,64 @@
   <div class="govuk-grid-row">
     
 
+<div class="govuk-grid-column-one-third">
+
+<!--side nav start-->
+<nav class="moj-side-navigation govuk-!-margin-top-8" aria-label="Side navigation">
+<h4 class="moj-side-navigation__title">Check curfew addresses or CAS areas</h4>
+<ul class="moj-side-navigation__list">
+
+  <li class="moj-side-navigation__item">
+    <a href="../case-overview">Back to overview</a>
+  </li>
+
+</ul>
+</nav>
+<!--side nav end-->   
+
+
+<!--If delay has been reported-->
+<!--Before deadline-->
+<!--ADD RULES-->
+<div class="govuk-inset-text">
+  Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.
+  You have reported a delay to other people working on this application.
+  <a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.
+</div>
+<!--ADD RULES-->
+
+<!--After deadline-->
+<!--ADD RULES-->
+<div class="govuk-inset-text" style="border-color: #d4351c">
+  <strong>Checks overdue</strong></br>
+  Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}. 
+  You have reported a delay to other people working on this application.
+</div>
+<!--ADD RULES-->
+
+<!--If delay has NOT been reported-->
+<!--Before deadline-->
+<!--ADD RULES-->
+<div class="govuk-inset-text">
+  Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.
+  You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
+</div>
+<!--ADD RULES-->
+
+<!--After deadline-->
+<!--ADD RULES-->
+<div class="govuk-inset-text" style="border-color: #d4351c">
+  <strong>Checks overdue</strong></br>
+  Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}. 
+  You must <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.
+</div>
+<!--ADD RULES-->
+
+
+</div>
+   
+
+
   <div class="govuk-grid-column-two-thirds">
       
 
@@ -112,85 +170,46 @@
 
       <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Check curfew addresses or CAS areas</h1>
 
-      <!--If delay has been reported-->
-      <!--Before deadline-->
-      <!--ADD RULES-->
-      <div class="govuk-inset-text">
-        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-        You have reported a delay to other people working on this application.</br>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.
-      </div>
-      <!--ADD RULES-->
-
-      <!--After deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
-        <strong>Checks overdue</strong></br>
-        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You have reported a delay to other people working on this application.
-      </div>-->
-      <!--ADD RULES-->
-
-      <!--If delay has NOT been reported-->
-      <!--Before deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text">
-        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
-      </div>-->
-      <!--ADD RULES-->
-
-      <!--After deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
-        <strong>Checks overdue</strong></br>
-        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You must <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.
-      </div>-->
-      <!--ADD RULES-->
-
-      
-      <!--<a href="../case-overview" class="govuk-button govuk-button--secondary">Return to case overview</a>-->
-
 
       <h2 class="govuk-heading-m">Proposed curfew addresses</h2>
         
 
-      <!--card start-->
-      <div class="govuk-summary-card">
+          <!--card start-->
+<div class="govuk-summary-card">
 
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Preferred address
-          </h2>
-          <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action">
-              <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
-            </li>
-          </ul>
-        </div>
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred address
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+      </li>
+    </ul>
+  </div>
 
   
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-      
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-                4 Inner Street</br>
-                Grantham</br>
-                NG31 6HN</br></br>
-                <!--start checks-->
-                <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
-                <!--in progress checks-->
-                <!--<a href="#" class="govuk-button">Resume checks</a>-->
-                <a href="../addresses/residential/address-details-1" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>
-            </dt>
-            <dd class="govuk-summary-list__actions">
-            </dd>
-          </div>
-      
-        </dl>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+            4 Inner Street</br>
+            Grantham</br>
+            NG31 6HN</br></br>
+            <!--start checks-->
+            <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
+            <!--in progress checks-->
+            <!--<a href="#" class="govuk-button">Resume checks</a>-->
+            <a href="../addresses/residential/address-details-1" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>
+        </dt>
+        <dd class="govuk-summary-list__actions">
+        </dd>
       </div>
+  
+  
+    </dl>
+  </div>
   
   </div>
   <!--card end-->
@@ -468,13 +487,11 @@
         </div>
         <!--card end-->
 
-        <a href="../case-overview" class="govuk-button govuk-button--secondary">Return to case overview</a>
+
 
       <!--content 2/3 end-->
     
     </div>
-
-    
 
 
   </div>
