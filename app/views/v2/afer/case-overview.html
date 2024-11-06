@@ -66,6 +66,29 @@
           {% endif %}-->
 
 
+    <!--probation banners start-->
+    {% if data.user=="probation" %}
+
+    {% if data.sendChecksPrison=="yes"%}  
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+    
+      <div class="moj-banner__message">Application sent for decision</div>
+    
+    </div>
+    {% else %}   
+    {% endif %}     
+
+    {% endif %}
+    <!--probation banners end-->
+
+
+    <!--prison admin banners start-->
+    {% if data.user=="admin" %}
+
     {% if (data.printlicence=="complete") %}
     {% elseif (data.prepareforrelease=="complete") %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
@@ -151,6 +174,12 @@
     {% else %}
 
     {% endif %}
+
+    {% endif %}
+    <!--prison admin banners end-->
+
+
+
 
     <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for
       {% if data.journey=="ineligiblejourney"%}
@@ -414,12 +443,13 @@
         Application overview
       </a>
     </li>
-    {% if data.user!=="decisionmaker"%}
+    {% if data.user=="admin"%}
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#forms">
         Forms
       </a>
     </li>
+    {% else %}
     {% endif %}
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#contacts">
@@ -1094,7 +1124,7 @@
     <p><a class="govuk-link govuk-link--no-visited-state" href="../cvl/pp/create-licence" style="margin-top: 15px;">View or change</a></p>
   </section>
 {% elseif data.sendChecksPrison=="yes"%} 
-<!--Create licence - Sart-->
+<!--Create licence - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
@@ -1105,7 +1135,7 @@
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
       </div>
     </div>
-    <a href="../cvl/pp/create-licence" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    <a href="../cvl/pp/create-licence" class="govuk-button govuk-button--primary" style="margin-top: 15px;">CTA [copy]</a>
   </section>
 </article>
 <!--Create licence - Inprogress-->
@@ -1287,6 +1317,8 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Assess eligibility and suitability</h2>
     </div>
+    {% if data.user=="admin"%}
+
     {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
       <p class="moj-timeline__date">
         <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</time>
@@ -1307,6 +1339,12 @@
       </div>
     <!--DESIGN OVERDUE TASKS-->
     {% endif %}
+
+    {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-1) | govukDate }}</time>
+    </p>
+    {% endif %}
   </div>
 
 
@@ -1314,6 +1352,8 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Enter curfew addresses and CAS areas</h2>
     </div>
+    {% if data.user=="admin"%}
+
     {% if data.addressinput=="complete"%}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(26) | govukDate }}</time>
@@ -1324,6 +1364,12 @@
       </div>
     {% else %}
     {% endif %}
+
+    {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(26) | govukDate }}</time>
+    </p>
+    {% endif %}
   </div>
 
 
@@ -1331,6 +1377,9 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Check addresses and CAS areas</h2>
     </div>
+
+    {% if data.user=="admin"%}
+
   <!--{% if data.addressinput=="complete"%}
     <div class="moj-timeline__description">
       <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
@@ -1340,6 +1389,12 @@
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate }}</time>
     </p>
   {% else %}
+  {% endif %}
+
+  {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+  <div class="moj-timeline__description">
+    <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
+  </div>
   {% endif %}
   </div>
 
@@ -1535,6 +1590,8 @@
       <div class="govuk-grid-column-two-thirds">
 
     <!--Eligiblity and suitability-->
+    {% if data.user=="admin"%}
+
     {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
     
@@ -1635,11 +1692,45 @@
     {% else %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
     <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
-    {% endif %}     
+    {% endif %}  
     
-    
+    {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+    <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
+
+    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Summary</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 80%;">
+              Is this person eligible for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key" style="width: 20%;">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Is this person suitable for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key">
+              Yes
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+    </div>
+    {% endif %}  
   
     <!--Curfew addresses and CAS areas-->
+    {% if data.user=="admin"%}
+
     {% if (data.addressinput=="complete") %}<!--CHANGE based on PP task-->
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Curfew addresses and CAS areas</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}</p>
@@ -1713,8 +1804,79 @@
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Curfew addresses and CAS areas</h3>
     <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
     {% endif %}
+
+    {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Curfew addresses and CAS areas</h3>
+    <!--<p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}</p>-->
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Summary
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              <strong>Preferred address</strong></br>
+              4 Inner Street</br>
+              Grantham</br>
+              NG31 6HN
+            </dt>
+            <dd class="govuk-summary-list__value">
+              </br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}
+            </dd>
+            <dd class="govuk-summary-list__value">
+              </br>Unsuitable
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              <strong>Second address</strong></br>
+              49 Hill Street</br>
+              Grantham</br>
+              N1J 5NB
+            </dt>
+            <dd class="govuk-summary-list__value">
+              </br>Saved by Jessica Smith on {{ "today" |  duration(26) | govukDate("truncate") }}
+              <!--</br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}-->
+            </dd>
+            <dd class="govuk-summary-list__value">
+            </br>Not started
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              <strong>Preferred CAS area</strong></br>
+              Sheffield</br>
+              South Yorkshire
+            </dt>
+            <dd class="govuk-summary-list__value">
+              </br>Saved by Jessica Smith on {{ "today" |  duration(26) | govukDate("truncate") }}
+            </dd>
+            <dd class="govuk-summary-list__value">
+              </br>Not started
+            </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              <strong>Second CAS area</strong></br>
+              London</br>
+              Wimbledon
+            </dt>
+            <dd class="govuk-summary-list__value">
+              </br>Saved by Jessica Smith on {{ "today" |  duration(26) | govukDate("truncate") }}
+            </dd>
+            <dd class="govuk-summary-list__value">
+              </br>Not started
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
     
-    
+    {% endif %}
 
     <!--Risk assessment-->
     {% if (data.addressinput=="complete") %}<!--CHANGE based on PP task-->
@@ -2068,7 +2230,7 @@
 
 
   <!--Forms and letters start-->
-  {% if data.user!=="decisionmaker"%}
+  {% if data.user=="admin"%}
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="forms">
     <h2 class="govuk-heading-l">Forms</h2>
 
@@ -2213,6 +2375,7 @@
     </p>-->
 
   </div>
+  {% else %}
   {% endif %}
   <!--Forms and letters end-->
 
@@ -2229,13 +2392,23 @@
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header" style="width: 250px;">Case administrator</th>
           <td class="govuk-table__cell">
+            {% if data.user=="admin"%}
+
             {% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
             Jessica Smith</br>
             jessica.smith@justice.gov.uk</br>
             HMP Wandsworth
             {% else %}
             No case administrator has worked on this application yet
-            {% endif%}
+            {% endif %}
+
+            {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+            Jessica Smith</br>
+            jessica.smith@justice.gov.uk</br>
+            HMP Wandsworth
+
+            {% endif %}
+
           </td>
         </tr>
         <tr class="govuk-table__row">
@@ -2251,20 +2424,27 @@
           <th scope="row" class="govuk-table__header">Probation practitioner</th>
           <!--this needs to change once we have a value for PP task-->
           <td class="govuk-table__cell">
+          {% if data.user=="admin"%}
+
           {% if (data.addressinput=="complete") %}
-            Jonathan Amble</br>
-            jonathan.amble@justice.gov.uk</br>
+            Mark Coombes</br>
+            mark.coombes@justice.gov.uk</br>
             Wales
           {% else %}
-
           {% if data.journey=="28daysjourney" %}
           Allocation due by {{ "today" |  duration(10) | govukDate }}
           {% else %}
           Allocation due by {{ "today" |  duration(27) | govukDate }}
           {% endif %}
           <!--DESIGN overdue state-->
-
           {% endif%}
+
+          {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+          Mark Coombes</br>
+          mark.coombes@justice.gov.uk</br>
+          Wales
+          {% endif%}
+
           </td>
         </tr>
         <tr class="govuk-table__row">
