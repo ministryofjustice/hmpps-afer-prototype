@@ -85,16 +85,6 @@
       <!--sub nav start-->
       <nav class="moj-sub-navigation" aria-label="Sub navigation">
 
-        {% if data.user=="admin" %}
-        <ul class="moj-sub-navigation__list">
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="case-list-tab-one">Active</a>
-          </li>
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-tab-two">Inactive</a>
-          </li>
-        </ul>
-        {% elseif data.user=="probation" %}
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
             <a class="moj-sub-navigation__link" href="case-list-tab-one">My cases</a>
@@ -103,185 +93,58 @@
             <a class="moj-sub-navigation__link" aria-current="page" href="case-list-tab-two">Team cases</a>
           </li>
         </ul>
-        {% elseif data.user=="decisionmaker" %}
-        <ul class="moj-sub-navigation__list">
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="case-list-tab-one">Active</a>
-          </li>
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-tab-two">Inactive</a>
-          </li>
-        </ul>
-        {% endif %}
       
       </nav>      
       <!--sub nav end-->
 
 
-      {% if data.user=="admin" %}
-      <h2 class="govuk-heading-l">Inactive</h2>
+      <h2 class="govuk-heading-l govuk-!-margin-top-6">Team cases</h2>
 
-        <!--table start RELEASED ON HDC-->
-        <table class="govuk-table" data-module="moj-sortable-table">
+
+      
+      <!--table start-->
+      <table class="govuk-table" data-module="moj-sortable-table">
           
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-        
-              <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">HDCAD</th>
-              <th scope="col" class="govuk-table__header" aria-sort="descending">CRD</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Task</th>
-        
-            </tr>
-          </thead>
-        
-          <tbody class="govuk-table__body">
-        
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Santos, Miguel</a>
-              </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G92638</div></td>
-              <td class="govuk-table__cell">Aisha Thompson</td>
-              <td class="govuk-table__cell">{{ "today" |  duration(-20) | govukDate("truncate") }}</td>
-              <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(-9) | govukDate("truncate") }}</td>
-              <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">View and print licence PDF</a></td>
-            </tr>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+      
+            <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">HDCAD</th>
+            <th scope="col" class="govuk-table__header" aria-sort="descending">CRD</th>
+          </tr>
+        </thead>
+      
+        <tbody class="govuk-table__body">
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Patel, Rakesh</a>
-              </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G58342</div></td>
-              <td class="govuk-table__cell">Michael Adeyemi</td>
-              <td class="govuk-table__cell">{{ "today" |  duration(-40) | govukDate("truncate") }}</td>
-              <td class="govuk-table__cell" data-sort-value="2">{{ "today" |  duration(-31) | govukDate("truncate") }}</td>
-              <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">View and print licence PDF</a></td>
-            </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Santos, Miguel</a>
+            </br><div class="govuk-hint govuk-!-font-size-16">CRN: G92638</div></td>
+            <td class="govuk-table__cell">Aisha Thompson</td>
+            <td class="govuk-table__cell">{{ "today" |  duration(-20) | govukDate("truncate") }}</td>
+            <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(-9) | govukDate("truncate") }}</td>
+          </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Ahmed, Omar</a>
-              </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G73425</div></td>
-              <td class="govuk-table__cell">Emily Zhang</td>
-              <td class="govuk-table__cell">{{ "today" |  duration(-90) | govukDate("truncate") }}</td>
-              <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(-79) | govukDate("truncate") }}</td>
-              <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">View and print licence PDF</a></td>
-            </tr>
-        
-          </tbody>
-        </table>
-        <!--table end RELEASED ON HDC-->
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Patel, Rakesh</a>
+            </br><div class="govuk-hint govuk-!-font-size-16">CRN: G58342</div></td>
+            <td class="govuk-table__cell">Michael Adeyemi</td>
+            <td class="govuk-table__cell">{{ "today" |  duration(-40) | govukDate("truncate") }}</td>
+            <td class="govuk-table__cell" data-sort-value="2">{{ "today" |  duration(-31) | govukDate("truncate") }}</td>
+          </tr>
 
-        {% elseif data.user=="probation" %}
-         <!--tabs start-->
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Ahmed, Omar</a>
+            </br><div class="govuk-hint govuk-!-font-size-16">CRN: G73425</div></td>
+            <td class="govuk-table__cell">Emily Zhang</td>
+            <td class="govuk-table__cell">{{ "today" |  duration(-90) | govukDate("truncate") }}</td>
+            <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(-79) | govukDate("truncate") }}</td>
+          </tr>
+      
+        </tbody>
+      </table>
+      <!--table end-->
 
-          <div class="govuk-tabs" data-module="govuk-tabs">
-            <h2 class="govuk-tabs__title">
-              Contents
-            </h2>
-            <ul class="govuk-tabs__list">
-              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-                <a class="govuk-tabs__tab" href="#yourwork">
-                  To work on by you
-                </a>
-              </li>
-              <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#otherswork">
-                  To work on by others
-                </a>
-              </li>
-              <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#postponed">
-                  Postponed
-                </a>
-              </li>
-              <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#readyforrelease">
-                  Ready for release
-                </a>
-              </li>
-              <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#inactive">
-                  Inactive
-                </a>
-              </li>
-            </ul>
-
-
-            <div class="govuk-tabs__panel" id="yourwork">
-              <h2 class="govuk-heading-l">To work on by you</h2>
-
-              <!--content do do start-->
-              
-              <!--table start-->
-              
-              <!--table end-->
-
-              <!--content do do end-->
-
-            </div>
-
-
-            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="otherswork">
-              <h2 class="govuk-heading-l">To work on by others</h2>
-
-              <!--content waiting start-->
-
-              <!--table start-->
-                      
-              <!--table end-->
-            
-              <!--content waiting end-->
-
-            </div>
-
-
-            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="postponed">
-              <h2 class="govuk-heading-l">Postponed</h2>
-
-              <!--content postponed start-->
-
-              <!--table start-->
-
-              <!--table end-->
-  
-              <!--content postponed end-->
-
-            </div>
-
-
-            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="readyforrelease">
-              <h2 class="govuk-heading-l">Ready for release</h2>
-
-              <!--content ready for release start-->
-            
-              <!--table start-->
-              
-              <!--table end-->
-
-              <!--content ready for release end-->
-          
-            </div>
-
-
-            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inactive">
-              <h2 class="govuk-heading-l">Inactive</h2>
-
-              <!--content ready for release start-->
-              
-              <!--table start INACTIVE CASES-->
-           
-              <!--table end INACTIVE CASES-->
-                      
-              <!--content ready for release end-->
-          
-            </div>
-
-
-          </div>
-
-          <!--tabs end-->
-
-          {% elseif data.user=="decisionmaker" %}
-
-          {% endif %}
 
 
 
@@ -289,5 +152,4 @@
     </div>
   </main>
 </div>
-
 {% endblock %}
