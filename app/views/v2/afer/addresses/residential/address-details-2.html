@@ -49,31 +49,31 @@
 
       
 
-      {% if (data.SocialservicesChecks=="completed") and (data.PoliceChecks=="completed") %}
+      <!--{% if (data.SocialservicesChecks=="completed") and (data.PoliceChecks=="completed") %}
       <p>[Copy: Removed checks outstanding?]</p>
 
-      {% elseif data.reportedDelay=="yes"%}
+      {% elseif data.reportedDelay=="yes"%}-->
       <!--If delay has been reported - After deadline-->
-      <div class="govuk-inset-text" style="border-color: #d4351c">
+      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
         You have reported a delay to other people working on this application.</br>
         [Reporting date?][Reason?]
-      </div>
+      </div>-->
       <!--If delay has NOT been reported - After deadline-->
-      {% elseif data.passedDeadline=="yes"%}
+      <!--{% elseif data.passedDeadline=="yes"%}
       <div class="govuk-inset-text" style="border-color: #d4351c">
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
         You must <a class="govuk-link govuk-link--no-visited-state" href="../../delay/report-delay">report a delay</a> to other people working on this application.
       </div>
-      {% else %}
+      {% else %}-->
       <!--If delay has NOT been reported - Before deadline-->
-      <div class="govuk-inset-text">
+      <!--<div class="govuk-inset-text">
         Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
         You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
       </div>
-      {% endif %}
+      {% endif %}-->
 
       <h2 class="govuk-heading-m">Address details</h2>
 
@@ -150,8 +150,10 @@
           </span>
           {% if data.PoliceChecks=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% elseif data.PoliceChecks=="started" %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag"><span style="text-transform: capitalize;">In</span><span style="text-transform: lowercase;"> progress</span></strong>
           {% else %}
-          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" style="text-transform: capitalize;">Incomplete</strong>
           {% endif %}
         </li>
 
@@ -169,6 +171,8 @@
           </span>
           {% if data.SocialservicesChecks=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% elseif data.SocialservicesChecks=="started" %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag"><span style="text-transform: capitalize;">In</span><span style="text-transform: lowercase;"> progress</span></strong>
           {% else %}
           <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
           {% endif %}

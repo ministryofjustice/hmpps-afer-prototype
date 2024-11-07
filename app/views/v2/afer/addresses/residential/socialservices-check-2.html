@@ -48,6 +48,8 @@
 
         {% if data.reportedDelay=="yes"%}
         <input type="hidden" name="SocialservicesChecks" value="completed">
+        {% else %}
+        <input type="hidden" name="SocialservicesChecks" value="started">
         {% endif %}
 
         <div class="govuk-form-group">
