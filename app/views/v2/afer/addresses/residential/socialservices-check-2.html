@@ -65,7 +65,11 @@
                   <label class="govuk-label govuk-date-input__label" for="expiry-day">
                     Day
                   </label>
+                  {% if data.reportedDelay=="yes" %}
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric" value="7">
+                  {% else %}
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+                  {% endif %}
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -73,7 +77,11 @@
                   <label class="govuk-label govuk-date-input__label" for="expiry-month">
                     Month
                   </label>
+                  {% if data.reportedDelay=="yes" %}
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric" value="11">
+                  {% else %}
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+                  {% endif %}
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -81,7 +89,11 @@
                   <label class="govuk-label govuk-date-input__label" for="expiry-year">
                     Year
                   </label>
+                  {% if data.reportedDelay=="yes" %}
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric" value="2024">
+                  {% else %}
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+                  {% endif %}
                 </div>
               </div>
             </div>
