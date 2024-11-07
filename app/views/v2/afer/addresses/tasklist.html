@@ -115,11 +115,11 @@
       <!--If delay has been reported-->
       <!--Before deadline-->
       <!--ADD RULES-->
-      <div class="govuk-inset-text">
+      <!--<div class="govuk-inset-text">
         Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
         You have reported a delay to other people working on this application.</br>
         <a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.
-      </div>
+      </div>-->
       <!--ADD RULES-->
 
       <!--After deadline-->
@@ -131,23 +131,22 @@
       </div>-->
       <!--ADD RULES-->
 
-      <!--If delay has NOT been reported-->
-      <!--Before deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text">
-        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
-      </div>-->
-      <!--ADD RULES-->
+      
 
-      <!--After deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
+      <!--If delay has NOT been reported - After deadline-->
+      {% if data.passedDeadline=="yes"%}
+      <div class="govuk-inset-text" style="border-color: #d4351c">
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You must <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.
-      </div>-->
-      <!--ADD RULES-->
+        You must <a class="govuk-link govuk-link--no-visited-state" href="../../delay/report-delay">report a delay</a> to other people working on this application.
+      </div>
+      {% else %}
+      <!--If delay has NOT been reported - Before deadline-->
+      <div class="govuk-inset-text">
+        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
+        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
+      </div>
+      {% endif %}
 
       
       <!--<a href="../case-overview" class="govuk-button govuk-button--secondary">Return to case overview</a>-->
@@ -183,7 +182,7 @@
                 <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
                 <!--in progress checks-->
                 <!--<a href="#" class="govuk-button">Resume checks</a>-->
-                <a href="../addresses/residential/address-details-1" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>
             </dt>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -227,13 +226,13 @@
           Grantham</br>
           N1J 5NB</br></br>
 
-        {% if data.AddressSuitabilityDecision=="no"%}
+        {% if data.passedDeadline=="yes"%}
+        <a href="residential/address-details-2" class="govuk-button">Resume checks</a>
+        {% elseif data.AddressSuitabilityDecision=="no"%}
         <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
         {% else %}
         <a href="residential/address-details-2" class="govuk-button">Start checks</a>
         {% endif %}
-        <!--In progress-->
-        <!--<a href="#" class="govuk-button">Resume checks</a>-->
         </dt>
 
       </div>

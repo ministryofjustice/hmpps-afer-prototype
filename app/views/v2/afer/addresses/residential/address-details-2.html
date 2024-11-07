@@ -37,6 +37,44 @@
 
     <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if a curfew address is suitable</h1>
 
+          <!--If delay has been reported-->
+      <!--Before deadline-->
+      <!--ADD RULES-->
+      <!--<div class="govuk-inset-text">
+        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
+        You have reported a delay to other people working on this application.</br>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.
+      </div>-->
+      <!--ADD RULES-->
+
+      
+
+      {% if (data.SocialservicesChecks=="completed") and (data.PoliceChecks=="completed") %}
+      <p>[Copy: Removed checks outstanding?]</p>
+
+      {% elseif data.reportedDelay=="yes"%}
+      <!--If delay has been reported - After deadline-->
+      <div class="govuk-inset-text" style="border-color: #d4351c">
+        <strong>Checks overdue</strong></br>
+        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+        You have reported a delay to other people working on this application.</br>
+        [Reporting date?][Reason?]
+      </div>
+      <!--If delay has NOT been reported - After deadline-->
+      {% elseif data.passedDeadline=="yes"%}
+      <div class="govuk-inset-text" style="border-color: #d4351c">
+        <strong>Checks overdue</strong></br>
+        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+        You must <a class="govuk-link govuk-link--no-visited-state" href="../../delay/report-delay">report a delay</a> to other people working on this application.
+      </div>
+      {% else %}
+      <!--If delay has NOT been reported - Before deadline-->
+      <div class="govuk-inset-text">
+        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
+        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
+      </div>
+      {% endif %}
+
       <h2 class="govuk-heading-m">Address details</h2>
 
 
@@ -68,6 +106,7 @@
   
   </div>
   <!--card end-->
+
 
 
   <!--tasklist start-->
@@ -119,9 +158,13 @@
 
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
+            {% if (data.SocialservicesChecks=="completed") and (data.PoliceChecks=="completed") %}
             <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
-             Suitablity decision [copy]
-            </a>
+              Suitablity decision [copy]
+             </a>
+            {% else %}
+            Suitablity decision [copy] - locked until previous tasks are done
+            {% endif %}
             </br>
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
@@ -138,11 +181,17 @@
 
 <!--tasklist end-->
        
+<form action="../tasklist" method="post" novalidate>
 
-<div class="govuk-button-group">
-  <a href="../tasklist" class="govuk-button govuk-button--secondary">Return to [copy]</a>
+  <input type="hidden" name="passedDeadline" value="yes">
+
+  <div class="govuk-button-group">
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Return to [copy]
+    </button>
   </div>
 
+</form>
 
       </div>
     </div>

@@ -42,45 +42,14 @@
         You must request and consider information from children’s services about domestic abuse and child wellbeing risks of releasing this person to the proposed address.
       </p>
 
-      <!--If delay has been reported-->
-      <!--Before deadline-->
-      <!--ADD RULES-->
-      <div class="govuk-inset-text">
-        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-        You have reported a delay to other people working on this application.</br>
-        <!--<a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.-->
-      </div>
-      <!--ADD RULES-->
+    
 
-      <!--After deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
-        <strong>Checks overdue</strong></br>
-        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You have reported a delay to other people working on this application.
-      </div>-->
-      <!--ADD RULES-->
+      <form action="./address-details-2" method="post" novalidate>
 
-      <!--If delay has NOT been reported-->
-      <!--Before deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text">
-        Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
-      </div>-->
-      <!--ADD RULES-->
+        {% if data.reportedDelay=="yes"%}
+        <input type="hidden" name="SocialservicesChecks" value="completed">
+        {% endif %}
 
-      <!--After deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
-        <strong>Checks overdue</strong></br>
-        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You must <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.
-      </div>-->
-      <!--ADD RULES-->
-      
-
-      <form action="/form-handler" method="post" novalidate>
         <div class="govuk-form-group">
 
           <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
@@ -123,7 +92,7 @@
           
           <fieldset class="govuk-fieldset govuk-!-margin-top-8" role="group" aria-describedby="expiry-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Enter the date that the police sent this information
+              Enter the date that children’s services sent this information
             </legend>
             <div id="expiry-hint" class="govuk-hint">
               For example, 31 3 1980
@@ -159,7 +128,8 @@
 
 
           <div class="govuk-form-group govuk-!-margin-top-6">
-            <label class="govuk-label" for="moreDetailpolice"><strong>Summarise the information the police provided</strong></label>
+            <label class="govuk-label" for="moreDetailpolice"><strong>Summarise the information that children’s services provided
+            </strong></label>
             <textarea class="govuk-textarea" id="moreDetailpolice" name="moreDetailpolice" rows="6"></textarea>
           </div>
 
