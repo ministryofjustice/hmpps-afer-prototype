@@ -122,11 +122,17 @@
              Occupier [copy]
             </a>
             </br>
+            {% if data.OccupierChecks=="completed" %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
             </div>
+            {% endif %}
           </span>
+          {% if data.OccupierChecks=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
         </li>
 
 
@@ -136,11 +142,17 @@
              Police [copy]
             </a>
             </br>
+            {% if data.PoliceChecks=="completed" %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
             </div>
+            {% endif %}
           </span>
+          {% if data.PoliceChecks=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
         </li>
 
         <li class="app-task-list__item">
@@ -149,11 +161,17 @@
              Social services [copy]
             </a>
             </br>
+            {% if data.SocialservicesChecks=="completed" %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
             </div>
+            {% endif %}
           </span>
+          {% if data.SocialservicesChecks=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
         </li>
 
         <li class="app-task-list__item">
@@ -163,14 +181,22 @@
               Suitablity decision [copy]
              </a>
             {% else %}
-            Suitablity decision [copy] - locked until previous tasks are done
+            Suitablity decision [copy]
             {% endif %}
             </br>
+            {% if data.suitabilityDecisionRes=="completed" %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
             </div>
+            {% endif %}
           </span>
+          {% if (data.OccupierChecks=="completed") and (data.SocialservicesChecks=="completed") and (data.PoliceChecks=="completed") %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% elseif data.suitabilityDecisionRes=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+          {% endif %}
         </li>
 
 

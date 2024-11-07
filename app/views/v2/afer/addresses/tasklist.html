@@ -122,23 +122,20 @@
       </div>-->
       <!--ADD RULES-->
 
-      <!--After deadline-->
-      <!--ADD RULES-->
-      <!--<div class="govuk-inset-text" style="border-color: #d4351c">
-        <strong>Checks overdue</strong></br>
-        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You have reported a delay to other people working on this application.
-      </div>-->
-      <!--ADD RULES-->
-
-      
-
-      <!--If delay has NOT been reported - After deadline-->
-      {% if data.passedDeadline=="yes"%}
+      {% if data.reportedDelay=="yes"%}
+      <!--If delay has been reported - After deadline-->
       <div class="govuk-inset-text" style="border-color: #d4351c">
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-        You must <a class="govuk-link govuk-link--no-visited-state" href="../../delay/report-delay">report a delay</a> to other people working on this application.
+        You have reported a delay to other people working on this application.</br>
+        [Reporting date?][Reason?]
+      </div>
+      <!--If delay has NOT been reported - After deadline-->
+      {% elseif data.passedDeadline=="yes"%}
+      <div class="govuk-inset-text" style="border-color: #d4351c">
+        <strong>Checks overdue</strong></br>
+        Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+        You must <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">report a delay</a> to other people working on this application.
       </div>
       {% else %}
       <!--If delay has NOT been reported - Before deadline-->
