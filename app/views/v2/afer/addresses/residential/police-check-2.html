@@ -44,8 +44,10 @@
 
       <form action="./address-details-2" method="post" novalidate>
 
-        {% if data.reportedDelay=="yes"%}
+        {% if data.reportedDelay=="yes" %}
         <input type="hidden" name="PoliceChecks" value="completed">
+        {% else %}
+        <input type="hidden" name="PoliceChecks" value="started">
         {% endif %}
 
         <div class="govuk-form-group">
