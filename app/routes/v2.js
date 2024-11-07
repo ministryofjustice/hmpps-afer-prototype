@@ -163,6 +163,25 @@ router.post('/postponeprepareforrelease', function (req, res) {
 //PP journey routes
 
 
+//Suitablity decision residential addresses
+router.post('/residentialsuitablitydecision', function (req, res) {
+  var SuitabilityDecisionNav = req.session.data['suitabilityDecision']
+
+  // Check whether the variable matches a condition
+  if (SuitabilityDecisionNav == "cancel"){
+   
+   // Send user to case overview page if suitablity decision has been made and confirm outcome
+    res.redirect(version + '/afer/addresses/residential/address-details-2')
+
+  } else {
+
+    // Send user back to address details page
+    res.redirect(version + '/afer/case-overview')
+  }
+
+});
+
+
 //Choosing type of community accommodation: CAS1 or CAS2
 router.post('/communitytype', function (req, res) {
   var AccomodationType = req.session.data['accomodationType']

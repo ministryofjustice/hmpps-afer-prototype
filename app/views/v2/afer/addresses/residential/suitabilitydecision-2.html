@@ -38,6 +38,11 @@
 
       <h1 class="govuk-heading-l govuk-!-margin-top-8">Suitability decision</h1>
 
+
+    <form action="/residentialsuitablitydecision" method="post" novalidate>
+
+      <input type="hidden" name="suitabilityDecisionRes" value="completed">
+  
   <div class="govuk-form-group govuk-!-margin-top-4">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -96,14 +101,16 @@
   </div>
 
 
-  
   <div class="govuk-button-group">
-    <a href="address-details-1" class="govuk-button">Save</a>
-    <a href="../tasklist" class="govuk-button govuk-button--secondary">Cancel</a>         
+    <button type="submit" class="govuk-button" data-module="govuk-button" name="suitabilityDecision" value="overview">
+      Save
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="suitabilityDecision" value="cancel">
+      Cancel
+    </button>
   </div>
-  
 
-  
+  </form>  
  
       </div>
     </div>
