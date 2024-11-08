@@ -75,11 +75,8 @@
       </div>
       {% endif %}-->
 
-      <h2 class="govuk-heading-m">Address details</h2>
-
-
-
 <!--card start-->
+<br>
 <div class="govuk-summary-card">
 
   <div class="govuk-summary-card__title-wrapper">
@@ -111,7 +108,7 @@
 
   <!--tasklist start-->
 
-  <h2 class="app-task-list__section govuk-!-margin-top-8">To do [copy]</h2>
+  <h2 class="app-task-list__section govuk-!-margin-top-8">Address checks</h2>
   <ul class="app-task-list__items">
 
 
@@ -119,7 +116,7 @@
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="occupier-check-2">
-             Occupier [copy]
+             Address details and informed consent
             </a>
             </br>
             {% if data.OccupierChecks=="completed" %}
@@ -139,7 +136,7 @@
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="police-check-2">
-             Police [copy]
+             Police check
             </a>
             </br>
             {% if data.PoliceChecks=="completed" %}
@@ -160,7 +157,7 @@
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="socialservices-check-2">
-             Social services [copy]
+             Children's services check
             </a>
             </br>
             {% if data.SocialservicesChecks=="completed" %}
@@ -182,10 +179,10 @@
           <span class="app-task-list__task-name">
             {% if (data.SocialservicesChecks=="completed") and (data.PoliceChecks=="completed") %}
             <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
-              Suitablity decision [copy]
+              Suitablity decision
              </a>
             {% else %}
-            Suitablity decision [copy]
+            Suitablity decision
             {% endif %}
             </br>
             {% if data.suitabilityDecisionRes=="completed" %}
