@@ -103,7 +103,7 @@
       <!--<div class="govuk-inset-text">
         Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
         You have reported a delay to other people working on this application.</br>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">Update this</a> if something changes.
+        <a class="govuk-link govuk-link--no-visited-state" href="#">View or update information about this delay.</a>
       </div>-->
       <!--ADD RULES-->
 
@@ -113,6 +113,7 @@
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
         You have reported a delay to other people working on this application.</br>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">View or update information about this delay.</a>
         [Reporting date?][Reason?]
       </div>
       <!--If delay has NOT been reported - After deadline-->
@@ -126,7 +127,7 @@
       <!--If delay has NOT been reported - Before deadline-->
       <div class="govuk-inset-text">
         Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application if you will not be able to do this.
+        You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.
       </div>
       {% endif %}
 
