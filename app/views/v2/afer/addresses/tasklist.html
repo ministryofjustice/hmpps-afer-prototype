@@ -43,15 +43,35 @@
           <ul class="mini-profile-info">
               <li>
                   <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                      {% if data.journey=="cas2application" %}
+                      <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">Ryan Rees</a>
+                      {% else %}
                       <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                      {% endif %}
                   </p>
+                  {% if data.journey=="cas2application" %}
+                  <span class="govuk-body" data-qa="mini-profile-prisoner-number">G87634</span>
+                  {% else %}
                   <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
+                  {% endif %}
               </li>
-              <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
+              <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
               <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
               <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
-              <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(93) | govukDate("truncate") }}</span></li>
-              <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(126) | govukDate("truncate") }}</span></li>
+              <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                {% if data.journey=="cas2application"%}
+                {{ "today" |  duration(20) | govukDate("truncate") }}
+                {% else %}
+                {{ "today" |  duration(93) | govukDate("truncate") }}
+                {% endif %}
+              </span></li>
+              <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                {% if data.journey=="cas2application"%}
+                {{ "today" |  duration(36) | govukDate("truncate") }}
+                {% else %}
+                {{ "today" |  duration(126) | govukDate("truncate") }}
+                {% endif %}
+              </span></li>
           </ul>
       </div>
   </div>
@@ -205,9 +225,18 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
+
+        {% if data.journey=="cas2application"%}  
+        
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+
+        {% else %}
+
         {% if data.AddressSuitabilityDecision=="no"%}
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
         {% else %}
+        {% endif %}
+
         {% endif %}
       </li>
     </ul>
@@ -223,12 +252,20 @@
           Grantham</br>
           N1J 5NB</br></br>
 
+        {% if data.journey=="cas2application"%}  
+
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
+
+        {% else %}
+
         {% if data.passedDeadline=="yes"%}
         <a href="residential/address-details-2" class="govuk-button">Resume checks</a>
         {% elseif data.AddressSuitabilityDecision=="no"%}
         <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
         {% else %}
         <a href="residential/address-details-2" class="govuk-button">Start checks</a>
+        {% endif %}
+
         {% endif %}
         </dt>
 
@@ -298,7 +335,7 @@
       {% if data.accomodationType=="cas1"%}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Label???
+          Type of accommodation
         <dd class="govuk-summary-list__value">
           Approved Premises (CAS-1)
         </dd>
@@ -309,7 +346,7 @@
       {% elseif data.accomodationType=="cas2"%}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Label???
+          Type of accommodation
         <dd class="govuk-summary-list__value">
           Short-term accommodation (CAS-2)
         </dd>
@@ -333,8 +370,7 @@
         <dt class="govuk-summary-list__key">
           CAS-2 application status
         <dd class="govuk-summary-list__value">
-          [status from CAS2 digital service]
-          <!--More information requested-->
+          More information requested
           <!--Awaiting decision-->
           <!--On waiting list-->
           <!--Place offered-->
@@ -373,10 +409,12 @@
       {% endif %}
 
 
-
-
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+            </dt>
+          </div>
+        </dl>
+
               {% if data.cas1addressadded=="yes"%}
               <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Change address??</a>
 
@@ -386,8 +424,7 @@
               {% elseif data.accomodationType=="cas2"%}
 
               {% if data.cas2suitable=="yes"%}
-              <a href="./community2/suitability" class="govuk-link govuk-link--no-visited-state" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a>
-              {% else %}
+              <p class="govuk-body"><a href="./community2/suitability" class="govuk-link govuk-link--no-visited-state" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a></p>
               {% endif %}
 
               {% else %}
@@ -395,9 +432,7 @@
               {% endif %}
               <!--In progress-->
               <!--<a href="#" class="govuk-button">Resume checks</a>-->
-            </dt>
-          </div>
-        </dl>
+
       </div>
       
       </div>
