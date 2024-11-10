@@ -38,13 +38,7 @@
         <div class="govuk-grid-column-full">
 
         
-        
-
-
-
-
-
-
+      
 
           <!--{% if data.journey=="28daysjourney" %}
           
@@ -72,27 +66,62 @@
 
     {% if data.user=="probation" %}
 
-    {% if data.sendChecksPrison=="yes" %}  
+    {% if data.cas1addressadded=="yes"%}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
-    
-      <div class="moj-banner__message">Application sent for decision</div>
-    
+      <div class="moj-banner__message">COPY: Confirm CAS-1 address entry</div>
     </div>
-
+    {% elseif data.sendChecksPrison=="yes" %}  
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Checks sent to prison</div>
+    </div>
+    {% elseif data.managementDecision=="yes"%} 
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Risk management decision completed</div>
+    </div>
     {% elseif data.riskAssessed=="yes"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Risk assessment completed</div>
+    </div>
+    {% elseif data.cas2suitable=="yes" %}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">
+        A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2).
+        If approved, they will enter the accommodation address for this person’s licence.</br>
+        You will be able to <a href="./addresses/tasklist" class="govuk-link govuk-link--no-visited-state">view the address here</a>.
+      </div>
+    </div>
+    {% elseif data.accomodationType=="cas1" %}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">
+        You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
+          If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="addresses/cas1/enter-address">enter the address of the accommodation.</a>
+      </div>
+    </div>
     {% elseif data.suitabilityDecisionRes=="completed" %}
     <!--Transform that this is a yes for the suitability vs. a no-->
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
-    
-      <div class="moj-banner__message">Address x suitable, do assess this person's risk and send for decision</div>
+      <div class="moj-banner__message">Address check completed</div>
     </div>  
     {% else %}  
     {% endif %}     
@@ -208,6 +237,8 @@
       {% elseif data.user=="probation"%}
       {% if data.journey=="cas2application"%}
       Ryan Rees
+      {% elseif data.journey=="cas1application"%}
+      Lenny Wallace
       {% endif %}
       {% endif %}
     </h1>
@@ -254,6 +285,8 @@
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               Ryan Rees
+              {% elseif data.journey=="cas1application"%}
+              Lenny Wallace
               {% endif %}
               {% endif %}
             </dd>
@@ -277,6 +310,8 @@
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               G87634
+              {% elseif data.journey=="cas1application"%}
+              G2431GT
               {% endif %}
               {% endif %}
             </dd>
@@ -300,6 +335,8 @@
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               Concerned in the supply of a controlled drug of Class B - cannabis
+              {% elseif data.journey=="cas1application"%}
+              Section 18 - wounding with intent
               {% endif %}
               {% endif %}
             </dd>
@@ -324,6 +361,8 @@
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               {{ "today" |  duration(20) | govukDate }}
+              {% elseif data.journey=="cas1application"%}
+              {{ "today" |  duration(128) | govukDate }}
               {% endif %}
               {% endif %}
             </dd>
@@ -348,6 +387,8 @@
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               {{ "today" |  duration(36) | govukDate }}
+              {% elseif data.journey=="cas1application"%}
+              {{ "today" |  duration(185) | govukDate }}
               {% endif %}
               {% endif %}
             </dd>
@@ -979,7 +1020,7 @@
 <!--Probation tasks start-->
 {% if data.user=="probation"%}
 
-{% if (data.cas2suitable=="yes") or (data.suitabilityDecisionRes=="completed") %}
+{% if (data.cas2suitable=="yes") or (data.accomodationType=="cas1") or (data.suitabilityDecisionRes=="completed") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1050,6 +1091,7 @@
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/risk" style="margin-top: 15px;">View or change</a></p>
   </section>
   <!--Assess this person’s risk - Inprogress-->
+{% elseif data.accomodationType=="cas1"%}
 {% else %}
 <!--Assess this person’s risk - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1090,7 +1132,21 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/decision" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}  
+{% elseif data.accomodationType=="cas1"%}
+  <article class="moj-ticket-panel" aria-label="Sub navigation 1">
+    <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Make a risk management decision</h2>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+        </div>
+      </div>
+      <a href="./addresses/decision" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    </section>
+  </article>
+{% elseif (data.riskAssessed=="yes") %}  
 <!--Make a risk management decision - Sart-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1186,7 +1242,7 @@
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
       </div>
     </div>
-    <a href="../cvl/pp/create-licence" class="govuk-button govuk-button--primary" style="margin-top: 15px;">CTA [copy]</a>
+    <a href="#" class="govuk-button govuk-button--primary" style="margin-top: 15px;">CTA [copy]</a>
   </section>
 </article>
 <!--Create licence - Inprogress-->
@@ -1202,8 +1258,23 @@
 
 
 
+
+{% if data.cas1addressadded=="yes"%}
+<!--Enter CAS1 address - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter Approved Premises (CAS-1) address</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas1/enter-address" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif data.accomodationType=="cas1"%}
 <!--Enter CAS1 address - Start-->
-{% if data.accomodationType=="cas1"%}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
