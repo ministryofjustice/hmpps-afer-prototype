@@ -29,19 +29,18 @@
 
             
         <h1 class="govuk-heading-l govuk-!-margin-top-6">
-          Report a delay to other people working on this application
+          View or update information about a delay
         </h1>
 
         <p class="govuk-body">
-          This will alert other people working on the application about a delay.</br>
-          For example, people working in the prison.
+          The following information was previously entered about a delay with this application. You can make changes below if something has changed.
         </p>
         
         
         <form action="../addresses/tasklist" method="post" novalidate>
-          <input type="hidden" name="reportedDelay" value="yes">
+          
+          <input type="hidden" name="reportedDelay" value="updated">
         
-
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -54,13 +53,13 @@
               </div>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="policeDelay">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="policeDelay" checked>
                   <label class="govuk-label govuk-checkboxes__label" for="waste">
                     Waiting for information from the police 
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="socialservicesDelay">
+                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="socialservicesDelay" checked>
                   <label class="govuk-label govuk-checkboxes__label" for="waste-2">
                     Waiting for information from children’s services
                   </label>
@@ -85,7 +84,7 @@
             <div id="more-detail-hint" class="govuk-hint">
               For example, include details of any information you are waiting for and when you should get it.
             </div>
-            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="4" aria-describedby="more-detail-hint"></textarea>
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="4" aria-describedby="more-detail-hint">Sent reminder email to police and children's services yesterday</textarea>
           </div>
           
 
