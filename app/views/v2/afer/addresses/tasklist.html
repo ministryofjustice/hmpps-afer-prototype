@@ -267,7 +267,9 @@
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
         {% if data.cas2suitable=="yes"%}
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable <span style="text-transform: lowercase;">for</span> CAS2</span>
+        {% elseif data.accomodationType=="cas1"%}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable <span style="text-transform: lowercase;">for</span> CAS1</span>
         {% else %}
         {% endif %}
       </li>
@@ -301,7 +303,7 @@
           Additional Information
         </dt>
         <dd class="govuk-summary-list__value">
-          
+          Has been released to this area before
         </dd>
       </div>
       {% if data.accomodationType=="cas1"%}
@@ -335,6 +337,7 @@
         </dt>
         <dd class="govuk-summary-list__value">
           Accepted as suitable for AP
+          <!---->
         </dd>
       </div>
       {% elseif data.accomodationType=="cas2"%}
@@ -448,7 +451,7 @@
                 Additional Information
               </dt>
               <dd class="govuk-summary-list__value">
-                Person has offending history in Earlsfield, area should be avoided
+                Person has offending history in Earlsfield
               </dd>
             </div>
             

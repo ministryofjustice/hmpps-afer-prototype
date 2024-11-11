@@ -73,10 +73,21 @@
           Additional Information
         </dt>
         <dd class="govuk-summary-list__value">
-          
+          Has been released to this area before
         </dd>
       </div>
-  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data.accomodationType=="cas2" %}
+          Short-term accommodation (CAS-2)
+          {% else %}
+          Approved Premises (CAS-1)
+          {% endif %}
+        </dd>
+      </div>
     </dl>
   </div>
   
@@ -153,15 +164,21 @@
                 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
             
                 {% set textHtmlOther %}
-                
+
                 {{ govukTextarea({
                   name: "riskActionsDetails",
                   id: "riskActionsDetails",
-                  rows: "6",
                   label: {
-                    text: "Summarise what is needed and why"
+                    text: "Summarise what is needed and why",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    text: "Include information about anything you still need to confirm."
                   }
                 }) }}
+                
+
       
                 {% endset -%}
                 <!--END set dynamic radio hide/show text-->
@@ -171,6 +188,7 @@
                   fieldset: {
                     legend: {
                       text: "Are any risk management planning actions needed prior to release before the address or CAS area can be suitable?",
+                      hint: "Include information about anything you still need to confirm.",
                       isPageHeading: false,
                       classes: "govuk-fieldset__legend--s"
                     }
