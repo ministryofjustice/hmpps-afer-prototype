@@ -199,7 +199,21 @@ router.post('/communitytype', function (req, res) {
 });
 
 
+//Address checks navigating back
+router.post('/addresschecks', function (req, res) {
+  var Navigation = req.session.data['nav']
 
+  // Check whether the variable matches a condition
+  if (Navigation == "overview"){
+   
+   // Send user to case list page
+    res.redirect(version + '/afer/case-overview')
+  } else {
+    // Send user to task list page
+    res.redirect(version + '/afer/addresses/tasklist')
+  }
+
+});
 
 
 
