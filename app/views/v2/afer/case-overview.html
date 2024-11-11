@@ -116,6 +116,20 @@
       </svg>
       <div class="moj-banner__message">Address check completed</div>
     </div>  
+    {% elseif data.reportedDelay=="updated"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">COPY: Updated information about delay</div>
+    </div>
+    {% elseif data.reportedDelay=="yes"%}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">COPY: Delay reported</div>
+    </div>
     {% else %}  
     {% endif %}     
 
@@ -570,7 +584,7 @@
   <div class="govuk-tabs__panel" id="tasks">
 
         <div class="govuk-grid-row">
-          <div class="govuk-grid-column-three-quarters">
+          <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Tasks</h1>
             
 
@@ -1052,7 +1066,7 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif (data.AddressSuitabilityDecision=="no") %}
+{% elseif (data.AddressSuitabilityDecision=="no") or (data.passedDeadline=="yes") %}
 <!--Check addresses or community accommodation - In progress-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1110,8 +1124,8 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/decision" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif (data.riskAssessed=="yes") %}  
-<!--Make a risk management decision - Sart-->
+{% elseif (data.suitabilityDecisionRes=="completed") or (data.cas2suitable=="yes") or (data.accomodationType=="cas1") %}
+<!--Make a risk management decision - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
