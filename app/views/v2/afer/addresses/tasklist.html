@@ -107,17 +107,16 @@
       </div>-->
       <!--ADD RULES-->
 
-      {% if data.reportedDelay=="yes"%}
+      {% if data.reportedDelay=="yes" %}
       <!--If delay has been reported - After deadline-->
       <div class="govuk-inset-text" style="border-color: #d4351c">
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
         You have reported a delay to other people working on this application.</br>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">View or update information about this delay.</a>
-        [Reporting date?][Reason?]
+        <a class="govuk-link govuk-link--no-visited-state" href="../delay/view-delay">View or update information about this delay.</a>
       </div>
       <!--If delay has NOT been reported - After deadline-->
-      {% elseif data.passedDeadline=="yes"%}
+      {% elseif (data.passedDeadline=="yes") or (data.reportedDelay=="updated") %}
       <div class="govuk-inset-text" style="border-color: #d4351c">
         <strong>Checks overdue</strong></br>
         Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 

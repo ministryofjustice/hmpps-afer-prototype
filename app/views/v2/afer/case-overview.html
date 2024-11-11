@@ -486,11 +486,21 @@
         {% endif %}
 
         {% if data.user=="probation" %}
+
+        {% if data.reportedDelay=="yes"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="delay/view-delay">View or update information about a delay</a>
+          </dt>
+        </div>
+        {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
           </dt>
         </div>
+        {% endif %}
+
         {% endif %}
 
         <!--{% if data.user=="admin" %}
