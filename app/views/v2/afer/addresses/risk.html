@@ -43,7 +43,61 @@
       <form class="form" action="../case-overview" method="post" novalidate>
   
 
+      {% if data.accomodationType=="cas1" %}
+      
 
+                <!--START set dynamic radio hide/show text-->
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+            
+                {% set textHtmlOther %}
+                
+                {{ govukTextarea({
+                  name: "victimConcerns",
+                  id: "victimConcerns",
+                  rows: "6",
+                  label: {
+                    text: "Give details of any concerns victims have about George being released to the proposed address or area."
+                  }
+                }) }}
+      
+                {% endset -%}
+                <!--END set dynamic radio hide/show text-->
+      
+                {{ govukRadios({
+                  name: "vlo",
+                  fieldset: {
+                    legend: {
+                      text: "Is there a victim liaison officer (VLO) for this case?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "vloYes",
+                    text: "Yes",
+                    conditional: {
+                      html: textHtmlOther
+                    }
+                  },
+                    {
+                      value: "vloNo",
+                      text: "No"
+                    }
+                    
+                  ]
+                }) }}
+
+
+
+
+
+
+
+
+      {% elseif (data.suitabilityDecisionRes=="completed") or (data.cas2suitable=="yes") %}
+      
               <div class="govuk-form-group govuk-!-margin-top-6">
                 <label class="govuk-label" for="moredetailPOM">
                   <strong>What information has the POM provided about the behaviour of George while in prison?</strong>
@@ -84,8 +138,6 @@
 
 
 <!--ONLY DISPLAY IF PREVIOUS ANSWER IS YES-->
-
-
   <div class="govuk-form-group govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -198,6 +250,7 @@
                                 ]
                               }) }}
 
+  {% endif %}
 
   <input type="hidden" name="riskAssessed" value="yes">
 
