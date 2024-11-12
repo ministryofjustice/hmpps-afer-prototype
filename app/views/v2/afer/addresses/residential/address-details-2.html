@@ -159,16 +159,12 @@
           {% endif %}
         </li>
 
-
+        
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            {% if (data.OccupierChecks=="completed") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") and (data.RiskChecks=="completed") %}
             <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
               Suitablity decision
              </a>
-            {% else %}
-            Suitablity decision
-            {% endif %}
             </br>
             {% if data.suitabilityDecisionRes=="completed" %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -179,16 +175,30 @@
 
           {% if data.suitabilityDecisionRes=="completed" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
-          {% elseif (data.OccupierChecks=="completed") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") and (data.RiskChecks=="completed") %}
-          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
           {% else %}
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status"><span style="text-transform: capitalize;">Cannot</span><span style="text-transform: lowercase;"> start yet</span></strong>
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
           {% endif %}
-
-
         </li>
 
 
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="riskmanagdecision">
+              Make a risk management decision
+            </a>
+            </br>
+            {% if data.managementDecision=="yes" %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% endif %}
+          </span>
+          {% if data.managementDecision=="yes" %}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
+        </li>
    
 
   </ul>
@@ -197,7 +207,7 @@
 <!--tasklist end-->
 
 <form action="/addresschecks" method="post" novalidate>
-  
+
   <input type="hidden" name="passedDeadline" value="yes">
 
   <div class="govuk-button-group">
@@ -205,7 +215,7 @@
       Return to curfew addresses or CAS areas [copy]
     </button>
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="nav" value="overview">
-      Return to case overview [copy]
+      Return to case overview
     </button>
   </div>
 

@@ -101,7 +101,12 @@
           If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/enter-address-cas1">enter the address of the accommodation.</a>
       </div>
     </div>
-    {% elseif data.suitabilityDecisionRes=="completed" %}
+      {% elseif (data.OccupierChecks=="completed") and
+      (data.PoliceChecks=="completed") and
+      (data.SocialservicesChecks=="completed") and
+      (data.RiskChecks=="completed") and
+      (data.suitabilityDecisionRes=="completed") and
+      (data.managementDecision=="yes") %}
     <!--Transform that this is a yes for the suitability vs. a no-->
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -487,7 +492,13 @@
 
         {% if data.user=="probation" %}
 
-        {% if data.reportedDelay=="yes"%}
+        {% if (data.reportedDelay=="yes") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
+          </dt>
+        </div>
+        {% elseif data.reportedDelay=="yes"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="delay/view-delay">View or update information about a delay</a>
@@ -1051,7 +1062,7 @@
 <!--Probation tasks start-->
 {% if data.user=="probation"%}
 
-{% if (data.cas2suitable=="yes") or (data.accomodationType=="cas1") or (data.suitabilityDecisionRes=="completed") %}
+{% if (data.cas2suitable=="yes") or (data.accomodationType=="cas1") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1063,6 +1074,26 @@
         {% elseif (data.cas2suitable=="yes") and (data.riskAssessed=="yes") %}
         <p class="govuk-body govuk-!-margin-bottom-2">Prison staff must apply for short-term accommodation (CAS-2) outside of this service</p>
         {% endif %}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist" style="margin-top: 15px;">View or change</a></p>
+  </section>
+  {% elseif (data.OccupierChecks=="completed") and
+  (data.PoliceChecks=="completed") and
+  (data.SocialservicesChecks=="completed") and
+  (data.RiskChecks=="completed") and
+  (data.suitabilityDecisionRes=="completed") and
+  (data.managementDecision=="yes") %}
+<!--Check addresses or community accommodation - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation</h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Second address suitable</p>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -1126,8 +1157,8 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/send-checks-prison" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif (data.suitabilityDecisionRes=="completed") or (data.cas2suitable=="yes") or (data.accomodationType=="cas1") %}
-<!--Send checks to prison - Sart-->
+{% elseif (data.cas2suitable=="yes") or (data.accomodationType=="cas1") %}
+<!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
@@ -1142,6 +1173,26 @@
   </section>
 </article>
 <!--Send checks to prison - Inprogress-->
+{% elseif (data.OccupierChecks=="completed") and
+  (data.PoliceChecks=="completed") and
+  (data.SocialservicesChecks=="completed") and
+  (data.RiskChecks=="completed") and
+  (data.suitabilityDecisionRes=="completed") and
+  (data.managementDecision=="yes") %}
+<!--Send checks to prison - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/send-checks-prison" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
 {% else %}
 <!--Send checks to prison - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1456,36 +1507,6 @@
     <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
   </div>
   {% endif %}
-  </div>
-
-
-  <div class="moj-timeline__item">
-    <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Assess risk</h2>
-    </div>
-    <!--{% if data.addressinput=="complete"%}
-    <div class="moj-timeline__description">
-      <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
-    </div>{% endif %}-->
-    {% if data.addressinput=="complete"%}<!--CHANGE based on PP task-->
-    <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate }}</time>
-    </p>
-    {% else %}
-    {% endif %}
-  </div>
-
-
-  <div class="moj-timeline__item">
-    <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Make a risk management decision</h2>
-    </div>
-    {% if data.addressinput=="complete"%}
-      <p class="moj-timeline__date">
-        <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate }}</time>
-      </p>
-    {% else %}
-    {% endif %}
   </div>
 
 

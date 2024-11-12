@@ -127,8 +127,16 @@
   {% endif %}
 
 
+      {% if (data.OccupierChecks=="completed") and
+      (data.PoliceChecks=="completed") and
+      (data.SocialservicesChecks=="completed") and
+      (data.RiskChecks=="completed") and
+      (data.suitabilityDecisionRes=="completed") %}
+          <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
+          <form class="form" action="address-details-2" method="post" novalidate>
+        {% endif %}
 
-  <form class="form" action="../case-overview" method="post" novalidate>
 
   <div class="govuk-form-group  govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">

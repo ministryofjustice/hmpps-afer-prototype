@@ -237,8 +237,16 @@
 </div>
 
  
+      {% if (data.PoliceChecks=="completed") and
+      (data.SocialservicesChecks=="completed") and
+      (data.RiskChecks=="completed") and
+      (data.suitabilityDecisionRes=="completed") and
+      (data.managementDecision=="yes") %}
+        <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
+        <form class="form" action="address-details-2" method="post" novalidate>
+      {% endif %}
 
-  <form method="post" action="./address-details-2">
 
     <input type="hidden" name="OccupierChecks" value="completed">
 
