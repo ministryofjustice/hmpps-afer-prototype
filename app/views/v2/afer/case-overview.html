@@ -1915,124 +1915,458 @@
     {% endif %}
 
     {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Curfew addresses and CAS areas</h3>
     <!--<p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}</p>-->
 
+    <!--PREFERRED ADDRESS-->
+
+    {% if data.journey=="cas1application" %}
+    <h3 class="govuk-heading-s">Proposed curfew addresses</h3>
+    <p class="govuk-body" style="margin-top: -15px;">None entered</p>
+    {% else %}
+    <h3 class="govuk-heading-s">Preferred curfew address</h3>
+    <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+    {% endif %}
+
+
+
+    {% if data.journey=="cas1application" %}
+    {% else %}
+    <!--card start-->
     <div class="govuk-summary-card">
+
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
-          Summary
+          Preferred address</br>
+          <!--<span style="font-weight: normal;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</span>-->
         </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+          </li>
+        </ul>
       </div>
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-          {% if data.journey=="cas1application" %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Proposed curfew addresses</strong>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              None entered
-          </dd>
-          </div>
-          {% else %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Preferred address</strong></br>
+
+
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+    
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__value">
               4 Inner Street</br>
               Grantham</br>
-              NG31 6HN
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>Unsuitable
-            </dd>
-          </div>
-          {% endif %}
-          {% if data.journey=="cas1application" %}
-          {% else %}
+              NG31 6HN</br>
+          </dt>
+          <dd class="govuk-summary-list__actions"> 
+          </dd>
+        </div>
+    
+      </dl>
+    </div>
+
+</div>
+<!--card end-->
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Address details and informed consent
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Is the address connected to an electricity supply? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Yes
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Have you visited this address in person? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Yes
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Has the main occupier given informed consent for George to be released here? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          No
+        </dt>
+      </div>
+      </div>
+    </dl>
+  </div>
+  {% endif %}
+
+    <!--SECOND ADDRESS-->
+    {% if data.journey=="cas1application" %}
+    {% else %}
+    <h3 class="govuk-heading-s">Second curfew address</h3>
+    {% if data.journey=="cas2application" %}
+      <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+    {% elseif (data.OccupierChecks=="completed") and
+    (data.PoliceChecks=="completed") and
+    (data.SocialservicesChecks=="completed") and
+    (data.RiskChecks=="completed") and
+    (data.suitabilityDecisionRes=="completed") and
+    (data.managementDecision=="yes") %}
+      <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+    {% else %}
+      <p class="govuk-body" style="margin-top: -15px;">Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}</p>
+    {% endif %}
+
+    <!--card start-->
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Second address</br>
+          <!--<span style="font-weight: normal;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</span>-->
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            {% if data.journey=="cas2application" %}
+            <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+            {% elseif (data.OccupierChecks=="completed") and
+            (data.PoliceChecks=="completed") and
+            (data.SocialservicesChecks=="completed") and
+            (data.RiskChecks=="completed") and
+            (data.suitabilityDecisionRes=="completed") and
+            (data.managementDecision=="yes") %}
+            <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+            {% elseif data.passedDeadline=="yes" %}
+            <span style="font-weight: normal;">In progress</span>
+            {% else %}
+            <span style="font-weight: normal;">Not started</span>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+      
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
-              <strong>Second address</strong></br>
               49 Hill Street</br>
               Grantham</br>
               N1J 5NB
             </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data.journey=="cas2application" %}
-              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-              {% elseif (data.OccupierChecks=="completed") and
-              (data.PoliceChecks=="completed") and
-              (data.SocialservicesChecks=="completed") and
-              (data.RiskChecks=="completed") and
-              (data.suitabilityDecisionRes=="completed") and
-              (data.managementDecision=="yes") %}
-              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-              {% else %}
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              {% if data.journey=="cas2application" %}
-                </br>Unsuitable
-              {% elseif (data.OccupierChecks=="completed") and
-              (data.PoliceChecks=="completed") and
-              (data.SocialservicesChecks=="completed") and
-              (data.RiskChecks=="completed") and
-              (data.suitabilityDecisionRes=="completed") and
-              (data.managementDecision=="yes") %}
-                </br>Suitable
-              {% else %}
-                </br>Not started
-              {% endif %}
+            <dd class="govuk-summary-list__actions"> 
             </dd>
           </div>
+      
+        </dl>
+      </div>
+
+
+</div>
+<!--card end-->
+
+{% if data.journey=="cas2application" %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Address details and informed consent
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Is the address connected to an electricity supply? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          No
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Have you visited this address in person? 
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Yes
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      </div>
+    </dl>
+  </div>
+{% elseif (data.OccupierChecks=="completed") and
+(data.PoliceChecks=="completed") and
+(data.SocialservicesChecks=="completed") and
+(data.RiskChecks=="completed") and
+(data.suitabilityDecisionRes=="completed") and
+(data.managementDecision=="yes") %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Make a risk management decision
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Can George be managed safely in the community if they are released to the proposed address or CAS area?
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Yes
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Add information to support your decision
+        </dd>
+        <dt class="govuk-summary-list__key">
+          No concerns
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Are any risk management planning actions needed prior to release before the address or CAS area can be suitable?
+        </dd>
+        <dt class="govuk-summary-list__key">
+          No
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      </div>
+    </dl>
+  </div>  
+  {% else %}
+  {% endif %}
+  
+
+  {% endif %}
+
+
+
+  <!--PREFERRED CAS AREA-->
+  <h3 class="govuk-heading-s">Preferred CAS area</h3>
+  {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+    <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+  {% elseif data.cas2suitable=="yes" %}
+    <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+  {% else %}
+    <p class="govuk-body" style="margin-top: -15px;">Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}</p>
+  {% endif %}
+
+
+  <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+
+        {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+        {% elseif (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+        {% else %}
+        <span style="font-weight: normal;">Not started</span>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Person has relatives in the area
+        </dd>
+      </div>
+      {% if data.accomodationType=="cas1"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        <dd class="govuk-summary-list__value">
+          Approved Premises (CAS-1)
+        </dd>
+      </div>
+      {% elseif data.accomodationType=="cas2"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        <dd class="govuk-summary-list__value">
+          Short-term accommodation (CAS-2)
+        </dd>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if data.accomodationType=="cas1"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-1 application status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          No application status entered yet
+        </dd>
+      </div>
+      {% elseif data.accomodationType=="cas2"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-2 application status
+        <dd class="govuk-summary-list__value">
+          Not updated by the prison yet
+          <!--More information requested-->
+          <!--Awaiting decision-->
+          <!--On waiting list-->
+          <!--Place offered-->
+          <!--Offer accepted-->
+          <!--Offer declined or withdrawn-->
+          <!--Referral withdrawn-->
+          <!--Referral cancelled-->
+          <!--Awaiting arrival-->
+        </dd>
+      </div>
+      {% endif %}
+      {% if data.accomodationType=="cas1"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-1 address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data.cas1addressadded=="yes"%}
+          Deer Park Rd</br>
+          Sheffield S6 5JN
+          {% else %}
+          No address entered yet
           {% endif %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Preferred CAS area</strong></br>
-              Sheffield</br>
-              South Yorkshire
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {% if data.cas1addressadded=="yes"%}
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas1/enter-address">Change</a>
+          {% endif %}
+        </dd>
+      </div>
+      {% elseif data.accomodationType=="cas2"%}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-2 address
+        <dd class="govuk-summary-list__value">
+          No address entered by the prison yet
+        </dd>
+      </div>
+      {% endif %}
+
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             </dt>
-            <dd class="govuk-summary-list__value">
-              {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
-              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-              {% elseif data.cas2suitable=="yes" %}
-              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-              {% else %}
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
-                </br>Suitable for CAS1
-              {% elseif data.cas2suitable=="yes" %}
-                </br>Suitable for CAS2
-              {% else %}
-                </br>Not started
-              {% endif %}
-            </dd>
-          </div>
-            <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <strong>Second CAS area</strong></br>
-              London</br>
-              Wimbledon
-            </dt>
-            <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              </br>Not started
-            </dd>
           </div>
         </dl>
       </div>
-    </div>
+      
+      </div>
+      <!--card end-->
+
+
+<!--SECOND CAS AREA-->
+<h3 class="govuk-heading-s">Second CAS area</h3>
+<p class="govuk-body" style="margin-top: -15px;">Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}</p>
+  
+  
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Second area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <span style="font-weight: normal;">Not started</span>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          London
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wimbledon
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Has been released to this area before
+        </dd>
+      </div>
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
     
-    {% endif %}
+{% endif %}
 
 
 
@@ -2066,41 +2400,7 @@
         </dl>
       </div>
     </div>
-
-    {% elseif (data.OccupierChecks=="completed") and
-    (data.PoliceChecks=="completed") and
-    (data.SocialservicesChecks=="completed") and
-    (data.RiskChecks=="completed") and
-    (data.suitabilityDecisionRes=="completed") and
-    (data.managementDecision=="yes") %}
-    <h3 class="govuk-heading-m" style="margin-top: 60px;">Risk assessment</h3>
-    <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
-
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Summary</h2>
-      </div>
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value" style="width: 80%;">
-              Can George be managed safely in the community if they are released to the proposed address/area?
-            </dt>
-            <dd class="govuk-summary-list__key" style="width: 20%;">
-              Yes
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              Are any risk management planning actions needed prior to release before the address can be suitable?
-            </dt>
-            <dd class="govuk-summary-list__key">
-              Yes
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </div>
+    {% elseif data.user=="probation" %}
     {% else %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Risk assessment</h3>
     <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
