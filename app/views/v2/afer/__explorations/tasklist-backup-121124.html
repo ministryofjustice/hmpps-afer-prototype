@@ -265,10 +265,10 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">CAS2</span>
+        {% if data.cas2suitable=="yes"%}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable <span style="text-transform: lowercase;">for</span> CAS2</span>
         {% elseif data.accomodationType=="cas1"%}
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">CAS1</span>
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable <span style="text-transform: lowercase;">for</span> CAS1</span>
         {% else %}
         {% endif %}
       </li>
@@ -312,6 +312,9 @@
         <dd class="govuk-summary-list__value">
           Approved Premises (CAS-1)
         </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a>
+        </dd>
       </div>
       {% elseif data.accomodationType=="cas2"%}
       <div class="govuk-summary-list__row">
@@ -319,6 +322,9 @@
           Type of accommodation
         <dd class="govuk-summary-list__value">
           Short-term accommodation (CAS-2)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type-change">Change</a>
         </dd>
       </div>
       {% else %}
@@ -329,7 +335,8 @@
           CAS-1 application status
         </dt>
         <dd class="govuk-summary-list__value">
-          No application status entered yet
+          Accepted as suitable for AP
+          <!---->
         </dd>
       </div>
       {% elseif data.accomodationType=="cas2"%}
@@ -386,16 +393,31 @@
           </div>
         </dl>
 
+              {% if data.cas1addressadded=="yes"%}
+              <a href="#" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Withdraw application</a>
+          
+              {% elseif data.accomodationType=="cas1"%}
+              <a href="./cas1/enter-address" class="govuk-button govuk-button--secondary" style="margin-top: 20px; margin-bottom: 5px;">Enter address</a>
 
-              {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
-              <p class="govuk-body"><a href="cas/details" class="govuk-link govuk-link--no-visited-state" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a></p>
-              {% elseif (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
-              <p class="govuk-body"><a href="cas/details" class="govuk-link govuk-link--no-visited-state" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a></p>
+              {% elseif data.accomodationType=="cas2"%}
+
+              {% if data.cas2suitable=="yes"%}
+              <p class="govuk-body"><a href="./community2/suitability" class="govuk-link govuk-link--no-visited-state" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a></p>
+              {% endif %}
+
               {% else %}
-              <a href="cas/details" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+
+              {% if data.journey=="cas2application"%}
+              
+              <a href="community2/details" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+              
+              {% elseif data.journey=="cas1application"%}
+              {% endif %}
+
               {% endif %}
               <!--In progress-->
               <!--<a href="#" class="govuk-button">Resume checks</a>-->
+
       </div>
       
       </div>
@@ -443,7 +465,13 @@
             
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                <a href="#" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+                {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
+                <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">
+                  Start checks
+                </button>
+                {% else %}
+                <a href="accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+                {% endif %}
                 <!--In progress-->
                 <!--<a href="#" class="govuk-button">Resume checks</a>-->
                 <!--Edit checks-->
