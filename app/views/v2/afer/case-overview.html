@@ -91,7 +91,7 @@
         You will be able to <a href="./addresses/tasklist" class="govuk-link govuk-link--no-visited-state">view the address and application status</a>.
       </div>
     </div>
-    {% elseif data.accomodationType=="cas1" %}
+    {% elseif (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
@@ -1405,12 +1405,17 @@
     </div>
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">On
+        {% if data.user=="admin" %}
         {% if data.journey=="ineligiblejourney" %}
         {{ "today" |  duration(-1) | govukDate }}
         {% elseif data.journey=="28daysjourney" %}
         {{ "today" |  duration(-2) | govukDate }}
         {% else %}
         {{ "today" |  duration(-3) | govukDate }}
+        {% endif %}
+
+        {% elseif data.user=="probation" %}
+        {{ "today" |  duration(-23) | govukDate }}
         {% endif %}
       </time>
     </p>
@@ -1444,9 +1449,9 @@
     <!--DESIGN OVERDUE TASKS-->
     {% endif %}
 
-    {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+    {% elseif data.user=="probation" %}
     <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-1) | govukDate }}</time>
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-18) | govukDate }}</time>
     </p>
     {% endif %}
   </div>
@@ -1469,9 +1474,9 @@
     {% else %}
     {% endif %}
 
-    {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+    {% elseif data.user=="probation" %}
     <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(26) | govukDate }}</time>
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-1) | govukDate }}</time>
     </p>
     {% endif %}
   </div>
@@ -1484,21 +1489,42 @@
 
     {% if data.user=="admin"%}
 
-  <!--{% if data.addressinput=="complete"%}
+    <!--{% if data.addressinput=="complete"%}
     <div class="moj-timeline__description">
       <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
     </div>{% endif %}-->
-  {% if data.addressinput=="complete"%}<!--CHANGE based on PP task-->
+    {% if data.addressinput=="complete"%}<!--CHANGE based on PP task-->
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate }}</time>
     </p>
-  {% else %}
-  {% endif %}
+    {% else %}
+    {% endif %}
 
-  {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
-  <div class="moj-timeline__description">
-    <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
-  </div>
+    {% elseif data.user=="probation" %}
+
+    {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% elseif (data.cas2suitable=="yes") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% elseif (data.OccupierChecks=="completed") and
+    (data.PoliceChecks=="completed") and
+    (data.SocialservicesChecks=="completed") and
+    (data.RiskChecks=="completed") and
+    (data.suitabilityDecisionRes=="completed") and
+    (data.managementDecision=="yes") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% else %}
+    <div class="moj-timeline__description">
+      <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
+    </div>
+    {% endif %}
+
   {% endif %}
   </div>
 
@@ -1507,7 +1533,11 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Send checks to prison</h2>
     </div>
-    {% if data.addressinput=="complete"%}
+    {% if data.sendChecksPrison=="yes" %}  
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% elseif data.addressinput=="complete"%}
       <p class="moj-timeline__date">
         <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate }}</time>
       </p>
@@ -1771,7 +1801,7 @@
     {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Eligibility and suitability</h3>
 
-    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(-18) | govukDate("truncate") }}</p>
 
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
@@ -1825,7 +1855,7 @@
               NG31 6HN
             </dt>
             <dd class="govuk-summary-list__value">
-              </br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}
             </dd>
             <dd class="govuk-summary-list__value">
               </br>Unsuitable
@@ -1839,7 +1869,7 @@
               N1J 5NB
             </dt>
             <dd class="govuk-summary-list__value">
-              </br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}
             </dd>
             <dd class="govuk-summary-list__value">
               </br>Suitable
@@ -1891,6 +1921,16 @@
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
+          {% if data.journey=="cas1application" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              <strong>Proposed curfew addresses</strong>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              None entered
+          </dd>
+          </div>
+          {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
               <strong>Preferred address</strong></br>
@@ -1899,12 +1939,15 @@
               NG31 6HN
             </dt>
             <dd class="govuk-summary-list__value">
-              </br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
             </dd>
             <dd class="govuk-summary-list__value">
               </br>Unsuitable
             </dd>
           </div>
+          {% endif %}
+          {% if data.journey=="cas1application" %}
+          {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
               <strong>Second address</strong></br>
@@ -1913,13 +1956,35 @@
               N1J 5NB
             </dt>
             <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(26) | govukDate("truncate") }}
-              <!--</br>Assessed as unsuitable by Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}-->
+              {% if data.journey=="cas2application" %}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+              {% elseif (data.OccupierChecks=="completed") and
+              (data.PoliceChecks=="completed") and
+              (data.SocialservicesChecks=="completed") and
+              (data.RiskChecks=="completed") and
+              (data.suitabilityDecisionRes=="completed") and
+              (data.managementDecision=="yes") %}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+              {% else %}
+              </br>Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__value">
-            </br>Not started
+              {% if data.journey=="cas2application" %}
+                </br>Unsuitable
+              {% elseif (data.OccupierChecks=="completed") and
+              (data.PoliceChecks=="completed") and
+              (data.SocialservicesChecks=="completed") and
+              (data.RiskChecks=="completed") and
+              (data.suitabilityDecisionRes=="completed") and
+              (data.managementDecision=="yes") %}
+                </br>Suitable
+              {% else %}
+                </br>Not started
+              {% endif %}
             </dd>
           </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
               <strong>Preferred CAS area</strong></br>
@@ -1927,10 +1992,22 @@
               South Yorkshire
             </dt>
             <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(26) | govukDate("truncate") }}
+              {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+              {% elseif data.cas2suitable=="yes" %}
+              </br>Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+              {% else %}
+              </br>Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__value">
-              </br>Not started
+              {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+                </br>Suitable for CAS1
+              {% elseif data.cas2suitable=="yes" %}
+                </br>Suitable for CAS2
+              {% else %}
+                </br>Not started
+              {% endif %}
             </dd>
           </div>
             <div class="govuk-summary-list__row">
@@ -1940,7 +2017,7 @@
               Wimbledon
             </dt>
             <dd class="govuk-summary-list__value">
-              </br>Saved by Jessica Smith on {{ "today" |  duration(26) | govukDate("truncate") }}
+              </br>Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}
             </dd>
             <dd class="govuk-summary-list__value">
               </br>Not started
@@ -1952,10 +2029,47 @@
     
     {% endif %}
 
+
+
     <!--Risk assessment-->
-    {% if (data.addressinput=="complete") %}<!--CHANGE based on PP task-->
+    {% if (data.addressinput=="complete") %}<!--CA Journey - CHANGE based on PP task-->
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Risk assessment</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(40) | govukDate("truncate") }}</p>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Summary</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 80%;">
+              Can George be managed safely in the community if they are released to the proposed address/area?
+            </dt>
+            <dd class="govuk-summary-list__key" style="width: 20%;">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Are any risk management planning actions needed prior to release before the address can be suitable?
+            </dt>
+            <dd class="govuk-summary-list__key">
+              Yes
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    {% elseif (data.OccupierChecks=="completed") and
+    (data.PoliceChecks=="completed") and
+    (data.SocialservicesChecks=="completed") and
+    (data.RiskChecks=="completed") and
+    (data.suitabilityDecisionRes=="completed") and
+    (data.managementDecision=="yes") %}
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Risk assessment</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
 
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
@@ -2081,6 +2195,44 @@
     </div>
     {% endif %}
 
+    {% elseif data.sendChecksPrison=="yes" %}
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Pre-decision check</h3>
+    <p class="govuk-body" style="margin-top: 0px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(41) | govukDate("truncate") }}</p>
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Summary
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value" style="width: 50%;">
+              Is this person still eligible for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key" style="width: 50%;">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Is this person still suitable for HDC?
+            </dt>
+            <dd class="govuk-summary-list__key">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Does this application need to be postponed?
+            </dt>
+            <dd class="govuk-summary-list__key">
+              No
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
     {% else %}
     <h3 class="govuk-heading-m" style="margin-top: 20px;">Pre-decision check</h3>
     <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
@@ -2089,7 +2241,7 @@
     
 
     <!--Release decision-->
-    {% if data.submitfordecision=="yes"%}
+    {% if (data.submitfordecision=="yes") or (data.sendChecksPrison=="yes") %}
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Release decision</h3>
     <p class="govuk-body" style="margin-top: -10px;">Completed by Ade Cooper at HMP Wandsworth on {{ "today" |  duration(61) | govukDate("truncate") }}</p>
 
