@@ -47,6 +47,9 @@
     </h2>
   </div>
 
+
+
+  
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
   
@@ -90,8 +93,62 @@
           Short-term accommodation (CAS-2)
         </dd>
       </div>
-      {% endif %} 
+      {% endif %}
+      {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-1 application status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          No application status entered yet
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-1 address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data.cas1addressadded=="yes"%}
+          Deer Park Rd</br>
+          Sheffield S6 5JN
+          {% else %}
+          No address entered yet
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {% if data.cas1addressadded=="yes"%}
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas1/enter-address">Change</a>
+          {% endif %}
+        </dd>
+      </div>
+      {% elseif (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-2 application status
+        <dd class="govuk-summary-list__value">
+          Not updated by the prison yet
+          <!--More information requested-->
+          <!--Awaiting decision-->
+          <!--On waiting list-->
+          <!--Place offered-->
+          <!--Offer accepted-->
+          <!--Offer declined or withdrawn-->
+          <!--Referral withdrawn-->
+          <!--Referral cancelled-->
+          <!--Awaiting arrival-->
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-2 address
+        <dd class="govuk-summary-list__value">
+          No address entered by the prison yet
+        </dd>
+      </div>
+      {% else %}
+      {% endif %}
 
+        
         </dl>
       </div>
       
@@ -125,7 +182,26 @@
         </li>
 
 
-        {% if data.accomodationType=="cas2" %}
+        {% if data.accomodationType=="cas1" %}
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="risk-check-cas1">
+              Assess this person’s risk
+            </a>
+            </br>
+            {% if data.riskAssessed=="yes" %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% endif %}
+          </span>
+          {% if data.riskAssessed=="yes"%}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
+        </li>
+        {% elseif data.accomodationType=="cas2" %}
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="suitability">
@@ -144,10 +220,7 @@
           <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
           {% endif %}
         </li>
-        {% endif %}
 
-
-        {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="risk-check">
@@ -160,15 +233,13 @@
             </div>
             {% endif %}
           </span>
-          {% if data.riskAssessed=="yes"%}
+          {% if data.riskAssessed=="yes" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
           {% else %}
           <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
           {% endif %}
         </li>
-        {% endif %}
 
-        {% if data.accomodationType=="cas2" %}
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="riskmanagdecision">
@@ -188,7 +259,8 @@
           {% endif %}
         </li>
         {% endif %}
-       
+
+
   </ul>
 
 
