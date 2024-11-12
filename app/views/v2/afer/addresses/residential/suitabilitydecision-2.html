@@ -39,8 +39,17 @@
       <h1 class="govuk-heading-l govuk-!-margin-top-8">Suitability decision</h1>
 
 
-    <form action="/residentialsuitablitydecision" method="post" novalidate>
+      {% if (data.OccupierChecks=="completed") and
+      (data.PoliceChecks=="completed") and
+      (data.SocialservicesChecks=="completed") and
+      (data.RiskChecks=="completed") and
+      (data.managementDecision=="yes") %}
+        <form action="/residentialsuitablitydecision" method="post" novalidate>
+      {% else %}
+        <form class="form" action="address-details-2" method="post" novalidate>
+      {% endif %}
 
+    
       <input type="hidden" name="suitabilityDecisionRes" value="completed">
   
   <div class="govuk-form-group govuk-!-margin-top-4">

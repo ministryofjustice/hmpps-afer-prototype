@@ -42,9 +42,18 @@
         You must request and consider information from children’s services about domestic abuse and child wellbeing risks of releasing this person to the proposed address.
       </p>
 
-    
+      
+      {% if (data.OccupierChecks=="completed") and
+      (data.PoliceChecks=="completed") and
+      (data.RiskChecks=="completed") and
+      (data.suitabilityDecisionRes=="completed") and
+      (data.managementDecision=="yes") %}
+        <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
+        <form class="form" action="address-details-2" method="post" novalidate>
+      {% endif %}
 
-      <form action="./address-details-2" method="post" novalidate>
+
 
         {% if (data.reportedDelay=="yes") or (data.reportedDelay=="updated") %}
         <input type="hidden" name="SocialservicesChecks" value="completed">

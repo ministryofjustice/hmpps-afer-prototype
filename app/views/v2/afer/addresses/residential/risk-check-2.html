@@ -40,8 +40,16 @@
 
       <h2 class="govuk-heading-m govuk-!-margin-top-4">Risk management information</h2>
 
-      <form class="form" action="address-details-2" method="post" novalidate>
-  
+
+      {% if (data.OccupierChecks=="completed") and
+      (data.PoliceChecks=="completed") and
+      (data.SocialservicesChecks=="completed") and
+      (data.suitabilityDecisionRes=="completed") and
+      (data.managementDecision=="yes") %}
+        <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
+        <form class="form" action="address-details-2" method="post" novalidate>
+      {% endif %}
   
       
               <div class="govuk-form-group govuk-!-margin-top-6">
