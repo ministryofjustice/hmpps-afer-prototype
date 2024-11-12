@@ -40,7 +40,65 @@
 
       <h2 class="govuk-heading-m govuk-!-margin-top-4">Risk management information</h2>
 
-      {% if data.cas2suitable=="yes" %}
+      {% if data.accomodationType=="cas1" %}
+      <form class="form" action="../../case-overview" method="post" novalidate>
+      {% if data.managementDecision=="yes" %}
+      <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
+      <form class="form" action="details" method="post" novalidate>
+      {% endif %}
+  
+
+
+      
+                <!--START set dynamic radio hide/show text-->
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+            
+                {% set textHtmlOther %}
+                
+                {{ govukTextarea({
+                  name: "victimConcerns",
+                  id: "victimConcerns",
+                  rows: "6",
+                  label: {
+                    text: "Give details of any concerns victims have about George being released to the proposed address or area."
+                  }
+                }) }}
+      
+                {% endset -%}
+                <!--END set dynamic radio hide/show text-->
+      
+                {{ govukRadios({
+                  name: "vlo",
+                  fieldset: {
+                    legend: {
+                      text: "Is there a victim liaison officer (VLO) for this case?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "vloYes",
+                    text: "Yes",
+                    conditional: {
+                      html: textHtmlOther
+                    }
+                  },
+                    {
+                      value: "vloNo",
+                      text: "No"
+                    }
+                    
+                  ]
+                }) }}
+
+
+
+      {% elseif data.accomodationType=="cas2" %}
+
+      {% if (data.cas2suitable=="yes") and (data.managementDecision=="yes") %}
       <form class="form" action="../../case-overview" method="post" novalidate>
       {% else %}
       <form class="form" action="details" method="post" novalidate>
@@ -200,6 +258,9 @@
                                 ]
                               }) }}
 
+
+
+{% endif %}
 
 
   <input type="hidden" name="riskAssessed" value="yes">
