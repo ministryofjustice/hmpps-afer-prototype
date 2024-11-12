@@ -40,7 +40,11 @@
 
       <h2 class="govuk-heading-m govuk-!-margin-top-4">Risk management information</h2>
 
+      {% if data.cas2suitable=="yes" %}
+      <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
       <form class="form" action="details" method="post" novalidate>
+      {% endif %}
   
 
       

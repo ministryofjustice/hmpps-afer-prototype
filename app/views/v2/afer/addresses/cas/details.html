@@ -32,34 +32,6 @@
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
-
-    {% if (data.accomodationType=="cas2") and (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
-    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-      </svg>
-      <div class="moj-banner__message">
-        A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2).
-        If approved, they will enter the accommodation address for this person’s licence.</br>
-        You will be able to <a href="../tasklist" class="govuk-link govuk-link--no-visited-state">view the address here</a>.
-      </div>
-    </div>
-    {% elseif (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
-    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-      </svg>
-      <div class="moj-banner__message">
-        You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
-          If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="enter-address-cas1">enter the address of the accommodation.</a>
-      </div>
-    </div>
-    {% else %}
-    {% endif %}
-
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
@@ -275,15 +247,19 @@
 
 <!--tasklist end-->
        
-<form action="../tasklist" method="post" novalidate>
+<form action="/addresschecks" method="post" novalidate>
 
   <div class="govuk-button-group">
-    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Return to [copy]
+    <button type="submit" class="govuk-button" data-module="govuk-button" name="nav" value="tasklist">
+      Return to curfew addresses or CAS areas [copy]
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="nav" value="overview">
+      Return to case overview
     </button>
   </div>
 
 </form>
+
 
       </div>
     </div>

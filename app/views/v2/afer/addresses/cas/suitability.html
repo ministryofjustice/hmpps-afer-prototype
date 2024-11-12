@@ -92,7 +92,11 @@
 
   <h3 class="govuk-heading-m govuk-!-margin-top-6">Suitability decision</h3>
 
+  {% if data.riskAssessed=="yes" %}
+  <form class="form" action="../../case-overview" method="post" novalidate>
+  {% else %}
   <form class="form" action="details" method="post" novalidate>
+  {% endif %}
   
                 
                 <div class="govuk-form-group govuk-!-margin-top-4">
