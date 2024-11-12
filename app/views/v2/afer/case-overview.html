@@ -88,7 +88,7 @@
       <div class="moj-banner__message">
         A member of staff in the prison such as a prison offender manager must apply for short-term accommodation (CAS-2).
         If approved, they will enter the accommodation address for this person’s licence.</br>
-        You will be able to <a href="./addresses/tasklist" class="govuk-link govuk-link--no-visited-state">view the address</a>.
+        You will be able to <a href="./addresses/tasklist" class="govuk-link govuk-link--no-visited-state">view the address and application status</a>.
       </div>
     </div>
     {% elseif data.accomodationType=="cas1" %}
@@ -114,19 +114,12 @@
       </svg>
       <div class="moj-banner__message">Address check completed</div>
     </div>  
-    {% elseif data.reportedDelay=="updated"%}
+    {% elseif (data.reportedDelay=="yes") or (data.reportedDelay=="updated") %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
-      <div class="moj-banner__message">COPY: Updated information about delay</div>
-    </div>
-    {% elseif data.reportedDelay=="yes"%}
-    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-      </svg>
-      <div class="moj-banner__message">COPY: Delay reported</div>
+      <div class="moj-banner__message">Information about delay updated</div>
     </div>
     {% else %}  
     {% endif %}     
@@ -515,7 +508,7 @@
         {% if data.cas2suitable=="yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist">COPY: View CAS-2</a>
+            <a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist">View CAS-2 address and application status</a>
           </dt>
         </div>
         {% else %}
@@ -1070,9 +1063,9 @@
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation</h2>
         {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
-        <p class="govuk-body govuk-!-margin-bottom-2">Apply for an Approved Premises (CAS-1) placement outside of this service</p>
+        <p class="govuk-body govuk-!-margin-bottom-2">Apply for an Approved Premises (CAS-1) placement</p>
         {% elseif (data.cas2suitable=="yes") and (data.riskAssessed=="yes") %}
-        <p class="govuk-body govuk-!-margin-bottom-2">Prison staff must apply for short-term accommodation (CAS-2) outside of this service</p>
+        <p class="govuk-body govuk-!-margin-bottom-2">Prison staff must apply for short-term accommodation (CAS-2)</p>
         {% endif %}
       </div>
       <div class="govuk-grid-column-one-third">
@@ -1231,7 +1224,7 @@
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
       </div>
     </div>
-    <a href="#" class="govuk-button govuk-button--primary" style="margin-top: 15px;">CTA [copy]</a>
+    <a href="#" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
 <!--Create licence - Inprogress-->
