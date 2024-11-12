@@ -1519,6 +1519,11 @@
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
+    {% elseif data.passedDeadline=="yes" %}
+      <div class="govuk-inset-text" style="border-color: #d4351c">
+        <strong>Checks overdue</strong></br>
+        To do before {{ "today" |  duration(13) | govukDate }}
+      </div>
     {% else %}
     <div class="moj-timeline__description">
       <div class="govuk-inset-text">To do before {{ "today" |  duration(13) | govukDate }}</div>
