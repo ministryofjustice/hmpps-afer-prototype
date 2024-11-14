@@ -62,7 +62,7 @@
                   id: "victimConcerns",
                   rows: "6",
                   label: {
-                    text: "Give details of any concerns victims have about George being released to the proposed address or area."
+                    text: "Give details of any concerns victims have about Lenny being released to the proposed address or area."
                   }
                 }) }}
       
@@ -108,7 +108,14 @@
       
               <div class="govuk-form-group govuk-!-margin-top-6">
                 <label class="govuk-label" for="moredetailPOM">
-                  <strong>What information has the POM provided about the behaviour of George while in prison?</strong>
+                  <strong>What information has the POM provided about the behaviour of
+                    {% if data.journey=="cas2application"%}
+                    Ryan
+                    {% elseif data.journey=="cas1application"%}
+                    Lenny
+                    {% else %}
+                    George
+                    {% endif %} while in prison?</strong>
                 </label>
                 <div id="dob-hint" class="govuk-hint">
                   Find out if there are any concerns about them being released on HDC or if there have been any changes to their level of risk.
@@ -122,7 +129,14 @@
   <div class="govuk-form-group govuk-!-margin-top-8">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Does George need any mental health treatment to help manage risk?
+        Does
+        {% if data.journey=="cas2application"%}
+        Ryan
+        {% elseif data.journey=="cas1application"%}
+        Lenny
+        {% else %}
+        George
+        {% endif %} need any mental health treatment to help manage risk?
       </legend>
       <div id="dob-hint" class="govuk-hint">
         If so, it should be considered as part of your risk management planning actions.
@@ -181,7 +195,7 @@
                   id: "victimConcerns",
                   rows: "6",
                   label: {
-                    text: "Give details of any concerns victims have about George being released to the proposed address or area."
+                    text: "Give details of any concerns victims have about Ryan being released to the proposed address or area."
                   }
                 }) }}
       
@@ -237,7 +251,7 @@
                                 name: "cannotDisclose",
                                 fieldset: {
                                   legend: {
-                                    text: "Is there any information that cannot be disclosed to George?",
+                                    text: "Is there any information that cannot be disclosed to Ryan?",
                                     isPageHeading: false,
                                     classes: "govuk-fieldset__legend--s"
                                   }

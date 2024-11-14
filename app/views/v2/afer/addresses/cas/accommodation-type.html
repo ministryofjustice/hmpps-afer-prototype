@@ -41,7 +41,14 @@
         <div class="govuk-form-group govuk-!-margin-top-8">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              Select which type of accommodation George needs
+              Select which type of accommodation
+              {% if data.journey=="cas2application"%}
+              Ryan
+              {% elseif data.journey=="cas1application"%}
+              Lenny
+              {% else %}
+              George
+              {% endif %} needs
             </legend>
             <div id="dob-hint" class="govuk-hint">
               If you select Approved Premises (CAS-1), you will not need to check if their release area is suitable in this service.
