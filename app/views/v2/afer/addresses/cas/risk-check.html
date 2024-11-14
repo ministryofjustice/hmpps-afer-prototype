@@ -40,17 +40,11 @@
 
       <h2 class="govuk-heading-m govuk-!-margin-top-4">Risk management information</h2>
 
+
       {% if data.accomodationType=="cas1" %}
       <form class="form" action="../../case-overview" method="post" novalidate>
-      {% if data.managementDecision=="yes" %}
-      <form class="form" action="../../case-overview" method="post" novalidate>
-      {% else %}
-      <form class="form" action="details" method="post" novalidate>
-      {% endif %}
-  
-
-
       
+  
                 <!--START set dynamic radio hide/show text-->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
                 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
