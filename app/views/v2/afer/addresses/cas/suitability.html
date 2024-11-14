@@ -102,7 +102,15 @@
                 <div class="govuk-form-group govuk-!-margin-top-4">
                   <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                      Is this area suitable for George to be released to?
+                      Is this area suitable for
+                      {% if data.journey=="cas2application"%}
+                      Ryan
+                      {% elseif data.journey=="cas1application"%}
+                      Lenny
+                      {% else %}
+                      George
+                      {% endif %}
+                      to be released to?
                     </legend>
                     <div class="govuk-hint">
                       <p class="govuk-body" style="color: #505a5f">
@@ -110,7 +118,14 @@
                       <ul class="govuk-list govuk-list--bullet" style="margin-top: -14px; margin-bottom: 20px; color: #505a5f">
                         <li>victims are nearby</li>
                         <li>the area is compatible with exclusion zones</li>
-                        <li>living with other people is suitable for George</li>
+                        <li>living with other people is suitable for
+                        {% if data.journey=="cas2application"%}
+                        Ryan
+                        {% elseif data.journey=="cas1application"%}
+                        Lenny
+                        {% else %}
+                        George
+                        {% endif %}</li>
                       </ul>
                       </p>
                     </div>

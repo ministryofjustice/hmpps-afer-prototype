@@ -97,8 +97,15 @@
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
       <div class="moj-banner__message">
-        You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George.</br>
-          If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/enter-address-cas1">enter the address of the accommodation.</a>
+        You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for
+        {% if data.journey=="cas2application"%}
+        Ryan
+        {% elseif data.journey=="cas1application"%}
+        Lenny
+        {% else %}
+        George
+        {% endif %}.</br>
+        If approved and matched to an Approved Premises, you will need to <a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/enter-address-cas1">enter the address of the accommodation.</a>
       </div>
     </div>
       {% elseif (data.OccupierChecks=="completed") and
@@ -149,7 +156,7 @@
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
     
-      <div class="moj-banner__message">George Jennings has opted out of HDC</div>
+      <div class="moj-banner__message">George has opted out of HDC</div>
     
     </div>    
     {% elseif data.submitfordecision=="yes"%}
@@ -1577,7 +1584,14 @@
   <div class="moj-timeline__item">
 
     <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Decide if George can be released on HDC</h2>
+      <h2 class="moj-timeline__title">Decide if
+        {% if data.journey=="cas2application"%}
+        Ryan
+        {% elseif data.journey=="cas1application"%}
+        Lenny
+        {% else %}
+        George
+        {% endif %} can be released on HDC</h2>
     </div>
     <!--<div class="moj-timeline__description">
       <div class="govuk-inset-text">To do by {{ "today" |  duration(-361) | govukDate("truncate") }}</div>
@@ -2000,7 +2014,14 @@
       </div>
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
-          Has the main occupier given informed consent for George to be released here? 
+          Has the main occupier given informed consent for
+          {% if data.journey=="cas2application"%}
+          Ryan
+          {% elseif data.journey=="cas1application"%}
+          Lenny
+          {% else %}
+          George
+          {% endif %} to be released here? 
         </dd>
         <dt class="govuk-summary-list__key">
           No
@@ -2126,7 +2147,14 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
-          Can George be managed safely in the community if they are released to the proposed address or CAS area?
+          Can
+          {% if data.journey=="cas2application"%}
+          Ryan
+          {% elseif data.journey=="cas1application"%}
+          Lenny
+          {% else %}
+          George
+          {% endif %} be managed safely in the community if they are released to the proposed address or CAS area?
         </dd>
         <dt class="govuk-summary-list__key">
           Yes
@@ -2286,11 +2314,6 @@
           No address entered yet
           {% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          {% if data.cas1addressadded=="yes"%}
-          <a class="govuk-link govuk-link--no-visited-state" href="./cas1/enter-address">Change</a>
-          {% endif %}
-        </dd>
       </div>
       {% elseif data.accomodationType=="cas2"%}
       <div class="govuk-summary-list__row">
@@ -2383,7 +2406,14 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value" style="width: 80%;">
-              Can George be managed safely in the community if they are released to the proposed address/area?
+              Can
+              {% if data.journey=="cas2application"%}
+              Ryan
+              {% elseif data.journey=="cas1application"%}
+              Lenny
+              {% else %}
+              George
+              {% endif %} be managed safely in the community if they are released to the proposed address/area?
             </dt>
             <dd class="govuk-summary-list__key" style="width: 20%;">
               Yes

@@ -37,7 +37,14 @@
             Enter details of Approved Premises (CAS-1)
           </h1>
           <p class="govuk-body">
-            You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for George. If approved, you can enter the address of the accommodation here.
+            You or another probation practitioner must apply for an Approved Premises (CAS-1) placement for
+            {% if data.journey=="cas2application"%}
+            Ryan.
+            {% elseif data.journey=="cas1application"%}
+            Lenny.
+            {% else %}
+            George.
+            {% endif %} If approved, you can enter the address of the accommodation here.
           </p>
 
 

@@ -306,7 +306,14 @@
           </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Has the main occupier given informed consent for George to be released here? 
+                Has the main occupier given informed consent for {% if data.journey=="cas2application"%}
+                Ryan
+                {% elseif data.journey=="cas1application"%}
+                Lenny
+                {% else %}
+                George
+                {% endif %}
+                to be released here? 
               </dd>
               <dt class="govuk-summary-list__key">
                No
@@ -576,7 +583,14 @@
           </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-                Has the main occupier given informed consent for George to be released here? 
+                Has the main occupier given informed consent for {% if data.journey=="cas2application"%}
+                Ryan
+                {% elseif data.journey=="cas1application"%}
+                Lenny
+                {% else %}
+                George
+                {% endif %}
+                to be released here? 
               </dd>
               <dt class="govuk-summary-list__key">
                Yes
@@ -716,10 +730,22 @@
               <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                   <dd class="govuk-summary-list__value">
-                    What information has the POM provided about the behaviour of George while in prison?
+                    What information has the POM provided about the behaviour of {% if data.journey=="cas2application"%}
+                    Ryan
+                    {% elseif data.journey=="cas1application"%}
+                    Lenny
+                    {% else %}
+                    George
+                    {% endif %} while in prison?
                   </dd>
                   <dt class="govuk-summary-list__key">
-                    George has made good progress.
+                    {% if data.journey=="cas2application"%}
+                    Ryan
+                    {% elseif data.journey=="cas1application"%}
+                    Lenny
+                    {% else %}
+                    George
+                    {% endif %} has made good progress.
                   </dt>
                   <!--<dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -727,7 +753,20 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dd class="govuk-summary-list__value">
-                    Does George need any mental health treatment to help manage risk? Does George need a mental health plan to help manage risk?
+                    Does {% if data.journey=="cas2application"%}
+                    Ryan
+                    {% elseif data.journey=="cas1application"%}
+                    Lenny
+                    {% else %}
+                    George
+                    {% endif %} need any mental health treatment to help manage risk?
+                    Does {% if data.journey=="cas2application"%}
+                    Ryan
+                    {% elseif data.journey=="cas1application"%}
+                    Lenny
+                    {% else %}
+                    George
+                    {% endif %} need a mental health plan to help manage risk?
                   </dd>
                   <dt class="govuk-summary-list__key">
                     No
@@ -760,7 +799,14 @@
                   </div>
                   <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__value">
-                      Give details of any concerns victims have about George being released to the proposed address or area.
+                      Give details of any concerns victims have about {% if data.journey=="cas2application"%}
+                      Ryan
+                      {% elseif data.journey=="cas1application"%}
+                      Lenny
+                      {% else %}
+                      George
+                      {% endif %}
+                      being released to the proposed address or area.
                     </dd>
                     <dt class="govuk-summary-list__key">
                       Nothing was raised from the VLO
@@ -771,7 +817,13 @@
                   </div>
                   <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__value">
-                      Is there any information that cannot be disclosed to George?
+                      Is there any information that cannot be disclosed to {% if data.journey=="cas2application"%}
+                      Ryan
+                      {% elseif data.journey=="cas1application"%}
+                      Lenny
+                      {% else %}
+                      George
+                      {% endif %}?
                     </dd>
                     <dt class="govuk-summary-list__key">
                       No
@@ -803,7 +855,13 @@
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__value">
-                      Is this address suitable for George to be released to?
+                      Is this address suitable for {% if data.journey=="cas2application"%}
+                      Ryan
+                      {% elseif data.journey=="cas1application"%}
+                      Lenny
+                      {% else %}
+                      George
+                      {% endif %} to be released to?
                     </dd>
                     <dt class="govuk-summary-list__key">
                       Yes
@@ -825,7 +883,13 @@
                   </div>
                     <div class="govuk-summary-list__row">
                       <dd class="govuk-summary-list__value">
-                        Do you need to add any more information about George or the proposed address for the monitoring contractor?
+                        Do you need to add any more information about {% if data.journey=="cas2application"%}
+                        Ryan
+                        {% elseif data.journey=="cas1application"%}
+                        Lenny
+                        {% else %}
+                        George
+                        {% endif %} or the proposed address for the monitoring contractor?
                       </dd>
                       <dt class="govuk-summary-list__key">
                        No
@@ -857,7 +921,13 @@
                   <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                       <dd class="govuk-summary-list__value">
-                        Can George be managed safely in the community if they are released to the proposed address or CAS area?
+                        Can {% if data.journey=="cas2application"%}
+                        Ryan
+                        {% elseif data.journey=="cas1application"%}
+                        Lenny
+                        {% else %}
+                        George
+                        {% endif %} be managed safely in the community if they are released to the proposed address or CAS area?
                       </dd>
                       <dt class="govuk-summary-list__key">
                         Yes
@@ -995,7 +1065,13 @@
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              Give details of any concerns victims have about George being released to the proposed address or area.
+              Give details of any concerns victims have about {% if data.journey=="cas2application"%}
+              Ryan
+              {% elseif data.journey=="cas1application"%}
+              Lenny
+              {% else %}
+              George
+              {% endif %} being released to the proposed address or area.
             </dd>
             <dt class="govuk-summary-list__key">
               Nothing was raised from the VLO
@@ -1092,7 +1168,13 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
-          Is this area suitable for George to be released to?
+          Is this area suitable for {% if data.journey=="cas2application"%}
+          Ryan
+          {% elseif data.journey=="cas1application"%}
+          Lenny
+          {% else %}
+          George
+          {% endif %} to be released to?
         </dd>
         <dt class="govuk-summary-list__key">
           Yes
@@ -1136,10 +1218,22 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dd class="govuk-summary-list__value">
-            What information has the POM provided about the behaviour of George while in prison?
+            What information has the POM provided about the behaviour of {% if data.journey=="cas2application"%}
+            Ryan
+            {% elseif data.journey=="cas1application"%}
+            Lenny
+            {% else %}
+            George
+            {% endif %} while in prison?
           </dd>
           <dt class="govuk-summary-list__key">
-            George has made good progress.
+            {% if data.journey=="cas2application"%}
+            Ryan
+            {% elseif data.journey=="cas1application"%}
+            Lenny
+            {% else %}
+            George
+            {% endif %} has made good progress.
           </dt>
           <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change</a>
@@ -1147,7 +1241,19 @@
         </div>
         <div class="govuk-summary-list__row">
           <dd class="govuk-summary-list__value">
-            Does George need any mental health treatment to help manage risk? Does George need a mental health plan to help manage risk?
+            Does {% if data.journey=="cas2application"%}
+            Ryan
+            {% elseif data.journey=="cas1application"%}
+            Lenny
+            {% else %}
+            George
+            {% endif %} need any mental health treatment to help manage risk? Does {% if data.journey=="cas2application"%}
+            Ryan
+            {% elseif data.journey=="cas1application"%}
+            Lenny
+            {% else %}
+            George
+            {% endif %} need a mental health plan to help manage risk?
           </dd>
           <dt class="govuk-summary-list__key">
             No
@@ -1169,7 +1275,13 @@
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              Give details of any concerns victims have about George being released to the proposed address or area.
+              Give details of any concerns victims have about {% if data.journey=="cas2application"%}
+              Ryan
+              {% elseif data.journey=="cas1application"%}
+              Lenny
+              {% else %}
+              George
+              {% endif %} being released to the proposed address or area.
             </dd>
             <dt class="govuk-summary-list__key">
               Nothing was raised from the VLO
@@ -1180,7 +1292,13 @@
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              Is there any information that cannot be disclosed to George?
+              Is there any information that cannot be disclosed to {% if data.journey=="cas2application"%}
+              Ryan
+              {% elseif data.journey=="cas1application"%}
+              Lenny
+              {% else %}
+              George
+              {% endif %}?
             </dd>
             <dt class="govuk-summary-list__key">
               No
@@ -1213,7 +1331,13 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dd class="govuk-summary-list__value">
-            Can George be managed safely in the community if they are released to the proposed address or CAS area?
+            Can {% if data.journey=="cas2application"%}
+            Ryan
+            {% elseif data.journey=="cas1application"%}
+            Lenny
+            {% else %}
+            George
+            {% endif %} be managed safely in the community if they are released to the proposed address or CAS area?
           </dd>
           <dt class="govuk-summary-list__key">
             Yes

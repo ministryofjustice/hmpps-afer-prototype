@@ -51,7 +51,14 @@
   <div class="govuk-form-group  govuk-!-margin-top-4">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Can George be managed safely in the community if they are released to the proposed address or CAS area?
+        Can
+        {% if data.journey=="cas2application"%}
+        Ryan
+        {% elseif data.journey=="cas1application"%}
+        Lenny
+        {% else %}
+        George
+        {% endif %} be managed safely in the community if they are released to the proposed address or CAS area?
       </legend>
         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
           <div class="govuk-radios__item">
