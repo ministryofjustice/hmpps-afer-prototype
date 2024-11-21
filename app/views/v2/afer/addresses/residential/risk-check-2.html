@@ -74,13 +74,13 @@
         If so, it should be considered as part of your risk management planning actions.
       </div>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="showthing()">
           <input class="govuk-radios__input" id="mentalHealth" name="mentalHealth" type="radio" value="yes">
           <label class="govuk-label govuk-radios__label" for="mentalHealth">
             Yes
           </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="hidething()">
           <input class="govuk-radios__input" id="mentalHealth-2" name="mentalHealth" type="radio" value="no">
           <label class="govuk-label govuk-radios__label" for="mentalHealth-2">
             No
@@ -92,7 +92,7 @@
 
 
 <!--ONLY DISPLAY IF PREVIOUS ANSWER IS YES-->
-  <div class="govuk-form-group govuk-!-margin-top-8">
+  <div class="govuk-form-group govuk-!-margin-top-8" id="consultedhealthcare" style="display: none;">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
         Have you consulted prison healthcare?
@@ -224,5 +224,20 @@
     </div>
   </main>
 </div>
+
+
+
+<script>
+
+function showthing() {
+  var divamount = document.getElementById("consultedhealthcare");
+  divamount.style.display = "block"; 
+}
+function hidething() {
+  var divamount = document.getElementById("consultedhealthcare");
+  divamount.style.display = "none"; 
+}
+
+</script>
 
 {% endblock %}
