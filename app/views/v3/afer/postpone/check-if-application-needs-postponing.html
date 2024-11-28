@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+                {% if data.prepareforrelease=="yes"%}
+                <h1 class="govuk-heading-l govuk-!-margin-top-6">Check if the application needs to be postponed before release</h1>
+                {% else %}
+                <h1 class="govuk-heading-l govuk-!-margin-top-6">Check if the application needs to be postponed</h1>
+                {% endif %}
+                
+                <p class="govuk-body">You must postpone the application if this person:</p>
+
+                <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
+                <li>still needs a risk management plan</li>
+                <li>is on remand</li>
+                <li>would not follow the requirements of a confiscation order if released</li>
+                <li>is segregated and the governor has not approved their release yet.</br>This does not apply if they were segregated for their own protection</li>
+                <li>committed an offence in prison that has been referred to a law enforcement agency or the independent adjudicator but not resolved</li>
+                <li>has an application pending with the unduly lenient sentence scheme –</br>if so, they may have a letter about this in their warrant folder</li>
+                </ul>
+
+              <form action="/postpone" method="post" novalidate>
+
+                  <div class="govuk-form-group govuk-!-margin-top-8">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Do you need to postpone this application?
+                      </legend>
+                      <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="postponeapplication" name="postponeapplication" type="radio" value="yes">
+                          <label class="govuk-label govuk-radios__label" for="postponeapplication">
+                            Yes – postpone this application
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          {% if data.prepareforrelease=="yes"%}
+                          <input class="govuk-radios__input" id="prepareforrelease" name="prepareforrelease" type="radio" value="complete">
+                          <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
+                            No
+                          </label>
+                          {% elseif data.predecisioncheck=="yes"%}
+                          <input class="govuk-radios__input" id="postponeapplication-2" name="postponeapplication" type="radio" value="no">
+                          <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
+                            No – submit for decision
+                          </label>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                {% if data.predecisioncheck=="yes"%}
+                <input type="hidden" name="submitfordecision" value="yes">
+                {% else %}
+                {% endif %}
+
+                <div class="govuk-button-group">
+
+                 <button type="submit" class="govuk-button" data-module="govuk-button">
+                    Continue
+                  </button>
+                  
+                  <a href="../case-overview.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+
+                </div>
+
+              </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

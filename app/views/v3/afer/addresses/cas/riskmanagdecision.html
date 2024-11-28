@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Make a risk management decision</h1>
+
+      
+
+      {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %} 
+      <form class="form" action="../../case-overview" method="post" novalidate>
+      {% else %}
+      <form class="form" action="details" method="post" novalidate>
+      {% endif %}
+
+
+
+  <div class="govuk-form-group  govuk-!-margin-top-4">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Can
+        {% if data.journey=="cas2application"%}
+        Ryan
+        {% elseif data.journey=="cas1application"%}
+        Lenny
+        {% else %}
+        George
+        {% endif %} be managed safely in the community if they are released to the proposed address or CAS area?
+      </legend>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="PPdecision" name="PPdecision" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="PPdecision">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="PPdecision-2" name="PPdecision" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="PPdecision-2">
+              No
+            </label>
+          </div>
+        </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group govuk-!-margin-bottom-8">
+    <label class="govuk-label" for="moreDetailPPdecision">Add information to support your decision</label>
+    <textarea class="govuk-textarea" id="moreDetailPPdecision" name="moreDetailPPdecision" rows="5"></textarea>
+  </div>
+
+
+                <!--START set dynamic radio hide/show text-->
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+            
+                {% set textHtmlOther %}
+
+                {{ govukTextarea({
+                  name: "riskActionsDetails",
+                  id: "riskActionsDetails",
+                  label: {
+                    text: "Summarise what is needed and why",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    text: "Include information about anything you still need to confirm."
+                  }
+                }) }}
+                
+
+      
+                {% endset -%}
+                <!--END set dynamic radio hide/show text-->
+      
+                {{ govukRadios({
+                  name: "riskActions",
+                  fieldset: {
+                    legend: {
+                      text: "Are any risk management planning actions needed prior to release before the address or CAS area can be suitable?",
+                      hint: "Include information about anything you still need to confirm.",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "riskActionsYes",
+                    text: "Yes",
+                    conditional: {
+                      html: textHtmlOther
+                    }
+                  },
+                    {
+                      value: "riskActionsNo",
+                      text: "No"
+                    }
+                    
+                  ]
+                }) }}
+
+
+
+
+
+
+  <input type="hidden" name="managementDecision" value="yes">
+
+
+
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Save
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Cancel
+  </button>
+</div>
+
+
+</form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

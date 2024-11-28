@@ -1,0 +1,174 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if CAS2 area is suitable</h1>
+
+     
+      
+    <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred area
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Has been released to this area before
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Short-term accommodation (CAS-2)
+        </dd>
+      </div>
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-6">Suitability decision</h3>
+
+  {% if (data.riskAssessed=="yes") and (data.managementDecision=="yes") %} 
+  <form class="form" action="../../case-overview" method="post" novalidate>
+  {% else %}
+  <form class="form" action="details" method="post" novalidate>
+  {% endif %}
+  
+                
+                <div class="govuk-form-group govuk-!-margin-top-4">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      Is this area suitable for
+                      {% if data.journey=="cas2application"%}
+                      Ryan
+                      {% elseif data.journey=="cas1application"%}
+                      Lenny
+                      {% else %}
+                      George
+                      {% endif %}
+                      to be released to?
+                    </legend>
+                    <div class="govuk-hint">
+                      <p class="govuk-body" style="color: #505a5f">
+                      For example, consider if:
+                      <ul class="govuk-list govuk-list--bullet" style="margin-top: -14px; margin-bottom: 20px; color: #505a5f">
+                        <li>victims are nearby</li>
+                        <li>the area is compatible with exclusion zones</li>
+                        <li>living with other people is suitable for
+                        {% if data.journey=="cas2application"%}
+                        Ryan
+                        {% elseif data.journey=="cas1application"%}
+                        Lenny
+                        {% else %}
+                        George
+                        {% endif %}</li>
+                      </ul>
+                      </p>
+                    </div>
+                      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="cas2suitable" name="cas2suitable" type="radio" value="yes">
+                          <label class="govuk-label govuk-radios__label" for="cas2suitable">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="cas2suitable-2" name="cas2suitable" type="radio" value="no">
+                          <label class="govuk-label govuk-radios__label" for="cas2suitable-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                  </fieldset>
+                </div>
+
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="more-detail">Add information to support your decision
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
+
+                <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Save
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Cancel
+                </button>
+              </div>
+
+            </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

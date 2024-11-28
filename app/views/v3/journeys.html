@@ -1,0 +1,135 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+    <span class="govuk-caption-l govuk-!-margin-top-8">Prototype v3 Private Beta</span>
+    <h1 class="govuk-heading-l">Assess for Early Release</h1>
+
+      {% if (data.user=="decisionmaker") or (data.user=="admin") %}
+      <form action="./dps/dps-home" method="post">
+      {% elseif data.user=="probation" %}
+      <form action="./ndelius/ndelius-home" method="post">
+      {% endif %}
+
+      <div class="govuk-form-group govuk-!-margin-bottom-8 govuk-!-margin-top-8">
+      <div class="govuk-radios">
+        <label class="govuk-label govuk-!-font-weight-bold" for="user">
+          Choose a journey:
+        </label>
+
+        {% if data.user=="admin" %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="ineligible-journey" name="journey" type="radio" value="ineligiblejourney">
+          <label class="govuk-label govuk-radios__label" for="ineligible-journey">
+            Ineligible
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 1: Jose Rodriguez
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="eligible-journey" name="journey" type="radio" value="eligiblejourney">
+          <label class="govuk-label govuk-radios__label" for="eligible-journey">
+            Eligible and suitable
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 2: George Jennings
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="28days-journey" name="journey" type="radio" value="28daysjourney">
+          <label class="govuk-label govuk-radios__label" for="dm-28days-journey">
+            28 days until CRD
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 3: David Lee
+          </div>
+        </div>
+        {% elseif data.user=="probation" %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="eligible-journey" name="journey" type="radio" value="eligiblejourney">
+          <label class="govuk-label govuk-radios__label" for="eligible-journey">
+            Eligible and suitable journey
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 2: George Jennings
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="cas2application-journey" name="journey" type="radio" value="cas2application">
+          <label class="govuk-label govuk-radios__label" for="cas2application-journey">
+            Short-term accommodation (CAS-2) application
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 4: Ryan Rees
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="cas1application-journey" name="journey" type="radio" value="cas1application">
+          <label class="govuk-label govuk-radios__label" for="cas1application-journey">
+            Approved Premises (CAS-1) application
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 5: Lenny Wallace
+          </div>
+        </div>
+        <!--<div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="unsuitableAddressCas-journey" name="journey" type="radio" value="unsuitableAddressCas">
+          <label class="govuk-label govuk-radios__label" for="unsuitableAddressCas-journey">
+            (Work in progress) No suitable addresses or CAS areas
+          </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+            Scenario 6: Koby Parker
+          </div>
+        </div>-->
+        {% endif %}
+
+        <!--<div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-employer" name="user" type="radio" value="governor">
+          <label class="govuk-label govuk-radios__label" for="user-employer">
+            Prison Approver
+          </label>
+        </div>-->
+
+       <!--<div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="user-aco" name="user" type="radio" value="aco">
+          <label class="govuk-label govuk-radios__label" for="user-aco">
+            PDU Head
+          </label>
+        </div>-->
+
+      </div>
+      </div>
+
+
+
+<input class="govuk-radios__input" id="configversion" name="configversion" type="hidden" value="5">
+      
+      <div class="govuk-form-group">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Start prototype</button>
+
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{{super()}}
+
+
+{% endblock %}
