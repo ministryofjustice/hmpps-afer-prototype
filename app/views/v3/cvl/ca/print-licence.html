@@ -1,0 +1,361 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"><br>
+    
+      <span class="govuk-caption-m">CRN: G579362 | CRD: {{ "today" | duration(2) | govukDate("truncate") }} | Date of birth: 3 Dec 1990</span>
+        <h1 class="govuk-heading-m">George Jennings</h1>
+
+  </div>
+</div>
+<hr class="gov-section-break gov-section-break-visible">
+
+<br />
+
+
+{% if data.ppapprovedappointmentchange=="yes" %}
+<div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+
+  <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+    <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+  </svg>
+
+  <div class="moj-banner__message">Initial appointment details updated. You must now tell the community probation team.<br>
+    <a class="govuk-link" href="/v33/licence-pdf-print" target="_blank">View and print new licence PDF</a></div>
+
+</div>
+{% endif %}
+
+
+<h1 class="govuk-heading-m">
+<!--  <span class="govuk-caption-m">{% if data.edit=="yes" %}Edith Bradshaw{% else %}Adam Balasaravika{% endif %}
+</span></h1>-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-from-desktop">
+
+
+      <h1 class="govuk-heading-l">Print licence for George Jennings</h1><br>
+
+
+        <h2 class="govuk-heading-m">Initial appointment details</h2>
+
+      
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jonathan Amble
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--<a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {%if (data.address1) %}
+                {{data.address1}}
+
+              {% else %}
+                Lewisham Probation Office{% endif %},
+
+              {%if (data.address2) %}{{data.address2}}
+
+              {% else %}
+                20 Brockley Street{% endif %},
+
+              {%if (data.addresstown) %}
+                {{data.addresstown}}
+
+              {% else %}
+                London{% endif %},
+
+              {%if (data.addresscounty) %}{{data.addresscounty}},
+                {% endif %}
+
+              {%if (data.addresspostcode) %}
+                {{data.addresspostcode}}
+
+              {% else %}
+                SE13 4HY
+              {% endif %}
+
+
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!--<a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> licence type</span>
+              </a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              0798 443 0099
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!--<a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> </span>
+              </a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ "today" | duration(96) | govukDate }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--<a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> </span>
+              </a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              4:30pm
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--<a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>-->
+            </dd>
+          </div>
+        </dl><br>
+
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-three-quarters">
+            <h2 class="govuk-heading-m">HDC curfew hours</h2>
+          </div>
+        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Monday
+        </dt>
+        <dd class="govuk-summary-list__value">
+          7:00 pm to 7:00 am
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        <!--<a class="govuk-link" href="#">
+        <span>Change</span>-->
+        </a>
+        </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Tuesday
+          </dt>
+          <dd class="govuk-summary-list__value">
+            7:00 pm to 7:00 am
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          <!--<a class="govuk-link" href="#">
+          <span>Change</span>-->
+          </a>
+          </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Wednesday
+            </dt>
+            <dd class="govuk-summary-list__value">
+              7:00 pm to 7:00 am
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!--<a class="govuk-link" href="#">
+            <span>Change</span>-->
+            </a>
+            </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Thursday
+              </dt>
+              <dd class="govuk-summary-list__value">
+                7:00 pm to 7:00 am
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <!--<a class="govuk-link" href="#">
+              <span>Change</span>-->
+              </a>
+              </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Friday
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  7:00 pm to 7:00 am
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <!--<a class="govuk-link" href="#">
+                <span>Change</span>-->
+                </a>
+                </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Saturday
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    7:00 pm to 7:00 am
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  <!--<a class="govuk-link" href="#">
+                  <span>Change</span>-->
+                  </a>
+                  </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Sunday
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      7:00 pm to 7:00 am
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <!--<a class="govuk-link" href="#">
+                    <span>Change</span>-->
+                    </a>
+                    </dd>
+                    </div>
+        
+          </dl>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h2 class="govuk-heading-m">Additional licence conditions (2)</h2>
+  </div>
+</div>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+  Drug testing
+</dt>
+<dd class="govuk-summary-list__value">
+  Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.
+</dd>
+<dd class="govuk-summary-list__actions">
+<!--<a class="govuk-link" href="#">
+<span>Change</span>-->
+</a>
+</dd>
+</div>
+
+
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+    Possession, ownership, control or inspection of specified items or documents
+  </dt>
+  <dd class="govuk-summary-list__value">
+    Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
+  </dd>
+  <dd class="govuk-summary-list__actions">
+  <!--<a class="govuk-link" href="#">
+  <span>Change</span>-->
+  </a>
+  </dd>
+  </div>
+
+  </dl>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h2 class="govuk-heading-m">Bespoke licence condition (1)</h2>
+    </div>
+  </div>
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Bespoke condition
+    </dt>
+    <dd class="govuk-summary-list__value">
+      This is a bespoke condition...
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    <!--<a class="govuk-link" href="#">
+    <span>Change</span>-->
+    </a>
+    </dd>
+    </div>
+  
+    </dl>
+  
+
+  <div class="govuk-button-group">
+
+      <!--<a href="#" class="govuk-button">Save changes</a>-->
+           
+    <a href="#" class="govuk-button">View and print licence PDF</a>
+    <a href="../../afer/case-overview" class="govuk-button govuk-button--secondary">Return to HDC application</a>
+    <a href="list" class="govuk-link govuk-link--no-visited-state">Go to Create and vary a licence</a>
+
+  </div>
+
+
+  
+
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner govuk-!-margin-bottom-8">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            HDC release approved
+          </h1>
+          <!--<div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div>-->
+        </div>
+        <p class="govuk-body">We will automatically notify the case administrator, probation practitioner and prison offender manager of your decision.</p>
+        <h2 class="govuk-heading-m">What next</h2>
+        <p class="govuk-body">
+          You can review the licence for George that has been submitted by their allocated probation practitioner.
+        </p>
+
+        <div class="govuk-button-group">
+          <a href="../../cvl/approvals/hdc.html" class="govuk-button">Review licence</a></br>
+          <a href="../case-list.html" class="govuk-button govuk-button--secondary">Return to case list</a></br>
+
+        </div>
+        
+        <!--<div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Review licence
+          </button>
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Return to [x]
+          </button>
+        </div>-->
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

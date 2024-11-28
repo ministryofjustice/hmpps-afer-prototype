@@ -1,0 +1,384 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form action="add-another" method="post" novalidate>
+
+          {% if (data.communityaccommodation=="two") %}
+          
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
+              </legend>
+              <div id="changedName-hint" class="govuk-hint">
+                For example, anything the probation practitioner might need to know about this person’s choice. 
+              </div>
+
+              <div class="govuk-form-group">
+        
+            <!--START set dynamic radio hide/show text-->
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        
+            {% set textHtmlOther %}
+            
+            {{ govukTextarea({
+              name: "casinfo2",
+              id: "casinfo2",
+              label: {
+                text: "Add more information"
+              }
+            }) }}
+
+            {% endset -%}
+        
+            <!--END set dynamic radio hide/show text-->
+        
+            {{ govukRadios({
+              idPrefix: "additionalinfo",
+              name: "additionalinfo",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+        
+              items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: textHtmlOther
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+              ]
+            }) }}
+
+            </div>
+            </fieldset>
+            </div>
+
+         
+          {% elseif (data.cas=="specificarea") %}
+          
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
+              </legend>
+              <div id="changedName-hint" class="govuk-hint">
+                For example, anything the probation practitioner might need to know about this person’s choice. 
+              </div>
+
+              <div class="govuk-form-group">
+        
+            <!--START set dynamic radio hide/show text-->
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        
+            {% set textHtmlOther %}
+            
+            {{ govukTextarea({
+              name: "casinfo1",
+              id: "casinfo1",
+              label: {
+                text: "Add more information"
+              }
+            }) }}
+
+            {% endset -%}
+        
+            <!--END set dynamic radio hide/show text-->
+        
+            {{ govukRadios({
+              idPrefix: "additionalinfo",
+              name: "additionalinfo",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+        
+              items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: textHtmlOther
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+              ]
+            }) }}
+
+            </div>
+            </fieldset>
+            </div>
+
+            {% elseif (data.cas=="nopreference") %}
+          
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
+                </legend>
+                <div id="changedName-hint" class="govuk-hint">
+                  For example, anything the probation practitioner might need to know about this person’s choice. 
+                </div>
+  
+                <div class="govuk-form-group">
+          
+              <!--START set dynamic radio hide/show text-->
+              {% from "govuk/components/radios/macro.njk" import govukRadios %}
+              {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+          
+              {% set textHtmlOther %}
+              
+              {{ govukTextarea({
+                name: "nocasinfo",
+                id: "nocasinfo",
+                label: {
+                  text: "Add more information"
+                }
+              }) }}
+  
+              {% endset -%}
+          
+              <!--END set dynamic radio hide/show text-->
+          
+              {{ govukRadios({
+                idPrefix: "additionalinfo",
+                name: "additionalinfo",
+                fieldset: {
+                  legend: {
+                    text: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+          
+                items: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                  conditional: {
+                    html: textHtmlOther
+                  }
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+                ]
+              }) }}
+  
+              </div>
+              </fieldset>
+              </div>
+          
+            {% elseif (data.postcodelookup=="two") %}
+          
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
+              </legend>
+              <div id="changedName-hint" class="govuk-hint">
+                For example, anything the probation practitioner might need to know about this person’s choice. 
+              </div>
+
+              <div class="govuk-form-group">
+        
+            <!--START set dynamic radio hide/show text-->
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        
+            {% set textHtmlOther %}
+            
+            {{ govukTextarea({
+              name: "curfewinfo2",
+              id: "curfewinfo2",
+              label: {
+                text: "Add more information"
+              }
+            }) }}
+
+            {% endset -%}
+        
+            <!--END set dynamic radio hide/show text-->
+        
+            {{ govukRadios({
+              idPrefix: "additionalinfo",
+              name: "additionalinfo",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+        
+              items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: textHtmlOther
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+              ]
+            }) }}
+
+            </div>
+            </fieldset>
+            </div>
+
+          {% elseif (data.postcodelookup=="one") %}
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
+                </legend>
+                <div id="changedName-hint" class="govuk-hint">
+                  For example, anything the probation practitioner might need to know about this person’s choice. 
+                </div>
+
+                <div class="govuk-form-group">
+          
+              <!--START set dynamic radio hide/show text-->
+              {% from "govuk/components/radios/macro.njk" import govukRadios %}
+              {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+          
+              {% set textHtmlOther %}
+              
+              {{ govukTextarea({
+                name: "curfewinfo1",
+                id: "curfewinfo1",
+                label: {
+                  text: "Add more information"
+                }
+              }) }}
+
+              {% endset -%}
+          
+              <!--END set dynamic radio hide/show text-->
+          
+              {{ govukRadios({
+                idPrefix: "additionalinfo",
+                name: "additionalinfo",
+                fieldset: {
+                  legend: {
+                    text: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+          
+                items: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                  conditional: {
+                    html: textHtmlOther
+                  }
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+                ]
+              }) }}
+
+              </div>
+              </fieldset>
+              </div>
+
+          {% endif %}
+
+      
+      <div class="moj-button-action">
+
+        {% if (data.communityaccommodation=="two") %}
+        <input type="hidden" name="communityaccommodation" value="two">
+      
+        {% elseif (data.cas=="specificarea") %}
+        <input type="hidden" name="communityaccommodation" value="one">
+        
+        {% elseif (data.cas=="nopreference") %}
+        <input type="hidden" name="communityaccommodation" value="no">
+
+        {% elseif (data.postcodelookup=="two") %}
+        <input type="hidden" name="postcodelookup" value="two">
+  
+        {% elseif (data.postcodelookup=="one") %}
+        <input type="hidden" name="postcodelookup" value="one">
+        {% endif %}
+        
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+         Continue
+        </button>
+  
+      </div>
+  
+    </form>
+  
+  </div>
+<!--ADD ANOTHER END-->  
+
+
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
