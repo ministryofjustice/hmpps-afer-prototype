@@ -1712,6 +1712,34 @@
   </div>
 
 
+  
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">14-day review</h2>
+    </div>
+    {% if data.prepareforrelease=="complete" %}
+      <p class="moj-timeline__date">
+        <time datetime="2019-05-28T10:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(82) | govukDate }}</time>
+      </p>
+    {% else %}
+    {% endif %}
+  </div>
+
+
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">2-day review</h2>
+    </div>
+    {% if data.prepareforrelease2day=="complete" %}
+      <p class="moj-timeline__date">
+        <time datetime="2019-05-28T10:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(82) | govukDate }}</time>
+      </p>
+    {% else %}
+    {% endif %}
+  </div>
+
+
+
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Approve licence</h2>
@@ -1724,18 +1752,6 @@
     {% endif %}
   </div>
 
-
-  <div class="moj-timeline__item">
-    <div class="moj-timeline__header">
-      <h2 class="moj-timeline__title">Prepare for release</h2>
-    </div>
-    {% if data.prepareforrelease=="complete" %}
-      <p class="moj-timeline__date">
-        <time datetime="2019-05-28T10:15:00.000Z">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(82) | govukDate }}</time>
-      </p>
-    {% else %}
-    {% endif %}
-  </div>
 
 
   <div class="moj-timeline__item">
@@ -2699,6 +2715,95 @@
     {% endif %}
 
     
+        <!--Pre-release check (14 days)-->
+        {% if (data.prepareforrelease=="complete") %}
+        <h3 class="govuk-heading-m" style="margin-top: 60px;">14-day review</h3>
+        <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(82) | govukDate("truncate") }}</p>
+    
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Summary</h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value" style="width: 80%;">
+                  Is this person still eligible for HDC?
+                </dt>
+                <dd class="govuk-summary-list__key" style="width: 20%;">
+                  Yes
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                  Is this person still suitable for HDC?
+                </dt>
+                <dd class="govuk-summary-list__key">
+                  Yes
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                  Does this application need to be postponed?
+                </dt>
+                <dd class="govuk-summary-list__key">
+                  No
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {% else %}
+        <h3 class="govuk-heading-m" style="margin-top: 20px;">14-day review</h3>
+        <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
+        {% endif %}
+
+
+<!--Pre-release check (2 days)-->
+{% if (data.prepareforrelease2day=="complete") %}
+<h3 class="govuk-heading-m" style="margin-top: 60px;">2-day review</h3>
+<p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(82) | govukDate("truncate") }}</p>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">Summary</h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value" style="width: 80%;">
+          Is this person still eligible for HDC?
+        </dt>
+        <dd class="govuk-summary-list__key" style="width: 20%;">
+          Yes
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+          Is this person still suitable for HDC?
+        </dt>
+        <dd class="govuk-summary-list__key">
+          Yes
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+          Does this application need to be postponed?
+        </dt>
+        <dd class="govuk-summary-list__key">
+          No
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+{% else %}
+<h3 class="govuk-heading-m" style="margin-top: 20px;">2-day review</h3>
+<p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
+{% endif %}
+     
+        
+
 
     <!--Licence-->
     {% if (data.prepareforrelease=="complete") %}
@@ -2832,49 +2937,6 @@
     {% endif %}
     
 
-
-    <!--Pre-release check-->
-    {% if (data.prepareforrelease=="complete") %}
-    <h3 class="govuk-heading-m" style="margin-top: 60px;">Pre-release check</h3>
-    <p class="govuk-body" style="margin-top: -10px;">Completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(82) | govukDate("truncate") }}</p>
-
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Summary</h2>
-      </div>
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value" style="width: 80%;">
-              Is this person still eligible for HDC?
-            </dt>
-            <dd class="govuk-summary-list__key" style="width: 20%;">
-              Yes
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              Is this person still suitable for HDC?
-            </dt>
-            <dd class="govuk-summary-list__key">
-              Yes
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              Does this application need to be postponed?
-            </dt>
-            <dd class="govuk-summary-list__key">
-              No
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-    {% else %}
-    <h3 class="govuk-heading-m" style="margin-top: 20px;">Pre-release check</h3>
-    <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
-    {% endif %}
 
   </div>
   
