@@ -70,12 +70,13 @@
 
         <form action="/ineligibleoutcome" method="post" novalidate>
           <input type="hidden" name="ineligible" value="yes">
+          <input type="hidden" name="eligibility" value="complete">
 
         <div class="govuk-button-group" style="margin-top: 40px;">
           <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="caselist">
             Return to case list
           </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="tasklist">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
             Back to assessment
           </button>
         </div>
