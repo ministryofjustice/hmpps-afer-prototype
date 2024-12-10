@@ -1,0 +1,386 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+      <!--new profile banner start-->
+      <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
+        <div class="mini-profile-inner">
+            <div class="mini-profile-left">
+                <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+            </div>
+            <div class="mini-profile-right">
+                <ul class="mini-profile-info">
+                    <li>
+                        <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                        </p>
+                        <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
+                    </li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Wandsworth</span></li>
+                    <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                    <li style="margin-left: 170px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(96) | govukDate("truncate") }}</span></li>
+                    <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">{{ "today" |  duration(153) | govukDate("truncate") }}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      <!--new profile banner end-->
+
+</div>
+</div>
+
+
+              
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    
+      <!--check your answers start-->
+
+              
+              {% if data.predecisioncheck=="yes"%}
+              <h1 class="govuk-heading-l govuk-!-margin-top-4">Make sure eligibility and suitability check is up to date</h1>
+              {% elseif data.prepareforrelease=="yes"%}
+              <h1 class="govuk-heading-l govuk-!-margin-top-4">Make sure eligibility and suitability check is up to date before release</h1>
+              {% endif %}
+
+              {% if data.predecisioncheck=="yes"%}
+              <p class="govuk-body">Before you can submit this application to a decision maker, you must review the following information to make sure this person is still eligible and suitable for HDC release.</p>
+              {% elseif data.prepareforrelease=="yes"%}
+              <p class="govuk-body">Before this person is released, you must review the following information to make sure this person is still eligible and suitable for HDC.</p>
+              {% endif %}
+
+              <p class="govuk-body">You can make any changes below or choose to confirm this information is correct.</p>
+
+
+              
+              <h2 class="govuk-heading-m">Eligibility checks</h2>
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value" style="width: 80%;">
+                    Is this person required to sign the sex offenders’ register?
+                  </dt>
+                  <dd class="govuk-summary-list__key" style="width: 10%;">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/sex-offenders-register.html">Change</a>
+                  </dd>
+                </div>
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person serving an extended sentence for violent or sexual offences?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/extended-sentence.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person serving a sentence for ROTL failure to return?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/rotl.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person serving a sentence for breaching a community order curfew?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/community-order-curfew-breach.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Has this person been recalled for breaching their HDC curfew within 2 years of their current sentence date?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/hdc-recall.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person a foreign national who has been recommended for deportation?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/deportation-orders.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person a foreign national who is liable to deportation and been served with a decision to deport? 
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/deportation-orders.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person currently serving a recall from early release on compassionate grounds? 
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/compassionate-release.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person serving a sentence for terrorist or terrorist-connected offending?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="eligibility/terrorist-offending-history.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person serving an SDS+, DYOI+ or S250+ sentence subject to two-thirds release criteria?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/two-thirds-release.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Would this person be serving an SDS+, DYOI+ or S250+ sentence if they had been sentenced after the Police and Crime Sentencing Act 2022 was introduced?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/two-thirds-release.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Has a notice under section 244ZB been served that is still in force?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/244ZB-notice.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person’s release governed by schedule 20B of the Criminal Justice Act 2003?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/schedule-20b.html">Change</a>
+                  </dd>
+                </div>
+
+              </dl>
+
+
+
+              <h2 class="govuk-heading-m">Suitability checks</h2>
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value" style="width: 80%;">
+                    Does this person have a history of sexual offending but is not required to sign the sex offenders’ register?
+                  </dt>
+                  <dd class="govuk-summary-list__key" style="width: 10%;">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/sexual-offending-history.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person a foreign national who is liable to deportation but not yet served with a decision to deport?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/liable-to-deportation.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Has this person been recalled for poor behaviour on HDC within 2 years of their current sentence date?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/recall-poor-behaviour.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person category A?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Does this person have a high or very high risk of serious harm?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Are they MAPPA level 2 or 3?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Is this person serving a prison sentence for any of these categories of offence?
+                    <ul class="govuk-list govuk-list--bullet" style="margin-top: 0px; margin-bottom: 20px;">
+                      <li>Homicide</li>
+                      <li>Explosives</li>
+                      <li>Possession of an offensive weapon</li>
+                      <li>Possession of firearms with intent</li>
+                      <li>Cruelty to children</li>
+                      <li>Racially aggravated offences</li>
+                      <li>Stalking, harassment and other offences linked to domestic abuse</li>
+                      <li>Terrorist offences not described in section 247A(2) of the Criminal Justice Act 2003</li>
+                    </ul>
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/presumed-unsuitable-offences.html">Change</a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Does this person have a history of terrorist or terrorist connected offending?
+                  </dt>
+                  <dd class="govuk-summary-list__key">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/terrorist-history.html">Change</a>
+                  </dd>
+                </div>
+
+                
+                  </dl>
+
+            
+            
+      <!--check your answers end-->
+      <h2 class="govuk-heading-m">When you have reviewed this information</h2>
+      <p>Choose to confirm and then go to the next part of the check.</p>
+
+      <a href="../postpone/check-if-application-needs-postponing.html" class="govuk-button">Confirm this information is correct</a>
+      <a href="../case-overview.html" class="govuk-button govuk-button--secondary" style="margin-left: 10px;">Cancel</a>
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
