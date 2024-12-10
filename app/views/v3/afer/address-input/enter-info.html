@@ -81,6 +81,19 @@
       </h2>
     </legend>
 
+
+    <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-8" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item" onclick="hidething()">
+
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          George Jennings is the main occupier
+        </label>
+      </div></div></br>
+
+
+  <div id="pipmainoccupier">
+      
     <div class="govuk-form-group">
       <label class="govuk-label" for="curfew1firstnameOccupier">
         First name
@@ -106,14 +119,9 @@
       <input class="govuk-input" id="curfew1relationOccupier" name="curfew1relationOccupier" type="text">
     </div>
 
-    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation">
-          George Jennings is the main occupier
-        </label>
-      </div></div>
+  </div>
 
+    
   </fieldset>
 
 </div>
@@ -263,5 +271,19 @@
   </main>
 </div>
 
+
+
+<script>
+
+  function showthing() {
+    var divamount = document.getElementById("pipmainoccupier");
+    divamount.style.display = "block"; 
+  }
+  function hidething() {
+    var divamount = document.getElementById("pipmainoccupier");
+    divamount.style.display = "none"; 
+  }
+  
+  </script>
 
 {% endblock %}
