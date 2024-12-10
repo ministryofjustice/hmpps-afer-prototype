@@ -33,7 +33,7 @@ router.post('/eligibleoutcome', function (req, res) {
     res.redirect(version + '/afer/case-list-tab-one')
   } else {
     // Send user to task list page
-    res.redirect(version + '/afer/eligibility/tasklist')
+    res.redirect(version + '/afer/case-overview')
   }
 
 });
@@ -50,7 +50,7 @@ router.post('/ineligibleoutcome', function (req, res) {
     res.redirect(version + '/afer/case-list-tab-one')
   } else {
     // Send user to task list page
-    res.redirect(version + '/afer/eligibility/tasklist')
+    res.redirect(version + '/afer/case-overview')
   }
 
 });
@@ -67,7 +67,7 @@ router.post('/unsuitableoutcome', function (req, res) {
     res.redirect(version + '/afer/case-list-tab-one')
   } else {
     // Send user to task list page
-    res.redirect(version + '/afer/eligibility/tasklist')
+    res.redirect(version + '/afer/case-overview')
   }
 
 });

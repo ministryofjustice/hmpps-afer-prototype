@@ -465,11 +465,17 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             {% if data.user=="admin" %}
+            
+            {% if data.eligibility=="complete"%}
             {% if data.optoutreason=="yes"%}
             <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out.html">Opt in</a>
             {% else %}
             <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out.html">Opt out</a>
             {% endif %}
+            {% else %}
+            @TOM? 
+            {% endif %}
+
             {% endif %}
           </dt>
         </div>
@@ -922,15 +928,16 @@
 {% endif %}
 
 
+<!--14 DAY CHECK-->
 {% if (data.prepareforrelease=="complete") %}
-<!--Prepare for release - Done-->
+<!--Prepare for release (14 days) - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <!--<form action="./eligibility/tasklist-review" method="post" novalidate>-->
       <!--<input type="hidden" name="prepareforrelease" value="yes">-->
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (14 days)</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -941,15 +948,15 @@
   <!--</form>-->
 </article>
 {% elseif (data.postponed=="yes") or (data.resumeapplication=="no") %}
-<!--Prepare for release - Cannot start yet-->
+<!--Prepare for release (14 days) - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for releas (14 days)</h2>
     <p class="govuk-body">Application postponed</p>
   </section>
 </article>
 {% elseif data.submitfordecision=="yes"%}
-<!--Prepare for release - Start-->
+<!--Prepare for release (14 days) - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <form action="./eligibility/tasklist-review" method="post" novalidate>
       <input type="hidden" name="prepareforrelease" value="yes">
@@ -957,7 +964,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (14 days)</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
@@ -967,7 +974,7 @@
   </section>
   </form>
 </article>
-<!--Prepare for release - In progress-->
+<!--Prepare for release (14 days) - In progress-->
 <!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <form action="./eligibility/tasklist-review" method="post" novalidate>
       <input type="hidden" name="prepareforrelease" value="yes">
@@ -975,7 +982,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (14 days)</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 70px; margin-top: 5px;">In <span style="text-transform: lowercase;">progress</span></span>
@@ -986,22 +993,109 @@
   </form>
 </article>-->
 {% elseif (data.eligiblepresumedsuitable=="yes") %}
-<!--Prepare for release - Cannot start yet-->
+<!--Prepare for release (14 days) - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (14 days)</h2>
     <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
   </section>
 </article>
 {% else %}
-<!--Prepare for release - Cannot start yet-->
+<!--Prepare for release (14 days) - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (14 days)</h2>
     <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
   </section>
 </article>
 {% endif %}
+
+
+
+<!--2 DAY CHECK-->
+{% if (data.prepareforrelease2day=="complete") %}
+<!--Prepare for release (2 days) - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <!--<form action="./eligibility/tasklist-review" method="post" novalidate>-->
+      <!--<input type="hidden" name="prepareforrelease" value="yes">-->
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (2 days)</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review" style="margin-top: 15px;">View or change</a></p>
+  </section>
+  <!--</form>-->
+</article>
+{% elseif (data.postponed=="yes") or (data.resumeapplication=="no") %}
+<!--Prepare for release (2 days) - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for releas (2 days)</h2>
+    <p class="govuk-body">Application postponed</p>
+  </section>
+</article>
+{% elseif (data.prepareforrelease=="complete") %}
+<!--Prepare for release (2 days) - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+      <input type="hidden" name="prepareforrelease2day" value="yes">
+      <input type="hidden" name="prepareforrelease" value="no">
+      <input type="hidden" name="predecisioncheck" value="no">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (2 days)</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
+  </section>
+  </form>
+</article>
+<!--Prepare for release (2 days) - In progress-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <form action="./eligibility/tasklist-review" method="post" novalidate>
+      <input type="hidden" name="prepareforrelease" value="yes">
+      <input type="hidden" name="predecisioncheck" value="no">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (2 days)</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 70px; margin-top: 5px;">In <span style="text-transform: lowercase;">progress</span></span>
+      </div>
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Continue</button>
+  </section>
+  </form>
+</article>-->
+{% elseif (data.eligiblepresumedsuitable=="yes") %}
+<!--Prepare for release (2 days) - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (2 days)</h2>
+    <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
+  </section>
+</article>
+{% else %}
+<!--Prepare for release (2 days) - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Prepare for release (2 days)</h2>
+    <p class="govuk-body">You can complete this task once a decision maker has approved the HDC application.</p>
+  </section>
+</article>
+{% endif %}
+
+
 
 
 
