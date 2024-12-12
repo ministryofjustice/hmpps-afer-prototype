@@ -37,6 +37,35 @@
       <div class="govuk-grid-column-full">
 
 
+    <!--Alerts banner start - INELIGIBLE JOURNEY AFTER PRE-DECISION CHECK-->
+    <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
+
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
+      </svg>
+    
+      <div class="moj-banner__message">
+        
+        <strong>Check if this person can still be released on HDC</strong></br>
+        
+        <!--There has been an update to their risk of serious harm (RoSH).-->
+        
+        There has been an update to their:
+        
+        <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
+          <li style="margin-bottom: 10px;">MAPPA level</li>
+          <li style="margin-bottom: 10px;">Risk of serious harm (RoSH)</li>
+        </ul>
+
+        <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa">Review eligibility and suitability</a></br>
+
+      </div>
+    
+    </div>
+    <!--Alerts banner end-->
+
+
+
       <!--new profile banner start-->
       <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
         <div class="mini-profile-inner">
@@ -307,19 +336,22 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa">Change</a>
                   </dd>
                 </div>
 
                 <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__value">
-                    Are they MAPPA level 2 or 3?
-                  </dt>
+                  
+                    <dd class="govuk-summary-list__value due-date" data-sort-value="1">
+                      <span class="date overdue">Are they MAPPA level 2 or 3?</span>
+                      <span class="secondary overdue" style="width: 195px;">There has been an update</span>
+                    </dd>
+           
                   <dd class="govuk-summary-list__key">
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="reviews/rosh-mappa">Change</a>
                   </dd>
                 </div>
 

@@ -39,13 +39,13 @@
   <!--<h2 class="govuk-heading-l govuk-!-margin-top-6">Checked automatically</h2>
   <div class="govuk-body">These questions have been answered automatically using information from OASys. You can change the answer if something looks wrong.</div>-->
   
-  <div class="govuk-form-group govuk-!-margin-top-6">
+  <div class="govuk-form-group govuk-!-margin-top-6" style="margin-bottom: 60px;">
     <div class="govuk-radios govuk-radios--inline">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         Does this person have a high or very high risk of serious harm?
       </legend>    
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes">
+        <input class="govuk-radios__input" id="seriousHarm" name="seriousHarm" type="radio" value="yes" checked>
         <label class="govuk-label govuk-radios__label" for="seriousHarm">
           Yes
         </label>
@@ -72,7 +72,7 @@
       </div>
       <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="roshMappa-2" name="roshMappa" type="radio" value="no">
+          <input class="govuk-radios__input" id="roshMappa-2" name="roshMappa" type="radio" value="no" checked>
           <label class="govuk-label govuk-radios__label" for="roshMappa-2">
            No
           </label>
@@ -82,7 +82,7 @@
         <br />
   
   
-      <div class="govuk-button-group" style="margin-top: 15px;">
+      <div class="govuk-button-group">
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
        Save
@@ -104,6 +104,14 @@
       <div class="govuk-grid-column-one-third">
 
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Information from OASys</h2>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            There has been an update
+          </strong>
+        </div>
         
 
 <!--rosh widget start-->
@@ -118,14 +126,19 @@
       "Known Adult": "MEDIUM",
       "Staff": "HIGH"
     },
-    lastUpdated: "17 Oct 2024"
+    lastUpdated: "12 Dec 2024"
 }) }}
 <!--rosh widget end-->
 
 <!--mappa widget start-->
+
 {% from "components/mappa-widget/macro.njk" import mappaWidget %}
 
-{{ mappaWidget({}) }}
+{{ mappaWidget({
+  level: "CAT 2/LEVEL 1",
+  lastUpdated: "12 Dec 2024"
+}) }}
+
 <!--mappa widget end-->
 
       </div>
