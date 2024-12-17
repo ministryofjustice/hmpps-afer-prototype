@@ -198,7 +198,13 @@
                 <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(119) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">100</td>
                 <td class="govuk-table__cell"></td>
-                <td class="govuk-table__cell">Assess eligibility and suitability</td>
+                <td class="govuk-table__cell">
+                  <dd class="govuk-summary-list__value due-date" data-sort-value="1">
+                    <span class="date overdue">Assess eligibility and suitability</span>
+                    <span class="secondary overdue" style="width: 195px;"> 
+                      Overdue on {{ "today" |  duration(5) | govukDate("truncate") }}</span>
+                  </dd>
+                </td>
               </tr>
               {% endif %}
 
@@ -285,6 +291,8 @@
 
               {% if data.user=="admin"%}
 
+              {% if data.28daysapproval=="no" %}
+              {% else %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
                   {% if data.journey=="28daysjourney"%}
@@ -300,8 +308,22 @@
                 <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(100) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">100</td>
                 <td class="govuk-table__cell">Jessica Smith</td>
-                <td class="govuk-table__cell">Enter curfew addresses or CAS areas</td>
+                <td class="govuk-table__cell">
+                  {% if data.28daysapproval=="yes" %}
+                  Enter curfew addresses or CAS areas
+                  {% elseif data.eligiblepresumedsuitable=="28days" %}
+                  <dd class="govuk-summary-list__value due-date" data-sort-value="1">
+                    <span class="date overdue">Enter curfew addresses or CAS areas</span>
+                    <span class="secondary overdue" style="width: 195px;"> 
+                      Decision maker approval required</span>
+                  </dd>
+                  {% else %}
+                  Assess eligibility and suitability
+                  {% endif %}
+                </td>
               </tr>
+              {% endif %}
+
               {% else %}
               {% endif %}
 

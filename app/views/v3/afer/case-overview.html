@@ -38,31 +38,12 @@
         <div class="govuk-grid-column-full">
 
         
-      
-
-          <!--{% if data.journey=="28daysjourney" %}
-          
-          <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
-          
-            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-              <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
-            </svg>
-          
-            <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
-              There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.</br>
-              The last day this person can be released on HDC is {{ "today" |  duration(20) | govukDate }}.</br></br>
-              You must get approval from a decision maker to continue this application.
-              <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
-            </div>
-          
-          </div>
-          
-          {% endif %}-->
 
 
-    <!--probation banners start-->
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
-    
+<!--probation banners start-->
+
 
     {% if data.user=="probation" %}
 
@@ -132,15 +113,41 @@
     {% endif %}     
 
     {% endif %}
-    <!--probation banners end-->
+
+<!--probation banners end-->
+
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+<!--prison admin banners start-->
+{% if data.user=="admin" %}
 
 
-    <!--prison admin banners start-->
-    {% if data.user=="admin" %}
+    <!--28 days info start-->
+    {% if data.28daysapproval=="yes" %}
+    {% elseif data.28daysapproval=="no" %}
+    {% elseif data.eligiblepresumedsuitable=="28days" %}
+
+        <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
+          </svg>
+
+          <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
+            There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.</br>
+            The last day this person can be released on HDC is {{ "today" |  duration(26) | govukDate }}.</br>
+            You must get approval from a decision maker to continue this application.
+          </div>
+
+        </div>
+    
+    {% else %}
+    {% endif %}
+    <!--28 days info end-->  
 
 
     <!--Alerts banner start - INELIGIBLE JOURNEY AFTER PRE-DECISION CHECK-->
-    <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
+    <!--<div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
 
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
@@ -150,7 +157,7 @@
         
         <strong>Check if this person can still be released on HDC</strong></br>
         
-        <!--There has been an update to their risk of serious harm (RoSH).-->
+        There has been an update to their risk of serious harm (RoSH).
         
         There has been an update to their:
         
@@ -163,7 +170,7 @@
 
       </div>
     
-    </div>
+    </div>-->
     <!--Alerts banner end-->
 
     {% if (data.printlicence=="complete") %}
@@ -254,10 +261,10 @@
     {% endif %}
 
     {% endif %}
-    <!--prison admin banners end-->
 
+<!--prison admin banners end-->
 
-    
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
 
 
@@ -686,39 +693,7 @@
 <!--postponed info end-->
 
 
-<!--28 days info start-->
-{% if data.28daysapproval=="yes" %}
-{% elseif data.journey=="28daysjourney" %}
-<!--<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
-    Decision maker approval required
-    <p>There are 28 days or less to this person’s CRD on {{ "today" |  duration(38) | govukDate }}.</br>
-      The last day this person can be released on HDC is {{ "today" |  duration(28) | govukDate }}.</br></br>
-      You must get approval from a decision maker to continue this application.
-      <a class="govuk-link govuk-link--no-visited-state" href="">Enter approval</a></p>
-  </strong>
-</div>-->
-
-<div class="moj-banner moj-banner--warning" role="region" aria-label="Warning">
-
-  <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-    <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
-  </svg>
-
-  <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
-    There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.
-    The last day this person can be released on HDC is {{ "today" |  duration(26) | govukDate }}.</br></br>
-    You must get approval from a decision maker to continue this application.
-    <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
-  </div>
-
-</div>
-
-
-{% endif %}
-<!--28 days info end-->    
+  
 
 
 <!--
@@ -738,7 +713,7 @@
 {% if data.user=="admin"%}
 
 
-{% if (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") or (data.journey=="28daysjourney") %}
+{% if (eligiblepresumedsuitable=="28days") or (data.eligiblepresumedsuitable=="yes") or (data.ineligible=="yes") %}
 <!--Eligibility and suitability checks - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -794,9 +769,45 @@
 
 
 
-
-{% if (data.eligiblepresumedsuitable=="yes") %}
-{% if (data.addressinputcomplete=="view") %}
+{% if data.28daysapproval=="no" %}
+<!--Curfew addresses and CAS areas - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses or CAS areas</h2>
+    <p class="govuk-body">You can start this task if George is eligible and suitable for HDC.</p>
+  </section>
+</article>
+{% elseif (data.28daysapproval=="yes") or (data.eligiblepresumedsuitable=="yes") %}
+<!--Curfew addresses and CAS areas - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+<!--Curfew addresses and CAS areas - In progress-->
+<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+        <p class="govuk-body">To do by [hdced - 12 weeks]</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
+      </div>
+    </div>
+    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Continue</a>
+  </section>
+</article>-->
+{% elseif (data.addressinputcomplete=="view") %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
@@ -816,54 +827,6 @@
       </div>
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input.html" style="margin-top: 15px;">View or change</a></p>
-  </section>
-</article>
-{% else %}
-<!--Curfew addresses and CAS areas - Start-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
-      </div>
-    </div>
-    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
-  </section>
-</article>
-
-<!--Curfew addresses and CAS areas - In progress-->
-<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
-        <p class="govuk-body">To do by [hdced - 12 weeks]</p>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
-      </div>
-    </div>
-    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Continue</a>
-  </section>
-</article>-->
-{% endif %}
-
-{% elseif data.28daysapproval=="yes" %}
-<!--Curfew addresses and CAS areas - Start-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
-      </div>
-    </div>
-    <a href="./address-input/opt-out.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
 {% else %}
@@ -1542,9 +1505,20 @@
           {% else %}
           {{ "today" |  duration(5) | govukDate }}
           {% endif %}
+          
         </div>
+        <!--DESIGN OVERDUE Start-->
+        <dd class="govuk-summary-list__value due-date" data-sort-value="1">
+          <span class="date overdue">Overdue</span>
+          <span class="secondary overdue" style="width: 195px;">To do by {{ "today" |  duration(5) | govukDate }}</span>
+        </dd>
+        <!--DESIGN OVERDUE End-->
       </div>
-    <!--DESIGN OVERDUE TASKS-->
+    
+
+
+
+
     {% endif %}
 
     {% elseif data.user=="probation" %}
@@ -2970,7 +2944,10 @@
       </a>
     </p>-->
 
-    {% if (data.eligiblepresumedsuitable=="yes") or (data.journey=="28daysjourney") %}
+    
+
+
+    {% if (data.eligiblepresumedsuitable=="yes") or (data.28daysapproval=="yes") %}
     <p class="govuk-body">
       <a class="govuk-link govuk-link--no-visited-state" href="#">
         <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
@@ -2997,6 +2974,12 @@
         Address form
       </a>
     </p>
+    
+    {% elseif data.28daysapproval=="no" %}
+    SHOW NOT ENOUGH TIME 
+
+    {% elseif data.eligiblepresumedsuitable=="28days"%}
+    EMPTY NO FORMS YET
     {% endif %}
 
     <!--<p class="govuk-body">
