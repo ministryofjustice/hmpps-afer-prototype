@@ -39,25 +39,30 @@
 
         
       
+          <!--28 days info start-->
+          {% if data.28daysapproval=="yes" %}
+          {% elseif data.journey=="28daysjourney" %}
 
-          <!--{% if data.journey=="28daysjourney" %}
-          
           <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
-          
+
             <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
               <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
             </svg>
-          
+
             <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
               There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.</br>
-              The last day this person can be released on HDC is {{ "today" |  duration(20) | govukDate }}.</br></br>
+              The last day this person can be released on HDC is {{ "today" |  duration(26) | govukDate }}.</br></br>
               You must get approval from a decision maker to continue this application.
               <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
             </div>
-          
+
           </div>
+
+
+          {% endif %}
+          <!--28 days info end-->  
+
           
-          {% endif %}-->
 
 
     <!--probation banners start-->
@@ -649,39 +654,7 @@
 <!--postponed info end-->
 
 
-<!--28 days info start-->
-{% if data.28daysapproval=="yes" %}
-{% elseif data.journey=="28daysjourney" %}
-<!--<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
-    Decision maker approval required
-    <p>There are 28 days or less to this person’s CRD on {{ "today" |  duration(38) | govukDate }}.</br>
-      The last day this person can be released on HDC is {{ "today" |  duration(28) | govukDate }}.</br></br>
-      You must get approval from a decision maker to continue this application.
-      <a class="govuk-link govuk-link--no-visited-state" href="">Enter approval</a></p>
-  </strong>
-</div>-->
-
-<div class="moj-banner moj-banner--warning" role="region" aria-label="Warning">
-
-  <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-    <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
-  </svg>
-
-  <div class="moj-banner__message"><span><strong>Decision maker approval required</strong></span></br>
-    There are 28 days or less to this person’s CRD on {{ "today" |  duration(36) | govukDate }}.
-    The last day this person can be released on HDC is {{ "today" |  duration(26) | govukDate }}.</br></br>
-    You must get approval from a decision maker to continue this application.
-    <a class="govuk-link govuk-link--no-visited-state" href="./decision/28days">Enter approval</a>
-  </div>
-
-</div>
-
-
-{% endif %}
-<!--28 days info end-->    
+  
 
 
 <!--
@@ -1291,6 +1264,21 @@
 
 <!--DM tasks start-->
 {% if data.user=="decisionmaker"%}
+<!--Decision maker approval required - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Decision maker approval required</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./decision/28days" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row">
