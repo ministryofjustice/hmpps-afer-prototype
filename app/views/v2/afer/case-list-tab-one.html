@@ -283,7 +283,7 @@
               {% endif %}
 
 
-              {% if data.user=="admin"%}
+              {% if (data.user=="admin") or (data.user=="decisionmaker") %}
 
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
@@ -300,7 +300,13 @@
                 <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(100) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">100</td>
                 <td class="govuk-table__cell">Jessica Smith</td>
-                <td class="govuk-table__cell">Enter curfew addresses or CAS areas</td>
+                <td class="govuk-table__cell">
+                {% if data.user=="admin" %}
+                Enter curfew addresses or CAS areas
+                {% elseif data.user=="decisionmaker" %}
+                ????
+                {% endif %}
+                </td>
               </tr>
               {% else %}
               {% endif %}
