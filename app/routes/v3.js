@@ -3,6 +3,7 @@ module.exports = function (router) {
 var version = '/v3';
 
   //CA journey routes
+
   //Opting in and out question
   router.post(version + '/optout', function (req, res) {
     var optoutDecision = req.session.data['optoutdecision']
@@ -44,6 +45,7 @@ var version = '/v3';
       res.redirect(version + '/afer/case-overview')
     }
   });
+
   //Confirmation of inital assessment outcome: Unsuitable
   router.post(version + '/unsuitableoutcome', function (req, res) {
     var ConfirmationNav = req.session.data['confirmationnav']
@@ -57,6 +59,7 @@ var version = '/v3';
       res.redirect(version + '/afer/case-overview')
     }
   });
+
   //Address type question
   router.post(version + '/addresstype', function (req, res) {
     var addresstypeQuestion = req.session.data['curfewcasAddress']
@@ -70,6 +73,7 @@ var version = '/v3';
       res.redirect(version + '/afer/address-input/cas')
     }
   });
+
   //Add another curfew address or CAS area
   router.post(version + '/add-another-address', function (req, res) {
     var addAnotherAddress = req.session.data['add-another-address']
@@ -95,6 +99,7 @@ var version = '/v3';
         res.redirect(version + '/afer/address-input/check-your-answers');
       }
   });
+
   //Postpone application during pre decision checks
   router.post(version + '/postpone', function (req, res) {
     var postponeApplication = req.session.data['postponeapplication']
@@ -109,6 +114,7 @@ var version = '/v3';
       res.redirect(version + '/afer/case-overview')
     }
   });
+
   //Postpone application during pre release checks
   router.post(version + '/postponeprepareforrelease', function (req, res) {
     var PrepareForRelease = req.session.data['prepareforrelease']
@@ -123,7 +129,24 @@ var version = '/v3';
       res.redirect(version + '/afer/case-overview')
     }
   });
+
+
   //PP journey routes
+
+  //CAS accommodation type
+  router.post(version + '/casdetails', function (req, res) {
+    var accomodationType = req.session.data['accomodationType']
+    // Check whether the variable matches a condition
+    if (accomodationType == "cas1"){
+     
+     // Send user to case overview page if suitablity decision has been made and confirm outcome
+      res.redirect(version + '/afer/addresses/cas/cas1-questions')
+    } else {
+      // Send user back to address details page
+      res.redirect(version + '/afer/addresses/cas/cas2-suitability-a')
+    }
+  });
+
   //Suitablity decision residential addresses
   router.post(version + '/residentialsuitablitydecision', function (req, res) {
     var SuitabilityDecisionNav = req.session.data['suitabilityDecision']
@@ -137,6 +160,7 @@ var version = '/v3';
       res.redirect(version + '/afer/case-overview')
     }
   });
+
   //Address checks navigating back
   router.post(version + '/addresschecks', function (req, res) {
     var Navigation = req.session.data['nav']
@@ -150,5 +174,6 @@ var version = '/v3';
       res.redirect(version + '/afer/addresses/tasklist')
     }
   });
+
   }
   //THE END OF AFER ROUTES
