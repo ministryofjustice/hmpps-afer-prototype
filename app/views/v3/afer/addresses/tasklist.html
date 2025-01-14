@@ -259,11 +259,61 @@
 
 
 
+
   <h2 class="govuk-heading-m govuk-!-margin-top-8">Proposed CAS areas</h2>
+
+
+  <div class="govuk-summary-card">
+
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        PiP interested in CAS
+      </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+        </li>
+      </ul>
+    </div>
+  
+  
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+    
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of accommodation
+          </dt>
+          <dd class="govuk-summary-list__value">
+          </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {% if data.journey=="cas1application"%}  
+            
+            {% endif %}  
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.journey=="cas1application"%}  
+            <a href="cas/accommodation-type" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+            {% endif %} 
+          </dd>
+        </div>
+  
+      </dl>
+  
+    </div>
+        
+  </div>
     
 
+  
 
-<!--card start-->
+
+  
+
+<!--
 <div class="govuk-summary-card">
 
   <div class="govuk-summary-card__title-wrapper">
@@ -345,15 +395,15 @@
           CAS-2 application status
         <dd class="govuk-summary-list__value">
           Not updated by the prison yet
-          <!--More information requested-->
-          <!--Awaiting decision-->
-          <!--On waiting list-->
-          <!--Place offered-->
-          <!--Offer accepted-->
-          <!--Offer declined or withdrawn-->
-          <!--Referral withdrawn-->
-          <!--Referral cancelled-->
-          <!--Awaiting arrival-->
+          More information requested
+          Awaiting decision
+          On waiting list
+          Place offered
+          Offer accepted
+          Offer declined or withdrawn
+          Referral withdrawn
+          Referral cancelled
+          Awaiting arrival
         </dd>
       </div>
       {% endif %}
@@ -401,16 +451,16 @@
               {% else %}
               <a href="cas/details" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
               {% endif %}
-              <!--In progress-->
-              <!--<a href="#" class="govuk-button">Resume checks</a>-->
+              In progress
+              <a href="#" class="govuk-button">Resume checks</a>
       </div>
       
       </div>
-      <!--card end-->
+      -->
 
   
 
-       <!--card start-->
+       <!--
        <div class="govuk-summary-card">
 
         <div class="govuk-summary-card__title-wrapper">
@@ -451,17 +501,17 @@
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 <a href="#" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
-                <!--In progress-->
-                <!--<a href="#" class="govuk-button">Resume checks</a>-->
-                <!--Edit checks-->
-                <!--<a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>-->
+                In progress
+                <a href="#" class="govuk-button">Resume checks</a>
+                Edit checks
+                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
               </dt>
             </div>
           </dl>
         </div>
         
         </div>
-        <!--card end-->
+        -->
 
         <a href="../case-overview" class="govuk-button govuk-button--secondary">Return to application overview</a>
 
