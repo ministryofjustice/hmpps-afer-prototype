@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Speak with their POM</h1>
+
+  
+  <form class="form" action="../case-overview" method="post" novalidate>
+      
+  <div class="govuk-form-group govuk-!-margin-top-6">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        What information has the POM provided about the behaviour of this person while in prison?
+      </legend>
+      <div id="dob-hint" class="govuk-hint">
+        Find out about:
+        <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; text-decoration: #505a5f;">
+          <li>any concerns about them being released on HDC</li>
+          <li>if there have been any changes to their level of risk</li>
+          <li>if they need any mental health treatment after release – consider this as part of your risk management plan if so</li>
+        </ul>
+      </div>
+      <textarea class="govuk-textarea" id="moredetailPOM" name="moredetailPOM" rows="5"></textarea>
+    </fieldset>
+  </div>
+
+  <input type="hidden" name="RiskChecks" value="completed">
+
+<div class="govuk-button-group" style="margin-top: -30px;">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Save
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Cancel
+  </button>
+</div>
+
+         </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
