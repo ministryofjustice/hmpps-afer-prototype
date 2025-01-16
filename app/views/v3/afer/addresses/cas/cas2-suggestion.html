@@ -36,16 +36,115 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-8">CAS-2 suggestion</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Suggestions/requests etc. for CA</h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">All areas you evaluated are unsuitbale for this person, you can ask the CA to confirm your suggestions or request more info from the CA. Bla bla</p>
+
+    
+      <div data-module="moj-add-another">
+
+        <h2 class="govuk-heading-m moj-add-another__heading" tabindex="-1">Suitable CAS-2 areas</h2>
+      
+          <fieldset class="govuk-fieldset moj-add-another__item">
+      
+           
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="person[0][first_name]">
+                Town or city
+              </label>
+      
+              <input class="govuk-input" id="person[0][first_name]" name="person[0][first_name]" type="text" data-name="person[%index%][first_name]" data-id="person[%index%][first_name]">
+      
+            </div>
+      
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="person[0][last_name]">
+                County or borough (optional)
+              </label>
+      
+              <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
+      
+            </div>
+
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="person[0][last_name]">
+                Excluding following streets/areas (optional)
+              </label>
+      
+              <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
+      
+            </div>
+      
+          </fieldset>
+      
+          <div class="moj-button-action">
+      
+            <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
+              Add another CAS area
+            </button>
+      
+          </div>
+      
+      </div>
+      
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-8">Exclusionzones</h2>
+
+      <div class="govuk-form-group" style="margin-bottom: 40px;">
+        <div class="govuk-hint">For example, areas which bla bla.</div>
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+      </div>
+
+
+      
 
      
-   
-        
-      <p>City 1</p>
-      <p>Borough 1</p>
-      <p>City 2</p>
-      <p>Borough 2</p>
-      <p>Exclusionzones</p>
+                   <!--START set dynamic radio hide/show text-->
+                   {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                   {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+               
+                   {% set textHtmlOther %}
+                   
+                   {{ govukTextarea({
+                     name: "MoreAddresses",
+                     id: "MoreAddresses",
+                     rows: "6",
+                     label: {
+                       text: "Enter reason"
+                     }
+                   }) }}
+         
+                   {% endset -%}
+                   <!--END set dynamic radio hide/show text-->
+         
+                   {{ govukRadios({
+                     name: "vlo",
+                     fieldset: {
+                       legend: {
+                         text: "More residential addresses?",
+                         isPageHeading: false,
+                         classes: "govuk-fieldset__legend--m"
+                       }
+                     },
+                     items: [
+                     {
+                      value: "MoreAddressesNo",
+                      text: "Yes"
+                     },
+                       {
+                        value: "MoreAddressesYes",
+                       text: "No",
+                       conditional: {
+                        html: textHtmlOther
+                       } 
+                       }
+                       
+                     ]
+                   }) }}
+
+      
 
 
 
@@ -55,7 +154,7 @@
 
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button" data-module="govuk-button">
-          Send suggestions
+          Send to prison
         </button>
         <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Cancel
