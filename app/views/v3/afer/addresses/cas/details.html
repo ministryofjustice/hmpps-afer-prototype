@@ -35,11 +35,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-    <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if a CAS area is suitable</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if a CAS-2 area is suitable</h1>
 
 
 <!--card start-->
-<div class="govuk-summary-card">
+<!--<div class="govuk-summary-card">
 
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
@@ -95,7 +95,7 @@
         </dl>
       </div>
       
-      </div>
+      </div>-->
       <!--card end-->
 
 
@@ -105,10 +105,29 @@
   <h2 class="app-task-list__section govuk-!-margin-top-8">CAS checks</h2>
   <ul class="app-task-list__items">
 
+    <li class="app-task-list__item">
+      <span class="app-task-list__task-name">
+        <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type">
+          Eligibility
+        </a>
+        </br>
+        {% if data.CASeligibility=="completed" %}
+        <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+         Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+        </div>
+        {% endif %}
+      </span>
+      {% if data.CASeligibility=="completed" %}
+      <p class="govuk-body" style="text-align: right;">Completed</p>
+      {% else %}
+      <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+      {% endif %}
+    </li>
+
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="accommodation-type">
-              Select type of accommodation
+              Type of accommodation
             </a>
             </br>
             {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
@@ -146,21 +165,20 @@
         </li>
         {% endif %}
 
-
-        {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
+        {% if data.accomodationType=="cas2" %}
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            <a class="govuk-link govuk-link--no-visited-state" href="risk-check">
-              Assess this person’s risk
+            <a class="govuk-link govuk-link--no-visited-state" href="suitability">
+              Check if CAS2 area is suitable
             </a>
             </br>
-            {% if data.riskAssessed=="yes" %}
+            {% if data.cas2suitable=="yes" %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
             </div>
             {% endif %}
           </span>
-          {% if data.riskAssessed=="yes"%}
+          {% if data.cas2suitable=="yes" %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
           {% else %}
           <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>

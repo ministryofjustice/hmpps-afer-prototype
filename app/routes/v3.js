@@ -133,20 +133,6 @@ var version = '/v3';
 
   //PP journey routes
 
-  //CAS accommodation eligbility question
-  router.post(version + '/caseligibility', function (req, res) {
-    var CASeligible = req.session.data['CASeligible']
-    // Check whether the variable matches a condition
-    if (CASeligible == "CASeligibleYes"){
-     
-     // Send user to case overview page if suitablity decision has been made and confirm outcome
-      res.redirect(version + '/afer/addresses/cas/accommodation-type')
-    } else {
-      // Send user back to address details page
-      res.redirect(version + '/afer/addresses/outcomes/cas-ineligible')
-    }
-  });
-
   //Suitablity decision residential addresses
   router.post(version + '/residentialsuitablitydecision', function (req, res) {
     var SuitabilityDecisionNav = req.session.data['suitabilityDecision']
@@ -174,6 +160,38 @@ var version = '/v3';
       res.redirect(version + '/afer/addresses/tasklist')
     }
   });
+
+
+  //CAS accommodation eligbility question
+  router.post(version + '/caseligibility', function (req, res) {
+    var CASeligible = req.session.data['CASeligible']
+    // Check whether the variable matches a condition
+    if (CASeligible == "CASeligibleYes"){
+    
+    // Send user to case overview page if suitablity decision has been made and confirm outcome
+      res.redirect(version + '/afer/addresses/cas/accommodation-type')
+    } else {
+      // Send user back to address details page
+      res.redirect(version + '/afer/addresses/outcomes/cas-ineligible')
+    }
+  });
+
+
+    //CAS accommodation eligbility question
+    router.post(version + '/accommodationtype', function (req, res) {
+      var accomodationType = req.session.data['accomodationType']
+      // Check whether the variable matches a condition
+      if (accomodationType == "cas1"){
+      
+      // Send user to case overview page if suitablity decision has been made and confirm outcome
+        res.redirect(version + '/afer/addresses/cas/cas1-questions')
+      } else {
+        // Send user back to address details page
+        res.redirect(version + '/afer/addresses/cas/cas2-suitability-a')
+      }
+    });
+
+
 
   }
   //THE END OF AFER ROUTES
