@@ -47,7 +47,14 @@
 
     {% if data.user=="probation" %}
 
-    {% if data.cas1addressadded=="yes" %}
+    {% if data.RiskChecks=="completed" %}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Completed</div>
+    </div>
+    {% elseif data.cas1addressadded=="yes" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
@@ -488,7 +495,7 @@
     
            <div class="govuk-grid-column-one-third">
     
-    <!--contacts card start-->
+    <!--shortcuts card start-->
     <div class="govuk-summary-card" style="margin-top: 0px;">
     
       <div class="govuk-summary-card__title-wrapper">
@@ -585,7 +592,7 @@
       </div>
       
     </div>
-      <!--contact card end-->
+      <!--shortcuts card end-->
 
     
     
@@ -1116,6 +1123,39 @@
 <!--Probation tasks start-->
 {% if data.user=="probation"%}
 
+{% if data.RiskChecks=="completed" %}
+<!--Speak with their POM - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Speak with their POM</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/speak-with-POM" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% else %}
+<!--Speak with their POM - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Speak with their POM</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/speak-with-POM" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% endif %}
+
+
+
 {% if (data.cas2suitable=="yes") or (data.accomodationType=="cas1") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1170,7 +1210,7 @@
     <a href="./addresses/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Continue</a>
   </section>
 </article>
-{% else %}
+{% elseif data.RiskChecks=="completed" %}
 <!--Check addresses or community accommodation - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1185,14 +1225,14 @@
     <a href="./addresses/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
-
+{% else %}
 <!--Check addresses or community accommodation - Cannot start yet-->
-<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation </h2>
     <p class="govuk-body">You can start this task when the prison submits address details.</p>
   </section>
-</article>-->
+</article>
 {% endif %}
 
 
