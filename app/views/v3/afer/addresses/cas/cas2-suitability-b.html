@@ -36,7 +36,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if CAS2 area is suitable</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if area is suitable</h1>
 
      
       
@@ -92,38 +92,70 @@
 
   <h3 class="govuk-heading-m govuk-!-margin-top-6">Suitability decision</h3>
 
+
+    
+                <!--START set dynamic radio hide/show text-->
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+            
+                {% set textHtmlOther %}
+                
+                {{ govukTextarea({
+                  name: "victimConcerns",
+                  id: "victimConcerns",
+                  rows: "6",
+                  label: {
+                    text: "Give details of any concerns victims have about this person being released to this area."
+                  }
+                }) }}
+      
+                {% endset -%}
+                <!--END set dynamic radio hide/show text-->
+      
+                {{ govukRadios({
+                  name: "vlo",
+                  fieldset: {
+                    legend: {
+                      text: "Is there a victim liaison officer (VLO) for this person?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "vloYes",
+                    text: "Yes",
+                    conditional: {
+                      html: textHtmlOther
+                    }
+                  },
+                    {
+                      value: "vloNo",
+                      text: "No"
+                    }
+                    
+                  ]
+                }) }}
+
+
+  
                 
                 <div class="govuk-form-group govuk-!-margin-top-4">
                   <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                      Is this area suitable for
-                      {% if data.journey=="cas2application"%}
-                      Ryan
-                      {% elseif data.journey=="cas1application"%}
-                      Lenny
-                      {% else %}
-                      George
-                      {% endif %}
-                      to be released to?
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      Is this area suitable for this person to live? 
                     </legend>
                     <div class="govuk-hint">
                       <p class="govuk-body" style="color: #505a5f">
                       For example, consider if:
                       <ul class="govuk-list govuk-list--bullet" style="margin-top: -14px; margin-bottom: 20px; color: #505a5f">
+                        <li>they can be managed safely if they are released there</li>
                         <li>victims are nearby</li>
                         <li>the area is compatible with exclusion zones</li>
-                        <li>living with other people is suitable for
-                        {% if data.journey=="cas2application"%}
-                        Ryan
-                        {% elseif data.journey=="cas1application"%}
-                        Lenny
-                        {% else %}
-                        George
-                        {% endif %}</li>
                       </ul>
                       </p>
                     </div>
-                      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                      <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="cas2suitable" name="cas2suitable" type="radio" value="yes">
                           <label class="govuk-label govuk-radios__label" for="cas2suitable">
@@ -142,23 +174,25 @@
 
 
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="more-detail">Add information to support your decision
-                  </label>
+                  <label class="govuk-label" for="more-detail"><strong>Add information to support your decision (optional)</strong></label>
+                  <div class="govuk-hint">For example, include anything that needs to be put in place to help manage their risk if they are released there, such as treatment programmes.</div>
                   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
                 </div>
 
-                <form class="form" action="./exclusionzone" method="post" novalidate>
+                <form class="form" action="../outcomes/cas-unsuitable" method="post" novalidate>
+
+                  
 
                 <div class="govuk-button-group">
                 <button type="submit" class="govuk-button" data-module="govuk-button">
-                  Continue
+                  Save
                 </button>
                 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                   Cancel
                 </button>
                 </div>
 
-              </form>
+                </form>
 
 
       </div>
