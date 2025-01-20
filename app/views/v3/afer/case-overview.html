@@ -248,7 +248,7 @@
     
       <div class="moj-banner__message">
         Application resumed</br>
-        You can now <a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review.html">send for decision.</a>
+        You can now <a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review-predecision">review application and send for decision.</a>
       </div>
     
     </div>    
@@ -727,6 +727,12 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Assess eligibility and suitability</h2>
+        {% if data.ineligible=="yes" %}
+        <p class="govuk-body" style="margin-top: 10px; margin-bottom: 10px;">Result: Ineligible</p>
+        {% elseif data.eligiblepresumedsuitable=="yes" %}
+        <p class="govuk-body" style="margin-top: 10px; margin-bottom: 10px;">Result: Eligible and suitable</p>
+        {% else %}
+        {% endif %}
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -776,7 +782,22 @@
 
 
 
-{% if data.28daysapproval=="no" %}
+{% if (data.addressinput=="complete") %}
+<!--Curfew addresses and CAS areas - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input.html" style="margin-top: 15px;">View or change</a></p>
+  </section>
+</article>
+{% elseif data.28daysapproval=="no" %}
 <!--Curfew addresses and CAS areas - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
@@ -819,21 +840,6 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
     <a href="./address-input/view-address-input.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">View</a>
-  </section>
-</article>
-{% elseif (data.addressinput=="complete") %}
-<!--Curfew addresses and CAS areas - Done-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter curfew addresses and CAS areas</h2>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
-      </div>
-    </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input.html" style="margin-top: 15px;">View or change</a></p>
   </section>
 </article>
 {% else %}
@@ -944,7 +950,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review" style="margin-top: 15px;">View or change</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review-14days" style="margin-top: 15px;">View or change</a></p>
   </section>
   <!--</form>-->
 </article>
@@ -959,7 +965,7 @@
 {% elseif data.submitfordecision=="yes"%}
 <!--Complete 14-day review - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <form action="./eligibility/tasklist-review" method="post" novalidate>
+  <form action="./eligibility/tasklist-review-14days" method="post" novalidate>
       <input type="hidden" name="prepareforrelease" value="yes">
       <input type="hidden" name="predecisioncheck" value="no">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1011,7 +1017,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review" style="margin-top: 15px;">View or change</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist-review-2days" style="margin-top: 15px;">View or change</a></p>
   </section>
   <!--</form>-->
 </article>
@@ -1026,7 +1032,7 @@
 {% elseif (data.prepareforrelease=="complete") %}
 <!--Complete 2-day review - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <form action="./eligibility/tasklist-review" method="post" novalidate>
+  <form action="./eligibility/tasklist-review-2days" method="post" novalidate>
       <input type="hidden" name="prepareforrelease2day" value="yes">
       <input type="hidden" name="prepareforrelease" value="no">
       <input type="hidden" name="predecisioncheck" value="no">
@@ -1091,7 +1097,7 @@
     <p class="govuk-body">Application postponed</p>
   </section>
 </article>
-{% elseif (data.prepareforrelease=="complete") %}
+{% elseif (data.prepareforrelease2day=="complete") %}
 <!--Print licence - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <form action="../cvl/ca/print-licence" method="post" novalidate>

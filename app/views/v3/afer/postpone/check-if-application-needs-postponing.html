@@ -60,7 +60,7 @@
                           </label>
                         </div>
                         <div class="govuk-radios__item">
-                          {% if data.prepareforrelease=="yes"%}
+                          {% if (data.prepareforrelease=="yes") or (data.prepareforrelease2day=="yes") %}
                           <input class="govuk-radios__input" id="prepareforrelease" name="prepareforrelease" type="radio" value="complete">
                           <label class="govuk-label govuk-radios__label" for="postponeapplication-2">
                             No
@@ -78,6 +78,8 @@
 
                 {% if data.predecisioncheck=="yes"%}
                 <input type="hidden" name="submitfordecision" value="yes">
+                {% elseif data.prepareforrelease2day=="yes" %}
+                <input type="hidden" name="prepareforrelease2day" value="complete">
                 {% else %}
                 {% endif %}
 
