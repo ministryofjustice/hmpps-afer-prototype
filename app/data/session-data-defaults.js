@@ -1,11 +1,13 @@
 let inactivecases = require('./inactivecases.json')
-let ppdmcases = require('./ppdmcases.json')
-let cadmcases = require('./cadmcases.json')
+let ppwork = require('./ppwork.json')
+let dmwork = require('./dmwork.json')
+let cawork = require('./cawork.json')
 
 
 
 module.exports = {
   inactivecases,
-  ppdmcases,
-  cadmcases,
+  ppwork,
+  dmwork,
+  cawork,
 }
