@@ -538,7 +538,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="./case-list-tab-one.html">Case list?</a>
+            <a class="govuk-link govuk-link--no-visited-state" href="./case-list-tab-one.html">Go to all HDC applications</a>
           </dt>
         </div>
 
@@ -697,15 +697,15 @@
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
     <span class="govuk-visually-hidden">Warning</span>
-    TOM COPY Application for George opted out by Jessica Smith on {{ "today" |  duration(41) | govukDate }}
-
-    because they 
+    George has opted out of HDC because they 
     {% if data.contact=="noaddress" %} do not have anywhere to stay.{% endif %}
     {% if data.contact=="notagging" %} do not want to be tagged.{% endif %}
     {% if data.contact=="noreason" %} did not give a reason.{% endif %}
     {% if data.contact=="otherreason" %} {{data.enterreason}} {% endif %}
 
-  <a class="govuk-link govuk-link--no-visited-state" href="./address-input/opt-in"> Opt in</a>
+    Recorded by Jessica Smith on {{ "today" |  duration(41) | govukDate }}.
+
+  <a class="govuk-link govuk-link--no-visited-state" href="./address-input/opt-in">Resume the application</a> if they want to opt back in.
   </strong>
 </div>
 {% else %}
@@ -798,11 +798,11 @@
       </div>
     </div>
     {% if data.postponed=="yes" %}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View only</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View</a></p>
     {% elseif data.optin=="yes" %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View or change</a></p>
     {% elseif data.optoutreason=="yes" %}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View only</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View</a></p>
     {% else %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View or change</a></p>
     {% endif %}
@@ -861,7 +861,7 @@
       </div>
     </div>
     {% if data.postponed=="yes" %}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input" style="margin-top: 15px;">View only</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input" style="margin-top: 15px;">View</a></p>
     {% else %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input" style="margin-top: 15px;">View or change</a></p>
     {% endif %}
@@ -1039,7 +1039,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day check</h2>
         {% if data.securitycategory=="changed" %}
         <p class="govuk-body" style="margin-top: 10px; margin-bottom: 10px;">Result: Unsuitable</p>
         {% else %}
@@ -1062,7 +1062,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day check</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
@@ -1076,7 +1076,7 @@
 <!--Complete 14-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day check</h2>
     <p class="govuk-body">Application postponed</p>
   </section>
 </article>
@@ -1084,7 +1084,7 @@
 <!--Complete 14-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day check</h2>
     <p class="govuk-body">Check eligibility, suitability and reasons to postpone from 14 days before release after a decision maker approves the application.</p>
   </section>
 </article>
@@ -1092,7 +1092,7 @@
 <!--Complete 14-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day check</h2>
     <p class="govuk-body">Opted out</p>
   </section>
 </article>
@@ -1108,7 +1108,7 @@
 <!--Complete 14-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day check</h2>
     <p class="govuk-body">Check eligibility, suitability and reasons to postpone from 14 days before release after a decision maker approves the application.</p>
   </section>
 </article>
@@ -1125,7 +1125,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day review</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day check</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -1145,7 +1145,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day review</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day check</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
@@ -1159,7 +1159,7 @@
 <!--Complete 2-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day check</h2>
     <p class="govuk-body">Application postponed</p>
   </section>
 </article>
@@ -1183,7 +1183,7 @@
 <!--Complete 2-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day check</h2>
     <p class="govuk-body">Check eligibility, suitability and reasons to postpone from 2 days before release.</p>
   </section>
 </article>
@@ -1191,7 +1191,7 @@
 <!--Complete 2-day review - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day review</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 2-day check</h2>
     <p class="govuk-body">Check eligibility, suitability and reasons to postpone from 2 days before release.</p>
   </section>
 </article>
