@@ -73,17 +73,10 @@
       <!--check your answers start-->
 
               
-              {% if data.predecisioncheck=="yes"%}
-              <h1 class="govuk-heading-l govuk-!-margin-top-4">Make sure eligibility and suitability check is up to date</h1>
-              {% elseif data.prepareforrelease=="yes"%}
-              <h1 class="govuk-heading-l govuk-!-margin-top-4">Make sure eligibility and suitability check is up to date before release</h1>
-              {% endif %}
 
-              {% if data.predecisioncheck=="yes"%}
-              <p class="govuk-body">Before you can submit this application to a decision maker, you must review the following information to make sure this person is still eligible and suitable for HDC release.</p>
-              {% elseif data.prepareforrelease=="yes"%}
+              <h1 class="govuk-heading-l govuk-!-margin-top-4">Make sure eligibility and suitability check is up to date before release</h1>
+
               <p class="govuk-body">Before this person is released, you must review the following information to make sure this person is still eligible and suitable for HDC.</p>
-              {% endif %}
 
               <p class="govuk-body">You can make any changes below or choose to confirm this information is correct.</p>
 
