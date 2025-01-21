@@ -27,24 +27,6 @@
         "task": "Enter curfew addresses or CAS areas"
     },
     {
-        "name": "Patel, Amit",
-        "prisonnumber": "G79561",
-        "probationpractitioner": "Aisha Thompson",
-        "eligibilitydate": "18 Nov 2024",
-        "daysremaining": 47,
-        "staffname": "Rebecca Johnson",
-        "task": "Confirm release on HDC"
-    },
-    {
-        "name": "Ali, Mohammed",
-        "prisonnumber": "G28354",
-        "probationpractitioner": "Michael Adeyemi",
-        "eligibilitydate": "21 Nov 2024",
-        "daysremaining": 50,
-        "staffname": "Samuel Perez",
-        "task": "Approve licence"
-    },
-    {
         "name": "Rivera, Juan",
         "prisonnumber": "G78643",
         "probationpractitioner": "Aisha Thompson",
@@ -63,42 +45,6 @@
         "task": "Prepare for release"
     },
     {
-        "name": "Singh, Rajesh",
-        "prisonnumber": "G57319",
-        "probationpractitioner": "Emily Zhang",
-        "eligibilitydate": "10 Dec 2024",
-        "daysremaining": 69,
-        "staffname": "Michael Adeyemi",
-        "task": "Approve licence"
-    },
-    {
-        "name": "Chang, Wei",
-        "prisonnumber": "G15894",
-        "probationpractitioner": "Emily Zhang",
-        "eligibilitydate": "15 Dec 2024",
-        "daysremaining": 74,
-        "staffname": "Mohammed Ali",
-        "task": "Confirm release on HDC"
-    },
-    {
-        "name": "Abiola, Tunde",
-        "prisonnumber": "G23486",
-        "probationpractitioner": "Michael Adeyemi",
-        "eligibilitydate": "24 Dec 2024",
-        "daysremaining": 83,
-        "staffname": "Aisha Thompson",
-        "task": "Approve licence"
-    },
-    {
-        "name": "Okafor, Chinedu",
-        "prisonnumber": "G14287",
-        "probationpractitioner": "Megan O'Connell",
-        "eligibilitydate": "5 Jan 2025",
-        "daysremaining": 95,
-        "staffname": "Aisha Thompson",
-        "task": "Confirm release on HDC"
-    },
-    {
         "name": "Johnson, Malik",
         "prisonnumber": "G76325",
         "probationpractitioner": "Michael Adeyemi",
@@ -115,15 +61,6 @@
         "daysremaining": 109,
         "staffname": "Emily Zhang",
         "task": "Prepare for release"
-    },
-    {
-        "name": "Jackson, Tyler",
-        "prisonnumber": "G34289",
-        "probationpractitioner": "Emily Zhang",
-        "eligibilitydate": "25 Jan 2025",
-        "daysremaining": 115,
-        "staffname": "Mohammed Ali",
-        "task": "Approve licence"
     },
     {
         "name": "Wilson, DeShawn",
