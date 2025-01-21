@@ -180,7 +180,8 @@
     </div>-->
     <!--Alerts banner end-->
 
-    {% if (data.printlicence=="complete") %}
+    {% if data.securitycategory=="changed" %}
+    {% elseif (data.printlicence=="complete") %}
     {% elseif (data.prepareforrelease2day=="complete") %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
@@ -304,6 +305,8 @@
       Jose Rodriguez
       {% elseif data.journey=="28daysjourney" %}
       David Lee
+      {% elseif data.journey=="ineligiblePreRelease"%}
+      Bailey West
       {% else %}
       George Jennings
       {% endif %}
@@ -354,6 +357,8 @@
               Jose Rodriguez
               {% elseif data.journey=="28daysjourney" %}
               David Lee
+              {% elseif data.journey=="ineligiblePreRelease"%}
+              Bailey West
               {% else %}
               George Jennings
               {% endif %}
@@ -526,9 +531,18 @@
         Shortcuts
       </h2>
       </div>
+
       
       <div class="govuk-summary-card__content">
       <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a class="govuk-link govuk-link--no-visited-state" href="./case-list-tab-one.html">Case list?</a>
+          </dt>
+        </div>
+
+
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -1017,7 +1031,7 @@
 
 
 <!--14 DAY CHECK-->
-{% if (data.prepareforrelease=="complete") %}
+{% if (data.prepareforrelease=="complete") or (data.securitycategory=="changed") %}
 <!--Complete 14-day review - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <!--<form action="./eligibility/tasklist-review" method="post" novalidate>-->
@@ -1026,6 +1040,10 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Complete 14-day review</h2>
+        {% if data.securitycategory=="changed" %}
+        <p class="govuk-body" style="margin-top: 10px; margin-bottom: 10px;">Result: Unsuitable</p>
+        {% else %}
+        {% endif %}
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>

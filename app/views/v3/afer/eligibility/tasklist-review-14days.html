@@ -36,6 +36,8 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
+    
+
 
       <!--new profile banner start-->
       <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
@@ -44,13 +46,19 @@
                 <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
             </div>
             <div class="mini-profile-right">
-                <ul class="mini-profile-info">
-                    <li>
+                <ul class="mini-profile-info">      
+                  <li>
                         <p class="govuk-heading-s govuk-!-margin-bottom-1">
-                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">George Jennings</a>
+                            <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">
+                              {% if data.journey=="ineligiblePreRelease" %}
+                              Bailey West
+                              {% else %}
+                              George Jennings
+                              {% endif %}
+                            </a>
                         </p>
                         <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
-                    </li>
+                  </li>
                     <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27/09/1998</span></li>
                     <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Wandsworth</span></li>
                     <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
@@ -81,6 +89,27 @@
               <p class="govuk-body">You can make any changes below or choose to confirm this information is correct.</p>
 
 
+              {% if data.securitycategory=="changed" %}
+              <div class="govuk-notification-banner govuk-!-margin-top-8" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                    Important
+                  </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                  <p class="govuk-notification-banner__heading">George Jennings is presumed unsuitable for HDC</p>
+        
+                  <p class="govuk-body">
+                    Assessment completed by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate("truncate") }}</br></br>
+                    Result: Presumed unsuitable</br>
+                    Reason: <a class="govuk-link govuk-link--no-visited-state" href="#">Security category</a></br></br>
+                    <!--<a class="govuk-link govuk-link--no-visited-state" href="#">Restart assessment</a>-->
+                  </p>
+        
+                </div>
+              </div>
+              {% endif %}
+
               
               <h2 class="govuk-heading-m">Eligibility checks</h2>
 
@@ -94,7 +123,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/sex-offenders-register.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
                 
@@ -106,7 +135,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/extended-sentence.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -118,7 +147,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/rotl.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -130,7 +159,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/community-order-curfew-breach.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -142,7 +171,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/hdc-recall.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -154,7 +183,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/deportation-orders.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -166,7 +195,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/deportation-orders.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -178,7 +207,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/compassionate-release.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -190,7 +219,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="eligibility/terrorist-offending-history.html">Change</a>
+                    <a class="govuk-link" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -202,7 +231,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/two-thirds-release.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -214,7 +243,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/two-thirds-release.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -226,7 +255,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/244ZB-notice.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -238,7 +267,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="eligibility/schedule-20b.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -258,7 +287,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/sexual-offending-history.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -270,7 +299,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/liable-to-deportation.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -282,7 +311,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/recall-poor-behaviour.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -290,11 +319,17 @@
                   <dt class="govuk-summary-list__value">
                     Is this person category A?
                   </dt>
+                  {% if data.securitycategory=="changed" %}
+                  <dd class="govuk-summary-list__key">
+                    Yes
+                  </dd>
+                  {% else %}
                   <dd class="govuk-summary-list__key">
                     No
                   </dd>
+                  {% endif %}
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/security-category-change">Change</a>
                   </dd>
                 </div>
 
@@ -306,7 +341,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -318,7 +353,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/rosh-mappa.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -330,7 +365,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/presumed-unsuitable-offences.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -342,7 +377,7 @@
                     No
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="suitability/terrorist-history.html">Change</a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                   </dd>
                 </div>
 
@@ -350,14 +385,16 @@
                   </dl>
 
             
-            
+      {% if data.securitycategory=="changed" %}
+      <a href="../case-overview.html" class="govuk-button govuk-button--secondary" style="margin-top: -20px;">Return to case overview</a>
+      {% else %}
       <!--check your answers end-->
       <h2 class="govuk-heading-m">When you have reviewed this information</h2>
       <p>Choose to confirm and then go to the next part of the check.</p>
 
       <a href="../postpone/check-if-application-needs-postponing.html" class="govuk-button">Confirm this information is correct</a>
       <a href="../case-overview.html" class="govuk-button govuk-button--secondary" style="margin-left: 10px;">Cancel</a>
-
+      {% endif %}
 
 
 
