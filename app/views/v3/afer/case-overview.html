@@ -224,7 +224,7 @@
       <strong>Application for George postponed by Jessica Smith on {{ "today" |  duration(41) | govukDate }}</br></strong>
 
     <p class="govuk-body">This is because they 
-    {% if data.postponereason=="riskmanagement"%} need a risk management plan.</br>{% endif %}
+    {% if data.postponereason=="riskmanagement"%} have outstanding risk management planning actions.</br>{% endif %}
     {% if data.postponereason=="remand"%} are on remand.</br>{% endif %}
     {% if data.postponereason=="confiscationorder"%} they would not comply with a confiscation order.</br>{% endif %}
     {% if data.postponereason=="segregated"%} are segregated.</br>{% endif %}
@@ -722,7 +722,7 @@
     Application for George postponed by Jessica Smith on {{ "today" |  duration(41) | govukDate }}
 
     because they 
-    {% if data.postponereason=="riskmanagement"%} need a risk management plan.{% endif %}
+    {% if data.postponereason=="riskmanagement"%} have outstanding risk management planning actions.{% endif %}
     {% if data.postponereason=="remand"%} are on remand.{% endif %}
     {% if data.postponereason=="confiscationorder"%} would not follow confiscation order.{% endif %}
     {% if data.postponereason=="segregated"%} are segregated.{% endif %}
@@ -2783,7 +2783,7 @@
             </dt>
             <dd class="govuk-summary-list__key" style="width: 50%;">
               They 
-              {% if data.postponereason=="riskmanagement"%} need a risk management plan.{% endif %}
+              {% if data.postponereason=="riskmanagement"%} have outstanding risk management planning actions.{% endif %}
               {% if data.postponereason=="remand"%} are on remand.{% endif %}
               {% if data.postponereason=="confiscationorder"%} would not follow confiscation order.{% endif %}
               {% if data.postponereason=="segregated"%} are segregated.{% endif %}
