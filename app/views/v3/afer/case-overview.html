@@ -386,6 +386,8 @@
               G56791
               {% elseif data.journey=="28daysjourney" %}
               G93332
+              {% elseif data.journey=="ineligiblePreRelease"%}
+              G75698
               {% else %}
               G5613GT
               {% endif %}         
@@ -413,6 +415,8 @@
               Section 18 - wounding with intent
               {% elseif data.journey=="28daysjourney" %}
               Concerned in the supply of a controlled drug of Class B - cannabis
+              {% elseif data.journey=="ineligiblePreRelease"%}
+              Dishonestly appropriating property belonging to another with the intention of permanently depriving the other of it
               {% else %}
               Conspire to fraudulent evade a prohibition on the importation of a class A drug
               {% endif %}
@@ -441,6 +445,8 @@
               {{ "today" |  duration(128) | govukDate }}
               {% elseif data.journey=="28daysjourney" %}
               {{ "today" |  duration(20) | govukDate }}
+              {% elseif data.journey=="ineligiblePreRelease"%}
+              {{ "today" |  duration(136) | govukDate }}
               {% else %}
               {{ "today" |  duration(96) | govukDate }}
               {% endif %}
@@ -469,6 +475,8 @@
               {{ "today" |  duration(185) | govukDate }}
               {% elseif data.journey=="28daysjourney" %}
               {{ "today" |  duration(36) | govukDate }}
+              {% elseif data.journey=="ineligiblePreRelease"%}
+              {{ "today" |  duration(192) | govukDate }}
               {% else %}
               {{ "today" |  duration(153) | govukDate }}
               {% endif %}
