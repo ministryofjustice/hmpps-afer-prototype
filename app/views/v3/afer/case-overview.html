@@ -702,7 +702,7 @@
     {% if data.contact=="noreason" %} did not give a reason.{% endif %}
     {% if data.contact=="otherreason" %} {{data.enterreason}} {% endif %}
 
-    Recorded by Jessica Smith on {{ "today" |  duration(41) | govukDate }}.
+    Recorded by Jessica Smith on {{ "today" |  duration(41) | govukDate }}.</br>
 
   <a class="govuk-link govuk-link--no-visited-state" href="./address-input/opt-in">Resume the application</a> if they want to opt back in.
   </strong>
@@ -729,7 +729,7 @@
     {% if data.postponereason=="committedoffence"%} are being investigated for an offence committed in prison.{% endif %}
     {% if data.postponereason=="undulylenientsentence"%} have an application pending with the unduly lenient sentence scheme.{% endif %}
 
-  <a class="govuk-link govuk-link--no-visited-state" href="postpone/resume-this-application.html"> Resume application</a>
+  </br><a class="govuk-link govuk-link--no-visited-state" href="postpone/resume-this-application.html"> Resume application</a>
   </strong>
 </div>
 
