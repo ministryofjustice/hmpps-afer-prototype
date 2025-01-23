@@ -36,14 +36,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-8">Suggestions/requests etc. for CA</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Suggest alternative release options</h1>
 
-      <p class="govuk-body govuk-!-margin-bottom-6">All areas you evaluated are unsuitbale for this person, you can ask the CA to confirm your suggestions or request more info from the CA. Bla bla</p>
-
-    
       <div data-module="moj-add-another">
 
-        <h2 class="govuk-heading-m moj-add-another__heading" tabindex="-1">Suitable CAS-2 areas</h2>
+        <h2 class="govuk-heading-m moj-add-another__heading" tabindex="-1">Propose different CAS areas</h2>
+
+        <p class="govuk-body govuk-!-margin-bottom-6">Ask the prison to check if George Jennings agrees to being released to different areas that you think are suitable.</p>
       
           <fieldset class="govuk-fieldset moj-add-another__item">
       
@@ -65,23 +64,13 @@
               <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
       
             </div>
-
-
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="person[0][last_name]">
-                Excluding following streets (optional)
-              </label>
-      
-              <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
-      
-            </div>
       
           </fieldset>
       
           <div class="moj-button-action">
       
             <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
-              Add another CAS area
+              Add area
             </button>
       
           </div>
@@ -93,8 +82,8 @@
       
 
       <div class="govuk-form-group govuk-!-margin-top-8 govuk-!-margin-bottom-8">
-        <label class="govuk-label" for="more-detail"><strong>Exclusionzones (optional)</strong></label>
-        <div class="govuk-hint">For example, areas where ...</div>
+        <label class="govuk-label" for="more-detail"><strong>Specify areas to avoid (optional)</strong></label>
+        <div class="govuk-hint">Add information about areas George would not be able to go to.</div>
         <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
       </div>
 
@@ -124,11 +113,14 @@
                      name: "vlo",
                      fieldset: {
                        legend: {
-                         text: "More residential addresses?",
+                         text: "Do you want to request residential addresses?",
                          isPageHeading: false,
                          classes: "govuk-fieldset__legend--m"
                        }
                      },
+                     hint: {
+                      text: "Ask the prison to check if George has any residential addresses they could be released to."
+                    },
                      items: [
                      {
                       value: "MoreAddressesNo",
