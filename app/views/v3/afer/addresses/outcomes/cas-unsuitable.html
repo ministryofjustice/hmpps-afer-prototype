@@ -30,19 +30,18 @@
           </h1>
           <div class="govuk-panel__body">
             <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_cross_white.svg"/>
-            Unsuitable CAS areas
+            Areas unsuitable
           </div>
         </div>
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
 
-        <p class="govuk-body">None of the areas submitted by George Jennings are suitable for CAS because:</p>
+        <p class="govuk-body">None of the areas submitted by Ryan Rees are suitable for CAS because:</p>
 
         <div class="govuk-inset-text">
 
-                {% if (data.CASeligibleDetails) %}
-                {{data.CASeligibleDetails}}
-                {% endif %}
+                @DISCUSS Where does this info come from?? Suitbality decision is optionl...
+                1 block for each area?
           
         </div>
 
@@ -50,19 +49,19 @@
         <h2 class="govuk-heading-m">Next steps</h2>
 
         <p class="govuk-body">
-          You can suggest alternative options for George such as areas you know are suitable or send the checks to the prison so the application for HDC can be refused. 
+          You can suggest alternative options for Ryan such as areas you know are suitable or send the checks to the prison so the application for HDC can be refused. 
         </p>
 
 
-        <form class="form" action="../cas/cas2-suggestion" method="post" novalidate>
+        <form class="form" action="/v3/casareasunsuitable" method="post" novalidate>
 
           <input type="hidden" name="CAinformed" value="yes">
 
         <div class="govuk-button-group" style="margin-top: 40px;">
-          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="caselist">
+          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="alternatives">
             Suggest alternative options
           </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="sendtoprison">
             Send checks to prison
           </button>
         </div>

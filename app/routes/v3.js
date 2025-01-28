@@ -192,6 +192,21 @@ var version = '/v3';
     });
 
 
+    //CAS areas unsuitable
+    router.post(version + '/casareasunsuitable', function (req, res) {
+      var confirmationnav = req.session.data['confirmationnav']
+      // Check whether the variable matches a condition
+      if (confirmationnav == "alternatives"){
+      
+      // Send user to case overview page if suitablity decision has been made and confirm outcome
+        res.redirect(version + '/afer/addresses/cas/cas2-suggestion')
+      } else {
+        // Send user back to address details page
+        res.redirect(version + '/afer/addresses/send-checks-prison')
+      }
+    });
+
+
 
   }
   //THE END OF AFER ROUTES
