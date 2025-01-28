@@ -1454,6 +1454,55 @@
 {% endif %}
 
 
+{% if data.journey=="cas1application"%}
+{% if (data.ApprovedPremisesOutcome=="accepted") or (data.ApprovedPremisesOutcome=="rejected") or (data.ApprovedPremisesOutcome=="withdrawn") %}
+<!--Enter CAS1 submitted - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+        {% if data.ApprovedPremisesOutcome=="accepted" %}
+        <p class="govuk-body govuk-!-margin-bottom-2">CAS-1 application accepted</p>
+        {% elseif data.ApprovedPremisesOutcome=="rejected" %}
+        <p class="govuk-body govuk-!-margin-bottom-2">CAS-1 application rejected</p>
+        {% elseif data.ApprovedPremisesOutcome=="withdrawn" %}
+        <p class="govuk-body govuk-!-margin-bottom-2">CAS-1 application withdrawn</p>
+        {% else %}
+        {% endif %}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/cas1-application-outcome" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif data.accomodationType=="cas1"%}
+<!--Enter CAS1 submittted - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/cas/cas1-application-outcome" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% else %}
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+    <p class="govuk-body">You must record that the application has been submitted before doing this.</p>
+  </section>
+</article>
+{% endif %}
+{% endif %}
+
+
 {% if data.sendChecksPrison=="yes"%}  
 <!--Send checks to prison - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1522,7 +1571,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter address of Approved Premises application</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -1536,7 +1585,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter address of Approved Premises application</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
