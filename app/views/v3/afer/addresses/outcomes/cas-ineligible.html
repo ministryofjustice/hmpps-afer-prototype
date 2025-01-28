@@ -36,7 +36,12 @@
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
 
-        <p class="govuk-body">George Jennings is ineligible for CAS because:</p>
+        <p class="govuk-body">
+          {% if data.journey=="cas2application"%}
+          Ryan Rees
+          {% elseif data.journey=="cas1application"%}
+          Lenny Wallace
+          {% endif %} is ineligible for CAS because:</p>
 
         <div class="govuk-inset-text">
 
@@ -50,7 +55,12 @@
         <h2 class="govuk-heading-m">Next steps</h2>
 
         <p class="govuk-body">
-          You can ask the prison to check if George has a residential address they could be released to or send the checks to the prison so the application for HDC can be refused.
+          You can ask the prison to check if
+          {% if data.journey=="cas2application"%}
+          Ryan
+          {% elseif data.journey=="cas1application"%}
+          Lenny
+          {% endif %} has a residential address they could be released to or send the checks to the prison so the application for HDC can be refused.
         </p>
 
 
