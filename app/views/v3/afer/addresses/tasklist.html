@@ -373,6 +373,11 @@
 
   {% if (data.journey=="cas1application") or (data.journey=="cas2application") %} 
 
+
+  {% if CASeligibility=="completed" %}
+  test
+  {% endif %}
+
   <!--card start-->
   <div class="govuk-summary-card">
 
@@ -393,6 +398,8 @@
       </ul>
     </div>
 
+
+   
 
 
   {% if data.CASsuggestions=="completed" %}
@@ -423,7 +430,7 @@
         </dl>
       </div>
 
-  {% elseif data.CAS1=="eligible" %}
+  {% elseif (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
 
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
@@ -446,7 +453,11 @@
           Type of accommodation
          </dt> 
         <dd class="govuk-summary-list__value">
+          {% if data.accomodationType=="cas1" %}
           Approved Premises (CAS-1)
+          {% elseif data.accomodationType=="cas2" %}
+          Short-term accommodation (CAS-2)
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-type">Change</a>
@@ -565,13 +576,11 @@
 {% endif %}
 
 
+<!-- SHORT TERM ACCOMMODATION CAS-2 -->
 
+{% if data.accomodationType=="cas2" %}
 
-
-
-{% if data.CASsuggestions=="completed" %} 
-
-
+<!--card start-->
 <div class="govuk-summary-card">
 
   <div class="govuk-summary-card__title-wrapper">
@@ -580,10 +589,13 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+        {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+        {% endif %}
       </li>
     </ul>
   </div>
+
   
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
@@ -612,6 +624,107 @@
           Person has relatives in the area
         </dd>
       </div>
+      
+    </dl>
+
+              <a href="./cas/cas2-suitability-a.html" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+            
+      </div>
+      
+      </div>
+      <!--card end-->
+
+
+
+
+      <!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Second area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Londonx
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wimbledon
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Person has been released to this area before
+        </dd>
+      </div>
+      
+    </dl>
+
+              <a href="./cas/cas2-suitability-b" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+            
+      </div>
+      
+      </div>
+      <!--card end-->
+
+
+{% endif %}
+
+
+{% if data.CASsuggestions=="completed" %} 
+
+
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Third area
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Earlsfield
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wandsworth
+        </dd>
+      </div>
     
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key"></dt>
@@ -623,57 +736,6 @@
       
   </div>
 
-
-  
-
-       <div class="govuk-summary-card">
-
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Second area
-          </h2>
-          <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action">
-              <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-        
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Town or city
-              </dt>
-              <dd class="govuk-summary-list__value">
-                London
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                County or borough
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Wimbledon
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Additional Information
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Has been released to this area before
-              </dd>
-            </div>
-                    
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key"></dt>
-            </div>
-  
-          </dl>
-                <p class="govuk-body"><a href="cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state" style="margin-top: 20px; margin-bottom: 5px;">Edit checks</a></p>
-        </div>
         
         </div>
   {% else %} 
