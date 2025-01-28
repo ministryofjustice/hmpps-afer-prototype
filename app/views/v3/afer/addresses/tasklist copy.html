@@ -369,6 +369,10 @@
           </div>
           
           </div>
+          <!--card end-->
+        
+          {% endif %}
+
 
         <!--CURFEW ADDRESSES end-->
 
@@ -376,68 +380,9 @@
         <h2 class="govuk-heading-m govuk-!-margin-top-8">CAS assessment</h2>
 
 
-              <!--CAS GERNERAL start-->
-              {% if (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
-                            
-                        <!--card start-->
-                            <div class="govuk-summary-card">
+              <!--CAS JOURNEY start-->
 
-                              <div class="govuk-summary-card__title-wrapper">
-                                <h2 class="govuk-summary-card__title">
-                                  Specific areas submitted
-                                </h2>
-                                <ul class="govuk-summary-card__actions">
-                                  <li class="govuk-summary-card__action">
-                                    {% if data.CASeligible=="CASeligibleNo"%}
-                                    <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ineligible</span>
-                                    {% elseif (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %} 
-                                    <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
-                                    {% endif %} 
-                                  </li>
-                                </ul>
-                              </div>
-              
-              
-              
-                            <div class="govuk-summary-card__content">
-                              <dl class="govuk-summary-list">
-              
-                                <div class="govuk-summary-list__row">
-                                  <dt class="govuk-summary-list__key">
-                                    Eligibility
-                                  </dt>
-                                  <dd class="govuk-summary-list__value">
-                                    Eligible for CAS-1 or CAS-2
-                                  </dd>
-                                  <dd class="govuk-summary-list__actions">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
-                                  </dd>
-                                </div>
-              
-                                <div class="govuk-summary-list__row">
-                                  <dt class="govuk-summary-list__key">
-                                    Type of accommodation
-                                  </dt> 
-                                  <dd class="govuk-summary-list__value">
-                                    {% if data.accomodationType=="cas1" %}
-                                    Approved Premises (CAS-1)
-                                    {% elseif data.accomodationType=="cas2" %}
-                                    Short-term accommodation (CAS-2)
-                                    {% endif %}
-                                  </dd>
-                                  <dd class="govuk-summary-list__actions">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-type">Change</a>
-                                  </dd>
-                                </div>
-              
-                              </dl>
-                            </div>
-              
-                          </div>
-                          <!--card end-->
-
-
-              {% elseif (data.journey=="cas1application") or (data.journey=="cas2application") %}
+              {% if (data.journey=="cas1application") or (data.journey=="cas2application") %}
               <!--card start-->
               <div class="govuk-summary-card">
 
@@ -468,13 +413,135 @@
               <!--card end-->
               {% endif %} 
 
-              <!--CAS GENERAL end-->
+              <!--CAS JOURNEY start-->
 
 
 
-    
+            {% if (data.journey=="cas1application") or (data.journey=="cas2application") %} 
+  
+            <!--APPROVED PREMISES CAS-1 start-->
 
-            {% if (data.journey=="cas1application") or (data.journey=="cas2application") %}
+          
+
+              <!--card start-->
+              <div class="govuk-summary-card">
+
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Specific areas submitted
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      {% if data.CASsuggestions=="completed" %} 
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
+                      {% elseif data.CAS1=="eligible"%}
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
+                      {% elseif data.CASeligibility=="completed" %}
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ineligible</span>
+                      {% endif %} 
+                    </li>
+                  </ul>
+                </div>
+
+
+              
+
+
+              {% if data.CASsuggestions=="completed" %}
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+              
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Eligibility
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Eligible for CAS-1 or CAS-2
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Type of accommodation
+                    <dd class="govuk-summary-list__value">
+                      Short-term accommodation (CAS-2)
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-type">Change</a>
+                    </dd>
+                  </div>
+                    </dl>
+                  </div>
+
+              {% elseif (data.accomodationType=="cas1") or (data.accomodationType=="cas2") %}
+
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Eligibility
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Eligible for CAS-1 or CAS-2
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Type of accommodation
+                    </dt> 
+                    <dd class="govuk-summary-list__value">
+                      {% if data.accomodationType=="cas1" %}
+                      Approved Premises (CAS-1)
+                      {% elseif data.accomodationType=="cas2" %}
+                      Short-term accommodation (CAS-2)
+                      {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-type">Change</a>
+                    </dd>
+                  </div>
+
+                </dl>
+              </div>
+
+
+
+              
+              {% else %}
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {% if data.CASeligibility=="completed" %} 
+                    Reason: 
+                    {%if (data.CASeligibleDetails) %}
+                    {{data.CASeligibleDetails}}
+                    {% endif %}
+                    
+                    {% else %}
+
+                    <p class="govuk-body" style="margin-left: 20px; margin-top: 10px;">This person wants to be considered for specific CAS areas.</p>
+
+
+                    <a href="cas/accommodation-eligibility" class="govuk-button" style="margin-top: 0px; margin-left: 20px; margin-bottom: 15px;">Start assessment</a>
+                    {% endif %}
+                </dt>
+              </div>
+
+              
+                  
+                </dl>
+              </div>
+              {% endif %} 
+
+            <!--card end-->
 
             {% if data.cas1assessment=="complete" %}
             <div class="govuk-summary-card">
@@ -506,19 +573,7 @@
                       No application status entered yet
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter</a>
-                    </dd>
-                  </div>
-
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      CAS-1 application outcome
-                    </dt> 
-                    <dd class="govuk-summary-list__value">
-                      No application outcome entered yet
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter</a>
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter?</a>
                     </dd>
                   </div>
 
@@ -530,7 +585,7 @@
                       No address entered yet
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter</a>
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter?</a>
                     </dd>
                   </div>
 
@@ -579,11 +634,8 @@
                   </h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      {% if data.cas2suitableAreaA=="yes" %}
+                      {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
                       <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
-                      {% elseif data.cas2suitableAreaA=="no" %}
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
-                      {% else %}
                       {% endif %}
                     </li>
                   </ul>
@@ -617,22 +669,15 @@
                         Person has relatives in the area
                       </dd>
                     </div>
-
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
-                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
-                        {% else %}
-                        <a href="./cas/cas2-suitability-a" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
-                        {% endif %}
-                      </dt>
-                    </div>
                     
                   </dl>
-                </div>
+              
+                            <a href="./cas/cas2-suitability-a.html" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+                          
+                    </div>
                     
-              </div>
-              <!--card end-->
+                    </div>
+                    <!--card end-->
               
               
               
@@ -646,11 +691,8 @@
                   </h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      {% if data.cas2suitableAreaB=="yes" %}
+                      {% if (data.riskAssessed=="yes") and (data.cas2suitable=="yes") %}
                       <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
-                      {% elseif data.cas2suitableAreaB=="no" %}
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
-                      {% else %}
                       {% endif %}
                     </li>
                   </ul>
@@ -665,7 +707,7 @@
                         Town or city
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        London
+                        Londonx
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -684,25 +726,21 @@
                         Person has been released to this area before
                       </dd>
                     </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
-                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
-                        {% else %}
-                        <a href="./cas/cas2-suitability-b" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
-                        {% endif %}
-                      </dt>
-                    </div>
                     
                   </dl>
-                 </div>
+              
+                            <a href="./cas/cas2-suitability-b" class="govuk-button" style="margin-top: 20px; margin-bottom: 5px;">Start checks</a>
+                          
+                    </div>
                     
-              </div>
-              <!--card end-->
+                    </div>
+                    <!--card end-->
               {% endif %}
               
               
-              {% if data.CASsuggestions=="completed" %}   
+              {% if data.CASsuggestions=="completed" %} 
+              
+              
               <div class="govuk-summary-card">
               
                 <div class="govuk-summary-card__title-wrapper">
@@ -740,11 +778,14 @@
                     </div>
                     
                 </div>
+              
+                      
+              
                 {% else %} 
                 {% endif %} 
               
-      
-                {% endif %} 
+              {% endif %} 
+
 
         <!-- SHORT TERM ACCOMMODATION CAS-2 end -->
 
