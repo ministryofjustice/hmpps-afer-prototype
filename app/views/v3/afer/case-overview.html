@@ -350,9 +350,12 @@
           Personal details
         </h2>
         <ul class="govuk-summary-card__actions">
+          {% if data.user=="probation" %}
+          {% else %}
           <li class="govuk-summary-card__action">
             <a class="govuk-link govuk-link--no-visited-state" href="#">See full DPS profile</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     
@@ -543,6 +546,7 @@
     
            <div class="govuk-grid-column-one-third">
     
+    {% if (data.user=="decisionmaker") or (data.user=="admin") %}
     <!--shortcuts card start-->
     <div class="govuk-summary-card" style="margin-top: 0px;">
     
@@ -599,58 +603,62 @@
         {% endif %}
         {% endif %}
 
+      </dl>
+    </div>
+    
+  </div>
+
+    <!--shortcuts card end-->
+    {% endif %}
+
+
+       
+        <!-- PROBATION start -->
+
         {% if data.user=="probation" %}
 
-        {% if (data.reportedDelay=="yes") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") %}
+        <div class="govuk-summary-card" style="margin-top: 0px;">
+    
+          <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Shortcuts
+          </h2>
+          </div>
+    
+          
+          <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+    
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <a class="govuk-link govuk-link--no-visited-state" href="./case-list-tab-one.html">Go to all HDC applications</a>
+              </dt>
+            </div>
+
+        {% if data.RiskChecks=="completed" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
           </dt>
         </div>
-        {% elseif data.reportedDelay=="yes"%}
-        <div class="govuk-summary-list__row">
+        <!--<div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="delay/view-delay">View or update information about a delay</a>
           </dt>
-        </div>
-        {% else %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
-          </dt>
-        </div>
-        {% endif %}
-
-        {% if data.cas2suitable=="yes" %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist">View CAS-2 address and application status</a>
-          </dt>
-        </div>
-        {% else %}
-        {% endif %}
-
-        {% endif %}
-
-        <!--{% if data.user=="admin" %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="">Restart application</a>
-          </dt>
-        </div>
-        {% endif %}-->
-
-        <!--<div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Close case</a>
-          </dt>
         </div>-->
-      
-      </dl>
+        {% else %}
+        {% endif %}
+
+
+          </dl>
+        </div>
+        
       </div>
-      
-    </div>
-      <!--shortcuts card end-->
+      {% endif %}
+
+        <!-- PROBATION end -->
+
+
 
     
     
