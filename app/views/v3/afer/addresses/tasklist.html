@@ -369,7 +369,7 @@
 
 
 
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">CAS assessment</h2>
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">CAS accommodation</h2>
 
   {% if (data.journey=="cas1application") or (data.journey=="cas2application") %} 
 
@@ -383,7 +383,7 @@
 
     <div class="govuk-summary-card__title-wrapper">
       <h2 class="govuk-summary-card__title">
-        Specific areas submitted
+        Eligibility check
       </h2>
       <ul class="govuk-summary-card__actions">
         <li class="govuk-summary-card__action">
@@ -408,10 +408,10 @@
   
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Eligibility
+          Is this person eligible for CAS accommodation?
         </dt>
         <dd class="govuk-summary-list__value">
-          Eligible for CAS-1 or CAS-2
+          Yes
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
@@ -438,10 +438,10 @@
       
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Eligibility
+          Is this person eligible for CAS accommodation?
         </dt>
         <dd class="govuk-summary-list__value">
-          Eligible for CAS-1 or CAS-2
+          Yes
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
@@ -503,7 +503,7 @@
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      Eligible for CAS-1
+      Approved Premises assessment details
     </h2>
   </div>
   <div class="govuk-summary-card__content">
@@ -523,25 +523,37 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          CAS-1 application status
+          Application status
          </dt> 
         <dd class="govuk-summary-list__value">
-          No application status entered yet
+          Not submitted yet
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter?</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter</a>
         </dd>
       </div>
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          CAS-1 address
+          Application outcome
+         </dt> 
+        <dd class="govuk-summary-list__value">
+          No outcome recorded yet
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter</a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Accommodation address
          </dt> 
         <dd class="govuk-summary-list__value">
           No address entered yet
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter?</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter</a>
         </dd>
       </div>
 
