@@ -176,20 +176,19 @@ var version = '/v3';
     }
   });
 
-
-    //CAS accommodation type question
-    router.post(version + '/accommodationtype', function (req, res) {
-      var accomodationType = req.session.data['accomodationType']
-      // Check whether the variable matches a condition
-      if (accomodationType == "cas1"){
-      
-      // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/cas/cas1-vlo-check')
-      } else {
-        // Send user back to address details page
-        res.redirect(version + '/afer/addresses/cas/cas2-suitability-a')
-      }
-    });
+  //CAS-1 Application submission
+  router.post(version + '/applicationsubmission', function (req, res) {
+    var cas1submitted = req.session.data['cas1submitted']
+    // Check whether the variable matches a condition
+    if (cas1submitted == "yes"){
+    
+    // Send user to case overview page if suitablity decision has been made and confirm outcome
+      res.redirect(version + '/afer/case-overview')
+    } else {
+      // Send user back to address details page
+      res.redirect(version + '/afer/addresses/cas/cas1-apply-placement')
+    }
+  });
 
 
     //CAS areas unsuitable
