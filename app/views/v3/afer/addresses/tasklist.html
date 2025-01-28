@@ -369,7 +369,7 @@
 
 
 
-  <h2 class="govuk-heading-m govuk-!-margin-top-8">Proposed CAS areas</h2>
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">CAS assessment required</h2>
 
   {% if (data.journey=="cas1application") or (data.journey=="cas2application") %} 
 
@@ -378,7 +378,7 @@
 
     <div class="govuk-summary-card__title-wrapper">
       <h2 class="govuk-summary-card__title">
-        PiP is interested in CAS
+        Specific areas submitted
       </h2>
       <ul class="govuk-summary-card__actions">
         <li class="govuk-summary-card__action">
@@ -440,6 +440,7 @@
           <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
         </dd>
       </div>
+
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Type of accommodation
@@ -452,18 +453,16 @@
         </dd>
       </div>
 
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key"></dt>
-      </div>
-
     </dl>
-    <p class="govuk-body"><a href="./cas/cas1-questions" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
   </div>
+
+
+
   
   {% else %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__value">
+    <dt class="govuk-summary-list__key">
         {% if data.CASeligibility=="completed" %} 
         Reason: 
         {%if (data.CASeligibleDetails) %}
@@ -471,7 +470,11 @@
         {% endif %}
         
         {% else %}
-        <a href="cas/accommodation-eligibility" class="govuk-button" style="margin-top: 20px; margin-left: 15px; margin-bottom: 15px;">Start checks</a>
+
+        <p class="govuk-body" style="margin-left: 20px; margin-top: 10px;">This person wants to be considered for specific CAS areas.</p>
+
+
+        <a href="cas/accommodation-eligibility" class="govuk-button" style="margin-top: 0px; margin-left: 20px; margin-bottom: 15px;">Start assessment</a>
         {% endif %}
     </dt>
   </div>
@@ -484,6 +487,87 @@
 
 </div>
 <!--card end-->
+
+{% if data.cas1assessment=="complete" %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligible for CAS-1
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Is there a victim liaison officer (VLO) for this person?
+         </dt> 
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-vlo-check">Change</a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-1 application status
+         </dt> 
+        <dd class="govuk-summary-list__value">
+          No application status entered yet
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter?</a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CAS-1 address
+         </dt> 
+        <dd class="govuk-summary-list__value">
+          No address entered yet
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter?</a>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+  
+</div>
+{% elseif data.accomodationType=="cas1" %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligible for CAS-1
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+
+          <p class="govuk-body" style="margin-left: 0px; margin-top: 10px;">This person needs to be assessed for Approved Premises (CAS-1).</p>
+
+          <a href="./cas/cas1-vlo-check" class="govuk-button" style="margin-top: 0px; margin-left: 0px; margin-bottom: 15px;">Start assessment</a>
+
+        </dt>
+      </div>
+
+    </dl>
+  </div>
+
+</div>
+{% endif %}
+
+
+
+
+
 
 {% if data.CASsuggestions=="completed" %} 
 
