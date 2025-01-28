@@ -177,14 +177,14 @@ var version = '/v3';
   });
 
 
-    //CAS accommodation eligbility question
+    //CAS accommodation type question
     router.post(version + '/accommodationtype', function (req, res) {
       var accomodationType = req.session.data['accomodationType']
       // Check whether the variable matches a condition
       if (accomodationType == "cas1"){
       
       // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/cas/cas1-questions')
+        res.redirect(version + '/afer/addresses/cas/cas1-vlo-check')
       } else {
         // Send user back to address details page
         res.redirect(version + '/afer/addresses/cas/cas2-suitability-a')

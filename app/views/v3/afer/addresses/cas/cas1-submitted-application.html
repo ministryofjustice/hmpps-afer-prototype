@@ -30,14 +30,31 @@
       <div class="govuk-grid-column-two-thirds">
 
         <form action="../../case-overview" method="post" novalidate>
-          <input type="hidden" name="cas1addressadded" value="yes">
-
-
-          <h1 class="govuk-heading-l govuk-!-margin-top-6">
-            Confirm that CAS-1 application submitted 
-          </h1>
           
-
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
+                  Have you submitted an application for Approved Premises?
+                </h1>
+              </legend>
+              <div class="govuk-hint">Recording this helps to keep the prison informed of progress.</div>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="cas1submitted" name="cas1submitted" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="cas1submitted">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="cas1submitted-2" name="cas1submitted" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="cas1submitted-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
       
 
             <div class="govuk-button-group">

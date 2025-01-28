@@ -47,12 +47,23 @@
 
     {% if data.user=="probation" %}
 
-    {% if data.RiskChecks=="completed" %}
+    <!-- APPROVED PREMISES CAS-1 -->
+  
+    {% if data.CAS1=="eligible" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
-      <div class="moj-banner__message">Completed</div>
+      <div class="moj-banner__message">Apply for an Approved Premises (CAS-1) placement using the <a class="govuk-link govuk-link--no-visited-state" href="https://approved-premises.hmpps.service.justice.gov.uk/" target="_blank">CAS-1 service.</a></br>
+        You must also record when you have submitted the application and then enter the outcome in this service.
+      </div>
+    </div>
+    {% elseif data.RiskChecks=="completed" %}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">@TOM Speak with POM COMPLETE</div>
     </div>
     {% elseif data.cas1addressadded=="yes" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
@@ -120,6 +131,7 @@
     {% endif %}     
 
     {% endif %}
+
 
 <!--probation banners end-->
 
@@ -1393,13 +1405,14 @@
 {% endif %}
 
 
-{% if data.cas1addressadded=="yes"%}
-<!--Enter CAS1 address - Done-->
+{% if data.journey=="cas1application"%}
+{% if data.cas1submitted=="yes"%}
+<!--Enter CAS1 submitted - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">CAS-1 application / submitted status</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Record submission of Approved Premises application</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -1408,12 +1421,12 @@
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/cas1-submitted-application" style="margin-top: 15px;">View or change</a></p>
   </section>
 {% elseif data.accomodationType=="cas1"%}
-<!--Enter CAS1 address - Start-->
+<!--Enter CAS1 submittted - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">CAS-1 application / submitted status</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Record submission of Approved Premises application</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
@@ -1423,8 +1436,14 @@
   </section>
 </article>
 {% else %}
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Record submission of Approved Premises application</h2>
+    <p class="govuk-body">Tell us when you have submitted an application for Approved Premises (CAS-1).</p>
+  </section>
+</article>
 {% endif %}
-
+{% endif %}
 
 
 {% if data.sendChecksPrison=="yes"%}  
@@ -1487,6 +1506,46 @@
 </article>
 {% endif %}
 
+
+{% if data.journey=="cas1application"%}
+{% if data.cas1addressadded=="yes"%}
+<!--Enter CAS1 submitted - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/cas1-application-outcome" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif data.accomodationType=="cas1"%}
+<!--Enter CAS1 submittted - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/cas/cas1-application-outcome" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% else %}
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
+    <p class="govuk-body">You must record that the application has been submitted before doing this.</p>
+  </section>
+</article>
+{% endif %}
+{% endif %}
 
 
 {% if data.LicenceCreated=="yes"%}  

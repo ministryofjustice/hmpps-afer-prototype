@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form action="../../case-overview" method="post" novalidate>
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Apply for an Approved Premises placement</h1>
+
+        <p class="govuk-body">You can use the <a class="govuk-link govuk-link--no-visited-state" href="https://approved-premises.hmpps.service.justice.gov.uk/" target="_blank">CAS-1 – Approved Premises service.</a></p>
+
+        <p class="govuk-body">Once submitted, return to this service to tell us. This helps to keep the prison informed of progress. You will then be able to enter the outcome of the application.</p>
+
+        <input type="hidden" name="cas1submitted" value="no">
+
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button">
+                Back to application overview
+              </button>
+              <!--<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Cancel
+              </button>-->
+            </div>
+
+
+        </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
