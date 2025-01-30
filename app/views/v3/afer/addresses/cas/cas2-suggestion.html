@@ -36,6 +36,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form class="form" action="../tasklist" method="post" novalidate>
+
+
+ 
+
       <h1 class="govuk-heading-l govuk-!-margin-top-8"> Suggest alternative options</h1>
 
       <div data-module="moj-add-another">
@@ -48,31 +53,25 @@
       
            
             <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="person[0][first_name]">
+              <label class="govuk-label govuk-!-font-weight-bold" for="cityCASsuggestionC">
                 Town or city (optional)
               </label>
-      
-              <input class="govuk-input" id="person[0][first_name]" name="person[0][first_name]" type="text" data-name="person[%index%][first_name]" data-id="person[%index%][first_name]">
-      
+              <input class="govuk-input" id="cityCASsuggestionC" name="cityCASsuggestionC" type="text">
             </div>
       
             <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="person[0][last_name]">
+              <label class="govuk-label govuk-!-font-weight-bold" for="countyCASsuggestionC">
                 County or borough (optional)
               </label>
-      
-              <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
-      
+              <input class="govuk-input" id="countyCASsuggestionC" name="countyCASsuggestionC" type="text">
             </div>
       
           </fieldset>
       
           <div class="moj-button-action">
-      
             <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
               Add area
             </button>
-      
           </div>
       
       </div>
@@ -82,9 +81,9 @@
       
 
       <div class="govuk-form-group govuk-!-margin-top-8 govuk-!-margin-bottom-8">
-        <label class="govuk-label" for="more-detail"><strong>Specify areas to avoid (optional)</strong></label>
+        <label class="govuk-label" for="exclusionzoneCASsuggestionC"><strong>Specify areas to avoid (optional)</strong></label>
         <div class="govuk-hint">Add information about areas Ryan should avoid.</div>
-        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+        <textarea class="govuk-textarea" id="exclusionzoneCASsuggestionC" name="exclusionzoneCASsuggestionC" rows="5"></textarea>
       </div>
 
 
@@ -110,7 +109,7 @@
                    <!--END set dynamic radio hide/show text-->
          
                    {{ govukRadios({
-                     name: "vlo",
+                     name: "moreresidentialaddresses",
                      fieldset: {
                        legend: {
                          text: "Do you want to request residential addresses?",
@@ -141,16 +140,16 @@
 
 
 
-      <form class="form" action="../tasklist" method="post" novalidate>
+      
 
       <input type="hidden" name="CASsuggestions" value="completed">
 
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button" data-module="govuk-button">
-          Continue
+          Save
         </button>
         <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          BACK TO CAS OR OVERVIEW? 
+          Cancel
         </button>
       </div>
 
