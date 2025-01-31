@@ -1420,7 +1420,7 @@
 
 
 
-{% if (data.cas2suitable=="yes") or (data.accomodationType=="cas1") %}
+{% if (data.cas2suitableAreaB=="no") or (data.accomodationType=="cas1") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1429,8 +1429,9 @@
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or CAS accommodation</h2>
         {% if (data.accomodationType=="cas1") and (data.cas1assessment=="complete") %}
         <p class="govuk-body govuk-!-margin-bottom-2">Apply for an Approved Premises (CAS-1) placement</p>
-        {% elseif (data.cas2suitable=="yes") and (data.riskAssessed=="yes") %}
-        <p class="govuk-body govuk-!-margin-bottom-2">Prison staff must apply for short-term accommodation (CAS-2)</p>
+        {% elseif (data.cas2suitableAreaB=="no") and (data.RiskChecks=="completed") %}
+        <p class="govuk-body govuk-!-margin-bottom-2">CAS-2 areas unsuitable</p>
+        <!--<p class="govuk-body govuk-!-margin-bottom-2">Prison staff must apply for short-term accommodation (CAS-2)</p>-->
         {% endif %}
       </div>
       <div class="govuk-grid-column-one-third">
@@ -1589,6 +1590,33 @@
 {% endif %}
 
 
+{% if data.journey=="cas2application"%}
+{% if (data.cas2suitableAreaB=="no") %}
+<!--Send checks to prison - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/send-checks-prison" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% else %}
+<!--Send checks to prison - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+    <p class="govuk-body">You can start this when you have completed address and risk checks.</p>
+  </section>
+</article>
+{% endif %}
+
+{% else %}
 {% if data.sendChecksPrison=="withdrawn"%} 
 <!--Send checks to prison - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1632,7 +1660,7 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/send-checks-prison" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif (data.cas2suitable=="yes") or (data.ApprovedPremisesOutcome=="accepted") or (data.ApprovedPremisesOutcome=="rejected") or (data.ApprovedPremisesOutcome=="withdrawn") %}
+{% elseif (data.ApprovedPremisesOutcome=="accepted") or (data.ApprovedPremisesOutcome=="rejected") or (data.ApprovedPremisesOutcome=="withdrawn") %}
 <!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1677,11 +1705,10 @@
   </section>
 </article>
 {% endif %}
+{% endif %}
 
 
 {% if data.journey=="cas1application"%}
-
-
 {% if data.ApprovedPremisesOutcome=="withdrawn" %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
