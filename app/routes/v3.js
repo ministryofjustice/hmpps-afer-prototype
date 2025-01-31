@@ -192,6 +192,21 @@ var version = '/v3';
 
 
 
+  //CAS-1 vlo question TBC
+  router.post(version + '/vloquestion', function (req, res) {
+    var vlo = req.session.data['vlo']
+    // Check whether the variable matches a condition
+    if (vlo == "no"){
+    
+    // Send user to case overview page if suitablity decision has been made and confirm outcome
+      res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
+    } else {
+      // Send user back to address details page
+      res.redirect(version + '/afer/addresses/tasklist')
+    }
+  });
+
+
 
   
 

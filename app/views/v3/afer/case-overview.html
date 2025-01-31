@@ -52,7 +52,22 @@
 
     {% if data.journey=="cas1application" %}
 
-    {% if data.cas1addressadded=="yes" %}
+    {% if data.sendChecksPrison=="withdrawn" %}  
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Checks sent to prison</div>
+    </div>
+    {% elseif data.ApprovedPremisesOutcome=="withdrawn" %}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Outcome recorded.
+      Ask the prison to check if Lenny has any residential addresses they could be released to or or send the checks to the prison so the application for HDC can be refused.</div>
+    </div>
+    {% elseif data.cas1addressadded=="yes" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
@@ -66,20 +81,29 @@
       </svg>
       <div class="moj-banner__message">Checks sent to prison</div>
     </div>
-    {% elseif (data.ApprovedPremisesOutcome=="accepted") or (data.ApprovedPremisesOutcome=="rejected") or (data.ApprovedPremisesOutcome=="withdrawn") %}
+    {% elseif data.ApprovedPremisesOutcome=="rejected" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
-      <div class="moj-banner__message">Approved Premises (CAS-1) details updated</div>
+      <div class="moj-banner__message">Outcome recorded.
+      Ask the prison to check if Lenny has any residential addresses they could be released to or or send the checks to the prison so the application for HDC can be refused.</div>
+    </div>
+    {% elseif data.ApprovedPremisesOutcome=="accepted" %}
+    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+      </svg>
+      <div class="moj-banner__message">Outcome recorded. Enter the address of the accommodation once you have it.</div>
     </div>
     {% elseif data.cas1submitted=="yes" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
-      <div class="moj-banner__message">Approved Premises (CAS-1) details updated</div>
+      <div class="moj-banner__message">Submission recorded. Enter the outcome of the application once it has been reached.</div>
     </div>
+    {% elseif data.cas1submitted=="no" %}
     {% elseif data.cas1assessment=="complete" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -697,7 +721,8 @@
               </dt>
             </div>
 
-        {% if data.RiskChecks=="completed" %}
+        {% if (data.journey=="cas1application") or (data.journey=="cas2application" ) %}
+        {% elseif data.RiskChecks=="completed" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
@@ -1524,11 +1549,11 @@
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of Approved Premises application</h2>
         {% if data.ApprovedPremisesOutcome=="accepted" %}
-        <p class="govuk-body govuk-!-margin-bottom-2">CAS-1 application accepted</p>
+        <p class="govuk-body govuk-!-margin-bottom-2">Approved Premises (CAS-1) application accepted</p>
         {% elseif data.ApprovedPremisesOutcome=="rejected" %}
-        <p class="govuk-body govuk-!-margin-bottom-2">CAS-1 application rejected</p>
+        <p class="govuk-body govuk-!-margin-bottom-2">Approved Premises (CAS-1) rejected</p>
         {% elseif data.ApprovedPremisesOutcome=="withdrawn" %}
-        <p class="govuk-body govuk-!-margin-bottom-2">CAS-1 application withdrawn</p>
+        <p class="govuk-body govuk-!-margin-bottom-2">Approved Premises (CAS-1) withdrawn</p>
         {% else %}
         {% endif %}
       </div>
@@ -1564,7 +1589,36 @@
 {% endif %}
 
 
-{% if data.sendChecksPrison=="yes"%}  
+{% if data.sendChecksPrison=="withdrawn"%} 
+<!--Send checks to prison - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/send-checks-prison" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif data.ApprovedPremisesOutcome=="withdrawn" %}
+<!--Send checks to prison - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/send-checks-prison" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% elseif data.sendChecksPrison=="yes"%}  
 <!--Send checks to prison - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1626,7 +1680,16 @@
 
 
 {% if data.journey=="cas1application"%}
-{% if data.cas1addressadded=="yes"%}
+
+
+{% if data.ApprovedPremisesOutcome=="withdrawn" %}
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter Approved Premises address</h2>
+    <p class="govuk-body">TBC</p>
+  </section>
+</article>
+{% elseif data.cas1addressadded=="yes"%}
 <!--Enter CAS1 submitted - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1666,7 +1729,15 @@
 {% endif %}
 
 
-{% if data.LicenceCreated=="yes"%}  
+{% if data.ApprovedPremisesOutcome=="withdrawn" %}
+<!--Create licence - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
+    <p class="govuk-body">You can do this if a decision maker in prison approves Lenny for HDC release.</p>
+  </section>
+</article>
+{% elseif data.LicenceCreated=="yes"%}  
 <!--Create licence - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
