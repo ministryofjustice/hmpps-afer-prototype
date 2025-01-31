@@ -48,7 +48,7 @@
                   <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
                 </svg>
 
-                <div class="moj-banner__message">Placeholder copy confirm CAS-1 eligibility and start assessment</div>
+                <div class="moj-banner__message">Eligibility check completed. You can now continue assessing this person for Approved Premises.</div>
 
               </div>
               {% else %}
@@ -72,7 +72,7 @@
                   <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
                 </svg>
 
-                <div class="moj-banner__message">Placeholder copy preferred area unsuitable, check next</div>
+                <div class="moj-banner__message">Preferred area unsuitable</div>
 
               </div>
               {% elseif data.accomodationType=="cas2" %}
@@ -82,7 +82,7 @@
                   <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
                 </svg>
 
-                <div class="moj-banner__message">Placeholder copy confirm CAS-2 eligibility and check areas</div>
+                <div class="moj-banner__message">Eligibility check completed. You can now continue assessing this person for CAS-2.</div>
 
               </div>
               {% else %}
@@ -162,14 +162,14 @@
             </h2>
           </div>
           <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">None of the areas submitted by Ryan Rees are suitable</p>
+            <p class="govuk-notification-banner__heading">CAS areas unsuitable</p>
   
             <p class="govuk-body">
-              Completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
             </p>
 
             <p class="govuk-body">
-              Ask for more or send to prison
+              Contact the prison to suggest alternative release options for Ryan Rees or send the checks back to prison so the HDC application can be refused.
             </p>
   
           </div>
