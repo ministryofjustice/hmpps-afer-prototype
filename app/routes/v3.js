@@ -147,6 +147,7 @@ var version = '/v3';
     }
   });
 
+
   //Address checks navigating back
   router.post(version + '/addresschecks', function (req, res) {
     var Navigation = req.session.data['nav']
@@ -176,6 +177,7 @@ var version = '/v3';
     }
   });
 
+
   //CAS-1 Application submission
   router.post(version + '/applicationsubmission', function (req, res) {
     var cas1submitted = req.session.data['cas1submitted']
@@ -191,45 +193,11 @@ var version = '/v3';
   });
 
 
-
-  //CAS-1 vlo question TBC
-  router.post(version + '/vloquestion', function (req, res) {
-    var vlo = req.session.data['vlo']
-    // Check whether the variable matches a condition
-    if (vlo == "no"){
-    
-    // Send user to case overview page if suitablity decision has been made and confirm outcome
-      res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
-    } else {
-      // Send user back to address details page
-      res.redirect(version + '/afer/addresses/tasklist')
-    }
-  });
-
-
-
-  
-
     //CAS area B unsuitable
     router.post(version + '/suitabilitycheckb', function (req, res) {
       var cas2suitableAreaB = req.session.data['cas2suitableAreaB']
       // Check whether the variable matches a condition
       if (cas2suitableAreaB == "no"){
-      
-      // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
-      } else {
-        // Send user back to address details page
-        res.redirect(version + '/afer/addresses/tasklist')
-      }
-    });
-
-
-    //CAS area C unsuitable
-    router.post(version + '/suitabilitycheckc', function (req, res) {
-      var cas2suitableAreaC = req.session.data['cas2suitableAreaC']
-      // Check whether the variable matches a condition
-      if (cas2suitableAreaC == "no"){
       
       // Send user to case overview page if suitablity decision has been made and confirm outcome
         res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
@@ -247,16 +215,12 @@ var version = '/v3';
       if (confirmationnav == "alternatives"){
       
       // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/cas/cas2-suggestion')
+        res.redirect(version + '/afer/addresses/cas/cas2-alternatives')
       } else {
         // Send user back to address details page
         res.redirect(version + '/afer/addresses/send-checks-prison')
       }
     });
-
-
-    
-
 
 
 

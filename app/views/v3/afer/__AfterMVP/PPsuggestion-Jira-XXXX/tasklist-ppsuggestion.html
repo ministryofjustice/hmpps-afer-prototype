@@ -29,6 +29,14 @@
 
 {% block content %}
 
+<!--PP Suggestions Jira-XXXX start --> 
+<!--This includes the following:
+- Banner info at the top that CA was informed
+- Third area block at the bottom
+- Exclusion zone block at the bottom
+- Warning at the top in address section CA was informed no more addresses -->
+<!--PP Suggestions Jira-XXXX end --> 
+
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
@@ -37,10 +45,7 @@
       <div class="govuk-grid-column-full">
         
 
-              <!--banner CAS-1 start--> 
-              {% if data.journey=="cas1application" %}
-
-
+              <!--banner start--> 
               {% if data.accomodationType=="cas1" %}
               <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
@@ -49,30 +54,6 @@
                 </svg>
 
                 <div class="moj-banner__message">Placeholder copy confirm CAS-1 eligibility and start assessment</div>
-
-              </div>
-              {% else %}
-              {% endif %}
-
-
-              {% endif %}
-              <!--banner CAS-1 start--> 
-
-
-
-              <!--banner CAS-2 start--> 
-              {% if data.journey=="cas2application" %}
-              
-              {% if (data.cas2suitableAreaB=="no") and (data.alternativeOptions=="yes") %}
-
-              {% elseif data.cas2suitableAreaA=="no" %}
-              <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-
-                <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-                  <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-                </svg>
-
-                <div class="moj-banner__message">Placeholder copy preferred area unsuitable, check next</div>
 
               </div>
               {% elseif data.accomodationType=="cas2" %}
@@ -85,11 +66,22 @@
                 <div class="moj-banner__message">Placeholder copy confirm CAS-2 eligibility and check areas</div>
 
               </div>
+              {% endif %}
+                                    
+                                    
+              {% if data.cas2suitableAreaC=="yes" %}
+              <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+                <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                  <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+                </svg>
+
+                <div class="moj-banner__message">Placeholder copy that CA was informed about the new CAS area and will confirm with PiP</div>
+
+              </div>
               {% else %}
               {% endif %}
-
-              {% endif %}
-              <!--banner CAS-2 end--> 
+              <!--banner end-->    
 
 
               
@@ -154,28 +146,6 @@
         
         <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Check curfew addresses or CAS accommodation</h1>
 
-        {% if (data.cas2suitableAreaB=="no") and (data.alternativeOptions=="yes") %}
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">None of the areas submitted by Ryan Rees are suitable</p>
-  
-            <p class="govuk-body">
-              Completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-            </p>
-
-            <p class="govuk-body">
-              Ask for more or send to prison
-            </p>
-  
-          </div>
-        </div>
-        {% endif %}
-
         <!--REPORT DELAY start-->
                 
               <!--If delay has been reported-->
@@ -223,7 +193,18 @@
         
 
               {% if data.journey=="cas1application" %}
-            
+              
+              {% if data.CAinformed=="yes"%}
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  CA was informed no more addresses </strong>
+                </strong>
+              </div>
+              {% else %}
+              {% endif %}
+        
               <!--card start-->
               <div class="govuk-summary-card">
         
@@ -756,25 +737,120 @@
               {% endif %}
               
               
+
+
+              
+
+
+                
+                
+
+
+
+              {% if (data.cityCASsuggestionC) %}
+              <div class="govuk-summary-card">
+              
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Third area
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      {% if data.cas2suitableAreaC=="yes" %}
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable TBC</span>
+                      {% elseif data.cas2suitableAreaC=="no" %}
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                      {% else %}
+                      {% endif %}
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Town or city
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{data.cityCASsuggestionC}}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        County or borough
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{data.countyCASsuggestionC}}
+                      </dd>
+                    </div>
+                    {% if data.cas2suitableAreaC=="yes" %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        PiP to confirm
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        TBC
+                      </dd>
+                    </div>
+                    {% endif %}
+
+                    
+                      <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            {% if data.cas2suitableAreaC=="yes" %}
+                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
+                            {% else %}
+                            <a href="./cas/cas2-suitability-c" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
+                            {% endif %}
+                          </dt>
+                        </div>
+              
+                  </dl>
+                </div>
+                    
+                </div>
+                {% endif %} 
+
+
+                {% if (data.exclusionzoneCASsuggestionC) %}
+                <div class="govuk-summary-card">
+                
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Specify areas to avoid
+                    </h2>
+                  </div>
+                  
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                  
+                      <div class="govuk-summary-list__row">
+                        <dd class="govuk-summary-list__value">
+                          {{data.exclusionzoneCASsuggestionC}}
+                        </dd>
+                      </div>
+                
+                    </dl>
+                  </div>
+                      
+                  </div>
+                  {% endif %} 
+
+
+
+
+
+
+
+              
       
                 {% endif %} 
 
         <!-- SHORT TERM ACCOMMODATION CAS-2 end -->
 
-        <form class="form" action="../case-overview" method="post" novalidate>
-
-        {% if (data.cas2suitableAreaB=="no") and (data.alternativeOptions=="yes") %}
-        <input type="hidden" name="cas2suitableAreaB" value="no">
-        {% else %}
-        {% endif %}
-
-        <div class="govuk-button-group">
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Return to application overview
-          </button>
-        </div>
-
-        </form>
+        <a href="../case-overview" class="govuk-button govuk-button--secondary" style="margin-top: 20px;">Return to application overview</a>
 
         <!--2/3 end-->
 
