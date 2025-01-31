@@ -1500,7 +1500,7 @@
 {% endif %}
 
 
-{% if data.journey=="cas1application" %}
+{% if data.accomodationType=="cas1" %}
 {% if data.cas1submitted=="yes" %}
 <!--Enter CAS1 submitted - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1541,7 +1541,7 @@
 {% endif %}
 
 
-{% if data.journey=="cas1application"%}
+{% if data.accomodationType=="cas1" %}
 {% if (data.ApprovedPremisesOutcome=="accepted") or (data.ApprovedPremisesOutcome=="rejected") or (data.ApprovedPremisesOutcome=="withdrawn") %}
 <!--Enter CAS1 submitted - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1708,7 +1708,7 @@
 {% endif %}
 
 
-{% if data.journey=="cas1application"%}
+{% if data.accomodationType=="cas1" %}
 {% if data.ApprovedPremisesOutcome=="withdrawn" %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
