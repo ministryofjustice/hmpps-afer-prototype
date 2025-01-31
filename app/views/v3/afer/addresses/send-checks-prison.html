@@ -1482,7 +1482,53 @@
   </div>
 </div>
 
+
+<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Non-disclosable infomrmation</h3>
+
 <!--Preferred CAS end-->
+
+               <!--START set dynamic radio hide/show text-->
+               {% from "govuk/components/radios/macro.njk" import govukRadios %}
+               {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+           
+               {% set textHtmlOther %}
+               
+               {{ govukTextarea({
+                 name: "nonDisclosableInfo",
+                 id: "nonDisclosableInfo",
+                 rows: "6",
+                 label: {
+                   text: "Give details of information that cannot be disclosed. It must not be shared with this person under any circumstances, including where a subject access request is made."
+                 }
+               }) }}
+     
+               {% endset -%}
+               <!--END set dynamic radio hide/show text-->
+     
+               {{ govukRadios({
+                 name: "vlo",
+                 fieldset: {
+                   legend: {
+                     text: "Is there any information that must not be disclosed to this person?",
+                     isPageHeading: false,
+                     classes: "govuk-fieldset__legend--s"
+                   }
+                 },
+                 items: [
+                 {
+                   value: "vloYes",
+                   text: "Yes",
+                   conditional: {
+                     html: textHtmlOther
+                   }
+                 },
+                   {
+                     value: "vloNo",
+                     text: "No"
+                   }
+                   
+                 ]
+               }) }}
 
 
 
