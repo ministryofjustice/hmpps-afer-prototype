@@ -38,8 +38,55 @@
 
       <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Review information and send checks to prison</h1>
 
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Speak with POM</h3>
 
-{% if data.journey=="cas1application" %} 
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Information the POM provided about the behaviour
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+            </li>
+            <!--<li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Delete</a>
+            </li>-->
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                During his time in prison, 
+                {% if data.journey=="28daysjourney" %}
+                David
+                {% elseif data.journey=="cas2application" %}
+                Ryan
+                {% elseif data.journey=="cas1application" %}
+                Lenny
+                {% else %}
+                George
+                {% endif %} demonstrated exceptional behavior.</br>
+                He adhered to all rules, maintained a positive attitude, and actively participated in rehabilitation programs.  
+              </dd>
+              <!--<dt class="govuk-summary-list__key">
+              </dt>-->
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change</a>
+              </dd>-->
+            </div>
+            
+              
+             
+              
+              
+            </div>
+          </dl>
+        </div>
+
+
+{% if data.journey=="cas2application" %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Proposed curfew addresses</h3>
 <p class="govuk-body">None entered</p>
 
@@ -337,10 +384,9 @@
 <!--SECOND ADDRESS-->
 
 {% if data.journey=="cas2application" %} 
-<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Second address – Unsuitable</h3>
 {% else %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Second address – Suitable</h3>
-{% endif %}
+
 
 <!--card start-->
 <div class="govuk-summary-card">
@@ -712,131 +758,6 @@
           </div>
 
 
-          <div class="govuk-summary-card">
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">
-                Assess this person’s risk
-              </h2>
-              <ul class="govuk-summary-card__actions">
-                <li class="govuk-summary-card__action">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-                </li>
-                <!--<li class="govuk-summary-card__action">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Delete</a>
-                </li>-->
-              </ul>
-            </div>
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    What information has the POM provided about the behaviour of {% if data.journey=="cas2application"%}
-                    Ryan
-                    {% elseif data.journey=="cas1application"%}
-                    Lenny
-                    {% else %}
-                    George
-                    {% endif %} while in prison?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    {% if data.journey=="cas2application"%}
-                    Ryan
-                    {% elseif data.journey=="cas1application"%}
-                    Lenny
-                    {% else %}
-                    George
-                    {% endif %} has made good progress.
-                  </dt>
-                  <!--<dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change</a>
-                  </dd>-->
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dd class="govuk-summary-list__value">
-                    Does {% if data.journey=="cas2application"%}
-                    Ryan
-                    {% elseif data.journey=="cas1application"%}
-                    Lenny
-                    {% else %}
-                    George
-                    {% endif %} need any mental health treatment to help manage risk?
-                    Does {% if data.journey=="cas2application"%}
-                    Ryan
-                    {% elseif data.journey=="cas1application"%}
-                    Lenny
-                    {% else %}
-                    George
-                    {% endif %} need a mental health plan to help manage risk?
-                  </dd>
-                  <dt class="govuk-summary-list__key">
-                    No
-                  </dt>
-                  <!--<dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change</a>
-                  </dd>-->
-                </div>
-                  <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__value">
-                      Have you consulted with prison healthcare?
-                    </dd>
-                    <dt class="govuk-summary-list__key">
-                      No
-                    </dt>
-                    <!--<dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Change</a>
-                    </dd>-->
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__value">
-                      Is there a victim liaison officer (VLO) for this case? 
-                    </dd>
-                    <dt class="govuk-summary-list__key">
-                      Yes
-                    </dt>
-                    <!--<dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Change</a>
-                    </dd>-->
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__value">
-                      Give details of any concerns victims have about {% if data.journey=="cas2application"%}
-                      Ryan
-                      {% elseif data.journey=="cas1application"%}
-                      Lenny
-                      {% else %}
-                      George
-                      {% endif %}
-                      being released to the proposed address or area.
-                    </dd>
-                    <dt class="govuk-summary-list__key">
-                      Nothing was raised from the VLO
-                    </dt>
-                    <!--<dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Change</a>
-                    </dd>-->
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__value">
-                      Is there any information that cannot be disclosed to {% if data.journey=="cas2application"%}
-                      Ryan
-                      {% elseif data.journey=="cas1application"%}
-                      Lenny
-                      {% else %}
-                      George
-                      {% endif %}?
-                    </dd>
-                    <dt class="govuk-summary-list__key">
-                      No
-                    </dt>
-                    <!--<dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Change</a>
-                    </dd>-->
-                  </div>
-                </div>
-              </dl>
-            </div>
-
-
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
                 <h2 class="govuk-summary-card__title">
@@ -961,7 +882,7 @@
                     </div>
                   </dl>
                 </div>
-
+{% endif %}
 
 {% endif %}
 
@@ -971,15 +892,14 @@
 <!--CAS AREAS-->
 
 
-{% if data.journey=="cas1application" %} 
-<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Preferred CAS area – Suitable</h3>
+{% if (data.journey=="cas1application") or (data.journey=="cas2application") %} 
+<h3 class="govuk-heading-m govuk-!-static-margin-top-8">CAS accommodation – Eligible</h3>
 
-<!--Preferred CAS start-->
-
+<!--CAS eligibility start-->
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      Preferred CAS area
+      Eligibility check
     </h2>
     <ul class="govuk-summary-card__actions">
     </ul>
@@ -987,45 +907,73 @@
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Town or city
+        <dt class="govuk-summary-list__value">
+          Is this person eligible for CAS accommodation?
         </dt>
-        <dd class="govuk-summary-list__value">
-          Sheffield
+        <dd class="govuk-summary-list__key" style="width: 210px;">
+          Yes
         </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>-->
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+        </dd>
       </div>
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          County or borough
-        </dt>
-        <dd class="govuk-summary-list__value">
-          South Yorkshire
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>-->
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Additional information 
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Person has relatives in the area
-        </dd>
-        <!--<dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>-->
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
+        <dt class="govuk-summary-list__value">
           Type of accommodation
         </dt>
-        <dd class="govuk-summary-list__value">
+        <dd class="govuk-summary-list__key">
+          {% if data.accomodationType=="cas1" %}
           Approved Premises (CAS-1)
+          {% elseif data.accomodationType=="cas2" %}
+          Short-term accommodation</br>(CAS-2)
+          {% endif %}
         </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<!--CAS eligibility end-->
+
+
+<!--Approved Premises assessment start-->
+{% if data.accomodationType=="cas1" %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Approved Premises assessment
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+      </li>
+      <!--<li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
+      </li>-->
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value" >
+          Is there a victim liaison officer (VLO) for this case? 
+        </dd>
+        <dt class="govuk-summary-list__key" style="width: 350px;">
+          Yes
+        </dt>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          Details
+        </dd>
+        <dt class="govuk-summary-list__key">
+          Nothing was raised from the VLO
+        </dt>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change</a>
         </dd>-->
@@ -1033,56 +981,10 @@
     </dl>
   </div>
 </div>
+{% endif %}
+<!--Approved Premises assessment end-->
 
-<!--Preferred CAS end-->
 
-  <div class="govuk-summary-card">
-    <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title">
-        Assess this person’s risk
-      </h2>
-      <ul class="govuk-summary-card__actions">
-        <li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-        </li>
-        <!--<li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="#">Delete</a>
-        </li>-->
-      </ul>
-    </div>
-    <div class="govuk-summary-card__content">
-      <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-              Is there a victim liaison officer (VLO) for this case? 
-            </dd>
-            <dt class="govuk-summary-list__key">
-              Yes
-            </dt>
-            <!--<dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
-            </dd>-->
-          </div>
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-              Give details of any concerns victims have about {% if data.journey=="cas2application"%}
-              Ryan
-              {% elseif data.journey=="cas1application"%}
-              Lenny
-              {% else %}
-              George
-              {% endif %} being released to the proposed address or area.
-            </dd>
-            <dt class="govuk-summary-list__key">
-              Nothing was raised from the VLO
-            </dt>
-            <!--<dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
-            </dd>-->
-          </div>
-        </div>
-      </dl>
-    </div>
 
 
 {% elseif data.journey=="cas2application" %}  
@@ -1430,17 +1332,24 @@
 <!--Preferred CAS end-->
 {% endif %}  
 
-<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Second CAS area – Not started</h3>
+
+{% if data.journey=="cas2application" %}
+<h3 class="govuk-heading-m govuk-!-static-margin-top-8">CAS areas – Unsuitable</h3>
 
 
-<!--Second CAS start-->
-
+<!--Preferred CAS start-->
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      Second CAS area
+      Preferred area
     </h2>
     <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+      </li>
+      <!--<li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Delete</a>
+      </li>-->
     </ul>
   </div>
   <div class="govuk-summary-card__content">
@@ -1450,7 +1359,7 @@
           Town or city
         </dt>
         <dd class="govuk-summary-list__value">
-          London
+          Sheffield
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change</a>
@@ -1461,7 +1370,7 @@
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          Wimbledon
+          South Yorkshire
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change</a>
@@ -1472,7 +1381,7 @@
           Additional information 
         </dt>
         <dd class="govuk-summary-list__value">
-          Has been released to this area before
+          Person has relatives in the area
         </dd>
         <!--<dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change</a>
@@ -1481,11 +1390,130 @@
     </dl>
   </div>
 </div>
-
-
-<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Non-disclosable infomrmation</h3>
-
 <!--Preferred CAS end-->
+
+<!--Second CAS start-->
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Second area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+      </li>
+      <!--<li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Delete</a>
+      </li>-->
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Doncaster
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional information 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Person has been released to this area before
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>-->
+      </div>
+    </dl>
+  </div>
+</div>
+<!--Second CAS end-->
+
+<h3 class="govuk-heading-m govuk-!-static-margin-top-8">CAS areas – Suitable</h3>
+
+
+<!--Third CAS start-->
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Third area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+      </li>
+      <!--<li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Delete</a>
+      </li>-->
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Rotherham
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>-->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>-->
+      </div>
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional information 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Person has relatives in the area
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>-->
+    </dl>
+  </div>
+</div>
+<!--Third CAS end-->
+{% endif %}
+
+
+
+
+
+
+<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Non-disclosable information</h3>
+
+
 
                <!--START set dynamic radio hide/show text-->
                {% from "govuk/components/radios/macro.njk" import govukRadios %}
