@@ -2090,9 +2090,11 @@
       <h2 class="moj-timeline__title">Speak with POM</h2>
     </div>
     
+    {% if data.RiskChecks=="completed" %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-5) | govukDate }}</time>
     </p>
+    {% endif %}
     
   </div>
 
@@ -2120,12 +2122,15 @@
 
     {% elseif data.user=="probation" %}
 
+
+    
+
     {% if data.journey=="28daysjourney" %}
     <div class="govuk-inset-text" style="border-color: #d4351c">
       <strong>Checks overdue</strong></br>
       To do before {{ "today" |  duration(-1) | govukDate }}
     </div>
-    {% elseif (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+    {% elseif data.cas1assessment=="complete" %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
@@ -2157,10 +2162,42 @@
   </div>
 
 
+
+  {% if data.cas1assessment=="complete" %}
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Record submission of Approved Premises application</h2>
+    </div>
+    
+    {% if data.cas1submitted=="yes" %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% endif %}
+    
+  </div>
+
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Enter outcome of Approved Premises application</h2>
+    </div>
+    
+    {% if (data.ApprovedPremisesOutcome=="accepted") or (data.ApprovedPremisesOutcome=="rejected") or (data.ApprovedPremisesOutcome=="withdrawn") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% endif %}
+    
+  </div>
+
+  {% endif %}
+
+
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Send checks to prison</h2>
     </div>
+
     {% if data.sendChecksPrison=="yes" %}  
     <p class="moj-timeline__date">
       <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
@@ -2176,6 +2213,10 @@
     {% else %}
     {% endif %}
   </div>
+
+
+
+  
 
 
   <div class="moj-timeline__item">
@@ -2197,8 +2238,26 @@
   </div>
 
 
-  <div class="moj-timeline__item">
 
+  {% if (data.cas1assessment=="complete") or (data.sendChecksPrison=="yes") %}
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Enter Approved Premises address</h2>
+    </div>
+    
+    {% if data.cas1addressadded=="yes" %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-28T10:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% endif %}
+    
+  </div>
+  {% endif %}
+
+
+
+
+  <div class="moj-timeline__item">
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Decide if
         {% if data.journey=="cas2application"%}
