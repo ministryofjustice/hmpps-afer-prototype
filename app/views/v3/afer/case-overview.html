@@ -1812,13 +1812,6 @@
 
 
 {% if data.ApprovedPremisesOutcome=="withdrawn" %}
-<!--Create licence - Cannot start yet-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-    <p class="govuk-body">You can do this if a decision maker in prison approves Lenny for HDC release.</p>
-  </section>
-</article>
 {% elseif data.LicenceCreated=="yes"%}  
 <!--Create licence - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1854,7 +1847,14 @@
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-    <p class="govuk-body">You can do this if a decision maker in prison approves George for HDC release.</p>
+    <p class="govuk-body">You can do this if a decision maker in prison approves
+      {% if data.journey=="cas2application" %}
+      Ryan
+      {% elseif data.journey=="cas1application" %}
+      Lenny
+      {% else %}
+      George
+      {% endif %} for HDC release.</p>
   </section>
 </article>
 {% endif %}

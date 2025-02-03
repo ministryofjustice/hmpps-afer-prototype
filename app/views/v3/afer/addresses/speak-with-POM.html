@@ -28,15 +28,15 @@
 {% endblock %}
 
 {% block content %}
+{% include "includes/layouts/personaldetails.html" %}
 
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper " id="main-content" role="main">
-
+  <main class="govuk-main-wrapper">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-8">Speak with their POM</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-6">Speak with their POM</h1>
 
   
   <form class="form" action="/v3/speakwithpom" method="post" novalidate>
