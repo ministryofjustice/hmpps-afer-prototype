@@ -119,15 +119,14 @@
                                 <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
                                 {% endif %}
                             </li>
-                            <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">
-                              {% if data.journey=="cas1application" %}
-                              13 Apr 1999
-                              {% elseif data.journey=="cas2application" %}
-
-                              {% else %}
-                              27 Sep 1998
-                              {% endif %}
-                            </span></li>
+                            {% if data.journey=="cas1application" %}
+                            <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">13 Apr 1999</span></li>
+                            {% elseif data.journey=="cas2application" %}
+                            <li style="margin-left: 85px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">12 Jul 1987</span></li>
+                            {% else %}
+                            <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27 Sep 1998</span></li>
+                            {% endif %}
+                            
                             <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
                             <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
                             <li style="margin-left: 205px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">
