@@ -1628,8 +1628,21 @@
 
 
 {% if data.journey=="cas2application"%}
-
-{% if data.cas2suitableAreaC=="yes" %}
+{% if data.sendChecksPrison=="yes"%}  
+<!--Send checks to prison - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/send-checks-prison" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif data.cas2suitableAreaC=="yes" %}
 <!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1812,6 +1825,21 @@
 
 
 {% if data.ApprovedPremisesOutcome=="withdrawn" %}
+{% elseif (data.journey=="cas2application") and (data.sendChecksPrison=="yes") %}
+<!--Create licence - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="#" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
 {% elseif data.LicenceCreated=="yes"%}  
 <!--Create licence - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -2092,7 +2120,7 @@
     
     {% if data.RiskChecks=="completed" %}
     <p class="moj-timeline__date">
-      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-5) | govukDate }}</time>
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
     {% endif %}
     
@@ -2123,9 +2151,12 @@
     {% elseif data.user=="probation" %}
 
 
-    
-
-    {% if data.journey=="28daysjourney" %}
+    {% if (data.cas2suitableAreaC=="yes") %}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
+    </p>
+    {% elseif data.OfflineStep=="yes" %}
+    {% elseif data.journey=="28daysjourney" %}
     <div class="govuk-inset-text" style="border-color: #d4351c">
       <strong>Checks overdue</strong></br>
       To do before {{ "today" |  duration(-1) | govukDate }}
@@ -2134,7 +2165,7 @@
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
-    {% elseif (data.cas2suitable=="yes") %}
+    {% elseif (data.cas2suitableAreaB=="no") %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
