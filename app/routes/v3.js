@@ -208,7 +208,7 @@ var version = '/v3';
     });
 
 
-    //CAS areas unsuitable confirmation page
+    //Confirmation of CAS assessment outcome: Unsuitable
     router.post(version + '/casareasunsuitable', function (req, res) {
       var confirmationnav = req.session.data['confirmationnav']
       // Check whether the variable matches a condition
@@ -221,6 +221,40 @@ var version = '/v3';
         res.redirect(version + '/afer/addresses/send-checks-prison')
       }
     });
+
+
+
+    //CAS area C suitable
+    router.post(version + '/suitabilitycheckc', function (req, res) {
+      var cas2suitableAreaC = req.session.data['cas2suitableAreaC']
+      // Check whether the variable matches a condition
+      if (cas2suitableAreaC == "no"){
+      
+      // Send user to case overview page if suitablity decision has been made and confirm outcome
+        res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
+      } else {
+        // Send user back to address details page
+        res.redirect(version + '/afer/addresses/outcomes/cas-suitable')
+      }
+    });
+
+
+  //Confirmation of CAS assessment outcome: Suitable
+  router.post(version + '/cassuitableoutcome', function (req, res) {
+    var ConfirmationNav = req.session.data['confirmationnav']
+    // Check whether the variable matches a condition
+    if (ConfirmationNav == "sendtoprison"){
+     
+     // Send user to case list page
+      res.redirect(version + '/afer/addresses/send-checks-prison')
+    } else {
+      // Send user to task list page
+      res.redirect(version + '/afer/case-overview')
+    }
+  });
+
+
+    
 
 
 

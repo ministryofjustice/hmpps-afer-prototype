@@ -65,7 +65,7 @@
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
       <div class="moj-banner__message">Outcome recorded.
-      Ask the prison to check if Lenny has any residential addresses they could be released to or or send the checks to the prison so the application for HDC can be refused.</div>
+      Ask the prison to check if Lenny has any residential addresses they could be released to or send the checks to the prison so the application for HDC can be refused.</div>
     </div>
     {% elseif data.cas1addressadded=="yes" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
@@ -129,28 +129,13 @@
 
     
     <!-- SORT THIS OUT TO HAVE CAS-2 and address check separate -->
-    {% if data.cas1assessment=="complete" %}
-    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-      </svg>
-      <div class="moj-banner__message">Apply for an Approved Premises (CAS-1) placement using the <a class="govuk-link govuk-link--no-visited-state" href="https://approved-premises.hmpps.service.justice.gov.uk/" target="_blank">CAS-1 service.</a></br>
-        You must also record when you have submitted the application and then enter the outcome in this service.
-      </div>
-    </div>
+    {% if data.OfflineStep=="yes" %}
     {% elseif data.RiskChecks=="completed" %}
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
         <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
       </svg>
       <div class="moj-banner__message">Information saved</div>
-    </div>
-    {% elseif data.cas1addressadded=="yes" %}
-    <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-      <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-        <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-      </svg>
-      <div class="moj-banner__message">Approved Premises (CAS-1) details updated</div>
     </div>
     {% elseif data.sendChecksPrison=="yes" %}  
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
@@ -1430,8 +1415,42 @@
 {% endif %}
 
 
-
-{% if (data.cas2suitableAreaB=="no") or (data.accomodationType=="cas1") %}
+{% if data.cas2suitableAreaC=="yes" %}
+<!--Check addresses or community accommodation - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or CAS accommodation</h2>
+        {% if (data.accomodationType=="cas1") and (data.cas1assessment=="complete") %}
+        <p class="govuk-body govuk-!-margin-bottom-2">Apply for an Approved Premises (CAS-1) placement</p>
+        {% elseif (data.cas2suitableAreaB=="no") and (data.RiskChecks=="completed") %}
+        <p class="govuk-body govuk-!-margin-bottom-2">CAS-2 area suitable</p>
+        <!--<p class="govuk-body govuk-!-margin-bottom-2">Prison staff must apply for short-term accommodation (CAS-2)</p>-->
+        {% endif %}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif data.OfflineStep=="yes" %}
+<!--Check addresses or community accommodation - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or CAS accommodation</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% elseif (data.cas2suitableAreaB=="no") or (data.accomodationType=="cas1") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1602,7 +1621,31 @@
 
 
 {% if data.journey=="cas2application"%}
-{% if (data.cas2suitableAreaB=="no") %}
+
+{% if data.cas2suitableAreaC=="yes" %}
+<!--Send checks to prison - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/send-checks-prison" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% elseif data.OfflineStep=="yes" %}
+<!--Send checks to prison - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Send checks to prison</h2>
+    <p class="govuk-body">You can start this when you have completed address and risk checks.</p>
+  </section>
+</article>
+{% elseif (data.cas2suitableAreaB=="no") %}
 <!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1721,12 +1764,6 @@
 
 {% if data.accomodationType=="cas1" %}
 {% if data.ApprovedPremisesOutcome=="withdrawn" %}
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter Approved Premises address</h2>
-    <p class="govuk-body">If the application is accepted, enter the accommodation address here.</p>
-  </section>
-</article>
 {% elseif data.cas1addressadded=="yes"%}
 <!--Enter CAS1 submitted - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -3653,7 +3690,10 @@
 
 <!--Tabs end-->
 
-
+{% if data.OfflineStep=="yes" %}
+{% elseif data.cas2suitableAreaB=="no" %}
+<p class="govuk-body" style="margin-top: 100px;"><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/cas2-offlinestep">Offline step</a></p>
+{% endif %}
 
 
 

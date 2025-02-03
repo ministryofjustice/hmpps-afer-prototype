@@ -62,6 +62,7 @@
 
               <!--banner CAS-2 start--> 
               {% if data.journey=="cas2application" %}
+
               
               {% if (data.cas2suitableAreaB=="no") and (data.alternativeOptions=="yes") %}
 
@@ -154,7 +155,24 @@
         
         <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Check curfew addresses or CAS accommodation</h1>
 
-        {% if (data.cas2suitableAreaB=="no") and (data.alternativeOptions=="yes") %}
+        {% if data.cas2suitableAreaC=="yes" %}
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">CAS area suitable</p>
+  
+            <p class="govuk-body">
+              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+            </p>
+
+          </div>
+        </div>
+        {% elseif data.OfflineStep=="yes" %}
+        {% elseif (data.cas2suitableAreaB=="no") and (data.alternativeOptions=="yes") %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -719,7 +737,7 @@
                         Town or city
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        London
+                        Doncaster
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -727,7 +745,7 @@
                         County or borough
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Wimbledon
+                        South Yorkshire
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -754,6 +772,100 @@
               </div>
               <!--card end-->
               {% endif %}
+
+
+
+
+              {% if data.OfflineStep=="yes" %}
+                                  <!--card start-->
+                                  <div class="govuk-summary-card">
+              
+                                    <div class="govuk-summary-card__title-wrapper">
+                                      <h2 class="govuk-summary-card__title">
+                                        Third area
+                                      </h2>
+                                      <ul class="govuk-summary-card__actions">
+                                        <li class="govuk-summary-card__action">
+                                          {% if data.cas2suitableAreaC=="yes" %}
+                                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+                                          {% elseif data.cas2suitableAreaC=="no" %}
+                                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                                          {% else %}
+                                          {% endif %}
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  
+                                    
+                                    <div class="govuk-summary-card__content">
+                                      <dl class="govuk-summary-list">
+                                    
+                                        <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            Town or city
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            Rotherham
+                                          </dd>
+                                        </div>
+                                        <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            County or borough
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            South Yorkshire
+                                          </dd>
+                                        </div>
+                                        <!--<div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            Additional Information
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            ???
+                                          </dd>
+                                        </div>-->
+                                        {% if data.cas2suitableAreaC=="yes" %}
+                                        <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            Application status
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            Not submitted by prison case admin yet
+                                          </dd>
+                                        </div>
+                                        <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            Application outcome
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            No outcome entered by prison case admin yet	
+                                          </dd>
+                                        </div>
+                                        <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            Accommodation address
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            No address entered by prison case admin yet
+                                          </dd>
+                                        </div>
+                                        {% endif %}
+                                        <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            {% if (data.cas2suitableAreaC=="yes") %}
+                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
+                                            {% else %}
+                                            <a href="./cas/cas2-suitability-c" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
+                                            {% endif %}
+                                          </dt>
+                                        </div>
+                                        
+                                      </dl>
+                                     </div>
+                                        
+                                  </div>
+                                  <!--card end-->
+                                  {% endif %}
               
               
       
