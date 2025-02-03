@@ -383,7 +383,11 @@
 
 
     <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for
-      {% if data.user=="admin"%}
+      {% if data.journey=="28daysjourney" %}
+      David Lee
+      
+      {% elseif data.user=="admin"%}
+
       {% if data.journey=="ineligiblejourney"%}
       Jose Rodriguez
       {% elseif data.journey=="28daysjourney" %}
@@ -393,7 +397,9 @@
       {% else %}
       George Jennings
       {% endif %}
+
       {% elseif data.user=="probation"%}
+
       {% if data.journey=="cas2application"%}
       Ryan Rees
       {% elseif data.journey=="cas1application"%}
@@ -401,6 +407,7 @@
       {% else %}
       George Jennings
       {% endif %}
+
       {% endif %}
     </h1>
      
@@ -438,24 +445,28 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.user=="admin"%}
-              {% if data.journey=="ineligiblejourney"%}
-              Jose Rodriguez
-              {% elseif data.journey=="28daysjourney" %}
+              {% if data.journey=="28daysjourney" %}
               David Lee
-              {% elseif data.journey=="ineligiblePreRelease"%}
+
+              {% elseif data.user=="admin" %}
+              {% if data.journey=="ineligiblejourney" %}
+              Jose Rodriguez
+              {% elseif data.journey=="ineligiblePreRelease" %}
               Bailey West
               {% else %}
               George Jennings
               {% endif %}
-              {% elseif data.user=="probation"%}
-              {% if data.journey=="cas2application"%}
+
+              {% elseif data.user=="probation" %}
+
+              {% if data.journey=="cas2application" %}
               Ryan Rees
-              {% elseif data.journey=="cas1application"%}
+              {% elseif data.journey=="cas1application" %}
               Lenny Wallace
               {% else %}
               George Jennings
               {% endif %}
+
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -707,18 +718,12 @@
             </div>
 
         {% if (data.journey=="cas1application") or (data.journey=="cas2application" ) %}
-        {% elseif data.RiskChecks=="completed" %}
+        {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
           </dt>
         </div>
-        <!--<div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="delay/view-delay">View or update information about a delay</a>
-          </dt>
-        </div>-->
-        {% else %}
         {% endif %}
 
 
@@ -1383,7 +1388,9 @@
 <!--Probation tasks start-->
 {% if data.user=="probation"%}
 
-{% if data.RiskChecks=="completed" %}
+
+
+{% if (data.RiskChecks=="completed") or (data.journey=="28daysjourney") %}
 <!--Speak with their POM - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1490,7 +1497,7 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif (data.AddressSuitabilityDecision=="no") or (data.passedDeadline=="yes") %}
+{% elseif (data.AddressSuitabilityDecision=="no") or (data.passedDeadline=="yes") or (data.journey=="28daysjourney") %}
 <!--Check addresses or community accommodation - In progress-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1499,7 +1506,7 @@
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation</h2>
       </div>
       <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 70px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
       </div>
     </div>
     <a href="./addresses/tasklist" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Continue</a>
@@ -2049,6 +2056,7 @@
   </div>
 
 
+
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Enter curfew addresses and CAS areas</h2>
@@ -2074,6 +2082,24 @@
   </div>
 
 
+
+
+
+  <div class="moj-timeline__item">
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Speak with POM</h2>
+    </div>
+    
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-5) | govukDate }}</time>
+    </p>
+    
+  </div>
+
+
+
+
+
   <div class="moj-timeline__item">
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Check addresses and CAS areas</h2>
@@ -2094,7 +2120,12 @@
 
     {% elseif data.user=="probation" %}
 
-    {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
+    {% if data.journey=="28daysjourney" %}
+    <div class="govuk-inset-text" style="border-color: #d4351c">
+      <strong>Checks overdue</strong></br>
+      To do before {{ "today" |  duration(-1) | govukDate }}
+    </div>
+    {% elseif (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
