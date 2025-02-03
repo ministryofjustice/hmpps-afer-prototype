@@ -39,7 +39,7 @@
       <h1 class="govuk-heading-l govuk-!-margin-top-8">Speak with their POM</h1>
 
   
-  <form class="form" action="../case-overview" method="post" novalidate>
+  <form class="form" action="/v3/speakwithpom" method="post" novalidate>
       
   <div class="govuk-form-group govuk-!-margin-top-6">
     <fieldset class="govuk-fieldset">
@@ -58,16 +58,17 @@
     </fieldset>
   </div>
 
-  <input type="hidden" name="RiskChecks" value="completed">
+  
 
-<div class="govuk-button-group" style="margin-top: -30px;">
-  <button type="submit" class="govuk-button" data-module="govuk-button">
-    Save
-  </button>
-  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-    Cancel
-  </button>
-</div>
+  <div class="govuk-button-group" style="margin-top: -30px;">
+    <button type="submit" class="govuk-button" data-module="govuk-button" name="RiskChecks" value="completed">
+      Save
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="RiskChecks" value="no">
+      Cancel
+    </button>
+  </div>  
+
 
          </form>
 

@@ -31,9 +31,7 @@
 
         <form action="../../case-overview" method="post" novalidate>
           
-          <input type="hidden" name="cas1addressadded" value="yes">
-
-
+          
           <!--<h1 class="govuk-heading-l govuk-!-margin-top-6">
             Enter outcome of Approved Premises application
           </h1>
@@ -107,14 +105,17 @@
             </div>
             </div>
 
+          
+
             <div class="govuk-button-group">
-              <button type="submit" class="govuk-button" data-module="govuk-button">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="cas1addressadded" value="yes">
                 Save
               </button>
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Go back
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="cas1addressadded" value="no">
+                Cancel
               </button>
-            </div>
+            </div>    
+
 
 
         </form>

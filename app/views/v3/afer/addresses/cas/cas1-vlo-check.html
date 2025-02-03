@@ -39,7 +39,7 @@
       <h1 class="govuk-heading-l govuk-!-margin-top-8">Victim liaison officer check</h1>
 
 
-      <form class="form" action="../../case-overview" method="post" novalidate>
+      <form class="form" action="/v3/casvloquestion" method="post" novalidate>
       
   
                 <!--START set dynamic radio hide/show text-->
@@ -87,17 +87,14 @@
 
 
 
-
-  <input type="hidden" name="cas1assessment" value="complete">
-
-<div class="govuk-button-group">
-  <button type="submit" class="govuk-button" data-module="govuk-button">
-    Save
-  </button>
-  <button type="exit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-    Cancel
-  </button>
-</div>
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button" name="cas1assessment" value="complete">
+                  Save
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="cas1assessment" value="no">
+                  Cancel
+                </button>
+              </div>    
 
          </form>
 

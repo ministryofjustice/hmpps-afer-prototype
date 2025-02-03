@@ -133,6 +133,24 @@ var version = '/v3';
 
   //PP journey routes
 
+
+//Speak with the POM
+router.post(version + '/speakwithpom', function (req, res) {
+  var RiskChecks = req.session.data['RiskChecks']
+  // Check whether the variable matches a condition
+  if (RiskChecks == "completed"){
+   
+   // Send user to case overview page if suitablity decision has been made and confirm outcome
+    res.redirect(version + '/afer/case-overview')
+  } else {
+    // Send user back to address details page
+    res.redirect(version + '/afer/case-overview')
+  }
+});
+
+
+  
+
   //Suitablity decision residential addresses
   router.post(version + '/residentialsuitablitydecision', function (req, res) {
     var SuitabilityDecisionNav = req.session.data['suitabilityDecision']
@@ -178,6 +196,21 @@ var version = '/v3';
   });
 
 
+//CAS-1 VLO question
+router.post(version + '/casvloquestion', function (req, res) {
+  var cas1assessment = req.session.data['cas1assessment']
+  // Check whether the variable matches a condition
+  if (cas1assessment == "complete"){
+   
+   // Send user to case overview page if suitablity decision has been made and confirm outcome
+    res.redirect(version + '/afer/case-overview')
+  } else {
+    // Send user back to address details page
+    res.redirect(version + '/afer/addresses/tasklist')
+  }
+});
+
+
   //CAS-1 Application submission
   router.post(version + '/applicationsubmission', function (req, res) {
     var cas1submitted = req.session.data['cas1submitted']
@@ -191,6 +224,21 @@ var version = '/v3';
       res.redirect(version + '/afer/addresses/cas/cas1-apply-placement')
     }
   });
+
+
+  //CAS-1 outcome
+router.post(version + '/cas1outcome', function (req, res) {
+  var ApprovedPremisesOutcome = req.session.data['ApprovedPremisesOutcome']
+  // Check whether the variable matches a condition
+  if (ApprovedPremisesOutcome == "completed"){
+   
+   // Send user to case overview page if suitablity decision has been made and confirm outcome
+    res.redirect(version + '/afer/case-overview')
+  } else {
+    // Send user back to address details page
+    res.redirect(version + '/afer/case-overview')
+  }
+});
 
 
     //CAS area B unsuitable
