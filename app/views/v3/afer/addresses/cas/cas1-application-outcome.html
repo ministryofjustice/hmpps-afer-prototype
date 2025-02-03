@@ -39,13 +39,17 @@
           <div class="govuk-form-group govuk-!-margin-top-6">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <!-- <h1 class="govuk-fieldset__heading">
+                <!--<h1 class="govuk-fieldset__heading">
                   Enter the outcome of this person’s application 
-                </h1> -->
+                </h1>-->
               </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios" data-module="govuk-radios" style="margin-top: -20px;">
                 <div class="govuk-radios__item">
+                  {% if data.ApprovedPremisesOutcome=="accepted" %}
+                  <input class="govuk-radios__input" id="ApprovedPremisesOutcome" name="ApprovedPremisesOutcome" type="radio" value="accepted" checked>
+                  {% else %}
                   <input class="govuk-radios__input" id="ApprovedPremisesOutcome" name="ApprovedPremisesOutcome" type="radio" value="accepted">
+                  {% endif %}
                   <label class="govuk-label govuk-radios__label" for="ApprovedPremisesOutcome">
                     Accepted
                   </label>
