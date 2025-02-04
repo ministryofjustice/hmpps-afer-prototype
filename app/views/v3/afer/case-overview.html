@@ -560,7 +560,7 @@
 
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
-              {{ "today" |  duration(20) | govukDate }}
+              {{ "today" |  duration(100) | govukDate }}
               {% elseif data.journey=="cas1application"%}
               {{ "today" |  duration(128) | govukDate }}
               {% else %}
@@ -592,7 +592,7 @@
 
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
-              {{ "today" |  duration(36) | govukDate }}
+              {{ "today" |  duration(153) | govukDate }}
               {% elseif data.journey=="cas1application"%}
               {{ "today" |  duration(185) | govukDate }}
               {% else %}
@@ -2406,6 +2406,7 @@
       {% elseif data.journey=="ineligiblejourney" %}
       {{ "today" |  duration(128) | govukDate }}
       {% elseif data.journey=="cas1application" %}
+      {{ "today" |  duration(128) | govukDate }}
       {% elseif data.journey=="cas2application" %}
       {{ "today" |  duration(100) | govukDate }}
       {% else %}
@@ -2420,6 +2421,7 @@
       {% elseif data.journey=="ineligiblejourney" %}
       128 working days left until HDCED
       {% elseif data.journey=="cas1application" %}
+      89 working days left until HDCED
       {% elseif data.journey=="cas2application" %}
       70 working days left until HDCED
       {% else %}
@@ -2440,7 +2442,7 @@
         {% elseif data.journey=="ineligiblejourney" %}
         {{ "today" |  duration(185) | govukDate }}
         {% elseif data.journey=="cas1application" %}
-        {{ "today" |  duration(153) | govukDate }}
+        {{ "today" |  duration(185) | govukDate }}
         {% elseif data.journey=="cas2application" %}
         {{ "today" |  duration(153) | govukDate }}
         {% else %}

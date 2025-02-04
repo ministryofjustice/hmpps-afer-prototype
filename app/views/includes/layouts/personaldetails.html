@@ -8,7 +8,7 @@
       <span class="govuk-caption-m">CRN: G2431GT | HDCED: {{ "today" |  duration(128) | govukDate }} | Date of birth: 13 Apr 1999</span>
       <h1 class="govuk-heading-m">Lenny Wallace</h1>
       {% elseif data.journey=="cas2application" %}
-      <span class="govuk-caption-m">CRN: G87634 | HDCED: {{ "today" |  duration(20) | govukDate }} | Date of birth: 12 Jul 1987</span>
+      <span class="govuk-caption-m">CRN: G87634 | HDCED: {{ "today" |  duration(100) | govukDate }} | Date of birth: 12 Jul 1987</span>
       <h1 class="govuk-heading-m">Ryan Rees</h1>
       {% else %}
       <span class="govuk-caption-m">{% if data.user=="probation" %}CRN:{% else %}Prison nr:{% endif %} G5613GT | HDCED: {{ "today" | duration(96) | govukDate("truncate") }} | Date of birth: 27 Sep 1998</span>
