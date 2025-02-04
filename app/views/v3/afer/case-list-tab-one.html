@@ -218,16 +218,20 @@
                 {% else %}
                 <td class="govuk-table__cell">Aisha Thompson</td>
                 {% endif %}
-                <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(100) | govukDate("truncate") }}</td>
-                <td class="govuk-table__cell">71</td>
+                <td class="govuk-table__cell" data-sort-value="1">{{ "today" |  duration(20) | govukDate("truncate") }}</td>
+                <td class="govuk-table__cell">13</td>
                 <td class="govuk-table__cell">Jessica Smith</td>
                 <td class="govuk-table__cell">
                   {% if data.user=="probation" %}
+                  {% if data.journey=="28daysjourney"%}
                   <dd class="govuk-summary-list__value due-date" data-sort-value="1">
                     <span class="date overdue">Check addresses or community accommodation</span>
                     <span class="secondary overdue" style="width: 195px;"> 
-                      Overdue on {{ "today" |  duration(0) | govukDate("truncate") }}</span>
+                      Overdue on {{ "today" |  duration(-1) | govukDate("truncate") }}</span>
                   </dd>
+                  {% else %}
+                  Check addresses or community accommodation
+                  {% endif %}
                   {% elseif data.28daysapproval=="yes" %}
                   Enter curfew addresses or CAS areas
                   {% elseif data.eligiblepresumedsuitable=="28days" %}
@@ -402,13 +406,7 @@
                     Jessica Smith
                   {% endif %}
                 </td>
-                <td class="govuk-table__cell">
-                  {% if (data.cas2suitable=="yes") and (data.riskAssessed=="yes") %}
-                    Send checks to prison
-                  {% else %}
-                    Check addresses or community accommodation
-                  {% endif %}
-                </td>
+                <td class="govuk-table__cell">Speak with their POM</td>
               </tr>
               {% endif %}
 
@@ -433,13 +431,7 @@
                     Jessica Smith
                   {% endif %}
                 </td>
-                <td class="govuk-table__cell">
-                  {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
-                    Send checks to prison
-                  {% else %}
-                    Check addresses or community accommodation
-                  {% endif %}
-                </td>
+                <td class="govuk-table__cell">Speak with their POM</td>
               </tr>
               {% endif %}
 

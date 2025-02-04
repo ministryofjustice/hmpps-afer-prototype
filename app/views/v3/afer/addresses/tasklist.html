@@ -105,7 +105,10 @@
                             <li>
                                 <p class="govuk-heading-s govuk-!-margin-bottom-1">
                                     <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">
-                                    {% if data.journey=="cas2application" %}Ryan Rees
+                                    {% if data.journey=="28daysjourney"%}
+                                    David Lee
+                                    {% elseif data.journey=="cas2application" %}
+                                    Ryan Rees
                                     {% elseif data.journey=="cas1application" %}
                                     Lenny Wallace
                                     {% else %}
@@ -113,13 +116,19 @@
                                     {% endif %}
                                     </a>
                                 </p>
-                                {% if data.journey=="cas2application" %}
-                                <span class="govuk-body" data-qa="mini-profile-prisoner-number">G87634</span>
-                                {% else %}
-                                <span class="govuk-body" data-qa="mini-profile-prisoner-number">G5613GT</span>
-                                {% endif %}
+                                <span class="govuk-body" data-qa="mini-profile-prisoner-number">
+                                  {% if data.journey=="28daysjourney"%}
+                                  G93332
+                                  {% elseif data.journey=="cas2application" %}
+                                  G87634
+                                  {% else %}
+                                  G5613GT
+                                  {% endif %}
+                                </span>
                             </li>
-                            {% if data.journey=="cas1application" %}
+                            {% if data.journey=="28daysjourney"%}
+                            <li style="margin-left: 90px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">01 Jan 1980</span></li>
+                            {% elseif data.journey=="cas1application" %}
                             <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">13 Apr 1999</span></li>
                             {% elseif data.journey=="cas2application" %}
                             <li style="margin-left: 85px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">12 Jul 1987</span></li>
@@ -130,8 +139,10 @@
                             <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
                             <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
                             <li style="margin-left: 205px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">
-                              {% if data.journey=="cas1application"%}
-                              {{ "today" |  duration(128) | govukDate }}
+                              {% if data.journey=="28daysjourney"%}
+                              {{ "today" |  duration(20) | govukDate("truncate") }}
+                              {% elseif data.journey=="cas1application"%}
+                              {{ "today" |  duration(128) | govukDate("truncate") }}
                               {% elseif data.journey=="cas2application"%}
                               {{ "today" |  duration(20) | govukDate("truncate") }}
                               {% else %}
@@ -139,7 +150,9 @@
                               {% endif %}
                             </span></li>
                             <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">
-                              {% if data.journey=="cas1application"%}
+                              {% if data.journey=="28daysjourney"%}
+                              {{ "today" |  duration(36) | govukDate("truncate") }}
+                              {% elseif data.journey=="cas1application"%}
                               {{ "today" |  duration(185) | govukDate }}
                               {% elseif data.journey=="cas2application"%}
                               {{ "today" |  duration(36) | govukDate("truncate") }}

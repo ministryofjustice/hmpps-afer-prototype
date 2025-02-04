@@ -1,7 +1,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"><br>
    
-      {% if data.journey=="cas1application" %}
+      {% if data.journey=="28daysjourney"%}
+      <span class="govuk-caption-m">CRN: 	G93332 | HDCED: {{ "today" |  duration(20) | govukDate }} | Date of birth: 01 Jan 1980</span>
+      <h1 class="govuk-heading-m">David Lee</h1>
+      {% elseif data.journey=="cas1application" %}
       <span class="govuk-caption-m">CRN: G2431GT | HDCED: {{ "today" |  duration(128) | govukDate }} | Date of birth: 13 Apr 1999</span>
       <h1 class="govuk-heading-m">Lenny Wallace</h1>
       {% elseif data.journey=="cas2application" %}

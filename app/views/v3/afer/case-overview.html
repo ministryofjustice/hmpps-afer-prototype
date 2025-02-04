@@ -475,19 +475,25 @@
     
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              {% if data.user=="probation" %}
+              CRN
+              {% else %}
               Prison number
+              {% endif %}
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.user=="admin"%}
+              {% if data.journey=="28daysjourney" %}
+              G93332
+              
+              {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               G56791
-              {% elseif data.journey=="28daysjourney" %}
-              G93332
               {% elseif data.journey=="ineligiblePreRelease"%}
               G75698
               {% else %}
               G5613GT
-              {% endif %}         
+              {% endif %}  
+
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               G87634
@@ -507,16 +513,19 @@
               Main offence
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.user=="admin"%}
+              {% if data.journey=="28daysjourney" %}
+              Concerned in the supply of a controlled drug of Class B - cannabis
+
+              {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               Section 18 - wounding with intent
-              {% elseif data.journey=="28daysjourney" %}
-              Concerned in the supply of a controlled drug of Class B - cannabis
+              
               {% elseif data.journey=="ineligiblePreRelease"%}
               Dishonestly appropriating property belonging to another with the intention of permanently depriving the other of it
               {% else %}
               Conspire to fraudulent evade a prohibition on the importation of a class A drug
               {% endif %}
+
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               Concerned in the supply of a controlled drug of Class B - cannabis
@@ -537,16 +546,18 @@
               HDCED
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.user=="admin"%}
+              {% if data.journey=="28daysjourney" %}
+              {{ "today" |  duration(20) | govukDate }}
+
+              {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(128) | govukDate }}
-              {% elseif data.journey=="28daysjourney" %}
-              {{ "today" |  duration(20) | govukDate }}
               {% elseif data.journey=="ineligiblePreRelease"%}
               {{ "today" |  duration(136) | govukDate }}
               {% else %}
               {{ "today" |  duration(96) | govukDate }}
               {% endif %}
+
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               {{ "today" |  duration(20) | govukDate }}
@@ -567,16 +578,18 @@
               CRD
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.user=="admin"%}
+              {% if data.journey=="28daysjourney" %}
+              {{ "today" |  duration(36) | govukDate }}
+
+              {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(185) | govukDate }}
-              {% elseif data.journey=="28daysjourney" %}
-              {{ "today" |  duration(36) | govukDate }}
               {% elseif data.journey=="ineligiblePreRelease"%}
               {{ "today" |  duration(192) | govukDate }}
               {% else %}
               {{ "today" |  duration(153) | govukDate }}
               {% endif %}
+
               {% elseif data.user=="probation"%}
               {% if data.journey=="cas2application"%}
               {{ "today" |  duration(36) | govukDate }}
@@ -2117,8 +2130,12 @@
     <div class="moj-timeline__header">
       <h2 class="moj-timeline__title">Speak with POM</h2>
     </div>
-    
-    {% if data.RiskChecks=="completed" %}
+
+    {% if data.journey=="28daysjourney"%}
+    <p class="moj-timeline__date">
+      <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(-1) | govukDate }}</time>
+    </p>
+    {% elseif data.RiskChecks=="completed" %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
@@ -2394,7 +2411,7 @@
       {% if data.journey=="ineligiblejourney" %}
       <time datetime="2019-06-07T12:32:00.000Z">128 days left until HDCED</time>
       {% elseif data.journey=="28daysjourney" %}
-      <time datetime="2019-06-07T12:32:00.000Z">20 days left until HDCED</time>
+      <time datetime="2019-06-07T12:32:00.000Z">13 days left until HDCED</time>
       {% else %}
       <time datetime="2019-06-07T12:32:00.000Z">96 days left until HDCED</time>
       {% endif %}
@@ -2650,6 +2667,9 @@
     <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
     {% endif %}
 
+    {% elseif data.journey=="28daysjourney" %}
+    <h3 class="govuk-heading-m" style="margin-top: 20px;">Curfew addresses and CAS areas</h3>
+    <p class="govuk-body" style="margin-top: -10px;">No information submitted yet</p>
     {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
 
     <h3 class="govuk-heading-m" style="margin-top: 60px;">Curfew addresses and CAS areas</h3>
@@ -2666,7 +2686,7 @@
     {% endif %}
 
 
-
+ 
     {% if data.journey=="cas1application" %}
     {% else %}
     <!--card start-->
