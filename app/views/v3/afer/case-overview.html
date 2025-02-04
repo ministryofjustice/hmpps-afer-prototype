@@ -2589,6 +2589,46 @@
       </div>
     </div>
     {% endif %}  
+
+
+    <!--Speak with POM-->
+    {% if data.RiskChecks=="completed" %}
+    <h3 class="govuk-heading-m" style="margin-top: 60px;">Speak with their POM</h3>
+    <p class="govuk-body" style="margin-top: -10px;">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Information tabout the behaviour
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              During his time in prison, 
+              {% if data.journey=="28daysjourney" %}
+              David
+              {% elseif data.journey=="cas2application" %}
+              Ryan
+              {% elseif data.journey=="cas1application" %}
+              Lenny
+              {% else %}
+              George
+              {% endif %} demonstrated exceptional behavior.</br>
+              He adhered to all rules, maintained a positive attitude, and actively participated in rehabilitation programs.  
+            </dd>
+            <!--<dt class="govuk-summary-list__key">
+            </dt>-->
+            <!--<dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>-->
+          </div>
+          </div>
+        </dl>
+      </div>
+
+    {% endif %}
   
     <!--Curfew addresses and CAS areas-->
     {% if data.user=="admin"%}
@@ -2677,7 +2717,7 @@
 
     <!--PREFERRED ADDRESS-->
 
-    {% if data.journey=="cas1application" %}
+    {% if data.journey=="cas2application" %}
     <h3 class="govuk-heading-s">Proposed curfew addresses</h3>
     <p class="govuk-body" style="margin-top: -15px;">None entered</p>
     {% else %}
@@ -2687,7 +2727,7 @@
 
 
  
-    {% if data.journey=="cas1application" %}
+    {% if data.journey=="cas2application" %}
     {% else %}
     <!--card start-->
     <div class="govuk-summary-card">
@@ -2937,7 +2977,110 @@
   {% endif %}
 
 
+  {% if data.journey=="cas1application" %}
+  <h3 class="govuk-heading-s">CAS accommodation</h3>
+  
+                {% if data.cas1assessment=="complete" %}
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Approved Premises assessment
+                    </h2>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
 
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                          Is there a victim liaison officer (VLO) for this person?
+                        </dt> 
+                        <dd class="govuk-summary-list__key">
+                          Yes
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                          Application status
+                        </dt> 
+                        <dd class="govuk-summary-list__key">
+                          {% if data.cas1submitted=="yes" %}
+                          Submitted
+                          {% else %}
+                          Not submitted yet
+                          {% endif %}
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                          Application outcome
+                        </dt> 
+                        <dd class="govuk-summary-list__key">
+                          {% if data.ApprovedPremisesOutcome=="withdrawn" %}
+                          Withdrawn
+                          {% elseif data.ApprovedPremisesOutcome=="accepted" %}
+                          Accepted
+                          {% elseif data.ApprovedPremisesOutcome=="rejected" %}
+                          Rejected
+                          {% else %}
+                          No outcome entered yet
+                          {% endif %}
+                        </dd>
+                      </div>
+
+                      {% if (data.ApprovedPremisesOutcome=="withdrawn") or (data.ApprovedPremisesOutcome=="rejected") %}
+                      {% else %}
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                          Accommodation address
+                        </dt> 
+                        <dd class="govuk-summary-list__key">
+                          {% if (data.ApprovedPremisesOutcome=="accepted") and (data.cas1addressadded=="yes") %}
+                          {{data.cas1addressLine1}}</br>
+                          {{data.cas1addressLine2}}</br>
+                          {{data.cas1addressTown}} {{data.cas1addressPostcode}}
+                          {% else %}
+                          No address entered yet
+                          {% endif %}
+                        </dd>
+                      </div>
+                      {% endif %}
+
+                    </dl>
+                  </div>
+                  
+                </div>
+
+                {% else %}
+                <!--card start-->
+                <div class="govuk-summary-card">
+
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Eligibility check
+                    </h2>
+                    <ul class="govuk-summary-card__actions">
+                    </ul>
+                  </div>
+  
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+  
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">Check this person's eligibility and select whether they need to go to Approved Premises (CAS-1) or short-term accommodation (CAS-2). </p>
+                        </dt>
+                      </div>
+  
+                    </dl>
+                  </div>
+  
+                </div>
+                <!--card end-->
+                {% endif %}
+
+
+
+  {% elseif data.journey=="cas2application" %}
   <!--PREFERRED CAS AREA-->
   <h3 class="govuk-heading-s">Preferred CAS area</h3>
   {% if (data.accomodationType=="cas1") and (data.riskAssessed=="yes") %}
@@ -3030,7 +3173,7 @@
         <dt class="govuk-summary-list__key">
           CAS-2 application status
         <dd class="govuk-summary-list__value">
-          Not updated by the prison yet
+          Not updated by the prison case admin yet
           <!--More information requested-->
           <!--Awaiting decision-->
           <!--On waiting list-->
@@ -3106,7 +3249,7 @@
           Town or city
         </dt>
         <dd class="govuk-summary-list__value">
-          London
+          Doncaster
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -3114,7 +3257,7 @@
           County or borough
         </dt>
         <dd class="govuk-summary-list__value">
-          Wimbledon
+          South Yorkshire
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -3131,6 +3274,7 @@
   </div>
   <!--card end-->
     
+{% endif %}
 {% endif %}
 
 
