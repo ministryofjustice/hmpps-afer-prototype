@@ -41,14 +41,22 @@
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
 
-        <p class="govuk-body">Rotherham is suitable for Ryan Rees</p>
+        {% if (data.cas2suitableAreaD=="yes") %}
+        <p class="govuk-body">
+        {% if (data.casDareaTown) %}
+        {{data.casDareaTown}}
+        {% endif %} is suitable for Julian Murphy.
+        {% else %}
+        </p>
+        <p class="govuk-body">Rotherham is suitable for Ryan Rees.</p>
+        {% endif %}
 
 
 
        
         <h2 class="govuk-heading-m">Next steps</h2>
 
-        
+        <p class="govuk-body"></p>
         
 
         

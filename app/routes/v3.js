@@ -287,6 +287,38 @@ router.post(version + '/cas1outcome', function (req, res) {
     });
 
 
+//CAS area D suitable
+router.post(version + '/suitabilitycheckd', function (req, res) {
+  var cas2suitableAreaD = req.session.data['cas2suitableAreaD']
+  // Check whether the variable matches a condition
+  if (cas2suitableAreaD == "no"){
+  
+  // Send user to case overview page if suitablity decision has been made and confirm outcome
+    res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
+  } else {
+    // Send user back to address details page
+    res.redirect(version + '/afer/addresses/outcomes/cas-suitable')
+  }
+});
+
+
+
+    //CAS-2 no preference: Enter details for new area
+  router.post(version + '/cas2newarea', function (req, res) {
+    var cas2addedarea = req.session.data['cas2addedarea']
+    // Check whether the variable matches a condition
+    if (cas2addedarea == "yes"){
+     
+     // Send user to case list page
+      res.redirect(version + '/afer/addresses/cas/cas2-suitability-d')
+    } else {
+      // Send user to task list page
+      res.redirect(version + '/afer/addresses/tasklist')
+    }
+  });
+
+
+
   //Confirmation of CAS assessment outcome: Suitable
   router.post(version + '/cassuitableoutcome', function (req, res) {
     var ConfirmationNav = req.session.data['confirmationnav']
@@ -301,6 +333,9 @@ router.post(version + '/cas1outcome', function (req, res) {
     }
   });
 
+
+
+  
 
     
 

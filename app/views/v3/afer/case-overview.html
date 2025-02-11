@@ -1435,7 +1435,7 @@
 {% endif %}
 
 
-{% if data.cas2suitableAreaC=="yes" %}
+{% if (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaD=="yes") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1640,7 +1640,7 @@
 {% endif %}
 
 
-{% if data.journey=="cas2application"%}
+{% if (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
 {% if data.sendChecksPrison=="yes"%}  
 <!--Send checks to prison - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1655,7 +1655,7 @@
     </div>
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/send-checks-prison" style="margin-top: 15px;">View or change</a></p>
   </section>
-{% elseif data.cas2suitableAreaC=="yes" %}
+{% elseif (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaD=="yes") %}
 <!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -2168,7 +2168,7 @@
     {% elseif data.user=="probation" %}
 
 
-    {% if (data.cas2suitableAreaC=="yes") %}
+    {% if (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaD=="yes") %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
@@ -3102,10 +3102,10 @@
 
 
 
-  {% elseif data.journey=="cas2application" %}
+  {% elseif (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
   <h3 class="govuk-heading-s">CAS accommodation</h3>
 
-  {% if data.cas2suitableAreaC=="yes" %}
+  {% if (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaD=="yes") %}
   <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
   {% elseif data.OfflineStep=="yes" %}
   <p class="govuk-body" style="margin-top: -15px;">Saved by Jessica Smith on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
