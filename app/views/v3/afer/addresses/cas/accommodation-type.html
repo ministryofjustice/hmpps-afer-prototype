@@ -65,12 +65,21 @@
                 </div>
               </div>
 
+              {% if data.journey=="casNoPreference" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accomodationType-2" name="accomodationType" type="radio" value="cas2nopref">
+                <label class="govuk-label govuk-radios__label" for="accomodationType-2">
+                  Short-term accommodation (CAS-2)
+                </label>
+              </div>
+              {% else %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="accomodationType-2" name="accomodationType" type="radio" value="cas2">
                 <label class="govuk-label govuk-radios__label" for="accomodationType-2">
                   Short-term accommodation (CAS-2)
                 </label>
               </div>
+              {% endif %}
             </div>
           </fieldset>
         </div>
