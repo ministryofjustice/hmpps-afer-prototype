@@ -1026,13 +1026,27 @@
 
 <!--Additional CAS-2 task for CA-->
 {% if (data.addressinput=="complete") %}
-{% if (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2")  %}
-<!--Enter CAS1 submittted - Start-->
+{% if (data.cas2submitted=="yes") %}
+<!--Enter CAS-2 submitted - Done-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">View CAS-2 area and record submission of application</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
+      </div>
+    </div>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/submitted-application" style="margin-top: 15px;">View or change</a></p>
+  </section>
+{% elseif (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2")  %}
+<!--Enter CAS-2 submittted - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Record submission of Approved Premises application</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">View CAS-2 area and record submission of application</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
@@ -1042,6 +1056,26 @@
   </section>
 </article>
 {% endif %}
+{% endif %}
+<!--Additional CAS-2 task for CA-->
+
+
+<!--Additional CAS-2 task for CA-->
+{% if (data.cas2submitted=="yes") %}
+<!--Enter CAS-2 outcome - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter outcome of CAS-2 application</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/cas/application-outcome" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
 {% endif %}
 <!--Additional CAS-2 task for CA-->
 
