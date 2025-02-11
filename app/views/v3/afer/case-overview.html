@@ -400,7 +400,9 @@
 
       {% elseif data.user=="probation"%}
 
-      {% if data.journey=="cas2application"%}
+      {% if data.journey=="casNoPreference"%}
+      Julian Murphy
+      {% elseif data.journey=="cas2application"%}
       Ryan Rees
       {% elseif data.journey=="cas1application"%}
       Lenny Wallace
@@ -458,8 +460,9 @@
               {% endif %}
 
               {% elseif data.user=="probation" %}
-
-              {% if data.journey=="cas2application" %}
+              {% if data.journey=="casNoPreference"%}
+              Julian Murphy
+              {% elseif data.journey=="cas2application" %}
               Ryan Rees
               {% elseif data.journey=="cas1application" %}
               Lenny Wallace
