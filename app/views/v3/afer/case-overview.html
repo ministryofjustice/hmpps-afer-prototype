@@ -385,7 +385,10 @@
     <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for
       {% if data.journey=="28daysjourney" %}
       David Lee
-      
+
+      {% elseif data.journey=="cas2application"%}
+      Ryan Rees
+
       {% elseif data.user=="admin"%}
 
       {% if data.journey=="ineligiblejourney"%}
@@ -402,8 +405,6 @@
 
       {% if data.journey=="casNoPreference"%}
       Julian Murphy
-      {% elseif data.journey=="cas2application"%}
-      Ryan Rees
       {% elseif data.journey=="cas1application"%}
       Lenny Wallace
       {% else %}
@@ -450,6 +451,9 @@
               {% if data.journey=="28daysjourney" %}
               David Lee
 
+              {% elseif data.journey=="cas2application" %}
+              Ryan Rees
+
               {% elseif data.user=="admin" %}
               {% if data.journey=="ineligiblejourney" %}
               Jose Rodriguez
@@ -462,8 +466,6 @@
               {% elseif data.user=="probation" %}
               {% if data.journey=="casNoPreference"%}
               Julian Murphy
-              {% elseif data.journey=="cas2application" %}
-              Ryan Rees
               {% elseif data.journey=="cas1application" %}
               Lenny Wallace
               {% else %}
@@ -487,6 +489,9 @@
             <dd class="govuk-summary-list__value">
               {% if data.journey=="28daysjourney" %}
               G93332
+
+              {% elseif data.journey=="cas2application"%}
+              G87634
               
               {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
@@ -498,9 +503,7 @@
               {% endif %}  
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas2application"%}
-              G87634
-              {% elseif data.journey=="cas1application"%}
+              {% if data.journey=="cas1application"%}
               G2431GT
               {% else %}
               G5613GT
@@ -519,6 +522,9 @@
               {% if data.journey=="28daysjourney" %}
               Concerned in the supply of a controlled drug of Class B - cannabis
 
+              {% elseif data.journey=="cas2application"%}
+              Concerned in the supply of a controlled drug of Class B - cannabis
+
               {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               Section 18 - wounding with intent
@@ -530,9 +536,7 @@
               {% endif %}
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas2application"%}
-              Concerned in the supply of a controlled drug of Class B - cannabis
-              {% elseif data.journey=="cas1application"%}
+              {% if data.journey=="cas1application"%}
               Section 18 - wounding with intent
               {% else %}
               Conspire to fraudulent evade a prohibition on the importation of a class A drug
@@ -552,6 +556,9 @@
               {% if data.journey=="28daysjourney" %}
               {{ "today" |  duration(20) | govukDate }}
 
+              {% elseif data.journey=="cas2application"%}
+              {{ "today" |  duration(100) | govukDate }}
+
               {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(128) | govukDate }}
@@ -562,9 +569,7 @@
               {% endif %}
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas2application"%}
-              {{ "today" |  duration(100) | govukDate }}
-              {% elseif data.journey=="cas1application"%}
+              {% if data.journey=="cas1application"%}
               {{ "today" |  duration(128) | govukDate }}
               {% else %}
               {{ "today" |  duration(96) | govukDate }}
@@ -584,6 +589,9 @@
               {% if data.journey=="28daysjourney" %}
               {{ "today" |  duration(36) | govukDate }}
 
+              {% elseif data.journey=="cas2application"%}
+              {{ "today" |  duration(153) | govukDate }}
+
               {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(185) | govukDate }}
@@ -594,9 +602,7 @@
               {% endif %}
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas2application"%}
-              {{ "today" |  duration(153) | govukDate }}
-              {% elseif data.journey=="cas1application"%}
+              {% if data.journey=="cas1application"%}
               {{ "today" |  duration(185) | govukDate }}
               {% else %}
               {{ "today" |  duration(153) | govukDate }}
@@ -854,44 +860,10 @@
   </strong>
 </div>
 
-<!--<div class="moj-banner" role="region" aria-label="information">
-
-  <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-    <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
-  C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
-  </svg>
-
-  <div class="moj-banner__message">
-    Reason: 
-    {% if data.postponereason=="riskmanagement"%}Waiting for a risk management plan</br>{% endif %}
-    {% if data.postponereason=="remand"%}On remand</br>{% endif %}
-    {% if data.postponereason=="confiscationorder"%}Would not follow the requirements of a confiscation order if released</br>{% endif %}
-    {% if data.postponereason=="segregated"%}Segregated and the governor has not approved their release yet.
-    This does not apply if they were segregated for their own protection</br>{% endif %}
-    {% if data.postponereason=="committedoffence"%}Committed an offence in prison that has been referred to a law enforcement agency or the independent adjudicator but not resolved</br>{% endif %}
-    {% if data.postponereason=="undulylenientsentence"%}Application pending with the unduly lenient sentence scheme</br>{% endif %}
-    <a class="govuk-link govuk-link--no-visited-state" href="postpone/postpone-this-application.html">Resume application</a>
-</div>
-
-</div>-->
 {% else %}
 {% endif %}
 <!--postponed info end-->
 
-
-  
-
-
-<!--
-<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
-    Application has been postponed</br>
-    <a class="govuk-link govuk-link--no-visited-state" href="#">Resume application</a>
-  </strong>
-</div>
--->    
 
 
 
@@ -1051,6 +1023,27 @@
 </article>
 {% endif %}
 
+
+<!--Additional CAS-2 task for CA-->
+{% if (data.addressinput=="complete") %}
+{% if (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2")  %}
+<!--Enter CAS1 submittted - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Record submission of Approved Premises application</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <a href="./addresses/cas/submitted-application" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% endif %}
+{% endif %}
+<!--Additional CAS-2 task for CA-->
 
 
 {% if data.submitfordecision=="yes"%}
@@ -1566,7 +1559,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/cas1-submitted-application" style="margin-top: 15px;">View or change</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/submitted-application" style="margin-top: 15px;">View or change</a></p>
   </section>
 {% elseif data.cas1assessment=="complete" %}
 <!--Enter CAS1 submittted - Start-->
@@ -1580,7 +1573,7 @@
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
       </div>
     </div>
-    <a href="./addresses/cas/cas1-submitted-application" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    <a href="./addresses/cas/submitted-application" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
 {% else %}
@@ -4025,9 +4018,11 @@
 
 <!--Tabs end-->
 
+
 {% if data.OfflineStep=="yes" %}
 {% elseif data.cas2suitableAreaB=="no" %}
 <p class="govuk-body" style="margin-top: 100px;"><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/cas2-offlinestep">Offline step</a></p>
+{% else %}
 {% endif %}
 
 

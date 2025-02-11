@@ -131,6 +131,8 @@ var version = '/v3';
   });
 
 
+
+
   //PP journey routes
 
 
@@ -211,17 +213,23 @@ router.post(version + '/casvloquestion', function (req, res) {
 });
 
 
-  //CAS-1 Application submission
+  //CAS-1 Application submission and also CAS-2 Application submission (CA/POM)
   router.post(version + '/applicationsubmission', function (req, res) {
     var cas1submitted = req.session.data['cas1submitted']
+    var cas2submitted = req.session.data['cas2submitted']
     // Check whether the variable matches a condition
-    if (cas1submitted == "yes"){
-    
-    // Send user to case overview page if suitablity decision has been made and confirm outcome
+
+    if (cas1submitted == "yes") {
+    // Send user to case overview page and confirm CAS-1 was submitted
       res.redirect(version + '/afer/case-overview')
+
+    } else if (cas2submitted == "yes") {
+       // Send user to case overview page and confirm CAS-2 was submitted
+      res.redirect(version + '/afer/case-overview')
+
     } else {
-      // Send user back to address details page
-      res.redirect(version + '/afer/addresses/cas/cas1-apply-placement')
+      // Send user back to remind them that they have to apply in CAS service
+      res.redirect(version + '/afer/addresses/cas/apply-placement')
     }
   });
 
