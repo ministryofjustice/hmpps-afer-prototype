@@ -32,41 +32,6 @@
         <form action="../../case-overview" method="post" novalidate>
           
           
-          <!--<h1 class="govuk-heading-l govuk-!-margin-top-6">
-            Enter outcome of Approved Premises application
-          </h1>
-          
-          <div class="govuk-form-group govuk-!-margin-top-6">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h1 class="govuk-fieldset__heading">
-                  Enter the outcome of this person’s application 
-                </h1>
-              </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="accepted">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                    Accepted
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="withdrawnorrejected">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                    Rejected
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="withdrawnorrejected">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                    Withdrawn
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>-->
-
-
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
          
@@ -76,28 +41,56 @@
                   Enter the address of the accommodation
                 </legend>
                 <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-line-1">
+                    Address line 1
+                  </label>
+                  <input class="govuk-input" id="cas2address-line-1" name="cas2addressLine1">
+                  {% else %}
                   <label class="govuk-label" for="cas1address-line-1">
                     Address line 1
                   </label>
                   <input class="govuk-input" id="cas1address-line-1" name="cas1addressLine1">
+                  {% endif %}
                 </div>
                 <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-line-2">
+                    Address line 2 (optional)
+                  </label>
+                  <input class="govuk-input" id="cas2address-line-2" name="cas2addressLine2">
+                  {% else %}
                   <label class="govuk-label" for="cas1address-line-2">
                     Address line 2 (optional)
                   </label>
                   <input class="govuk-input" id="cas1address-line-2" name="cas1addressLine2">
+                  {% endif %}
                 </div>
                 <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-town">
+                    Town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="cas2address-town" name="cas2addressTown">
+                  {% else %}
                   <label class="govuk-label" for="cas1address-town">
                     Town or city
                   </label>
                   <input class="govuk-input govuk-!-width-two-thirds" id="cas1address-town" name="cas1addressTown">
+                  {% endif %}
                 </div>
                 <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-postcode">
+                    Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="cas2address-postcode" name="cas2addressPostcode">
+                  {% else %}
                   <label class="govuk-label" for="cas1address-postcode">
                     Postcode
                   </label>
                   <input class="govuk-input govuk-input--width-10" id="cas1address-postcode" name="cas1addressPostcode">
+                  {% endif %}
                 </div>
               </fieldset>
             </div>
@@ -106,7 +99,16 @@
             </div>
 
           
-
+            {% if (data.user=="admin") %}
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="cas2addressadded" value="yes">
+                Save
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="cas2addressadded" value="no">
+                Cancel
+              </button>
+            </div>    
+            {% else %}
             <div class="govuk-button-group">
               <button type="submit" class="govuk-button" data-module="govuk-button" name="cas1addressadded" value="yes">
                 Save
@@ -115,6 +117,7 @@
                 Cancel
               </button>
             </div>    
+            {% endif %}
 
 
 
