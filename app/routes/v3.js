@@ -297,15 +297,15 @@ router.post(version + '/cas1outcome', function (req, res) {
 
 //CAS area D suitable
 router.post(version + '/suitabilitycheckd', function (req, res) {
-  var cas2suitableAreaD = req.session.data['cas2suitableAreaD']
+  var areastoavoid = req.session.data['areastoavoid']
   // Check whether the variable matches a condition
-  if (cas2suitableAreaD == "no"){
+  if (areastoavoid == "yes"){
   
   // Send user to case overview page if suitablity decision has been made and confirm outcome
-    res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
+    res.redirect(version + '/afer/addresses/outcomes/cas-suitable')
   } else {
     // Send user back to address details page
-    res.redirect(version + '/afer/addresses/outcomes/cas-suitable')
+    res.redirect(version + '/afer/addresses/tasklist')
   }
 });
 
