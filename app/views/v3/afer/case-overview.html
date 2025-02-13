@@ -867,7 +867,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    {% if data.postponed=="yes" %}
+    {% if (data.postponed=="yes") or (data.resumeapplication=="no") %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View</a></p>
     {% elseif data.optin=="yes" %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./eligibility/tasklist" style="margin-top: 15px;">View or change</a></p>
@@ -930,7 +930,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    {% if data.postponed=="yes" %}
+    {% if (data.postponed=="yes") or (data.resumeapplication=="no") %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input" style="margin-top: 15px;">View</a></p>
     {% else %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./address-input/view-address-input" style="margin-top: 15px;">View or change</a></p>
@@ -1016,7 +1016,11 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
+    {% if (data.postponed=="yes") or (data.resumeapplication=="no") %}
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/submitted-application" style="margin-top: 15px;">View</a></p>
+    {% else %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/submitted-application" style="margin-top: 15px;">View or change</a></p>
+    {% endif %}
   </section>
 {% elseif (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2")  %}
 <!--Enter CAS-2 submittted - Start-->
@@ -1039,7 +1043,7 @@
 
 
 <!--Additional CAS-2 task for CA-->
-{% if data.journey=="cas2application" %}
+{% if (data.journey=="cas2application") and (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2") %}
 {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
 <!--Enter CAS-2 outcome - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1052,7 +1056,11 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
+    {% if (data.postponed=="yes") or (data.resumeapplication=="no") %}
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/application-outcome" style="margin-top: 15px;">View</a></p>
+    {% else %}
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/application-outcome" style="margin-top: 15px;">View or change</a></p>
+    {% endif %}
   </section>
 </article>
 {% elseif (data.cas2submitted=="yes") %}
@@ -1313,6 +1321,14 @@
       </div>
     </div>
     <a href="./addresses/cas/application-address" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  </section>
+</article>
+{% elseif (data.postponed=="yes") or (data.resumeapplication=="no") %}
+<!--Review application and send for decision - Cannot start yet-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter CAS-2 address</h2>
+    <p class="govuk-body">Application postponed</p>
   </section>
 </article>
 {% elseif (data.journey=="cas2application") %}
