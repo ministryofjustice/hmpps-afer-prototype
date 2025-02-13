@@ -33,16 +33,19 @@
           <h1 class="govuk-panel__title">
             CAS checks complete
           </h1>
+          {% if data.journey=="casNoPreference" %}
+          {% else %}
           <div class="govuk-panel__body">
             <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_check_white.svg"/>
             Area suitable
           </div>
+          {% endif %}
         </div>
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
 
         {% if data.journey=="casNoPreference" %}
-        <p class="govuk-body">No preference area place holder</p>
+        <p class="govuk-body">No preference place holder copy</p>
         {% else %}
         <p class="govuk-body">Rotherham is suitable for Ryan Rees.</p>
         {% endif %}
@@ -52,7 +55,11 @@
        
         <h2 class="govuk-heading-m">Next steps</h2>
 
+        {% if data.journey=="casNoPreference" %}
+        <p class="govuk-body">No preference place holder copy</p>
+        {% else %}
         <p class="govuk-body"></p>
+        {% endif %}
         
 
         
