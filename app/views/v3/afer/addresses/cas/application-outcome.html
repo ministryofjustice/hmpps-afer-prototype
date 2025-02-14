@@ -39,9 +39,9 @@
           <h1 class="govuk-heading-l govuk-!-margin-top-6">
             Enter outcome of
             {% if (data.user=="admin") %}
-            CAS-2 application
+            CAS-2 referral
             {% else %}
-            Approved Premises application
+            Approved Premises referral
             {% endif %}
           </h1>
           
@@ -54,22 +54,23 @@
               </legend>
               <div class="govuk-radios" data-module="govuk-radios" style="margin-top: -20px;">
                 {% if (data.user=="admin") %}
+                <p class="govuk-body">You only need to tell us when an offer or referral is accepted, declined or cancelled, or withdrawn.</p>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ShorttermAccommodationOutcome" name="ShorttermAccommodationOutcome" type="radio" value="accepted">
                   <label class="govuk-label govuk-radios__label" for="ShorttermAccommodationOutcome">
-                    CAS-2 Accepted 
+                    Offer accepted 
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ShorttermAccommodationOutcome-2" name="ShorttermAccommodationOutcome" type="radio" value="rejected">
                   <label class="govuk-label govuk-radios__label" for="ShorttermAccommodationOutcome-2">
-                    CAS-2 Rejected
+                    Offer declined or withdrawn
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ShorttermAccommodationOutcome-3" name="ShorttermAccommodationOutcome" type="radio" value="withdrawn">
                   <label class="govuk-label govuk-radios__label" for="ShorttermAccommodationOutcome-3">
-                    CAS-2 Withdrawn
+                    Referral cancelled or withdrawn
                   </label>
                 </div>
                 {% else %}
@@ -80,19 +81,31 @@
                   <input class="govuk-radios__input" id="ApprovedPremisesOutcome" name="ApprovedPremisesOutcome" type="radio" value="accepted">
                   {% endif %}
                   <label class="govuk-label govuk-radios__label" for="ApprovedPremisesOutcome">
-                    Accepted
+                    Accepted as suitable for an Approved Premises
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ApprovedPremisesOutcome-2" name="ApprovedPremisesOutcome" type="radio" value="rejected">
                   <label class="govuk-label govuk-radios__label" for="ApprovedPremisesOutcome-2">
-                    Rejected
+                    Rejected as not suitable for an Approved Premises
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ApprovedPremisesOutcome-2" name="ApprovedPremisesOutcome" type="radio" value="rejected">
+                  <label class="govuk-label govuk-radios__label" for="ApprovedPremisesOutcome-2">
+                    Rejected as insufficient information
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ApprovedPremisesOutcome-2" name="ApprovedPremisesOutcome" type="radio" value="rejected">
+                  <label class="govuk-label govuk-radios__label" for="ApprovedPremisesOutcome-2">
+                    Rejected as too high risk
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ApprovedPremisesOutcome-3" name="ApprovedPremisesOutcome" type="radio" value="withdrawn">
                   <label class="govuk-label govuk-radios__label" for="ApprovedPremisesOutcome-3">
-                    Withdrawn
+                    Application withdrawn by the probation practitioner
                   </label>
                 </div>
                 {% endif %}

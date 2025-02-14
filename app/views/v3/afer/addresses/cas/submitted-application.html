@@ -34,10 +34,10 @@
 
         {% if (data.user=="admin") %}
 
-        <h1 class="govuk-heading-l govuk-!-margin-top-6">View CAS-2 area and record submission of application</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">View CAS-2 area and record submission of referral</h1>
 
-        <p class="govuk-body">The probation practitioner has found this area suitable for HDC release at short-term accommodation (CAS-2).</br>
-          You can use the <a class="govuk-link govuk-link--no-visited-state" href="" target="_blank">CAS-2 – Short-term accommodation service.</a>
+        <p class="govuk-body">The probation practitioner has found this area suitable for HDC release at short-term accommodation (CAS-2).
+          The referral can be started on the <a class="govuk-link govuk-link--no-visited-state" href="" target="_blank">CAS-2 – short-term accommodation service</a>.
         </p>
 
          <!--card start-->
@@ -111,19 +111,19 @@
               {% if (data.user=="admin") %}
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                 <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
-                  Have you submitted an application for CAS-2? 
+                  Has a CAS-2 referral been submitted?
                 </h1>
               </legend>
               {% else %}
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
-                  Have you submitted an application for Approved Premises?
+                  Have you submitted a referral for Approved Premises?
                 </h1>
               </legend>
               {% endif %}
 
               {% if (data.user=="admin") %}
-              <div class="govuk-hint">Recording this helps to keep probation informed of progress.</div>
+              <div class="govuk-hint">Recording this helps to keep the probation practitioner informed of progress.</div>
               {% else %}
               <div class="govuk-hint">Recording this helps to keep the prison informed of progress.</div>
               {% endif %}
