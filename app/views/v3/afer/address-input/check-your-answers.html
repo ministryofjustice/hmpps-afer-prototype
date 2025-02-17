@@ -2531,7 +2531,17 @@
 <!--Preferred address end-->
         {% endif%}
 
+        {% if data.communityaccommodation=="three" %}
+        <form action="../address-input/view-address-input" method="post" novalidate>
 
+          <input type="hidden" name="communityaccommodation" value="three">
+          
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save
+          </button>
+
+        </form>
+        {% else %}
         <form action="../case-overview" method="post" novalidate>
 
           <input type="hidden" name="addressinput" value="complete">
@@ -2539,8 +2549,9 @@
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Save
           </button>
-        </form>
 
+        </form>
+        {% endif %}
 
 
       </div>

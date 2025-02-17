@@ -197,11 +197,25 @@
               </div>
               <!--card end-->
 
+        
+        <!--Additional CAS area added-->
+        {% if data.communityaccommodation=="three" %}
+              third area
 
 
 
+        {% endif %}
 
-        <a href="./cas" class="govuk-button">Add another CAS area</a>
+
+        
+        <form action="./cas-3" method="post" novalidate>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Add another CAS area
+          </button>
+
+        </form>
+
 
         {% else %}
         <!--old design-->
@@ -234,22 +248,15 @@
           </div>
         </dl>
         
-        
+       
         <a href="./cas" class="govuk-button">Add another CAS area</a>
         <!--old design-->
+
         {% endif %}
-        
-        <form action="../case-overview" method="post" novalidate>
 
-        <!--<input type="hidden" name="addressinputcomplete" value="view">-->
-  
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-top: 40px;">
-              Back to application overview
-            </button>
-          </div>
 
-        </form>
-        
+        <a href="../case-overview" class="govuk-button govuk-button--secondary">Back to application overview</a>
+
 
       </div>
     </div>
