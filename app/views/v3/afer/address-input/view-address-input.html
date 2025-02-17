@@ -26,8 +26,8 @@
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
-
       <div class="govuk-grid-column-two-thirds">
+
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
 
         <p>Case is allocated to Mark Coombes, probation practitioner.</p>
@@ -197,12 +197,98 @@
               </div>
               <!--card end-->
 
+              {% if data.communityaccommodation=="three" %}
+              <!--card start-->
+              <div class="govuk-summary-card">
+              
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Third area
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <!--<li class="govuk-summary-card__action">
+                      {% if data.cas2suitableAreaC=="yes" %}
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+                      {% elseif data.cas2suitableAreaC=="no" %}
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                      {% else %}
+                      {% endif %}
+                    </li>-->
+                  </ul>
+                </div>
+              
+                
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Town or city
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Rotherham
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        County or borough
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        South Yorkshire
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Additional Information
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Application status
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Not submitted by prison case admin yet
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Application outcome
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        No outcome entered by prison case admin yet	
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Accommodation address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        No address entered by prison case admin yet
+                      </dd>
+                    </div>                    
+                  </dl>
+                 </div>
+                    
+              </div>
+              <!--card end-->
+              {% endif %}
 
 
 
+              <form action="./cas-3" method="post" novalidate>
 
-        <a href="./cas" class="govuk-button">Add another CAS area</a>
+                    <input type="hidden" name="communityaccommodation" value="three">
+          
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                      Add another CAS area
+                    </button>
+        
+              </form>
 
+             
         {% else %}
         <!--old design-->
         <dl class="govuk-summary-list">
@@ -238,18 +324,12 @@
         <a href="./cas" class="govuk-button">Add another CAS area</a>
         <!--old design-->
         {% endif %}
-        
-        <form action="../case-overview" method="post" novalidate>
 
-        <!--<input type="hidden" name="addressinputcomplete" value="view">-->
-  
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-top: 40px;">
-              Back to application overview
-            </button>
-          </div>
-
-        </form>
+           
+        <a href="../case-overview" class="govuk-button govuk-button--secondary" style="margin-top: 40px;">Back to application overview</a>
         
+    
+ 
 
       </div>
     </div>
