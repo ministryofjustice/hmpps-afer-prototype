@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
+
+        
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2>   
+
+        <p class="govuk-body">None entered</p>
+
+        <a href="./postcode-lookup" class="govuk-button">Add another curfew address</a>
+
+        
+        
+
+        
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">CAS area details</h2> 
+
+        <h2 class="govuk-heading-s govuk-!-margin-top-6"></h2> 
+
+        <p>This person’s probation practitioner has provided the following information to help with making a CAS-2 referral. </p>
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Information about areas to avoid
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                  [Areas to avoid listed here]
+                </dt> 
+              </div>
+
+            </dl>
+          </div>
+          
+        </div>
+
+
+        
+
+
+enter outcome
+
+
+
+           
+        <a href="../case-overview" class="govuk-button govuk-button--secondary" style="margin-top: 40px;">Back to application overview</a>
+        
+    
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
