@@ -43,7 +43,9 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               Select which type of accommodation
-              {% if data.journey=="cas2application"%}
+              {% if data.journey=="casNoPreference"%}
+              Julian
+              {% elseif data.journey=="cas2application"%}
               Ryan
               {% elseif data.journey=="cas1application"%}
               Lenny
