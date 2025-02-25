@@ -39,16 +39,6 @@
 
       <h1 class="govuk-heading-l govuk-!-margin-top-8">CAS-2 no area preference assessment</h1>
 
-     
-
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="more-detail"><strong>Enter areas to avoid</strong></label>
-        <div class="govuk-hint">The prison will avoid these areas when making a CAS-2 referral.</div>
-        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
-      </div>
-    
-
-
     
                 <!--START set dynamic radio hide/show text-->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -94,9 +84,16 @@
                 }) }}
 
 
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="more-detail"><strong>Enter areas to avoid</strong></label>
+                  <div class="govuk-hint">The prison will avoid these areas when making a CAS-2 referral.</div>
+                  <textarea class="govuk-textarea" id="CASareasToAvoid" name="CASareasToAvoid" rows="5"></textarea>
+                </div>
+              
+          
               
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="more-detail"><strong>Add information to support your decision</strong></label>
+                  <label class="govuk-label govuk-label--s" for="more-detail"><strong>Add information to support your decision</strong></label>
                   <div class="govuk-hint">For example, include anything that needs to be put in place to help manage their risk, such as treatment programmes.</div>
                   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
                 </div>

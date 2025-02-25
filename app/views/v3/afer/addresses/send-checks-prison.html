@@ -82,7 +82,11 @@
         </div>
 
 
-{% if data.journey=="cas2application" %} 
+
+
+
+
+{% if (data.journey=="cas2application") or (data.journey=="casNoPreference") %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Proposed curfew addresses</h3>
 <p class="govuk-body">None entered</p>
 
@@ -379,7 +383,7 @@
 
 <!--SECOND ADDRESS-->
 
-{% if data.journey=="cas2application" %} 
+{% if data.journey=="cas2application" or (data.journey=="casNoPreference") %} 
 {% else %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Second address – Suitable</h3>
 
@@ -888,7 +892,7 @@
 <!--CAS AREAS-->
 
 
-{% if (data.journey=="cas1application") or (data.journey=="cas2application") %} 
+{% if (data.journey=="cas1application") or (data.journey=="cas2application") or (data.journey=="casNoPreference") %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-8">CAS accommodation – Eligible</h3>
 
 <!--CAS eligibility start-->
@@ -920,7 +924,7 @@
         <dd class="govuk-summary-list__key">
           {% if data.accomodationType=="cas1" %}
           Approved Premises (CAS-1)
-          {% elseif data.accomodationType=="cas2" %}
+          {% elseif (data.accomodationType=="cas2") or (data.accomodationType=="cas2nopref") %}
           Short-term accommodation</br>(CAS-2)
           {% endif %}
         </dd>
@@ -995,8 +999,51 @@
     </dl>
   </div>
 </div>
-{% endif %}
 <!--Approved Premises assessment end-->
+
+
+{% elseif data.accomodationType=="cas2nopref" %}
+<h3 class="govuk-heading-m govuk-!-static-margin-top-8">No area preference</h3>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Areas to avoid
+    </h2>
+    <ul class="govuk-summary-card__actions">
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          [Entered areas]
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Information to support your decision
+    </h2>
+    <ul class="govuk-summary-card__actions">
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          [Entered info]
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
 
 
 
@@ -1345,6 +1392,7 @@
 
 <!--Preferred CAS end-->
 {% endif %}  
+{% endif %}  
 
 
 {% if data.journey=="cas2application" %}
@@ -1600,6 +1648,34 @@
                   
                 ]
               }) }}
+
+
+              {% elseif data.accomodationType=="cas2nopref" %}
+
+              {{ govukRadios({
+               name: "vlo",
+               fieldset: {
+                 legend: {
+                   text: "Is there any information that must not be disclosed to Julian?",
+                   isPageHeading: false,
+                   classes: "govuk-fieldset__legend--s"
+                 }
+               },
+               items: [
+               {
+                 value: "vloYes",
+                 text: "Yes",
+                 conditional: {
+                   html: textHtmlOther
+                 }
+               },
+                 {
+                   value: "vloNo",
+                   text: "No"
+                 }
+                 
+               ]
+             }) }}
 
 
                {% endif %}

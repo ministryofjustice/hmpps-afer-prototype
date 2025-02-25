@@ -59,7 +59,7 @@
               <!--banner CAS-1 start--> 
 
 
-
+        
               <!--banner CAS-2 start--> 
               {% if data.journey=="cas2application" %}
 
@@ -76,7 +76,7 @@
                 <div class="moj-banner__message">Preferred area unsuitable</div>
 
               </div>
-              {% elseif data.accomodationType=="cas2" %}
+              {% elseif (data.accomodationType=="cas2") %}
               <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
                 <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -89,8 +89,28 @@
               {% else %}
               {% endif %}
 
+              
               {% endif %}
               <!--banner CAS-2 end--> 
+
+
+              <!--CAS-2 no pref banner start-->
+
+              {% if (data.journey=="casNoPreference") %}
+
+              {% if (data.accomodationType=="cas2nopref") %}
+              <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+                <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                  <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+                </svg>
+
+                <div class="moj-banner__message">Eligibility check completed. You can now continue assessing this person for CAS-2.</div>
+
+              </div>
+              {% endif %}
+              {% else %}
+              {% endif %}
 
 
               
