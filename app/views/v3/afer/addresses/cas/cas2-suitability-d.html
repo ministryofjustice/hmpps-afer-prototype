@@ -39,6 +39,8 @@
 
       <h1 class="govuk-heading-l govuk-!-margin-top-8">CAS-2 no area preference assessment</h1>
 
+      <form class="form" action="/v3/suitabilitycheckd" method="post" novalidate>
+
     
                 <!--START set dynamic radio hide/show text-->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -95,11 +97,12 @@
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-label--s" for="more-detail"><strong>Add information to support your decision</strong></label>
                   <div class="govuk-hint">For example, include anything that needs to be put in place to help manage their risk, such as treatment programmes.</div>
-                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                  <textarea class="govuk-textarea" id="CASareasToAvoidDecision" name="CASareasToAvoidDecision" rows="5"></textarea>
                 </div>
 
-                <form class="form" action="/v3/suitabilitycheckd" method="post" novalidate>
+                
 
+                  <input type="hidden" name="cas2suitableAreaD" value="yes">
 
                   <div class="govuk-button-group">
                     <button type="submit" class="govuk-button" data-module="govuk-button" name="areastoavoid" value="yes">
