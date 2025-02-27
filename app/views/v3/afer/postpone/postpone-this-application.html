@@ -48,12 +48,15 @@
                             Outstanding risk management planning actions that must be confirmed by a probation practitioner
                           </label>
                         </div>
+                        {% if data.prepareforrelease=="complete" %}
                         <div class="govuk-checkboxes__item">
                           <input class="govuk-checkboxes__input" id="postponereason" name="postponereason" type="checkbox" value="riskmanagement">
                           <label class="govuk-label govuk-checkboxes__label" for="postponereason">
                             Waiting for CAS-2 accommodation or an Approved Premises placement
                           </label>
                         </div>
+                        {% else %}
+                        {% endif %}
                         <div class="govuk-checkboxes__item">
                           <input class="govuk-checkboxes__input" id="postponereason-2" name="postponereason" type="checkbox" value="remand">
                           <label class="govuk-label govuk-checkboxes__label" for="postponereason-2">
