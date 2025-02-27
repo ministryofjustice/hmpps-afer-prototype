@@ -131,6 +131,23 @@ var version = '/v3';
   });
 
 
+  //2 day check
+  router.post(version + '/2dayconfirminfo', function (req, res) {
+    var InfoCorrect = req.session.data['InfoCorrect']
+    // Check whether the variable matches a condition
+    if (InfoCorrect == "yes"){
+     
+     // Send user to address type page
+      res.redirect(version + '/afer/postpone/check-if-application-needs-postponing')
+      
+    } else {
+      // Send user to opt out reason page
+      res.redirect(version + '/afer/case-overview')
+    }
+  });
+
+  
+
 
 
   //PP journey routes
