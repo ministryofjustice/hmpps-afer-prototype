@@ -98,7 +98,8 @@
 
               {% if (data.journey=="casNoPreference") %}
 
-              {% if (data.accomodationType=="cas2nopref") %}
+              {% if (data.CASareasToAvoid) %}
+              {% elseif (data.accomodationType=="cas2nopref") %}
               <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
                 <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -201,7 +202,23 @@
         
         <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Check curfew addresses or CAS accommodation</h1>
 
-        {% if (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaD=="yes") %}
+        {% if (data.CASareasToAvoid) or (data.cas2suitableAreaD=="yes") %}
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">Information about areas to avoid recorded</p>
+  
+            <p class="govuk-body">
+              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+            </p>
+
+          </div>
+        </div>
+        {% elseif (data.cas2suitableAreaC=="yes") %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -994,6 +1011,30 @@
                                                             {% if (data.CASareasToAvoid) %}
                                                             {{data.CASareasToAvoid}}
                                                             {% endif %}
+                                                          </dd>
+                                                        </div>
+                                                        <div class="govuk-summary-list__row">
+                                                          <dd class="govuk-summary-list__key">
+                                                            Application status
+                                                          </dd>
+                                                          <dd class="govuk-summary-list__value">
+                                                            Not submitted by prison case admin yet
+                                                          </dd>
+                                                        </div>
+                                                        <div class="govuk-summary-list__row">
+                                                          <dd class="govuk-summary-list__key">
+                                                            Application outcome
+                                                          </dd>
+                                                          <dd class="govuk-summary-list__value">
+                                                            No outcome entered by prison case admin yet
+                                                          </dd>
+                                                        </div>
+                                                        <div class="govuk-summary-list__row">
+                                                          <dd class="govuk-summary-list__key">
+                                                            Accommodation address
+                                                          </dd>
+                                                          <dd class="govuk-summary-list__value">
+                                                            No address entered by prison case admin yet
                                                           </dd>
                                                         </div>
                                                         <div class="govuk-summary-list__row">
