@@ -45,12 +45,15 @@
         <p class="govuk-body">You can use the <a class="govuk-link govuk-link--no-visited-state" href="https://approved-premises.hmpps.service.justice.gov.uk/" target="_blank">CAS-1 – Approved Premises service.</a></p>
         {% endif %}
 
-
         <p class="govuk-body">Once submitted, return to this service to tell us. This helps to keep {% if (data.user=="admin") %}the probation practitioner{% else %}the prison{% endif %} informed of progress. You will then be able to enter the outcome of the referral.</p>
 
+        {% if (data.user=="admin") %}
+        <input type="hidden" name="cas2submitted" value="no">
+        {% else %}
         <input type="hidden" name="cas1submitted" value="no">
+        {% endif %}
 
-            <div class="govuk-button-group">
+            <div class="govuk-button-group" style="margin-top: 30px;">
               <button type="submit" class="govuk-button" data-module="govuk-button">
                 Back to application overview
               </button>
