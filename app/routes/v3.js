@@ -100,6 +100,59 @@ var version = '/v3';
       }
   });
 
+
+
+  //Changed a curfew address confirmation page
+  router.post(version + '/changedcurfewaddress', function (req, res) {
+    var confirmationnav = req.session.data['confirmationnav']
+    // Check whether the variable matches a condition
+    if (confirmationnav == "alladdresses"){
+     
+     // Back to all addresses
+      res.redirect(version + '/afer/address-input/view-address-input')
+    } else {
+      // Back to case overview page
+      res.redirect(version + '/afer/case-overview')
+    }
+  });
+
+
+  //Confirm deleting curfew address
+  router.post(version + '/confirmdeletingaddress', function (req, res) {
+    var confirmdeletion = req.session.data['confirmdeletion']
+    // Check whether the variable matches a condition
+    if (confirmdeletion == "yes"){
+     
+     // Go to confirmation page
+      res.redirect(version + '/afer/address-input/view-address-curfew2-delete-confirmation')
+    } else {
+      // Back to second address details
+      res.redirect(version + '/afer/address-input/view-address-curfew2')
+    }
+  });
+
+  
+  //Deleted a curfew address confirmation page
+  router.post(version + '/deletedcurfewaddress', function (req, res) {
+    var confirmationnav = req.session.data['confirmationnav']
+    // Check whether the variable matches a condition
+    if (confirmationnav == "alladdresses"){
+     
+     // Back to all addresses
+      res.redirect(version + '/afer/address-input/view-address-input')
+    } else {
+      // Back to case overview page
+      res.redirect(version + '/afer/case-overview')
+    }
+  });
+
+
+
+
+
+
+
+
   //Postpone application during pre decision checks
   router.post(version + '/postpone', function (req, res) {
     var postponeApplication = req.session.data['postponeapplication']
