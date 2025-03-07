@@ -415,9 +415,9 @@ router.post(version + '/suitabilitycheckd', function (req, res) {
 
   //Select release address/area if multiple
   router.post(version + '/selectreleaseaddress', function (req, res) {
-    var releaseaddress = req.session.data['releaseaddress']
+    var releaseaddressnav = req.session.data['releaseaddressnav']
     // Check whether the variable matches a condition
-    if (releaseaddress == "yes"){
+    if (releaseaddressnav == "continue"){
      
      // If release address/area selected
       res.redirect(version + '/afer/addresses/send-checks-prison')
