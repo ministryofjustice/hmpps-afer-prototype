@@ -102,11 +102,27 @@ var version = '/v3';
 
 
 
+//Change a curfew address interruption page
+router.post(version + '/changecurfewaddress', function (req, res) {
+  var curfewaddress = req.session.data['curfewaddress']
+  // Check whether the variable matches a condition
+  if (curfewaddress == "change"){
+   
+   // Confirmation page to confirm change
+    res.redirect(version + '/afer/address-input/view-address-curfew2-change-confirmation')
+  } else {
+    // Back to all addresses with confirmation banner that new address was added
+    res.redirect(version + '/afer/address-input/view-address-input')
+  }
+});
+
+  
+
   //Changed a curfew address confirmation page
   router.post(version + '/changedcurfewaddress', function (req, res) {
     var confirmationnav = req.session.data['confirmationnav']
     // Check whether the variable matches a condition
-    if (confirmationnav == "alladdresses"){
+    if (confirmationnav == "changeddetailsalladdresses"){
      
      // Back to all addresses
       res.redirect(version + '/afer/address-input/view-address-input')
@@ -124,10 +140,10 @@ var version = '/v3';
     if (confirmdeletion == "yes"){
      
      // Go to confirmation page
-      res.redirect(version + '/afer/address-input/view-address-curfew2-delete-confirmation')
+      res.redirect(version + '/afer/address-input/view-address-curfew3-delete-confirmation')
     } else {
       // Back to second address details
-      res.redirect(version + '/afer/address-input/view-address-curfew2')
+      res.redirect(version + '/afer/address-input/view-address-curfew3')
     }
   });
 
@@ -136,7 +152,7 @@ var version = '/v3';
   router.post(version + '/deletedcurfewaddress', function (req, res) {
     var confirmationnav = req.session.data['confirmationnav']
     // Check whether the variable matches a condition
-    if (confirmationnav == "alladdresses"){
+    if (confirmationnav == "deleteddetailsalladdresses"){
      
      // Back to all addresses
       res.redirect(version + '/afer/address-input/view-address-input')
