@@ -37,7 +37,17 @@
       <div class="govuk-grid-column-full">
 
 
-            <!--Address change banner start-->          
+            <!--Address change banner start-->   
+            <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
+
+              <div class="moj-banner__message">
+                <strong>Details of second address changed</strong></br>
+                Previous details: 49 Hill Street, Grantham, N1J 5NB</br>
+                New details: 51 Hill Street, Grantham, N1J 5NB</br></br>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">Acknowledge change</a> or get in touch with CA?
+              </div>
+
+            </div>       
             <!--<div role="region" class="moj-alert moj-alert--warning moj-alert--with-heading" aria-label="warning: Some information could not be imported" data-module="moj-alert">
               <div>
                 <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -529,17 +539,17 @@
           
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__value">
-                  49 Hill Street</br>
+                  51 Hill Street</br>
                   Grantham</br>
                   N1J 5NB</br></br>
 
-                  <!--<div class="govuk-warning-text">
+                  <div class="govuk-warning-text">
                     <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                     <strong class="govuk-warning-text__text">
                       <span class="govuk-visually-hidden">Warning</span>
-                      Street changed, checks valid?
+                      Details changed - are checks still valid?
                     </strong>
-                  </div>-->
+                  </div>
         
                 {% if data.journey=="cas2application"%}  
         
