@@ -40,10 +40,10 @@
             </h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2-change-postcode">Change<span class="govuk-visually-hidden"> second address details</span></a>
+                <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2-change-postcode">Change</a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2-delete">Delete second address<span class="govuk-visually-hidden"></span></a>
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete second address</a>
               </li>
               </ul>
           </div>
@@ -54,9 +54,16 @@
                   Address
                 </dt>
                 <dd class="govuk-summary-list__value">
+                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
+                  51 Hill Street</br>
+                  Grantham</br>
+                  N1J 5NB
+                  {% else %}
                   49 Hill Street</br>
                   Grantham</br>
                   N1J 5NB
+                  {% endif %}
+
                 </dd>
                 <!--<dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>

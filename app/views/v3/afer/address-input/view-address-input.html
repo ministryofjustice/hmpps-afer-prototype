@@ -20,19 +20,113 @@
 {% endblock %}
 
 {% block content %}
-{% include "includes/layouts/personaldetails.html" %}
-
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {% if data.curfewaddress=="new" %}
+        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+          </svg>
+
+          <div class="moj-banner__message">COPY to confirm that a new address was added</div>
+
+        </div>
+        {% endif %}
+
+        <!--new profile banner start-->
+        <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
+          <div class="mini-profile-inner">
+              <div class="mini-profile-left">
+                  <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+              </div>
+              <div class="mini-profile-right">
+                  <ul class="mini-profile-info">
+                      <li>
+                          <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                              <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">
+                              {% if data.journey=="28daysjourney"%}
+                              David Lee
+                              {% elseif data.journey=="casNoPreference"%}
+                              Julian Murphy
+                              {% elseif data.journey=="cas2application" %}
+                              Ryan Rees
+                              {% elseif data.journey=="cas1application" %}
+                              Lenny Wallace
+                              {% else %}
+                              George Jennings
+                              {% endif %}
+                              </a>
+                          </p>
+                          <span class="govuk-body" data-qa="mini-profile-prisoner-number">
+                            {% if data.journey=="28daysjourney"%}
+                            G93332
+                            {% elseif data.journey=="cas2application" %}
+                            G87634
+                            {% else %}
+                            G5613GT
+                            {% endif %}
+                          </span>
+                      </li>
+                      {% if data.journey=="28daysjourney"%}
+                      <li style="margin-left: 90px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">01 Jan 1980</span></li>
+                      {% elseif data.journey=="cas1application" %}
+                      <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">13 Apr 1999</span></li>
+                      {% elseif data.journey=="cas2application" %}
+                      <li style="margin-left: 85px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">12 Jul 1987</span></li>
+                      {% else %}
+                      <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27 Sep 1998</span></li>
+                      {% endif %}
+                      
+                      <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
+                      <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                      <li style="margin-left: 205px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                        {% if data.journey=="28daysjourney"%}
+                        {{ "today" |  duration(20) | govukDate("truncate") }}
+                        {% elseif data.journey=="cas1application"%}
+                        {{ "today" |  duration(128) | govukDate("truncate") }}
+                        {% elseif data.journey=="cas2application"%}
+                        {{ "today" |  duration(100) | govukDate }}
+                        {% else %}
+                        {{ "today" |  duration(93) | govukDate("truncate") }}
+                        {% endif %}
+                      </span></li>
+                      <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                        {% if data.journey=="28daysjourney"%}
+                        {{ "today" |  duration(36) | govukDate("truncate") }}
+                        {% elseif data.journey=="cas1application"%}
+                        {{ "today" |  duration(185) | govukDate }}
+                        {% elseif data.journey=="cas2application"%}
+                        {{ "today" |  duration(153) | govukDate }}
+                        {% else %}
+                        {{ "today" |  duration(126) | govukDate("truncate") }}
+                        {% endif %}
+                      </span></li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+        <!--new profile banner end-->
+
+      </div>
+    </div>
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+
+        
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
 
         <p>Case is allocated to Mark Coombes, probation practitioner.</p>
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2>   
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2> 
+        
 
 
         {% if data.journey=="cas2application" %}
@@ -43,55 +137,228 @@
 
         
         {% else %}
-        <!--old design-->
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1.html"><strong>Preferred address</strong></a></br>
-              4 Inner Street</br>
-              Grantham</br>
-              NG31 6HN
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--grey">U<span style="text-transform: lowercase;">nsuitable</span></strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2.html"><strong>Second address</strong></a></br>
-              49 Hill Street</br>
-              Grantham</br>
-              N1J 5NB
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--blue">I<span style="text-transform: lowercase;">n progress</span></strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="#"><strong>Third address</strong></a></br>
-              72 Guild Street</br>
-              London</br>
-              SE23 6FH
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Saved by Jessica Smith on {{ "today" | duration(0) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-            </dd>
-          </div>
-        </dl>
+
+        <!--George Jennings-->
+               
+        <!--card start-->
+        <div class="govuk-summary-card">
         
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Preferred address
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View details</a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+                <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View details</a>-->
+              </li>
+            </ul>
+          </div>
+  
+    
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
         
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                  4 Inner Street</br>
+                  Grantham</br>
+                  NG31 6HN</br></br>
+
+                  <p class="govuk-body">Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</p>
+
+                  <!--<a href="./view-address-curfew1" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+              </dt>
+            </div>
+        
+          </dl>
+        </div>
+    
+        </div>
+        <!--card end-->
+
+
+          <!--card start-->
+          <div class="govuk-summary-card">
+        
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Second address
+              </h2>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action">
+                  <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                  <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2">View and change details</a>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <span style="font-weight: 100;">In progress</span>
+                  <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                  <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
+                </li>
+              </ul>
+            </div>
+    
+      
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+          
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
+                  51 Hill Street</br>
+                  Grantham</br>
+                  N1J 5NB
+                  {% else %}
+                  49 Hill Street</br>
+                  Grantham</br>
+                  N1J 5NB
+                  {% endif %}
+
+                  </br></br>
+                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
+                  <p class="govuk-body">Changed by Jessica Smith on {{ "today" | duration(0) | govukDate("truncate") }}</p>
+                  {% else %}
+                  <p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                  {% endif %}
+                  <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on 9 Mar 2025</p>-->
+                  <!--<a href="./view-address-curfew2" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+                </dt>
+              </div>
+          
+            </dl>
+          </div>
+      
+          </div>
+          <!--card end-->
+
+
+                    <!--card start-->
+                    {% if data.confirmationnav=="deleteddetailsalladdresses" %}
+                    <!--card start - deleted address V1 -->
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Third address deleted
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        1 Belvoir Ave</br>
+                        Grantham</br>
+                        NG31 7TA</br></br>
+
+                        Deleted by Jessica Smith on {{ "today" |  duration(0) | govukDate }}</br>
+                        Reason:
+                        {% if data.reasontodelete=="reason1" %}
+                        George no longer wants to be released here
+
+                        {% elseif data.reasontodelete=="reason2" %}
+                        Deletion requested by probation practitioner
+
+                        {% elseif data.reasontodelete=="otherreason" %}
+                        {% if data.eventName %}{{data.eventName}}{% endif %}
+
+
+                        {% endif %}
+                      </div>
+                    </details>
+                    <!--card end - deleted address V1 -->
+                    {% else %}
+                    <div class="govuk-summary-card">
+        
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">
+                          Third address
+                        </h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                            <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew3">View and change details</a>
+                          </li>
+                          <li class="govuk-summary-card__action">
+                            <span style="font-weight: 100;">Ready to start</span>
+                            <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                            <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
+                          </li>
+                        </ul>
+                      </div>
+              
+                
+                    <div class="govuk-summary-card__content">
+                      <dl class="govuk-summary-list">
+                    
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__value">
+                            1 Belvoir Ave</br>
+                            Grantham</br>
+                            NG31 7TA
+
+                            </br></br><p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                            <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on 9 Mar 2025</p>-->
+                            <!--<a href="./view-address-curfew2" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+                          </dt>
+                        </div>
+                    
+                      </dl>
+                    </div>
+                
+                    </div>
+                    <!--card end-->
+                    {% endif %}
+
+
+                    {% if data.curfewaddress=="new" %}
+                       <!--card start-->
+                       <div class="govuk-summary-card">
+        
+                        <div class="govuk-summary-card__title-wrapper">
+                          <h2 class="govuk-summary-card__title">
+                            Forth address
+                          </h2>
+                          <ul class="govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action">
+                              <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                              <a class="govuk-link govuk-link--no-visited-state" href="#">View and change details</a>
+                            </li>
+                            <li class="govuk-summary-card__action">
+                              <span style="font-weight: 100;">Ready to start</span>
+                              <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                              <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
+                            </li>
+                          </ul>
+                        </div>
+                
+                  
+                      <div class="govuk-summary-card__content">
+                        <dl class="govuk-summary-list">
+                      
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              51 Hill Street</br>
+                              Grantham</br>
+                              N1J 5NB     
+  
+                              </br></br><p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(0) | govukDate("truncate") }}</p>
+                              <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on 9 Mar 2025</p>-->
+                              <!--<a href="./view-address-curfew2" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+                            </dt>
+                          </div>
+                      
+                        </dl>
+                      </div>
+                  
+                      </div>
+                      <!--card end-->
+                    {% else %}
+                    {% endif %}
+
+
+
         <a href="./postcode-lookup" class="govuk-button">Add another curfew address</a>
-        <!--old design-->
+
         {% endif %}
         
         
@@ -290,39 +557,17 @@
 
              
         {% else %}
-        <!--old design-->
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="#"><strong>Preferred CAS area</strong></a></br>
-              Sheffield</br>
-              South Yorkshire
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
-              <a class="govuk-link govuk-link--no-visited-state" href="#"><strong>Second CAS area</strong></a></br>
-              London</br>
-              Wimbledon</a>
-            </dt>
-            <dd class="govuk-summary-list__value">
-            </br>Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </br><strong class="govuk-tag govuk-tag--yellow">N<span style="text-transform: lowercase;">ot started</span></strong>
-            </dd>
-          </div>
-        </dl>
-        
-        
-        <a href="./cas" class="govuk-button">Add another CAS area</a>
-        <!--old design-->
+
+        <p class="body">None entered</p>
+
+        <form action="./cas" method="post" novalidate>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Add CAS area
+          </button>
+
+        </form>
+
         {% endif %}
 
            

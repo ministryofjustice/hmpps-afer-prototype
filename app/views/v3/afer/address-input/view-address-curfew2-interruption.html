@@ -37,8 +37,8 @@
                 </h1>
                 <div class="govuk-cookie-banner__content" style="color: white;">
 
-                  <p class="govuk-body" style="color: white;">Previous details: <strong>49 Hill Street, Grantham N1J 5NB</strong></p>
-                  <p class="govuk-body" style="color: white;">New details: <strong>51 Hill Street, Grantham N1J 5NB</strong></p>
+                  <p class="govuk-body" style="color: white;">Previous details: <strong>49 Hill Street, Grantham, N1J 5NB</strong></p>
+                  <p class="govuk-body" style="color: white;">New details: <strong>51 Hill Street, Grantham, N1J 5NB</strong></p>
 
                   <!--<p class="govuk-body" style="color: white;">Choose continue if you are correcting a mistake with the previous details.</p>-->
 
@@ -65,17 +65,24 @@
             </div>
 
 
-            <form action="./view-address-curfew2-change-confirmation" method="post" novalidate>
+            <form action="/v3/changecurfewaddress" method="post" novalidate>
 
-            <div class="govuk-button-group" style="margin-top: 20px; margin-bottom: 40px;" >
+            
+              <div class="govuk-button-group" style="margin-top: 20px; margin-bottom: 40px;">
 
-              <button type="submit" class="govuk-button" data-module="govuk-button" style="background-color: white">
-                Continue
-              </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="color: #1d70b8;" name="curfewaddress" value="change">
+                  Save change and continue
+                </button>
 
-              <a class="govuk-link" href="./view-address-curfew2" style="color: white;">Cancel</a>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="color: white; background-color: #1d70b8; border-color: white;" name="curfewaddress" value="new">
+                  New record???
+                </button>
 
-            </div>
+                <a class="govuk-link" href="./view-address-curfew2" style="color: white;">Cancel</a>
+
+              </div>
+
+              
 
             </form>
 
