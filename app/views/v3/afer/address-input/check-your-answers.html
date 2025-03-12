@@ -30,9 +30,97 @@
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Check your answers</h1>
 
+        {% if data.communityaccommodation=="three" %}
+        <!--Third CAS start-->
 
+        <h2 class="govuk-heading-m" style="margin-top: 0px;">Third CAS area</h2>    
 
-        {% if (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              CAS area details
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden">CAS area details</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete third CAS area<span class="govuk-visually-hidden"></span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Town or city
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {%if (data.castowncity3) %}
+                      {{data.castowncity3}}
+                    {% else %}
+                    Rotherham
+                    {% endif %}
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  County or borough
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {%if (data.cascountyborough3) %}
+                      {{data.cascountyborough3}}
+                    {% else %}
+                    South Yorkshire
+                    {% endif %}
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> town or city</span></a>
+                </dd>-->
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        {%if (data.casinfo3) %} 
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Additional information
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info for third cas</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info for third cas</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <!--<dt class="govuk-summary-list__key">
+                </dt>-->
+                <dd class="govuk-summary-list__value">
+                  {{data.casinfo3}}
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                </dd>-->
+              </div>
+              </div>
+            </dl>
+          </div>
+          {% else %} 
+          {% endif %} 
+
+        <!--Third CAS end-->
+
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
         <!--You have added 2 addresses and 2 CAS areas-->
         <!--Preferred address start-->   
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Preferred address</h2>  
@@ -2532,9 +2620,18 @@
         {% endif%}
 
 
+        {% if data.communityaccommodation=="three" %}
+        <form action="./view-address-input" method="post" novalidate>
+        {% else %}
         <form action="../case-overview" method="post" novalidate>
+        {% endif %}
+        
 
           <input type="hidden" name="addressinput" value="complete">
+
+          {% if data.communityaccommodation=="three" %}
+          <input type="hidden" name="communityaccommodation" value="three">
+          {% endif %}
           
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Save
