@@ -569,10 +569,20 @@
                         Accommodation address
                       </dt>
                       <dd class="govuk-summary-list__value">
+                        {% if (data.cas2addressadded=="yes") %}
+                        6 Genesis Park</br>
+                        Rotherham</br>
+                        S60 1DX
+                        {% else %}
                         No address entered by prison case admin yet
+                        {% endif %}
                       </dd>
                       <dd class="govuk-summary-list__actions">
+                        {% if (data.cas2addressadded=="yes") %}
+                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-address">View or change</a>
+                        {% else %}
                         <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-address">Enter</a>
+                        {% endif %}
                       </dd>
                     </div>                    
                   </dl>
