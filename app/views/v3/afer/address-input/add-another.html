@@ -40,6 +40,8 @@
         {% elseif (data.postcodelookup=="two") %}
         <!--If 2 address entered-->   
         <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses</h1>
+        {% elseif data.communityaccommodation=="three" %}
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added one CAS area</h1>
         {% else %}
         <!--If 1 address entered-->
         <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added one address</h1>
@@ -50,8 +52,27 @@
 
   <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
 
-
-    {% if (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
+    {% if data.communityaccommodation=="three" %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+        <strong>Third CAS area</strong></br>
+        {%if (data.castowncity3) %}
+          {{data.castowncity3}}
+         {% else %}
+         Rotherham
+         {% endif %}
+         {%if (data.cascountyborough3) %}, {{data.cascountyborough3}}
+         {% else %}, South Yorkshire
+         {% endif %}
+      </dt>
+      <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas-3"><span aria-hidden="true">Change</span></a></li>
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
+        </ul>
+      </dd>
+    </div>
+    {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
         <!--If 2 addresses and 2 CAS area entered-->
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
@@ -61,7 +82,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -73,7 +94,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -93,7 +114,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -113,7 +134,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas-2.html"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -127,7 +148,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -139,7 +160,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -151,7 +172,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -165,7 +186,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -177,7 +198,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -197,7 +218,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -211,7 +232,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -223,7 +244,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -237,7 +258,7 @@
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
               <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
-              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Remove</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
             </ul>
           </dd>
         </div>
@@ -298,21 +319,21 @@
 
        
       </legend>
-      <div id="add-another-hint" class="govuk-hint">
+      <!--<div id="add-another-hint" class="govuk-hint">-->
 
 
-        {% if (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
+        <!--{% if (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}-->
         <!--If 2 addresses and 1 CAS area entered-->
-        You can enter one more CAS area.
-        {% elseif (data.communityaccommodation=="no") %}
+        <!--You can enter one more CAS area.-->
+        <!--{% elseif (data.communityaccommodation=="no") %}-->
         <!--If no preferred cas area-->
-        {% elseif (data.postcodelookup=="two") %}
+        <!--{% elseif (data.postcodelookup=="two") %}-->
         <!--If 2 address entered-->   
-        You can enter 2 CAS areas.
-        {% else %}
+        <!--You can enter 2 CAS areas.-->
+        <!--{% else %}-->
         <!--If 1 address entered-->
-        You can enter one more curfew address and 2 CAS areas.
-        {% endif%}
+        <!--You can enter one more curfew address and 2 CAS areas.-->
+        <!--{% endif%}-->
 
 
 
@@ -334,7 +355,7 @@
         <!--If 1 address and 2 CAS area entered-->
         <!--You can enter one more curfew address.-->
         
-      </div>
+      <!--</div>-->
       <div class="govuk-radios" data-module="govuk-radios">
 
       {% if (data.postcodelookup=="two") %}
@@ -466,6 +487,10 @@
     </fieldset>
   </div>
 
+
+  {% if data.communityaccommodation=="three" %}
+  <input type="hidden" name="communityaccommodation" value="three">
+  {% endif %}
 
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Continue

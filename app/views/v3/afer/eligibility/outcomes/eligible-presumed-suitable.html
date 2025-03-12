@@ -41,7 +41,12 @@
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Eligibility and suitability decision</h2>
 
-        <p class="govuk-body">George Jennings is eligible and suitable for HDC.</p>
+        <p class="govuk-body">
+          {% if data.journey=="cas2application" %}
+          Ryan Rees
+          {% else %}
+          George Jennings
+          {% endif %} is eligible and suitable for HDC.</p>
 
 
 
