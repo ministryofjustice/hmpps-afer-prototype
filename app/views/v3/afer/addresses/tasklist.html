@@ -37,7 +37,8 @@
       <div class="govuk-grid-column-full">
 
 
-            <!--Address change banner start-->   
+            <!--Address change banner start-->  
+            {% if data.journey=="eligiblejourney" %}
             <div class="moj-banner moj-banner--warning govuk-!-margin-top-6" role="region" aria-label="Warning">
 
               <div class="moj-banner__message">
@@ -47,7 +48,8 @@
                 <a href="#" class="govuk-link govuk-link--no-visited-state">Contact Jessica Smith for more information.
               </div>
 
-            </div>       
+            </div>  
+            {% endif %}
             <!--<div role="region" class="moj-alert moj-alert--warning moj-alert--with-heading" aria-label="warning: Some information could not be imported" data-module="moj-alert">
               <div>
                 <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -585,7 +587,7 @@
           <!--card end-->
 
 
-
+          {% if data.journey=="eligiblejourney" %}
           <!--card start - deleted address V1 -->
           <details class="govuk-details">
             <summary class="govuk-details__summary">
@@ -659,6 +661,7 @@
           
           </div>
           <!--card end-->
+          {% endif %}
 
           {% endif %}
 
