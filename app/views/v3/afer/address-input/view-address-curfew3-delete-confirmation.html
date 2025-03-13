@@ -46,9 +46,15 @@
 
         <p class="govuk-body">You have successfully deleted the following information:</p>
 
+        {% if data.journey=="cas2application" %}
+        <div class="govuk-inset-text">
+          Third CAS area: Rotherham, South Yorkshire
+        </div>
+        {% else %}
         <div class="govuk-inset-text">
           Third address: 1 Belvoir Ave, Grantham, NG31 7TA
         </div>
+        {% endif %}
        
         <h2 class="govuk-heading-m">Inform probation practitioner of this change</h2>
 
@@ -63,17 +69,24 @@
               Phone number: 01234 9876543
             </p>
 
-          
+        
+  
         <form action="/v3/deletedcurfewaddress" method="post" novalidate>
 
-        <div class="govuk-button-group" style="margin-top: 40px;">
-          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="deleteddetailsalladdresses">
-            Continue
-          </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
-            Return to application overview
-          </button>
-        </div>
+          {% if data.journey=="cas2application" %}  
+          <input type="hidden" name="cas2deleted" value="yes">
+          {% else %}  
+          {% endif %}  
+
+          <div class="govuk-button-group" style="margin-top: 40px;">
+            <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="deleteddetailsalladdresses">
+              Continue
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
+              Return to application overview
+            </button>
+          </div>
+        
         
         </form>
 

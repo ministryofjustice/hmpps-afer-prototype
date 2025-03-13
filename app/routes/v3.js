@@ -163,6 +163,19 @@ router.post(version + '/changecurfewaddress', function (req, res) {
   });
 
 
+  //Confirm deleting CAS area
+  router.post(version + '/confirmdeletingcas2', function (req, res) {
+    var confirmcas2deletion = req.session.data['confirmcas2deletion']
+    // Check whether the variable matches a condition
+    if (confirmcas2deletion == "yes"){
+     
+     // Go to confirmation page
+      res.redirect(version + '/afer/address-input/view-address-curfew3-delete-confirmation')
+    } else {
+      // Back to second address details
+      res.redirect(version + '/afer/address-input/view-cas3')
+    }
+  });
 
 
 

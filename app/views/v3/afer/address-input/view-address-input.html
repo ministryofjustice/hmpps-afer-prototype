@@ -28,7 +28,8 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        {% if data.curfewaddress=="new" %}
+        {% if (data.cas2submitted=="yes") or (data.ShorttermAccommodationOutcome=="accepted") or (data.cas2addressadded=="yes") %}
+        {% elseif (data.curfewaddress=="new") or (data.communityaccommodation=="three") %}
         <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
           <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -38,6 +39,7 @@
           <div class="moj-banner__message">Information saved</div>
 
         </div>
+        {% else %}
         {% endif %}
 
         <!--new profile banner start-->
@@ -484,7 +486,35 @@
               </div>
               <!--card end-->
 
-              {% if data.communityaccommodation=="three" %}
+
+              {% if data.cas2deleted=="yes" %}
+              <!--card start - deleted CAS-2 area -->
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Third CAS area – deleted
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  Town or city: Rotherham</br>
+                  County or borough: South Yorkshire</br></br>
+
+                  Deleted by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</br>
+                  Reason:
+                  {% if data.reasontodelete=="reason1" %}
+                  Ryan no longer wants to be released here
+
+                  {% elseif data.reasontodelete=="reason2" %}
+                  Deletion requested by probation practitioner
+
+                  {% elseif data.reasontodelete=="otherreason" %}
+                  {% if data.eventName %}{{data.eventName}}{% endif %}
+                  {% endif %}
+                </div>
+              </details>
+          <!--card end - deleted CAS-2 area -->
+
+              {% elseif data.communityaccommodation=="three" %}
               <!--card start-->
               <div class="govuk-summary-card">
               
@@ -494,7 +524,12 @@
                   </h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+                      <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                      <a class="govuk-link govuk-link--no-visited-state" href="../address-input/view-cas3">View or change details</a>
+                    </li>
+                    <li class="govuk-summary-card__action">
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+                      <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
                     </li>
                   </ul>
                 </div>
