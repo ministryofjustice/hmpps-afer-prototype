@@ -394,6 +394,9 @@
       {% elseif data.journey=="cas2application"%}
       Ryan Rees
 
+      {% elseif data.journey=="cas1application"%}
+      Lenny Wallace
+
       {% elseif data.user=="admin"%}
 
       {% if data.journey=="ineligiblejourney"%}
@@ -410,8 +413,6 @@
 
       {% if data.journey=="casNoPreference"%}
       Julian Murphy
-      {% elseif data.journey=="cas1application"%}
-      Lenny Wallace
       {% else %}
       George Jennings
       {% endif %}
@@ -459,6 +460,9 @@
               {% elseif data.journey=="cas2application" %}
               Ryan Rees
 
+              {% elseif data.journey=="cas1application" %}
+              Lenny Wallace
+
               {% elseif data.user=="admin" %}
               {% if data.journey=="ineligiblejourney" %}
               Jose Rodriguez
@@ -471,8 +475,6 @@
               {% elseif data.user=="probation" %}
               {% if data.journey=="casNoPreference"%}
               Julian Murphy
-              {% elseif data.journey=="cas1application" %}
-              Lenny Wallace
               {% else %}
               George Jennings
               {% endif %}
@@ -497,8 +499,12 @@
 
               {% elseif data.journey=="cas2application"%}
               G87634
+
+              {% elseif data.journey=="cas1application"%}
+              G2431GT
               
               {% elseif data.user=="admin"%}
+              
               {% if data.journey=="ineligiblejourney"%}
               G56791
               {% elseif data.journey=="ineligiblePreRelease"%}
@@ -508,11 +514,7 @@
               {% endif %}  
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas1application"%}
-              G2431GT
-              {% else %}
               G5613GT
-              {% endif %}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -542,6 +544,9 @@
               {% elseif data.journey=="cas2application"%}
               {{ "today" |  duration(100) | govukDate }}
 
+              {% elseif data.journey=="cas1application"%}
+              {{ "today" |  duration(128) | govukDate }}
+
               {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(128) | govukDate }}
@@ -552,11 +557,7 @@
               {% endif %}
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas1application"%}
-              {{ "today" |  duration(128) | govukDate }}
-              {% else %}
               {{ "today" |  duration(96) | govukDate }}
-              {% endif %}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -575,6 +576,9 @@
               {% elseif data.journey=="cas2application"%}
               {{ "today" |  duration(153) | govukDate }}
 
+              {% elseif data.journey=="cas1application"%}
+              {{ "today" |  duration(185) | govukDate }}
+
               {% elseif data.user=="admin"%}
               {% if data.journey=="ineligiblejourney"%}
               {{ "today" |  duration(185) | govukDate }}
@@ -585,11 +589,7 @@
               {% endif %}
 
               {% elseif data.user=="probation"%}
-              {% if data.journey=="cas1application"%}
-              {{ "today" |  duration(185) | govukDate }}
-              {% else %}
               {{ "today" |  duration(153) | govukDate }}
-              {% endif %}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
