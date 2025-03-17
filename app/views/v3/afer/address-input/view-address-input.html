@@ -148,9 +148,8 @@
         {% endif %}
 
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2> 
+
         
-
-
         {% if data.journey=="cas2application" %}
 
         <p class="govuk-body">None entered</p>
@@ -203,7 +202,8 @@
         </div>
         <!--card end-->
 
-
+        {% if data.journey=="cas1application" %}
+        {% else %}
           <!--card start-->
           <div class="govuk-summary-card">
         
@@ -256,8 +256,11 @@
       
           </div>
           <!--card end-->
+          {% endif %}
 
 
+                    {% if data.journey=="cas1application" %}
+                    {% else %}
                     <!--card start-->
                     {% if data.confirmationnav=="deleteddetailsalladdresses" %}
                     <!--card start - deleted address V1 -->
@@ -330,6 +333,7 @@
                     </div>
                     <!--card end-->
                     {% endif %}
+                    {% endif %}
 
 
                     {% if data.curfewaddress=="new" %}
@@ -387,7 +391,50 @@
         <h2 class="govuk-heading-m govuk-!-margin-top-6">CAS area details</h2> 
 
 
-        {% if data.journey=="cas2application" %}
+        {% if data.journey=="cas1application" %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Approved Premises assessment
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Application status
+                </dt> 
+                <dd class="govuk-summary-list__value">
+                  Not submitted by probation practitioner yet
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Application outcome
+                </dt> 
+                <dd class="govuk-summary-list__value">
+                  No outcome entered by probation practitioner yet
+                </dd>
+                
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Accommodation address
+                </dt> 
+                <dd class="govuk-summary-list__value">
+                  No address entered by probation practitioner yet
+                </dd>
+              </div>
+
+            </dl>
+          </div>
+          
+        </div>
+
+        {% elseif data.journey=="cas2application" %}
                       <!--card start-->
                       <div class="govuk-summary-card">
               

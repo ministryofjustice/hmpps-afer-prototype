@@ -1008,6 +1008,7 @@
 
 
 <!--Additional CAS-2 task for CA-->
+{% if data.journey=="cas2application" %}
 {% if (data.addressinput=="complete") %}
 {% if (data.cas2submitted=="yes") %}
 <!--Enter CAS-2 submitted - Done-->
@@ -1042,6 +1043,7 @@
     <a href="./addresses/cas/submitted-application" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
+{% endif %}
 {% endif %}
 {% endif %}
 <!--Additional CAS-2 task for CA-->
