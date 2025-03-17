@@ -664,6 +664,7 @@
             <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason">Opt out</a>
             {% elseif data.optoutreason=="yes"%}
             <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-in">Opt in</a>
+            {% elseif data.ineligible=="yes" %}
             {% else %}
             <a class="govuk-link govuk-link--no-visited-state" href="address-input/opt-out-reason">Opt out</a>
             {% endif %}
