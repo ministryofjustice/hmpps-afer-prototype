@@ -44,6 +44,8 @@
         <p class="govuk-body">
           {% if data.journey=="cas2application" %}
           Ryan Rees
+          {% elseif data.journey=="cas1application" %}
+          Lenny Wallace
           {% else %}
           George Jennings
           {% endif %} is eligible and suitable for HDC.</p>
@@ -58,7 +60,15 @@
         {% else %}
         
         <p class="govuk-body">
-          Download the following letter to tell George the outcome of the assessment.
+          Download the following letter to tell
+          {% if data.journey=="cas2application" %}
+          Ryan
+          {% elseif data.journey=="cas1application" %}
+          Lenny
+          {% else %}
+          George
+          {% endif %}
+          the outcome of the assessment.
  
           <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">
             <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
@@ -72,7 +82,15 @@
 
 
         <p class="govuk-body" style="margin-top: 40px;">
-          Download the following letters to ask George to provide details of where they could live if released.
+          Download the following letters to ask
+          {% if data.journey=="cas2application" %}
+          Ryan
+          {% elseif data.journey=="cas1application" %}
+          Lenny
+          {% else %}
+          George
+          {% endif %}
+          to provide details of where they could live if released.
  
           <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">
             <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
