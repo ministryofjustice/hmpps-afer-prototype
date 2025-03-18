@@ -28,7 +28,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        {% if (data.cas2submitted=="yes") or (data.ShorttermAccommodationOutcome=="accepted") or (data.cas2addressadded=="yes") %}
+        <!--{% if (data.cas2submitted=="yes") or (data.ShorttermAccommodationOutcome=="accepted") or (data.cas2addressadded=="yes") %}
         {% elseif (data.curfewaddress=="new") or (data.communityaccommodation=="three") %}
         <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
@@ -40,7 +40,7 @@
 
         </div>
         {% else %}
-        {% endif %}
+        {% endif %}-->
 
         <!--new profile banner start-->
         <!--<div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
@@ -128,6 +128,21 @@
 
         {% if data.journey=="cas2application" %}
         {% if data.communityaccommodation=="three" %}
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">CAS area suitable</p>
+  
+            <p class="govuk-body">
+              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+            </p>
+
+          </div>
+        </div>
         {% else %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
@@ -541,7 +556,12 @@
                           </h2>
                           <ul class="govuk-summary-card__actions">
                             <li class="govuk-summary-card__action">
-                              <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                              <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                              <a class="govuk-link govuk-link--no-visited-state" href="#">View details</a>
+                            </li>
+                            <li class="govuk-summary-card__action">
+                              <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+                              <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
                             </li>
                           </ul>
                         </div>
@@ -590,7 +610,12 @@
                   </h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                      <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                      <a class="govuk-link govuk-link--no-visited-state" href="#">View details</a>
+                    </li>
+                    <li class="govuk-summary-card__action">
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+                      <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
                     </li>
                   </ul>
                 </div>
@@ -669,7 +694,7 @@
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
-                      <a class="govuk-link govuk-link--no-visited-state" href="../address-input/view-cas3">View or change details</a>
+                      <a class="govuk-link govuk-link--no-visited-state" href="../address-input/view-cas3">View details</a>
                     </li>
                     <li class="govuk-summary-card__action">
                       <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
