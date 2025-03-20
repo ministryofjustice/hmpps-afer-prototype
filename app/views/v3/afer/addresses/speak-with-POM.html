@@ -36,22 +36,67 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-6">Speak with their POM</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-6">Consult the POM and VLO</h1>
+
+      <p class="govuk-body">Completing this task will help the decision maker in the prison decide if this person is right for early release on HDC.</p>
 
   
   <form class="form" action="/v3/speakwithpom" method="post" novalidate>
       
   <div class="govuk-form-group govuk-!-margin-top-6">
-    <fieldset class="govuk-fieldset">
+
+    {% set textHtmlOther %}
+               
+               {{ govukTextarea({
+                 name: "vloInfo",
+                 id: "vloInfo",
+                 rows: "6",
+                 label: {
+                   text: "Enter details of any requests the victim has made. For example, whether exclusion zones have been requested."
+                 }
+               }) }}
+     
+               {% endset -%}
+
+               {{ govukRadios({
+                name: "isVlo",
+                fieldset: {
+                  legend: {
+                    text: "Does this case qualify for the Victim Contact Scheme and has the victim opted in?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "If so, victims must be given 14 days to make representations to the VLO about this person’s release."
+                },
+                items: [
+                {
+                  value: "vloYes",
+                  text: "Yes",
+                  conditional: {
+                    html: textHtmlOther
+                  }
+                },
+                  {
+                    value: "vloNo",
+                    text: "No"
+                  }
+                  
+                ]
+              }) }}
+
+
+    <fieldset class="govuk-fieldset govuk-!-margin-top-6">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         What information has the POM provided about the behaviour of this person while in prison?
       </legend>
       <div id="dob-hint" class="govuk-hint">
-        Find out about:
+        You must contact the POM to find out information like:
         <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; text-decoration: #505a5f;">
           <li>any concerns about them being released on HDC</li>
           <li>if there have been any changes to their level of risk</li>
-          <li>if they need any mental health treatment after release – consider this as part of your risk management plan if so</li>
+          <li>if they need any medical or mental health treatment after release</li>
         </ul>
       </div>
       <textarea class="govuk-textarea" id="moredetailPOM" name="moredetailPOM" rows="5"></textarea>
