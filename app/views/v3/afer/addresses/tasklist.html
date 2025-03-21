@@ -106,7 +106,7 @@
                   <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
                 </svg>
 
-                <div class="moj-banner__message">Eligibility check completed. You can now continue assessing this person for CAS-2.</div>
+                <div class="moj-banner__message">Eligibility for CAS-2 confirmed.</div>
 
               </div>
               {% else %}
@@ -129,7 +129,7 @@
                   <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
                 </svg>
 
-                <div class="moj-banner__message">Eligibility check completed. You can now continue assessing this person for CAS-2.</div>
+                <div class="moj-banner__message">Eligibility for CAS-2 confirmed.</div>
 
               </div>
               {% endif %}
@@ -273,7 +273,7 @@
             </p>
 
             <p class="govuk-body">
-              Contact the prison to suggest alternative release options for Ryan Rees or send the checks back to prison so the HDC application can be refused.
+              Contact the prison to suggest alternative release options for Ryan Rees or send the HDC application to the prison so HDC can be refused.
             </p>
   
           </div>
@@ -360,7 +360,7 @@
                         NG31 6HN</br></br>
                         <!--start checks-->
                         <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
-                        <a href="../addresses/residential/address-details-1" class="govuk-button">Resume checks</a>
+                        <a href="../addresses/residential/address-details-1" class="govuk-button">Resume</a>
                         <!--<a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>-->
                     </dt>
                     <dd class="govuk-summary-list__actions">
@@ -395,7 +395,7 @@
                   Grantham</br>
                   N1J 5NB</br></br>
         
-                  <a href="#" class="govuk-button">Resume checks</a>
+                  <a href="#" class="govuk-button">Resume</a>
                 </dt>
               </div>
           
@@ -435,7 +435,7 @@
                         <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
                         <!--in progress checks-->
                         <!--<a href="#" class="govuk-button">Resume checks</a>-->
-                        <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>
+                        <a href="#" class="govuk-link govuk-link--no-visited-state">Edit</a></br>
                     </dt>
                     <dd class="govuk-summary-list__actions">
                     </dd>
@@ -483,7 +483,7 @@
                         <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
                         <!--in progress checks-->
                         <!--<a href="#" class="govuk-button">Resume checks</a>-->
-                        <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>
+                        <a href="#" class="govuk-link govuk-link--no-visited-state">Edit</a></br>
                     </dt>
                     <dd class="govuk-summary-list__actions">
                     </dd>
@@ -547,7 +547,7 @@
         
                 {% if data.journey=="cas2application"%}  
         
-                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit</a>
         
                 {% else %}
         
@@ -557,13 +557,13 @@
                 (data.RiskChecks=="completed") and
                 (data.suitabilityDecisionRes=="completed") and
                 (data.managementDecision=="yes") %}
-                <a href="residential/address-details-2" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
+                <a href="residential/address-details-2" class="govuk-link govuk-link--no-visited-state">Edit</a>
                 {% elseif data.passedDeadline=="yes"%}
-                <a href="residential/address-details-2" class="govuk-button">Resume checks</a>
+                <a href="residential/address-details-2" class="govuk-button">Resume</a>
                 {% elseif data.AddressSuitabilityDecision=="no"%}
-                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit check</a>
                 {% else %}
-                <a href="residential/address-details-2" class="govuk-button">Start checks</a>
+                <a href="residential/address-details-2" class="govuk-button">Check suitability</a>
                 {% endif %}
         
                 {% endif %}
@@ -595,7 +595,7 @@
               Deleted by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</br>
               Reason: George no longer wants to be released here</br></br>
 
-              <a class="govuk-link govuk-link--no-visited-state" href="#">View checks</a></br>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">View check</a></br>
 
             </div>
           </details>
@@ -617,7 +617,7 @@
                         Deleted by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</br>
                         Reason: Deletion requested by probation practitioner</br></br>
 
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">View checks</a></br>
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">View check</a></br>
                         
                       </div>
                     </details>
@@ -647,7 +647,7 @@
                   Oakham</br>
                   LE15 7SH</br></br>
 
-                <a href="#" class="govuk-button">Start checks</a>
+                <a href="#" class="govuk-button">Check suitability</a>
                 
                 </dt>
         
@@ -800,7 +800,7 @@
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Application status
+                      Referral status
                     </dt> 
                     <dd class="govuk-summary-list__value">
                       Not submitted yet
@@ -812,7 +812,7 @@
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Application outcome
+                      Referral outcome
                     </dt> 
                     <dd class="govuk-summary-list__value">
                       No outcome entered yet
@@ -923,9 +923,9 @@
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
-                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
+                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
                         {% else %}
-                        <a href="./cas/cas2-suitability-a" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
+                        <a href="./cas/cas2-suitability-a" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Check suitability</a>
                         {% endif %}
                       </dt>
                     </div>
@@ -990,9 +990,9 @@
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
-                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
+                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
                         {% else %}
-                        <a href="./cas/cas2-suitability-b" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
+                        <a href="./cas/cas2-suitability-b" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Check suitability</a>
                         {% endif %}
                       </dt>
                     </div>
@@ -1059,7 +1059,7 @@
                                         {% if data.cas2suitableAreaC=="yes" %}
                                         <div class="govuk-summary-list__row">
                                           <dt class="govuk-summary-list__key">
-                                            Application status
+                                            Referral status
                                           </dt>
                                           <dd class="govuk-summary-list__value">
                                             Not submitted by prison case admin yet
@@ -1067,7 +1067,7 @@
                                         </div>
                                         <div class="govuk-summary-list__row">
                                           <dt class="govuk-summary-list__key">
-                                            Application outcome
+                                            Referral outcome
                                           </dt>
                                           <dd class="govuk-summary-list__value">
                                             No outcome entered by prison case admin yet	
@@ -1085,9 +1085,9 @@
                                         <div class="govuk-summary-list__row">
                                           <dt class="govuk-summary-list__key">
                                             {% if (data.cas2suitableAreaC=="yes") %}
-                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit checks</a></p>
+                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
                                             {% else %}
-                                            <a href="./cas/cas2-suitability-c" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Start checks</a>
+                                            <a href="./cas/cas2-suitability-c" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Check suitability</a>
                                             {% endif %}
                                           </dt>
                                         </div>
@@ -1135,7 +1135,7 @@
                                                         </div>
                                                         <div class="govuk-summary-list__row">
                                                           <dd class="govuk-summary-list__key">
-                                                            Application status
+                                                            Referral status
                                                           </dd>
                                                           <dd class="govuk-summary-list__value">
                                                             Not submitted by prison case admin yet
@@ -1143,7 +1143,7 @@
                                                         </div>
                                                         <div class="govuk-summary-list__row">
                                                           <dd class="govuk-summary-list__key">
-                                                            Application outcome
+                                                            Referral outcome
                                                           </dd>
                                                           <dd class="govuk-summary-list__value">
                                                             No outcome entered by prison case admin yet
@@ -1159,7 +1159,7 @@
                                                         </div>
                                                         <div class="govuk-summary-list__row">
                                                           <dt class="govuk-summary-list__key">
-                                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-d" class="govuk-link govuk-link--no-visited-state">Edit assessment</a></p>
+                                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-d" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
                                                           </dt>
                                                         </div>
                                                       
@@ -1188,8 +1188,8 @@
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
                               
-                            <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">This person wants to be considered for CAS-2 accommodation, but has no preference where they are released.<br></p>
-                            <a href="cas/cas2-suitability-d" class="govuk-button" style="margin-top: 0px; margin-left: 5px; margin-bottom: 15px;">Start assessment</a>
+                            <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">This person wants to be considered for CAS-2 accommodation, but has no preferred location. Tell the prison which areas to avoid in the referral.<br></p>
+                            <a href="cas/cas2-suitability-d" class="govuk-button" style="margin-top: 0px; margin-left: 5px; margin-bottom: 15px;">Enter areas to avoid</a>
                   
                           </dt>
                         </div>

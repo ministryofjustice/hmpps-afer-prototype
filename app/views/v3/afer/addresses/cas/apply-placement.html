@@ -34,13 +34,13 @@
         
 
         {% if (data.user=="admin") %}
-        <h1 class="govuk-heading-l govuk-!-margin-top-6">Submit a CAS-2 referral</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Make a CAS-2 referral</h1>
         {% else %} 
-        <h1 class="govuk-heading-l govuk-!-margin-top-6">Submit an Approved Premises referral</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Make an Approved Premises referral</h1>
         {% endif %}   
 
         {% if (data.user=="admin") %}
-        <p class="govuk-body">The referral can be started on the <a class="govuk-link govuk-link--no-visited-state" href="" target="_blank">CAS-2 – short-term accommodation service</a>.</p>
+        <p class="govuk-body">The POM can use <a class="govuk-link govuk-link--no-visited-state" href="" target="_blank">CAS-2 – short-term accommodation service</a>.</p>
         {% else %}
         <p class="govuk-body">You can use the <a class="govuk-link govuk-link--no-visited-state" href="https://approved-premises.hmpps.service.justice.gov.uk/" target="_blank">CAS-1 – Approved Premises service.</a></p>
         {% endif %}

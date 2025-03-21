@@ -91,52 +91,6 @@
   </div>
   <!--card end-->
 
-  
-    
-                <!--START set dynamic radio hide/show text-->
-                {% from "govuk/components/radios/macro.njk" import govukRadios %}
-                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-            
-                {% set textHtmlOther %}
-                
-                {{ govukTextarea({
-                  name: "victimConcerns",
-                  id: "victimConcerns",
-                  rows: "6",
-                  label: {
-                    text: "Give details of any concerns victims have about this person being released to this area."
-                  }
-                }) }}
-      
-                {% endset -%}
-                <!--END set dynamic radio hide/show text-->
-      
-                {{ govukRadios({
-                  name: "vlo",
-                  fieldset: {
-                    legend: {
-                      text: "Is there a victim liaison officer (VLO) for this person?",
-                      isPageHeading: false,
-                      classes: "govuk-fieldset__legend--m"
-                    }
-                  },
-                  items: [
-                  {
-                    value: "vloYes",
-                    text: "Yes",
-                    conditional: {
-                      html: textHtmlOther
-                    }
-                  },
-                    {
-                      value: "vloNo",
-                      text: "No"
-                    }
-                    
-                  ]
-                }) }}
-
-
                 <form class="form" action="../tasklist" method="post" novalidate>
                 
                 <div class="govuk-form-group govuk-!-margin-top-4">

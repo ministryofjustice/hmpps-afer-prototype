@@ -37,54 +37,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-8">CAS-2 no area preference assessment</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Areas to avoid in CAS-2 referral</h1>
 
       <form class="form" action="/v3/suitabilitycheckd" method="post" novalidate>
-
-    
-                <!--START set dynamic radio hide/show text-->
-                {% from "govuk/components/radios/macro.njk" import govukRadios %}
-                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-            
-                {% set textHtmlOther %}
-                
-                {{ govukTextarea({
-                  name: "victimConcerns",
-                  id: "victimConcerns",
-                  rows: "6",
-                  label: {
-                    text: "Give details of any concerns victims have."
-                  }
-                }) }}
-      
-                {% endset -%}
-                <!--END set dynamic radio hide/show text-->
-      
-                {{ govukRadios({
-                  name: "vlo",
-                  fieldset: {
-                    legend: {
-                      text: "Is there a victim liaison officer (VLO) for this person?",
-                      isPageHeading: false,
-                      classes: "govuk-fieldset__legend--m"
-                    }
-                  },
-                  items: [
-                  {
-                    value: "vloYes",
-                    text: "Yes",
-                    conditional: {
-                      html: textHtmlOther
-                    }
-                  },
-                    {
-                      value: "vloNo",
-                      text: "No"
-                    }
-                    
-                  ]
-                }) }}
-
 
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-label--m" for="more-detail"><strong>Enter areas to avoid</strong></label>

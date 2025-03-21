@@ -31,7 +31,7 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            CAS checks complete
+            CAS suitability check complete
           </h1>
           {% if data.journey=="casNoPreference" %}
           {% else %}
@@ -56,9 +56,9 @@
         <h2 class="govuk-heading-m">Next steps</h2>
 
         {% if data.journey=="casNoPreference" %}
-        <p class="govuk-body">You can send the checks to prison so the referral can be started.</p>
+        <p class="govuk-body">You can send the HDC application to prison so the referral for CAS can be started.</p>
         {% else %}
-        <p class="govuk-body"></p>
+        <p class="govuk-body">You can send the HDC application to prison so the referral for CAS can be started.</p>
         {% endif %}
         
 
@@ -68,7 +68,7 @@
         
         <div class="govuk-button-group" style="margin-top: 40px;">
           <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="sendtoprison">
-            Send checks to prison
+            Send application to prison
           </button>
           <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
             Return to application overview

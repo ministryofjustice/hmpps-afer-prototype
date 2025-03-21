@@ -26,7 +26,7 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation" style="background-color: #d4351c;">
           <h1 class="govuk-panel__title">
-            CAS checks complete
+            CAS suitability check complete
           </h1>
           <div class="govuk-panel__body">
             <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_cross_white.svg"/>
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of suitability check</h2>
 
         {% if (data.cas2suitableAreaD=="no") %}
         <p class="govuk-body">Julian Murphy</p>
@@ -49,7 +49,7 @@
         {% if (data.cas2suitableAreaD=="no") %}
         <p class="govuk-body"></p>
         {% else %}
-        <p class="govuk-body">You can contact the prison to suggest alternative release options for Ryan such as areas you know are suitable or send the checks to the prison so the application for HDC can be refused. 
+        <p class="govuk-body">You can contact the prison to suggest alternative release options for Ryan such as areas you know are suitable or send the HDC application to prison HDC can be refused. 
         </p>
         {% endif %}
 
@@ -68,7 +68,7 @@
           </button>
           {% endif %}
           <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="sendtoprison">
-            Send checks to prison
+            Send application to prison
           </button>
         </div>
         
