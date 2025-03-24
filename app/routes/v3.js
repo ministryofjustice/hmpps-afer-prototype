@@ -181,7 +181,6 @@ router.post(version + '/changecurfewaddress', function (req, res) {
 
 
 
-
   //Postpone application during pre decision checks
   router.post(version + '/postpone', function (req, res) {
     var postponeApplication = req.session.data['postponeapplication']
