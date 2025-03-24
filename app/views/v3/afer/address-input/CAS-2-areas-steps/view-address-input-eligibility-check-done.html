@@ -39,7 +39,8 @@
           <div class="moj-banner__message">Success banner to confirm CAS deleted</div>
 
         </div>
-        {% elseif data.changedcas=="yes" %}
+        {% elseif data.deletedcas=="no" %}
+        {% elseif (data.changedcas=="yes") or (data.changedadditionalinfo=="yes") or (data.enteredadditionalinfo=="yes") %}
         <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
           <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -222,10 +223,14 @@
                                 Town or city
                               </dt>
                               <dd class="govuk-summary-list__value">
+                                {% if data.changedcas=="yes" %}
                                 Sheffield
+                                {% else %}
+                                Sheffild
+                                {% endif %}
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="view-address-input-change-town-county">Change</a>
+                                <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
                               </dd>
                             </div>
                             <div class="govuk-summary-list__row">
@@ -236,7 +241,7 @@
                                 South Yorkshire
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="view-address-input-change-town-county">Change</a>
+                                <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
                               </dd>
                             </div>
                             <div class="govuk-summary-list__row">
@@ -244,10 +249,14 @@
                                 Additional Information
                               </dt>
                               <dd class="govuk-summary-list__value">
+                                {% if data.changedadditionalinfo=="yes" %}
+                                Person has relatives in the area but also some more difficult friendships
+                                {% else %}
                                 Person has relatives in the area
+                                {% endif %}
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="view-address-input-change-additional-info">Change</a>
+                                <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-additional-info">Change</a>
                               </dd>
                             </div>
                           </dl>
@@ -258,6 +267,32 @@
 
 
                       {% if data.deletedcas=="yes" %}
+                      <!--card start - deleted address V1 -->
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Second area deleted
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        Town or city: Doncaster</br>
+                        County or borough: South Yorkshire</br></br>
+
+                        Deleted by Jessica Smith on {{ "today" |  duration(0) | govukDate }}</br>
+                        Reason:
+                        {% if data.reasontodelete=="reason1" %}
+                        George no longer wants to be released here
+
+                        {% elseif data.reasontodelete=="reason2" %}
+                        Deletion requested by probation practitioner
+
+                        {% elseif data.reasontodelete=="otherreason" %}
+                        {% if data.eventName %}{{data.eventName}}{% endif %}
+
+                        {% endif %}
+                      </div>
+                    </details>
+                    <!--card end - deleted address V1 -->
                       {% else %}
                         <!--card start-->
               <div class="govuk-summary-card">
@@ -287,7 +322,7 @@
                         Doncaster
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">Change</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -298,7 +333,7 @@
                         South Yorkshire
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">Change</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -306,10 +341,18 @@
                         Additional Information
                       </dt>
                       <dd class="govuk-summary-list__value">
+                        {% if data.enteredadditionalinfo=="yes" %}
                         Person has been released to this area before
+                        {% else %}
+                        None entered
+                        {% endif %}
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">Change</a>
+                        {% if data.enteredadditionalinfo=="yes" %}
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+                        {% else %}
+                        <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-enter-additional-info">Enter</a>
+                        {% endif %}
                       </dd>
                     </div>
                   </dl>

@@ -28,41 +28,86 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        
-        <form action="view-address-input-eligibility-check-done" method="post" novalidate>
 
+          <form action="view-address-input-eligibility-check-done" method="post" novalidate>
+          
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
-                  Are you sure you want to TBC?
-                </h1>
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Provide a reason for deleting this</h1>
               </legend>
-              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="deletedcas" name="deletedcas" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="deletedcas">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="deletedcas" name="deletedcas" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="deletedcas">
-                    No
-                  </label>
-                </div>
+              <div id="changedName-hint" class="govuk-hint">
+                Second CAS area: Doncaster, South Yorkshire 
               </div>
-            </fieldset>
-          </div>
-          
+              
+              <div class="govuk-form-group">
+        
+            <!--START set dynamic radio hide/show text-->
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        
+            {% set textHtmlOther %}
+            
+            {{ govukInput({
+              label: {
+                text: "Enter reason"
+              },
+              id: "event-name",
+              name: "eventName"
+            }) }}
 
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
+            {% endset -%}
+        
+            <!--END set dynamic radio hide/show text-->
+
+            {{ govukRadios({
+              idPrefix: "reasontodelete",
+              name: "reasontodelete",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+        
+              items: [
+              {
+                value: "reason1",
+                text: "Ryan no longer wants to be released here"
+              },
+              {
+                value: "reason2",
+                text: "Deletion requested by probation practitioner"
+              },
+              {
+                value: "otherreason",
+                text: "Other reason",
+                conditional: {
+                  html: textHtmlOther
+                }
+              }
+              ]
+            }) }}
+
+
+
+            </div>
+            </fieldset>
+            </div>
+
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="deletedcas" value="yes">
+                Continue
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="deletedcas" value="no">
+                Cancel
+              </button>
+            </div>
+            
 
           </form>
-
 
 
 
@@ -70,4 +115,5 @@
     </div>
   </main>
 </div>
+
 {% endblock %}
