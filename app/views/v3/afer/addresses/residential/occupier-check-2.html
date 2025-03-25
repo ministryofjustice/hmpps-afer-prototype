@@ -49,7 +49,14 @@
         <h2 class="govuk-summary-card__title">
           Second address
         </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+          </li>
+        </ul>
       </div>
+
+
 
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
@@ -119,7 +126,7 @@
       </h2>
       <ul class="govuk-summary-card__actions">
         <li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+          <a class="govuk-link govuk-link--no-visited-state" href="change-occupier-2">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
         </li>
         <!--<li class="govuk-summary-card__action">
           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
@@ -165,7 +172,21 @@
     </div>
   </div>
   
-  
+  {% if data.deletedresident=="yes" %}
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Resident 1 deleted
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      Name: Greg Martin</br>
+      Relation: Brother</br>
+      Date of birth: 2 May 2007</br>
+      Age: 17
+    </div>
+  </details>
+  {% else %}
   <div class="govuk-summary-card">
     <div class="govuk-summary-card__title-wrapper">
       <h2 class="govuk-summary-card__title">
@@ -176,7 +197,7 @@
           <a class="govuk-link govuk-link--no-visited-state" href="change-resident-2">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
         </li>
         <li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="delete-resident-2">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+          <a class="govuk-link govuk-link--no-visited-state" href="delete-resident-2">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
         </li>
       </ul>
     </div>
@@ -229,7 +250,75 @@
         </div>
       </dl>
     </div>
-  
+    {% endif %}
+
+
+
+    {% if data.addedresident=="yes" %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Resident 2
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+          </li>
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="delete-resident-2">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Elianna McKinley
+            </dd>
+            <!--<dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+            </dd>-->
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Relation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Cousin
+            </dd>
+            <!--<dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+            </dd>-->
+          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Not entered
+              </dd>
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+              </dd>-->
+            </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Age
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  25
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+                </dd>-->
+              </div>
+          </div>
+        </dl>
+      </div>
+      {% endif %}
 
 
 <div class="govuk-button-group">
@@ -251,7 +340,7 @@
     <input type="hidden" name="OccupierChecks" value="completed">
 
     
-    <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+    <div class="govuk-radios govuk-!-margin-top-8">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
         Is the address connected to an electricity supply?
       </legend>    
@@ -299,7 +388,7 @@
     
 
 
-  <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+  <div class="govuk-radios govuk-!-margin-top-8">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
       Has the main occupier given informed consent for George to be released here?
     </legend>

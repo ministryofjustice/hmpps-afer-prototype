@@ -28,12 +28,16 @@
 {% endblock %}
 
 {% block content %}
+{% include "includes/layouts/personaldetails.html" %}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="occupier-check-2" method="post" novalidate>
 
 
       <div class="govuk-form-group govuk-!-margin-top-8">
@@ -48,14 +52,14 @@
           </div>-->
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="changedName">
+              <input class="govuk-radios__input" id="deletedresident" name="deletedresident" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="deletedresident">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changedName-2">
+              <input class="govuk-radios__input" id="deletedresident-2" name="deletedresident" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="deletedresident-2">
                 No
               </label>
             </div>
@@ -64,11 +68,14 @@
       </div>
 
 
-
       <div class="govuk-button-group">
-        <a href="occupier-check-2" class="govuk-button">Save</a>       
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
       </div>
-      
+
+
+    </form>
     
 
       </div>
