@@ -30,7 +30,95 @@
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Check your answers</h1>
 
-        {% if data.communityaccommodation=="three" %}
+
+
+        {% if data.addanotheraddress=="yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Fourth address</h2>  
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Address details
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete fourth address<span class="govuk-visually-hidden"></span></a>
+              </li>
+              </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__value">
+                  13 Back Ln</br>
+                  Grantham</br>
+                  NG33 5NJ</br>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        
+        <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Main occupier
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+              </li>
+              <!--<li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
+              </li>-->
+              </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Hartley Pancras
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  020 555 4982
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Relation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Former co-worker
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+                </dd>-->
+              </div>
+            </dl>
+          </div>
+        </div>
+ 
+
+        {% elseif data.communityaccommodation=="three" %}
         <!--Third CAS start-->
 
         <h2 class="govuk-heading-m" style="margin-top: 0px;">Third CAS area</h2>    
@@ -96,7 +184,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info for third cas</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info for third cas</span></a>
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info for third cas</span></a>
               </li>
             </ul>
           </div>
@@ -135,7 +223,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+                <a class="govuk-link" href="#">Delete preferred address<span class="govuk-visually-hidden"></span></a>
               </li>
               </ul>
           </div>
@@ -181,7 +269,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
               </li>
               <!--<li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
               </li>-->
               </ul>
           </div>
@@ -234,7 +322,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
               </li>
             </ul>
           </div>
@@ -299,7 +387,7 @@
                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
                 </li>
                 <li class="govuk-summary-card__action">
-                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                  <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
                 </li>
               </ul>
             </div>
@@ -364,7 +452,7 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                   </li>
                   <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                    <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                   </li>
                 </ul>
               </div>
@@ -400,7 +488,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+                <a class="govuk-link" href="#">Delete second address<span class="govuk-visually-hidden"></span></a>
               </li>
               </ul>
           </div>
@@ -446,7 +534,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
               </li>
               <!--<li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
               </li>-->
               </ul>
           </div>
@@ -500,7 +588,7 @@
                 <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
               </li>
             </ul>
           </div>
@@ -565,7 +653,7 @@
                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                     <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -601,7 +689,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+        <a class="govuk-link" href="#">Delete preferred CAS area<span class="govuk-visually-hidden"></span></a>
       </li>
     </ul>
   </div>
@@ -662,7 +750,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info for preferred cas</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info for preferred cas</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info for preferred cas</span></a>
       </li>
     </ul>
   </div>
@@ -699,7 +787,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove second CAS area<span class="govuk-visually-hidden"></span></a>
+        <a class="govuk-link" href="#">Delete second CAS area<span class="govuk-visually-hidden"></span></a>
       </li>
     </ul>
   </div>
@@ -760,7 +848,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of second cas</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of second cas</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of second cas</span></a>
       </li>
     </ul>
   </div>
@@ -800,7 +888,7 @@
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
                      </li>
                      <li class="govuk-summary-card__action">
-                       <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+                       <a class="govuk-link" href="#">Delete preferred address<span class="govuk-visually-hidden"></span></a>
                      </li>
                      </ul>
                  </div>
@@ -846,7 +934,7 @@
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
                      </li>
                      <!--<li class="govuk-summary-card__action">
-                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                       <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
                      </li>-->
                      </ul>
                  </div>
@@ -899,7 +987,7 @@
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
                      </li>
                      <li class="govuk-summary-card__action">
-                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                       <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
                      </li>
                    </ul>
                  </div>
@@ -964,7 +1052,7 @@
                          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
                        </li>
                        <li class="govuk-summary-card__action">
-                         <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                         <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
                        </li>
                      </ul>
                    </div>
@@ -1029,7 +1117,7 @@
                            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                          </li>
                          <li class="govuk-summary-card__action">
-                           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                           <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                          </li>
                        </ul>
                      </div>
@@ -1065,7 +1153,7 @@
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
                      </li>
                      <li class="govuk-summary-card__action">
-                       <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+                       <a class="govuk-link" href="#">Delete second address<span class="govuk-visually-hidden"></span></a>
                      </li>
                      </ul>
                  </div>
@@ -1111,7 +1199,7 @@
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
                      </li>
                      <!--<li class="govuk-summary-card__action">
-                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                       <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
                      </li>-->
                      </ul>
                  </div>
@@ -1165,7 +1253,7 @@
                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
                      </li>
                      <li class="govuk-summary-card__action">
-                       <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                       <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
                      </li>
                    </ul>
                  </div>
@@ -1230,7 +1318,7 @@
                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of second curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of second curfew</span></a>
+                     <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of second curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -1267,7 +1355,7 @@
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
             </li>
             <li class="govuk-summary-card__action">
-              <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+              <a class="govuk-link" href="#">Delete preferred CAS area<span class="govuk-visually-hidden"></span></a>
             </li>
           </ul>
         </div>
@@ -1299,7 +1387,7 @@
                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                     <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -1337,7 +1425,7 @@
                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
                </li>
                <li class="govuk-summary-card__action">
-                 <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+                 <a class="govuk-link" href="#">Delete preferred address<span class="govuk-visually-hidden"></span></a>
                </li>
                </ul>
            </div>
@@ -1383,7 +1471,7 @@
                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
                </li>
                <!--<li class="govuk-summary-card__action">
-                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                 <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
                </li>-->
                </ul>
            </div>
@@ -1436,7 +1524,7 @@
                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
                </li>
                <li class="govuk-summary-card__action">
-                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                 <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
                </li>
              </ul>
            </div>
@@ -1501,7 +1589,7 @@
                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
                  </li>
                  <li class="govuk-summary-card__action">
-                   <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+                   <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
                  </li>
                </ul>
              </div>
@@ -1566,7 +1654,7 @@
                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                     <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -1602,7 +1690,7 @@
                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
                </li>
                <li class="govuk-summary-card__action">
-                 <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+                 <a class="govuk-link" href="#">Delete second address<span class="govuk-visually-hidden"></span></a>
                </li>
                </ul>
            </div>
@@ -1648,7 +1736,7 @@
                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
                </li>
                <!--<li class="govuk-summary-card__action">
-                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+                 <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
                </li>-->
                </ul>
            </div>
@@ -1702,7 +1790,7 @@
                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
                </li>
                <li class="govuk-summary-card__action">
-                 <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+                 <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
                </li>
              </ul>
            </div>
@@ -1767,7 +1855,7 @@
                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                     <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -1804,7 +1892,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> CAS area details</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove preferred CAS area<span class="govuk-visually-hidden"></span></a>
+        <a class="govuk-link" href="#">Delete preferred CAS area<span class="govuk-visually-hidden"></span></a>
       </li>
     </ul>
   </div>
@@ -1865,7 +1953,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred cas</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred cas</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred cas</span></a>
       </li>
     </ul>
   </div>
@@ -1905,7 +1993,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> preferred address details</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove preferred address<span class="govuk-visually-hidden"></span></a>
+        <a class="govuk-link" href="#">Delete preferred address<span class="govuk-visually-hidden"></span></a>
       </li>
       </ul>
   </div>
@@ -1951,7 +2039,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
       </li>
       <!--<li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
       </li>-->
       </ul>
   </div>
@@ -2004,7 +2092,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
       </li>
     </ul>
   </div>
@@ -2069,7 +2157,7 @@
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 2</span></a>
         </li>
         <li class="govuk-summary-card__action">
-          <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 2</span></a>
+          <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
         </li>
       </ul>
     </div>
@@ -2134,7 +2222,7 @@
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
         </ul>
       </div>
@@ -2170,7 +2258,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second address details</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove second address<span class="govuk-visually-hidden"></span></a>
+        <a class="govuk-link" href="#">Delete second address<span class="govuk-visually-hidden"></span></a>
       </li>
       </ul>
   </div>
@@ -2216,7 +2304,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
       </li>
       <!--<li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> main occupier</span></a>
       </li>-->
       </ul>
   </div>
@@ -2270,7 +2358,7 @@
         <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> resident 1</span></a>
+        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
       </li>
     </ul>
   </div>
@@ -2335,7 +2423,7 @@
                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                    <li class="govuk-summary-card__action">
-                     <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+                     <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
                    </li>
                  </ul>
                </div>
@@ -2375,7 +2463,7 @@
         <a class="govuk-link" href="#">Change</a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove preferred address</a>
+        <a class="govuk-link" href="#">Delete preferred address</a>
       </li>
       </ul>
   </div>
@@ -2473,7 +2561,7 @@
         <a class="govuk-link" href="#">Change</a>
       </li>
       <li class="govuk-summary-card__action">
-        <a class="govuk-link" href="#">Remove</a>
+        <a class="govuk-link" href="#">Delete</a>
       </li>
     </ul>
   </div>
@@ -2532,7 +2620,7 @@
           <a class="govuk-link" href="#">Change</a>
         </li>
         <li class="govuk-summary-card__action">
-          <a class="govuk-link" href="#">Remove</a>
+          <a class="govuk-link" href="#">Delete</a>
         </li>
       </ul>
     </div>
@@ -2594,7 +2682,7 @@
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
           </li>
         </ul>
       </div>
@@ -2619,8 +2707,9 @@
 <!--Preferred address end-->
         {% endif%}
 
-
-        {% if data.communityaccommodation=="three" %}
+        {% if data.addanotheraddress=="yes" %}
+        <form action="./view-address-input" method="post" novalidate>
+        {% elseif data.communityaccommodation=="three" %}
         <form action="./view-address-input" method="post" novalidate>
         {% else %}
         <form action="../case-overview" method="post" novalidate>
@@ -2629,7 +2718,9 @@
 
           <input type="hidden" name="addressinput" value="complete">
 
-          {% if data.communityaccommodation=="three" %}
+          {% if data.addanotheraddress=="yes" %}
+          <input type="hidden" name="addanotheraddress" value="yes">
+          {% elseif data.communityaccommodation=="three" %}
           <input type="hidden" name="communityaccommodation" value="three">
           {% endif %}
           

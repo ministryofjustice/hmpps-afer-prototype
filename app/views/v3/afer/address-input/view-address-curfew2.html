@@ -54,10 +54,10 @@
         {% endif %}
         <!--banner end-->
 
-        <h1 class="govuk-heading-l govuk-!-margin-top-6">View or change details of second address</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">View details or delete</h1>
         <!--Second address start-->
         
-        <p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}.</p>
+        <p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>
         
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -65,9 +65,9 @@
               Address details
             </h2>
             <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
+              <!--<li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew2-change-postcode">Change</a>
-              </li>
+              </li>-->
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">Delete second address</a>
               </li>
@@ -86,6 +86,8 @@
                   Grantham</br>
                   N1J 5NB
                   {% endif %}
+
+                </br></br><p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
                 </dd>
                 <!--<dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
@@ -113,14 +115,11 @@
             <h2 class="govuk-summary-card__title">
               Main occupier
             </h2>
-            <ul class="govuk-summary-card__actions">
+            <!--<ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="view-address-curfew2-change-resident">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
               </li>
-              <!--<li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main occupier</span></a>
-              </li>-->
-              </ul>
+            </ul>-->
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
@@ -135,9 +134,6 @@
                   Leanna Martin
                   {% endif %}
                 </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
-                </dd>-->
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -150,9 +146,6 @@
                   020 3334 3555
                   {% endif %}
                 </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
-                </dd>-->
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -165,9 +158,6 @@
                   Mother
                   {% endif %}
                 </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
-                </dd>-->
               </div>
             </dl>
           </div>
@@ -180,14 +170,14 @@
             <h2 class="govuk-summary-card__title">
               Resident 1
             </h2>
-            <ul class="govuk-summary-card__actions">
+            <!--<ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
               </li>
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="view-address-curfew2-delete-resident">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
               </li>
-            </ul>
+            </ul>-->
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
@@ -198,9 +188,6 @@
                 <dd class="govuk-summary-list__value">
                   Greg Martin
                 </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
-                </dd>-->
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -209,9 +196,6 @@
                 <dd class="govuk-summary-list__value">
                   Brother
                 </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
-                </dd>-->
               </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
@@ -220,9 +204,6 @@
                   <dd class="govuk-summary-list__value">
                     2 May 2007
                   </dd>
-                  <!--<dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
-                  </dd>-->
                 </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -231,9 +212,6 @@
                     <dd class="govuk-summary-list__value">
                       17
                     </dd>
-                    <!--<dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
-                    </dd>-->
                   </div>
               </div>
             </dl>

@@ -33,6 +33,39 @@
             <h1 class="govuk-fieldset__heading">Select an address</h1>
           </legend>
 
+          {% if data.addanotheraddress=="yes" %}
+          <p>3 addresses found for <strong>NG33 5NJ</strong>. <a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup">Search again</a></p>
+    
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios" data-module="govuk-radios">
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="postcodeaddress-1" name="postcodeaddress-1" type="radio" value="AL1 3SD">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                  11 Back Ln, Grantham NG33 5NJ
+                </label>
+              </div>
+    
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="postcodeaddress-2" name="postcodeaddress-2" type="radio" value="AL13 9SF">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                  12 Back Ln, Grantham NG33 5NJ
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="postcodeaddress-2" name="postcodeaddress-2" type="radio" value="AL13 9SF">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                  13 Back Ln, Grantham NG33 5NJ
+                </label>
+              </div>
+    
+            </div>
+          </fieldset>
+        </div>
+          {% else %}
+
         <p>3 addresses found for <strong>NG31 6HN</strong>. <a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup">Search again</a></p>
     
         <div class="govuk-form-group">
@@ -63,7 +96,7 @@
             </div>
           </fieldset>
         </div>
-
+        {% endif %}
 
        <!--<div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -92,10 +125,17 @@
 
 
     
-        <form method="" action="enter-info">
+      <form method="" action="enter-info">
+
+        {% if data.addanotheraddress=="yes" %}
+        <input type="hidden" name="addanotheraddress" value="yes">
+        {% else %}
+        {% endif %}
+
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>
+
       </form>
     
         
@@ -104,23 +144,6 @@
 
 
              
-                
-
-
-
-                <form action="enter-info" method="post" novalidate>
-
-
-
-
-
-
-                </form>
-
-                
-
-
-
 
   
   
