@@ -404,7 +404,10 @@
       
       <div class="moj-button-action">
 
-        {% if data.communityaccommodation=="three" %}
+        {% if data.addanotheraddress=="yes" %}
+        <input type="hidden" name="addanotheraddress" value="yes">
+        
+        {% elseif data.communityaccommodation=="three" %}
         <input type="hidden" name="communityaccommodation" value="three">
 
         {% elseif data.communityaccommodation=="two" %}

@@ -33,7 +33,13 @@
                 
               <h1 class="govuk-heading-l govuk-!-margin-top-6">Find an address</h1>
 
+              
                 <form action="postcode-lookup-results" method="post" novalidate>
+
+                  {% if data.addanotheraddress=="yes" %}
+                  <input type="hidden" name="addanotheraddress" value="yes">
+                  {% else %}
+                  {% endif %}
 
                 <div class="moj-search">
                   <div class="govuk-form-group">
