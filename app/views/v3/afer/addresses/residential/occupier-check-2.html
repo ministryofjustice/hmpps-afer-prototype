@@ -51,7 +51,7 @@
         </h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+            <a class="govuk-link govuk-link--no-visited-state" href="./change-address/postcode-search">Change</a>
           </li>
         </ul>
       </div>
@@ -63,7 +63,11 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
+              {% if data.changedaddress=="yes" %}
+              51 Hill Street</br>
+              {% else %}
               49 Hill Street</br>
+              {% endif %}
               Grantham</br>
               N1J 5NB
             </dt>
