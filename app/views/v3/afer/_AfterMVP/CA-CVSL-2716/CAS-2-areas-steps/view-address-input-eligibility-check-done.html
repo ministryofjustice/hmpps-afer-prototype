@@ -1,0 +1,389 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <!--banner start-->
+        {% if data.deletedcas=="yes" %}
+        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+          </svg>
+
+          <div class="moj-banner__message">Success banner to confirm CAS deleted</div>
+
+        </div>
+        {% elseif data.deletedcas=="no" %}
+        {% elseif (data.changedcas=="yes") or (data.changedadditionalinfo=="yes") or (data.enteredadditionalinfo=="yes") %}
+        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+          </svg>
+
+          <div class="moj-banner__message">Success banner to confirm CAS details changed</div>
+
+        </div>
+        {% else %}
+        {% endif %}
+        <!--banner end-->
+
+        <!--new profile banner start-->
+        <!--<div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
+          <div class="mini-profile-inner">
+              <div class="mini-profile-left">
+                  <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+              </div>
+              <div class="mini-profile-right">
+                  <ul class="mini-profile-info">
+                      <li>
+                          <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                              <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">
+                              {% if data.journey=="28daysjourney"%}
+                              David Lee
+                              {% elseif data.journey=="casNoPreference"%}
+                              Julian Murphy
+                              {% elseif data.journey=="cas2application" %}
+                              Ryan Rees
+                              {% elseif data.journey=="cas1application" %}
+                              Lenny Wallace
+                              {% else %}
+                              George Jennings
+                              {% endif %}
+                              </a>
+                          </p>
+                          <span class="govuk-body" data-qa="mini-profile-prisoner-number">
+                            {% if data.journey=="28daysjourney"%}
+                            G93332
+                            {% elseif data.journey=="cas2application" %}
+                            G87634
+                            {% else %}
+                            G5613GT
+                            {% endif %}
+                          </span>
+                      </li>
+                      {% if data.journey=="28daysjourney"%}
+                      <li style="margin-left: 90px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">01 Jan 1980</span></li>
+                      {% elseif data.journey=="cas1application" %}
+                      <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">13 Apr 1999</span></li>
+                      {% elseif data.journey=="cas2application" %}
+                      <li style="margin-left: 85px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">12 Jul 1987</span></li>
+                      {% else %}
+                      <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27 Sep 1998</span></li>
+                      {% endif %}
+                      
+                      <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
+                      <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                      <li style="margin-left: 205px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                        {% if data.journey=="28daysjourney"%}
+                        {{ "today" |  duration(20) | govukDate("truncate") }}
+                        {% elseif data.journey=="cas1application"%}
+                        {{ "today" |  duration(128) | govukDate("truncate") }}
+                        {% elseif data.journey=="cas2application"%}
+                        {{ "today" |  duration(100) | govukDate }}
+                        {% else %}
+                        {{ "today" |  duration(93) | govukDate("truncate") }}
+                        {% endif %}
+                      </span></li>
+                      <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                        {% if data.journey=="28daysjourney"%}
+                        {{ "today" |  duration(36) | govukDate("truncate") }}
+                        {% elseif data.journey=="cas1application"%}
+                        {{ "today" |  duration(185) | govukDate }}
+                        {% elseif data.journey=="cas2application"%}
+                        {{ "today" |  duration(153) | govukDate }}
+                        {% else %}
+                        {{ "today" |  duration(126) | govukDate("truncate") }}
+                        {% endif %}
+                      </span></li>
+                  </ul>
+              </div>
+          </div>
+        </div>-->
+        <!--new profile banner end-->
+
+      </div>
+    </div>
+
+    
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2> 
+
+        <p class="govuk-body">None entered</p>
+
+  
+        <a href="#" class="govuk-button">Add curfew address</a>
+
+        
+
+        
+        
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">CAS area details</h2> 
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligibility check
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
+      </li>
+    </ul>
+  </div>
+
+
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Is this person eligible for CAS accommodation?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Yes
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Type of accommodation
+      </dt> 
+      <dd class="govuk-summary-list__value">
+        Short-term accommodation (CAS-2)
+      </dd>
+    </div>
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+   
+                      <!--card start-->
+                      <div class="govuk-summary-card">
+              
+                        <div class="govuk-summary-card__title-wrapper">
+                          <h2 class="govuk-summary-card__title">
+                            Preferred area
+                          </h2>
+                          <ul class="govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action">
+                              <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                              <a class="govuk-link govuk-link--no-visited-state" href="#">Delete preferred area</a>
+                            </li>
+                            <li class="govuk-summary-card__action">
+                              <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
+                            </li>
+                          </ul>
+                        </div>
+                      
+                        <div class="govuk-summary-card__content">
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Town or city
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if data.changedcas=="yes" %}
+                                Sheffield
+                                {% else %}
+                                Sheffild
+                                {% endif %}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                County or borough
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                South Yorkshire
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Additional Information
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if data.changedadditionalinfo=="yes" %}
+                                Person has relatives in the area but also some more difficult friendships
+                                {% else %}
+                                Person has relatives in the area
+                                {% endif %}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-additional-info">Change</a>
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
+                            
+                      </div>
+                      <!--card end-->
+
+
+                      {% if data.deletedcas=="yes" %}
+                      <!--card start - deleted address V1 -->
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          Second area deleted
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        Town or city: Doncaster</br>
+                        County or borough: South Yorkshire</br></br>
+
+                        Deleted by Jessica Smith on {{ "today" |  duration(0) | govukDate }}</br>
+                        Reason:
+                        {% if data.reasontodelete=="reason1" %}
+                        George no longer wants to be released here
+
+                        {% elseif data.reasontodelete=="reason2" %}
+                        Deletion requested by probation practitioner
+
+                        {% elseif data.reasontodelete=="otherreason" %}
+                        {% if data.eventName %}{{data.eventName}}{% endif %}
+
+                        {% endif %}
+                      </div>
+                    </details>
+                    <!--card end - deleted address V1 -->
+                      {% else %}
+                        <!--card start-->
+              <div class="govuk-summary-card">
+              
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Second area
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                      <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-delete-cas">Delete second area</a>
+                    </li>
+                    <li class="govuk-summary-card__action">
+                      <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Town or city
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Doncaster
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        County or borough
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        South Yorkshire
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Additional Information
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {% if data.enteredadditionalinfo=="yes" %}
+                        Person has been released to this area before
+                        {% else %}
+                        None entered
+                        {% endif %}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        {% if data.enteredadditionalinfo=="yes" %}
+                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+                        {% else %}
+                        <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-enter-additional-info">Enter</a>
+                        {% endif %}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                    
+              </div>
+              <!--card end-->
+              {% endif %}
+
+
+
+
+
+              <form action="#" method="post" novalidate>
+
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                      Add CAS area
+                    </button>
+        
+              </form>
+
+             
+        
+           
+        <a href="#" class="govuk-button govuk-button--secondary" style="margin-top: 40px;">Back to application overview</a>
+        
+    
+ 
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
