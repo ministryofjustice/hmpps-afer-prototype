@@ -28,9 +28,15 @@
 {% endblock %}
 
 {% block content %}
+{% include "includes/layouts/personaldetails.html" %}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    
+    
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
 
 
   <div class="govuk-grid-row">
@@ -39,17 +45,25 @@
       
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading govuk-!-margin-top-8">
+          <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
             Resident 1
           </h1>
         </legend>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-1">
-            Name
+            First name
           </label>
-          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1" value="Greg Martin">
+          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1" value="Greg">
         </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">
+            Last name
+          </label>
+          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1" value="Martin">
+        </div>
+
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-2">
@@ -115,13 +129,23 @@
 
     
 
-  
-  <div class="govuk-button-group">
-    <a href="occupier-check-2" class="govuk-button">Save</a>
-    <a href="occupier-check-2" class="govuk-button govuk-button--secondary">Cancel</a>         
-  </div>
-  
+  <form action="occupier-check-2" method="post" novalidate>
 
+
+    <div class="govuk-button-group" style="margin-top: 10px;">
+      <button type="submit" class="govuk-button" data-module="govuk-button" name="changedresident" value="yes">
+        Continue
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="changedresident" value="no">
+        Cancel
+      </button>
+    </div>
+  
+  </form>
+
+
+</div>
+</div>
 
 
       </div>
