@@ -29,18 +29,7 @@
       <div class="govuk-grid-column-full">
 
         <!--banner start-->
-        {% if data.deletedcas=="yes" %}
-        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-
-          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-          </svg>
-
-          <div class="moj-banner__message">Success banner to confirm CAS deleted</div>
-
-        </div>
-        {% elseif data.deletedcas=="no" %}
-        {% elseif (data.changedcas=="yes") or (data.changedadditionalinfo=="yes") or (data.enteredadditionalinfo=="yes") %}
+        {% if (data.changedcas=="yes") or (data.changedadditionalinfo=="yes") or (data.enteredadditionalinfo=="yes") %}
         <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
 
           <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -140,6 +129,8 @@
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
 
+        <p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>
+
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2> 
 
         <p class="govuk-body">None entered</p>
@@ -229,9 +220,9 @@
                                 Sheffild
                                 {% endif %}
                               </dd>
-                              <dd class="govuk-summary-list__actions">
+                              <!--<dd class="govuk-summary-list__actions">
                                 <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
-                              </dd>
+                              </dd>-->
                             </div>
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__key">
@@ -240,9 +231,9 @@
                               <dd class="govuk-summary-list__value">
                                 South Yorkshire
                               </dd>
-                              <dd class="govuk-summary-list__actions">
+                              <!--<dd class="govuk-summary-list__actions">
                                 <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
-                              </dd>
+                              </dd>-->
                             </div>
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__key">
@@ -255,9 +246,9 @@
                                 Person has relatives in the area
                                 {% endif %}
                               </dd>
-                              <dd class="govuk-summary-list__actions">
+                              <!--<dd class="govuk-summary-list__actions">
                                 <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-additional-info">Change</a>
-                              </dd>
+                              </dd>-->
                             </div>
                           </dl>
                         </div>
@@ -321,9 +312,9 @@
                       <dd class="govuk-summary-list__value">
                         Doncaster
                       </dd>
-                      <dd class="govuk-summary-list__actions">
+                      <!--<dd class="govuk-summary-list__actions">
                         <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-                      </dd>
+                      </dd>-->
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -332,9 +323,9 @@
                       <dd class="govuk-summary-list__value">
                         South Yorkshire
                       </dd>
-                      <dd class="govuk-summary-list__actions">
+                      <!--<dd class="govuk-summary-list__actions">
                         <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-                      </dd>
+                      </dd>-->
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -347,13 +338,13 @@
                         None entered
                         {% endif %}
                       </dd>
-                      <dd class="govuk-summary-list__actions">
+                      <!--<dd class="govuk-summary-list__actions">
                         {% if data.enteredadditionalinfo=="yes" %}
                         <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
                         {% else %}
                         <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-enter-additional-info">Enter</a>
                         {% endif %}
-                      </dd>
+                      </dd>-->
                     </div>
                   </dl>
                 </div>
