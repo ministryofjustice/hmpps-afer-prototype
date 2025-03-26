@@ -104,41 +104,84 @@
 
                 
                 
-                <div class="govuk-form-group govuk-!-margin-top-4">
-                  <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                      Is this area suitable for this person to live? 
-                    </legend>
-                    <div class="govuk-hint">
-                      <p class="govuk-body" style="color: #505a5f">
-                      For example, consider if:
-                      <ul class="govuk-list govuk-list--bullet" style="margin-top: -14px; margin-bottom: 20px; color: #505a5f">
-                        <li>they can be managed safely if they are released there</li>
-                        <li>victims are nearby</li>
-                        <li>the area is compatible with exclusion zones</li>
-                      </ul>
-                      </p>
-                    </div>
-                      <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="cas2suitableAreaB" name="cas2suitableAreaB" type="radio" value="yes">
-                          <label class="govuk-label govuk-radios__label" for="cas2suitableAreaB">
-                            Yes
-                          </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="cas2suitableAreaB-2" name="cas2suitableAreaB" type="radio" value="no">
-                          <label class="govuk-label govuk-radios__label" for="cas2suitableAreaB-2">
-                            No
-                          </label>
-                        </div>
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Is this area suitable for this person to live? </h1>
+                      </legend>
+                      <div id="changedName-hint" class="govuk-hint">
+                        <p class="govuk-body" style="color: #505a5f">
+                          For example, consider if:
+                          <ul class="govuk-list govuk-list--bullet" style="margin-top: -14px; margin-bottom: 20px; color: #505a5f">
+                            <li>they can be managed safely if they are released there</li>
+                            <li>victims are nearby</li>
+                            <li>the area is compatible with exclusion zones</li>
+                          </ul>
+                          </p>
                       </div>
-                  </fieldset>
-                </div>
+                      
+                      <div class="govuk-form-group">
+                
+                    <!--START set dynamic radio hide/show text-->
+                    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                    {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+                
+                    {% set textHtmlOther %}
+                    
+                    {{ govukTextarea({
+                      label: {
+                        text: "Enter which parts of this area to avoid"
+                      },
+                      id: "suitabilitydecisiondetail",
+                      name: "suitabilitydecisiondetail"
+                    }) }}
+        
+                    {% endset -%}
+                
+                    <!--END set dynamic radio hide/show text-->
+        
+                    {{ govukRadios({
+                      idPrefix: "cas2suitableAreaB",
+                      name: "cas2suitableAreaB",
+                      fieldset: {
+                        legend: {
+                          text: "",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                
+                      items: [
+                      {
+                        value: "yes",
+                        text: "Yes, all parts of this area are suitable"
+                      },
+                      {
+                        value: "yes",
+                        text: "Yes, but there are parts of this area to avoid",
+                        conditional: {
+                          html: textHtmlOther
+                        }
+                        
+                      },
+                      {
+                        value: "no",
+                        text: "No"
+                       
+                      }
+                      ]
+                    }) }}
+        
+        
+        
+                    </div>
+                    </fieldset>
+                    </div>
+
 
 
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="more-detail"><strong>Add information to support your decision (optional)</strong></label>
+                  <label class="govuk-label" for="more-detail"><strong>Add information to support your decision</strong></label>
                   <div class="govuk-hint">For example, include anything that needs to be put in place to help manage their risk if they are released there, such as treatment programmes.</div>
                   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
                 </div>
