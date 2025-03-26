@@ -584,7 +584,7 @@
           <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                Third address – deleted
+                Third address deleted
               </span>
             </summary>
             <div class="govuk-details__text">
@@ -606,7 +606,7 @@
                     <details class="govuk-details" style="margin-top: -10px;">
                       <summary class="govuk-details__summary">
                         <span class="govuk-details__summary-text">
-                          Fourth address – deleted
+                          Fourth address deleted
                         </span>
                       </summary>
                       <div class="govuk-details__text">
@@ -1002,6 +1002,26 @@
                     
               </div>
               <!--card end-->
+              {% endif %}
+
+
+              {% if data.OfflineStep=="yes" %}
+              {% elseif data.accomodationType=="cas2" %}
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Third area deleted
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  Town or city: Rotherham</br>
+                  County or borough: South Yorkshire</br>
+                  Additional Information: Not entered</br></br>
+
+                  Deleted by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</br>
+                  Reason: Ryan no longer wants to be released here
+                </div>
+              </details>
               {% endif %}
 
 
