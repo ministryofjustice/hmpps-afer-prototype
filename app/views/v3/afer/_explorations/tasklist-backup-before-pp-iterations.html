@@ -60,6 +60,27 @@
             
         
 
+              <!--banner CAS-1 start--> 
+              {% if data.journey=="cas1application" %}
+
+
+              {% if data.accomodationType=="cas1" %}
+              <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+                <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                  <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+                </svg>
+
+                <div class="moj-banner__message">Eligibility check completed. You can now continue assessing this person for Approved Premises.</div>
+
+              </div>
+              {% else %}
+              {% endif %}
+
+
+              {% endif %}
+              <!--banner CAS-1 start--> 
+
 
         
               <!--banner CAS-2 start--> 
@@ -755,6 +776,96 @@
 
             {% if (data.journey=="cas1application") or (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
 
+            {% if data.cas1assessment=="complete" %}
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Approved Premises assessment [WILL BE RENAMED]
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  <!--<div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Is there a victim liaison officer (VLO) for this person?
+                    </dt> 
+                    <dd class="govuk-summary-list__value">
+                      Yes
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-vlo-check">Change</a>
+                    </dd>
+                  </div>-->
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Referral status
+                    </dt> 
+                    <dd class="govuk-summary-list__value">
+                      Not submitted yet
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-submitted-application">Enter</a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Referral outcome
+                    </dt> 
+                    <dd class="govuk-summary-list__value">
+                      No outcome entered yet
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter</a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Accommodation address
+                    </dt> 
+                    <dd class="govuk-summary-list__value">
+                      No address entered yet
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas1-application-outcome">Enter</a>
+                    </dd>
+                  </div>
+
+                
+                </dl>
+              </div>
+              
+            </div>
+            <!--{% elseif data.accomodationType=="cas1" %}
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Approved Premises assessment
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+
+                      <p class="govuk-body" style="margin-left: 0px; margin-top: 10px;">This person needs to be assessed for Approved Premises (CAS-1).</p>
+
+                      <a href="./cas/cas1-vlo-check" class="govuk-button" style="margin-top: 0px; margin-left: 0px; margin-bottom: 15px;">Start assessment</a>
+
+                    </dt>
+                  </div>
+
+                </dl>
+              </div>
+
+            </div>-->
+            {% endif %}
+
+        <!--APPROVED PREMISES CAS-1 end-->
 
         <!-- SHORT TERM ACCOMMODATION CAS-2 start -->
 

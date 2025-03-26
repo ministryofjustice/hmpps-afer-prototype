@@ -296,14 +296,14 @@ router.post(version + '/speakwithpom', function (req, res) {
   });
 
 
-//CAS-1 VLO question
-router.post(version + '/casvloquestion', function (req, res) {
-  var cas1assessment = req.session.data['cas1assessment']
+//CAS-1 eligible to confirmation page
+router.post(version + '/CASaccomodationType', function (req, res) {
+  var accomodationType = req.session.data['accomodationType']
   // Check whether the variable matches a condition
-  if (cas1assessment == "complete"){
+  if (accomodationType == "cas1"){
    
-   // Send user to case overview page if suitablity decision has been made and confirm outcome
-    res.redirect(version + '/afer/case-overview')
+   // Send user to CAS-1 eligible confirmation page
+    res.redirect(version + '/afer/addresses/outcomes/cas-1')
   } else {
     // Send user back to address details page
     res.redirect(version + '/afer/addresses/tasklist')
