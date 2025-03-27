@@ -55,11 +55,9 @@
        
         <h2 class="govuk-heading-m">Next steps</h2>
 
-        {% if data.journey=="casNoPreference" %}
-        <p class="govuk-body">You can send the HDC application to prison so the referral for CAS can be started.</p>
-        {% else %}
-        <p class="govuk-body">You can send the HDC application to prison so the referral for CAS can be started.</p>
-        {% endif %}
+
+        <p class="govuk-body">Return to the application overview to complete the outstanding tasks. You will then be able to send the HDC application to prison.</p>
+        
         
 
         
@@ -67,10 +65,7 @@
 
         
         <div class="govuk-button-group" style="margin-top: 40px;">
-          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="sendtoprison">
-            Send application to prison
-          </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
+          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="overview">
             Return to application overview
           </button>
         </div>
