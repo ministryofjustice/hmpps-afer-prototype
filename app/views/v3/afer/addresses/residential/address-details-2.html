@@ -255,36 +255,15 @@
           <span class="app-task-list__task-name">
             <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
               Suitablity decision
-             </a>
-            </br>
-            {% if data.suitabilityDecisionRes=="completed" %}
-            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
-             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
-            </div>
-            {% endif %}
-          </span>
-
-          {% if data.suitabilityDecisionRes=="completed" %}
-          <p class="govuk-body" style="text-align: right;">Completed</p>
-          {% else %}
-          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
-          {% endif %}
-        </li>
-
-
-        <li class="app-task-list__item" style="margin-left: -30px;">
-          <span class="app-task-list__task-name">
-            <a class="govuk-link govuk-link--no-visited-state" href="riskmanagdecision">
-              Make a risk management decision
             </a>
             </br>
-            {% if data.managementDecision=="yes" %}
+            {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
              Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
             </div>
             {% endif %}
           </span>
-          {% if data.managementDecision=="yes" %}
+          {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
           {% else %}
           <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
