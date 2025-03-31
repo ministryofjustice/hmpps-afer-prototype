@@ -175,9 +175,7 @@
       {% elseif (data.OccupierChecks=="completed") and
       (data.PoliceChecks=="completed") and
       (data.SocialservicesChecks=="completed") and
-      (data.RiskChecks=="completed") and
-      (data.suitabilityDecisionRes=="completed") and
-      (data.managementDecision=="yes") %}
+      (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
     <!--Transform that this is a yes for the suitability vs. a no-->
     <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
@@ -1629,9 +1627,7 @@
   {% elseif (data.OccupierChecks=="completed") and
   (data.PoliceChecks=="completed") and
   (data.SocialservicesChecks=="completed") and
-  (data.RiskChecks=="completed") and
-  (data.suitabilityDecisionRes=="completed") and
-  (data.managementDecision=="yes") %}
+  (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
 <!--Check addresses or community accommodation - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1923,9 +1919,7 @@
 {% elseif (data.OccupierChecks=="completed") and
   (data.PoliceChecks=="completed") and
   (data.SocialservicesChecks=="completed") and
-  (data.RiskChecks=="completed") and
-  (data.suitabilityDecisionRes=="completed") and
-  (data.managementDecision=="yes") %}
+  (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
 <!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -2346,9 +2340,7 @@
     {% elseif (data.OccupierChecks=="completed") and
     (data.PoliceChecks=="completed") and
     (data.SocialservicesChecks=="completed") and
-    (data.RiskChecks=="completed") and
-    (data.suitabilityDecisionRes=="completed") and
-    (data.managementDecision=="yes") %}
+    (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
     <p class="moj-timeline__date">
       <time datetime="2019-05-21T13:15:00.000Z">Completed by probation practitioner Mark Coombes on {{ "today" |  duration(0) | govukDate }}</time>
     </p>
@@ -2997,9 +2989,7 @@
     {% elseif (data.OccupierChecks=="completed") and
     (data.PoliceChecks=="completed") and
     (data.SocialservicesChecks=="completed") and
-    (data.RiskChecks=="completed") and
-    (data.suitabilityDecisionRes=="completed") and
-    (data.managementDecision=="yes") %}
+    (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
       <p class="govuk-body" style="margin-top: -15px;">Assessed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}</p>
     {% else %}
       <p class="govuk-body" style="margin-top: -15px;">Saved by Jessica Smith on {{ "today" |  duration(-1) | govukDate("truncate") }}</p>
@@ -3020,9 +3010,7 @@
             {% elseif (data.OccupierChecks=="completed") and
             (data.PoliceChecks=="completed") and
             (data.SocialservicesChecks=="completed") and
-            (data.RiskChecks=="completed") and
-            (data.suitabilityDecisionRes=="completed") and
-            (data.managementDecision=="yes") %}
+            (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
             <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
             {% elseif data.passedDeadline=="yes" %}
             <span style="font-weight: normal;">In progress</span>
@@ -3091,9 +3079,7 @@
 {% elseif (data.OccupierChecks=="completed") and
 (data.PoliceChecks=="completed") and
 (data.SocialservicesChecks=="completed") and
-(data.RiskChecks=="completed") and
-(data.suitabilityDecisionRes=="completed") and
-(data.managementDecision=="yes") %}
+(data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
