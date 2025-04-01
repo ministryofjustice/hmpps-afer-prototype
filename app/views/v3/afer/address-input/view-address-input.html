@@ -165,7 +165,7 @@
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2> 
 
         
-        {% if data.journey=="cas2application" %}
+        {% if (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
 
         <p class="govuk-body">None entered</p>
 
@@ -594,6 +594,138 @@
           </div>
           
         </div>
+
+
+        {% elseif data.journey=="casNoPreference" %}
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligibility check
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
+      </li>
+    </ul>
+  </div>
+
+
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Is this person eligible for CAS accommodation?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Yes
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Type of accommodation
+      </dt> 
+      <dd class="govuk-summary-list__value">
+        Short-term accommodation (CAS-2)
+      </dd>
+    </div>
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+
+<p>This person’s probation practitioner has provided the following information to help with making a CAS-2 referral. </p>
+        
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+     No area preference
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Areas to avoid
+        </dt> 
+        <dd class="govuk-summary-list__value">
+          East Midlands, Greater London
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Application status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data.cas2submitted=="yes") %}
+          CAS-2 referral submitted
+          {% else %}
+          Not submitted by prison case admin yet
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {% if (data.cas2submitted=="yes") %}
+          <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/submitted-application">View or change</a>
+          {% else %}
+          <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/submitted-application">Enter</a>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Application outcome
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
+          Offer accepted
+          {% else %}
+          No outcome entered by prison case admin yet	
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
+          <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-outcome">View or change</a>
+          {% else %}
+          <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-outcome">Enter</a>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Accommodation address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data.cas2addressadded=="yes") %}
+          6 Genesis Park</br>
+          Rotherham</br>
+          S60 1DX
+          {% else %}
+          No address entered by prison case admin yet
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {% if (data.cas2addressadded=="yes") %}
+          <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-address">View or change</a>
+          {% else %}
+          <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-address">Enter</a>
+          {% endif %}
+        </dd>
+      </div> 
+
+    </dl>
+  </div>
+  
+</div>
+
+
 
         {% elseif data.journey=="cas2application" %}
 
