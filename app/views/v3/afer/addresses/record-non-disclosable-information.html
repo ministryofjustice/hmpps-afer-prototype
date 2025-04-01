@@ -59,7 +59,9 @@
         
                   {% endset -%}
                   <!--END set dynamic radio hide/show text-->
-   
+
+
+                
                   {% if data.accomodationType=="cas1" %}
         
                   {{ govukRadios({
@@ -141,9 +143,38 @@
                     
                   ]
                 }) }}
+
+                {% else %}
+
+
+                        
+                {{ govukRadios({
+                  name: "vlo",
+                  fieldset: {
+                    legend: {
+                      text: "Is there any information that must not be disclosed to George",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "vloYes",
+                    text: "Yes",
+                    conditional: {
+                      html: textHtmlOther
+                    }
+                  },
+                    {
+                      value: "vloNo",
+                      text: "No"
+                    }
+                    
+                  ]
+                }) }}
    
    
-                  {% endif %}
+                {% endif %}
                   
   </div>
 
