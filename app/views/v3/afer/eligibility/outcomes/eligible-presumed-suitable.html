@@ -44,6 +44,8 @@
         <p class="govuk-body">
           {% if data.journey=="cas2application" %}
           Ryan Rees
+          {% elseif data.journey=="casNoPreference"%}
+          Julian Murphy
           {% elseif data.journey=="cas1application" %}
           Lenny Wallace
           {% else %}
@@ -63,6 +65,8 @@
           Download the following letter to tell
           {% if data.journey=="cas2application" %}
           Ryan
+          {% elseif data.journey=="casNoPreference"%}
+          Julian
           {% elseif data.journey=="cas1application" %}
           Lenny
           {% else %}
@@ -85,6 +89,8 @@
           Download the following letters to ask
           {% if data.journey=="cas2application" %}
           Ryan
+          {% elseif data.journey=="casNoPreference"%}
+          Julian
           {% elseif data.journey=="cas1application" %}
           Lenny
           {% else %}
