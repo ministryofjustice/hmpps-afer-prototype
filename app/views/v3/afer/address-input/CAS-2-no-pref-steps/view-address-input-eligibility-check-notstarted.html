@@ -156,142 +156,34 @@
         <!--card end-->
 
 
-         <!--card start-->
-         <div class="govuk-summary-card">
-              
+        <!--card start-->
+        <div class="govuk-summary-card">
+
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Preferred area
+              No area preference
             </h2>
             <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
-                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete preferred area</a>
-              </li>
-              <li class="govuk-summary-card__action">
-                <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
-              </li>
+              <li class="govuk-summary-card__action"><span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span></li>
             </ul>
           </div>
-        
+
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Town or city
+                    
+                  <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">This person wants to be considered for CAS-2 accommodation, but has no preferred location. This person’s probation practitioner will tell you which areas to avoid in the referral.<br></p>
+                  
                 </dt>
-                <dd class="govuk-summary-list__value">
-                  {% if data.changedcas=="yes" %}
-                  Sheffield
-                  {% else %}
-                  Sheffild
-                  {% endif %}
-                </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
-                </dd>-->
               </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  County or borough
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  South Yorkshire
-                </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-town-county">Change</a>
-                </dd>-->
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Additional Information
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {% if data.changedadditionalinfo=="yes" %}
-                  Person has relatives in the area but also some more difficult friendships
-                  {% else %}
-                  Person has relatives in the area
-                  {% endif %}
-                </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-change-additional-info">Change</a>
-                </dd>-->
-              </div>
+
             </dl>
           </div>
-              
+
         </div>
         <!--card end-->
-
-
-
-
-                       <!--card start-->
-              <div class="govuk-summary-card">
-              
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">
-                    Second area
-                  </h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
-                      <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-delete-cas">Delete second area</a>
-                    </li>
-                    <li class="govuk-summary-card__action">
-                      <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Town or city
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Doncaster
-                      </dd>
-                      <!--<dd class="govuk-summary-list__actions">
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-                      </dd>-->
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        County or borough
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        South Yorkshire
-                      </dd>
-                      <!--<dd class="govuk-summary-list__actions">
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-                      </dd>-->
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Additional Information
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {% if data.enteredadditionalinfo=="yes" %}
-                        Person has been released to this area before
-                        {% else %}
-                        None entered
-                        {% endif %}
-                      </dd>
-                      <!--<dd class="govuk-summary-list__actions">
-                        {% if data.enteredadditionalinfo=="yes" %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
-                        {% else %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="view-address-input-enter-additional-info">Enter</a>
-                        {% endif %}
-                      </dd>-->
-                    </div>
-                  </dl>
-                </div>
-                    
-              </div>
-              <!--card end-->
 
 
 
