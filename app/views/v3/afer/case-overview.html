@@ -395,6 +395,9 @@
       {% elseif data.journey=="cas1application"%}
       Lenny Wallace
 
+      {% elseif data.journey=="casNoPreference"%}
+      Julian Murphy
+
       {% elseif data.user=="admin"%}
 
       {% if data.journey=="ineligiblejourney"%}
@@ -407,14 +410,8 @@
       George Jennings
       {% endif %}
 
-      {% elseif data.user=="probation"%}
-
-      {% if data.journey=="casNoPreference"%}
-      Julian Murphy
       {% else %}
       George Jennings
-      {% endif %}
-
       {% endif %}
     </h1>
      
@@ -458,6 +455,9 @@
               {% elseif data.journey=="cas2application" %}
               Ryan Rees
 
+              {% elseif data.journey=="casNoPreference"%}
+              Julian Murphy
+
               {% elseif data.journey=="cas1application" %}
               Lenny Wallace
 
@@ -470,13 +470,8 @@
               George Jennings
               {% endif %}
 
-              {% elseif data.user=="probation" %}
-              {% if data.journey=="casNoPreference"%}
-              Julian Murphy
               {% else %}
               George Jennings
-              {% endif %}
-
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -511,8 +506,6 @@
               G5613GT
               {% endif %}  
 
-              {% elseif data.user=="probation"%}
-              G5613GT
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
