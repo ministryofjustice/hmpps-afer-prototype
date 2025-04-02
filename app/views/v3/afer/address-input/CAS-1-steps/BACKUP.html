@@ -147,7 +147,20 @@
                   Grantham</br>
                   NG31 6HN</br></br>
                   
-                  Assessed by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</br>
+                  Assessed by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</br></br>
+
+                  <strong>Reasons for unsuitability:</strong></br>
+                  
+                  <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        Assessed as unsuitable by probation practitioner
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post. 
+                    </div>
+                  </details>
 
               </dt>
             </div>
@@ -157,6 +170,71 @@
     
         </div>
         <!--card end-->
+
+                      <!--card start-->
+                      <div class="govuk-summary-card">
+              
+                        <div class="govuk-summary-card__title-wrapper">
+                          <h2 class="govuk-summary-card__title">
+                            Preferred address
+                          </h2>
+                          <ul class="govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action">
+                              <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                              <a class="govuk-link govuk-link--no-visited-state" href="#">View details</a>
+                            </li>
+                            <li class="govuk-summary-card__action">
+                              <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+                              <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View details</a>-->
+                            </li>
+                          </ul>
+                        </div>
+        
+                        <div class="govuk-summary-card__content">
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                               Address
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                4 Inner Street</br>
+                                Grantham</br>
+                                NG31 6HN
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Label
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Assessed by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</p>
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Reasons for unsuitability
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Assessed as unsuitable by probation practitioner</br>
+
+                                <details class="govuk-details">
+                                  <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">
+                                      View more information
+                                    </span>
+                                  </summary>
+                                  <div class="govuk-details__text">
+                                    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+                                  </div>
+                                </details>
+                                
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
+                            
+                      </div>
+                      <!--card end-->
 
   
         <a href="#" class="govuk-button">Add curfew address</a>

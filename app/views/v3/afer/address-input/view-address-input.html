@@ -223,11 +223,8 @@
               <dt class="govuk-summary-list__value">
                   4 Inner Street</br>
                   Grantham</br>
-                  NG31 6HN</br></br>
-
-                  <p class="govuk-body">Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</p>
-
-                  <!--<a href="./view-address-curfew1" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+                  NG31 6HN
+                  <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</p>-->
               </dt>
             </div>
         
@@ -273,16 +270,7 @@
                   49 Hill Street</br>
                   Grantham</br>
                   N1J 5NB
-                  {% endif %}
-
-                  </br></br>
-                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
-                  <p class="govuk-body">Changed by Jessica Smith on {{ "today" | duration(0) | govukDate("truncate") }}</p>
-                  {% else %}
-                  <p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
-                  {% endif %}
-                  <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on 9 Mar 2025</p>-->
-                  <!--<a href="./view-address-curfew2" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+                  {% endif %}       
                 </dt>
               </div>
           
@@ -338,13 +326,10 @@
                         </h2>
                         <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
                             <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew3">View details or delete</a>
                           </li>
                           <li class="govuk-summary-card__action">
                             <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
-                            <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
-                            <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View and change details</a>-->
                           </li>
                         </ul>
                       </div>
@@ -359,9 +344,8 @@
                             Grantham</br>
                             NG31 7TA
 
-                            </br></br><p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
-                            <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on 9 Mar 2025</p>-->
-                            <!--<a href="./view-address-curfew2" class="govuk-link govuk-link--no-visited-state">View details</a></br>-->
+                            <!--<p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>-->
+    
                           </dt>
                         </div>
                     
@@ -539,13 +523,11 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-
-    A referral for Approved Premises (CAS-1) can be made without specific CAS areas.</br>
-
     Town or city: Sheffield</br>
     County or borough: South Yorkshire</br>
-    Additional Information: Person has relatives in the area	
-    
+    Additional Information: Person has relatives in the area</br></br>
+
+    Reason: A referral for Approved Premises (CAS-1) can be made without specific CAS areas.
   </div>
 </details>
 
@@ -557,13 +539,11 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-    
-    A referral for Approved Premises (CAS-1) can be made without specific CAS areas.</br>
-
     Town or city: Doncaster</br>
     County or borough: South Yorkshire</br>
-    Additional Information: Person has been released to this area before
+    Additional Information: Person has been released to this area before</br></br>
 
+    Reason: A referral for Approved Premises (CAS-1) can be made without specific CAS areas.
   </div>
 </details>
 
@@ -581,7 +561,7 @@
 
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Application status
+                  Referral status
                 </dt> 
                 <dd class="govuk-summary-list__value">
                   Not submitted by probation practitioner yet
@@ -590,7 +570,7 @@
 
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Application outcome
+                  Referral outcome
                 </dt> 
                 <dd class="govuk-summary-list__value">
                   No outcome entered by probation practitioner yet
@@ -678,7 +658,7 @@
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Application status
+          Referral status
         </dt>
         <dd class="govuk-summary-list__value">
           {% if (data.cas2submitted=="yes") %}
@@ -697,7 +677,7 @@
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Application outcome
+          Referral outcome
         </dt>
         <dd class="govuk-summary-list__value">
           {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
@@ -986,7 +966,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Application status
+                        Referral status
                       </dt>
                       <dd class="govuk-summary-list__value">
                         {% if (data.cas2submitted=="yes") %}
@@ -1005,7 +985,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Application outcome
+                        Referral outcome
                       </dt>
                       <dd class="govuk-summary-list__value">
                         {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}

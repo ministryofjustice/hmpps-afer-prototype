@@ -48,26 +48,47 @@
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                 </dt>
                 <dd class="govuk-summary-list__value">
                   4 Inner Street</br>
                   Grantham</br>
                   NG31 6HN
-                  
-                </br></br><p class="govuk-body">Assessed as unsuitable by Mark Coombes, probation practitioner on {{ "today" | duration(-2) | govukDate("truncate") }}.</p>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Label
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Assessed by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Reasons for unsuitability
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Assessed as unsuitable by probation practitioner</br>
+
+                  <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        View more information
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+                    </div>
+                  </details>
 
                 </dd>
               </div>
-              <!--<div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Preference
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Preferred address
-                </dd>
-              </div>-->
             </dl>
           </div>
         </div>
+
         
         <h3 class="govuk-heading-s govuk-!-margin-top-6">Details of residents</h3>
         
