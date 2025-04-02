@@ -50,25 +50,23 @@
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                  Address
+                </dd>
                 <dd class="govuk-summary-list__value">
                   1 Belvoir Ave</br>
                   Grantham</br>
                   NG31 7TA
-
-                </br></br><p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
                 </dd>
               </div>
-              <!--<div class="govuk-summary-list__row">
+              <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Preference
+                  Label
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Second address
+                  Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
-                </dd>
-              </div>-->
+              </div>
             </dl>
           </div>
         </div>

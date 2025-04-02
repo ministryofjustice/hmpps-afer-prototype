@@ -76,6 +76,9 @@
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                 </dt>
                 <dd class="govuk-summary-list__value">
                   {% if data.confirmationnav=="changeddetailsalladdresses" %}
                   51 Hill Street</br>
@@ -87,23 +90,25 @@
                   N1J 5NB
                   {% endif %}
 
-                </br></br><p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                <!--<p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>-->
+
                 </dd>
                 <!--<dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
                 </dd>-->
               </div>
-              <!--<div class="govuk-summary-list__row">
+              <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Preference
+                  Label
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Second address
+                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
+                  <p class="govuk-body">Changed by Jessica Smith on {{ "today" | duration(0) | govukDate("truncate") }}</p>
+                  {% else %}
+                  <p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                  {% endif %}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
-                </dd>
-              </div>-->
+              </div>
             </dl>
           </div>
         </div>
