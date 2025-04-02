@@ -126,7 +126,23 @@
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
 
-        {% if data.journey=="cas2application" %}
+        {% if data.journey=="casNoPreference" %}
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">Information about areas to avoid recorded</p>
+  
+            <p class="govuk-body">
+              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+            </p>
+
+          </div>
+        </div>
+        {% elseif data.journey=="cas2application" %}
         {% if data.communityaccommodation=="three" %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
