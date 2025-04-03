@@ -168,9 +168,17 @@
         
         <li class="app-task-list__item" style="margin-left: -30px;">
           <span class="app-task-list__task-name">
+            {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
             <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
               Suitablity decision
             </a>
+            {% elseif (data.OccupierChecks=="completed") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") %}
+            <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
+              Suitablity decision
+            </a>
+            {% else %}
+            Suitablity decision
+            {% endif %}
             </br>
             {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
             <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
@@ -178,10 +186,14 @@
             </div>
             {% endif %}
           </span>
+          
+          
           {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
           <p class="govuk-body" style="text-align: right;">Completed</p>
-          {% else %}
+          {% elseif (data.OccupierChecks=="completed") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") %}
           <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Cannot<span style="text-transform: lowercase;"> start</span></strong>
           {% endif %}
         </li>
    

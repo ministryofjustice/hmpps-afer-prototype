@@ -1529,6 +1529,10 @@
 {% if data.user=="probation"%}
 
 
+{% if (data.AddressSuitabilityDecision=="no") or (data.passedDeadline=="yes") %}
+hello
+{% endif %}
+
 
 {% if (data.RiskChecks=="completed") or (data.journey=="28daysjourney") %}
 <!--Speak with their POM - Done-->
@@ -1764,6 +1768,12 @@
 {% endif %}
 {% endif %}
 
+
+
+
+
+
+
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
@@ -1784,6 +1794,7 @@
     <a href="./addresses/record-non-disclosable-information.html" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
+
 
 
 {% if (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
