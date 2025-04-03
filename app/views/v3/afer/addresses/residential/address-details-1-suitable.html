@@ -50,35 +50,25 @@
                       </h2>
                       <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
                         </li>
                       </ul>
                     </div>
             
-                    <div class="govuk-summary-card__content">
-                      <dl class="govuk-summary-list">
+              
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                  
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            4 Inner Street</br>
+                            Grantham</br>
+                            NG31 6HN
+                        </dt>
+                      </div>
                     
-                        <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                            Address
-                          </dt> 
-                          <dt class="govuk-summary-list__value">
-                              4 Inner Street</br>
-                              Grantham</br>
-                              NG31 6HN
-                          </dt>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                            Reasons for unsuitability
-                          </dt> 
-                          <dt class="govuk-summary-list__value">
-                            Main occupier has not consented to release here
-                          </dt>
-                        </div>
-                    
-                      </dl>
-                    </div>  
+                    </dl>
+                  </div>
               
               </div>
               <!--card end-->
@@ -150,22 +140,46 @@
           </span>
           <p class="govuk-body" style="text-align: right;">Completed</p>
         </li>
- 
+
         <li class="app-task-list__item" style="margin-left: -30px;">
-          <span class="app-task-list__task-name">Police check</span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Cannot<span style="text-transform: lowercase;"> start</span></strong>
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Police check
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
         </li>
 
         <li class="app-task-list__item" style="margin-left: -30px;">
-          <span class="app-task-list__task-name">Children's services check</span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Cannot<span style="text-transform: lowercase;"> start</span></strong>
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Children's services check
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
         </li>
-    
+
         <li class="app-task-list__item" style="margin-left: -30px;">
-          <span class="app-task-list__task-name">Suitablity decision</span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Cannot<span style="text-transform: lowercase;"> start</span></strong>
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Suitablity decision
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
         </li>
-   
+ 
 
   </ul>
 
