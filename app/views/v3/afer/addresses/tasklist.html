@@ -708,6 +708,57 @@
                           </div>
                           <!--card end-->
 
+                          {% if data.accomodationType=="cas1" %}
+                          <div class="govuk-summary-card">
+                            <div class="govuk-summary-card__title-wrapper">
+                              <h2 class="govuk-summary-card__title">
+                                Approved Premises referral
+                              </h2>
+                            </div>
+                            <div class="govuk-summary-card__content">
+                              <dl class="govuk-summary-list">
+                  
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Referral status
+                                  </dt> 
+                                  <dd class="govuk-summary-list__value">
+                                    Not submitted by probation practitioner yet
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="#">Enter</a>
+                                  </dd>
+                                </div>
+                  
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Referral outcome
+                                  </dt> 
+                                  <dd class="govuk-summary-list__value">
+                                    No outcome entered by probation practitioner yet
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="#">Enter</a>
+                                  </dd>
+                                </div>
+                  
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Accommodation address
+                                  </dt> 
+                                  <dd class="govuk-summary-list__value">
+                                    No address entered by probation practitioner yet
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="#">Enter</a>
+                                  </dd>
+                                </div>
+                  
+                              </dl>
+                            </div>
+                            
+                          </div>
+                          {% endif %}
 
               {% elseif (data.journey=="cas1application") or (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
               <!--card start-->
