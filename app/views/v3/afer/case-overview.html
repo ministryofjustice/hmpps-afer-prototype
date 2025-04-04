@@ -1218,6 +1218,7 @@
 
 
 <!--Additional CAS-2 task for CA-->
+{% if data.journey=="cas2application" %}
 {% if (data.cas2addressadded=="yes") %}
 <!--Enter CAS-2 address - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1257,6 +1258,7 @@
   </section>
 </article>
 {% elseif (data.journey=="cas2application") %}
+
 {% if (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2") %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
@@ -1264,6 +1266,7 @@
     <p class="govuk-body">If the referral is accepted, enter the accommodation address here.</p>
   </section>
 </article>
+{% endif %}
 {% endif %}
 {% endif %}
 
