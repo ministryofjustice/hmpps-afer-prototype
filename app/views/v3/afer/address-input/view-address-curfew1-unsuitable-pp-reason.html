@@ -38,7 +38,7 @@
             </h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Delete preferred address</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete preferred address</a>
               </li>
               <li class="govuk-summary-card__action">
                 <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
@@ -256,38 +256,23 @@
               </dl>
             </div>
         
-            {%if (data.curfewinfo1) %} 
+            
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
                 <h2 class="govuk-summary-card__title">
                   Additional information
                 </h2>
-                <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
-                  </li>
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
-                  </li>
-                </ul>
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
-                    <!--<dt class="govuk-summary-list__key">
-                    </dt>-->
                     <dd class="govuk-summary-list__value">
-                      {{data.curfewinfo1}}
+                      This person has been released to this address before about 10 years ago. 
                     </dd>
-                    <!--<dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
-                    </dd>-->
                   </div>
                   </div>
                 </dl>
               </div>
-              {% else %}
-              {% endif %}
         <!--Preferred address end-->
         
         <form action="./view-address-input" method="post" novalidate>
