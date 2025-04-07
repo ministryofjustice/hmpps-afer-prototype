@@ -31,7 +31,48 @@
         <h1 class="govuk-heading-l govuk-!-margin-top-6">View details or delete</h1>
         <!--Second address start-->
         
-        <p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>
+        <!--<p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>-->
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              PP HEADING
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Assessed by
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">Mark Coombes on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Reasons for unsuitability
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Assessed as unsuitable by probation practitioner</br>
+
+                  <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        View more information
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                     [This would show supporting information added by the probation practitioner on the suitability decision page]
+                    </div>
+                  </details>
+
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
         
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -67,52 +108,25 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Assessed by
-                </dt>
+                  Additional information
+                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">Mark Coombes on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                  Person has been released to this area before 
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Reasons for unsuitability
+                  Saved by
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Assessed as unsuitable by probation practitioner</br>
-
-                  <details class="govuk-details">
-                    <summary class="govuk-details__summary">
-                      <span class="govuk-details__summary-text">
-                        View more information
-                      </span>
-                    </summary>
-                    <div class="govuk-details__text">
-                     [This would show supporting information added by the probation practitioner on the suitability decision page]
-                    </div>
-                  </details>
-
+                  <p class="govuk-body">Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
                 </dd>
               </div>
             </dl>
           </div>
         </div>
         
-             <div class="govuk-summary-card">
-               <div class="govuk-summary-card__title-wrapper">
-                 <h2 class="govuk-summary-card__title">
-                   Additional information
-                 </h2>
-               </div>
-               <div class="govuk-summary-card__content">
-                 <dl class="govuk-summary-list">
-                   <div class="govuk-summary-list__row">
-                     <dd class="govuk-summary-list__value">
-                      Person has been released to this area before 
-                     </dd>
-                   </div>
-                   </div>
-                 </dl>
-               </div>
+            
         <!--Second address end-->
 
    

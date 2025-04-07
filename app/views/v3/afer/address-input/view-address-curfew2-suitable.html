@@ -57,46 +57,22 @@
         <h1 class="govuk-heading-l govuk-!-margin-top-6">View details or delete</h1>
         <!--Second address start-->
         
-        <p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>
-        
+        <!--<p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>-->
+
+
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Address details
+              PP HEADING
             </h2>
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete second address</a>
-              </li>
+            <!--<ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
               </li>
-            </ul>
+            </ul>-->
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Address
-                 </dt>
-                <dd class="govuk-summary-list__value">
-                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
-                  51 Hill Street</br>
-                  Grantham</br>
-                  N1J 5NB
-                  {% else %}
-                  49 Hill Street</br>
-                  Grantham</br>
-                  N1J 5NB
-                  {% endif %}
-
-                <!--<p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>-->
-
-                </dd>
-                <!--<dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
-                </dd>-->
-              </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Assessed by
@@ -141,6 +117,66 @@
                     </div>
                   </details>
                   
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+
+        
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Address details
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete second address</a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                 </dt>
+                <dd class="govuk-summary-list__value">
+                  {% if data.confirmationnav=="changeddetailsalladdresses" %}
+                  51 Hill Street</br>
+                  Grantham</br>
+                  N1J 5NB
+                  {% else %}
+                  49 Hill Street</br>
+                  Grantham</br>
+                  N1J 5NB
+                  {% endif %}
+
+                <!--<p class="govuk-body">Saved by Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>-->
+
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+                </dd>-->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Additional information
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 Not entered
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Saved by
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">Jessica Smith on {{ "today" | duration(-2) | govukDate("truncate") }}</p>
                 </dd>
               </div>
             </dl>
