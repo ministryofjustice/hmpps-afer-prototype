@@ -67,32 +67,24 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Assessed by
-                </dt>
+                  Additional information 
+                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">Mark Coombes on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                  Not entered
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Reasons for Suitability
+                  Saved by
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Assessed as Suitable by probation practitioner</br>
-
-                  <details class="govuk-details">
-                    <summary class="govuk-details__summary">
-                      <span class="govuk-details__summary-text">
-                        View more information
-                      </span>
-                    </summary>
-                    <div class="govuk-details__text">
-                     [This would show supporting information added by the probation practitioner on the suitability decision page]
-                    </div>
-                  </details>
-
+                  <p class="govuk-body">Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
                 </dd>
               </div>
+              
+              
+
+              
             </dl>
           </div>
         </div>
@@ -100,16 +92,41 @@
              <div class="govuk-summary-card">
                <div class="govuk-summary-card__title-wrapper">
                  <h2 class="govuk-summary-card__title">
-                   Additional information
+                   [Heading]
                  </h2>
                </div>
                <div class="govuk-summary-card__content">
                  <dl class="govuk-summary-list">
-                   <div class="govuk-summary-list__row">
-                     <dd class="govuk-summary-list__value">
-                      Not entered
-                     </dd>
-                   </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Assessed by
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p class="govuk-body">Mark Coombes on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Reasons for Suitability
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Assessed as suitable by probation practitioner</br>
+    
+                      <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            View more information
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                         [This would show supporting information added by the probation practitioner on the suitability decision page]
+                        </div>
+                      </details>
+    
+                    </dd>
+                  </div>
                    </div>
                  </dl>
                </div>
