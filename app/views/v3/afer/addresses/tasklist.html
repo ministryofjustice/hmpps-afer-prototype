@@ -340,7 +340,7 @@
                         <!--start checks-->
                         <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
                         <a href="../addresses/residential/address-details-1" class="govuk-button">Resume</a>
-                        <!--<a href="#" class="govuk-link govuk-link--no-visited-state">Edit checks</a></br>-->
+                        <!--<a href="#" class="govuk-link govuk-link--no-visited-state">View or change details checks</a></br>-->
                     </dt>
                     <dd class="govuk-summary-list__actions">
                     </dd>
@@ -520,7 +520,7 @@
         
                 {% if data.journey=="cas2application"%}  
         
-                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit</a>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">View or change details</a>
         
                 {% else %}
         
@@ -530,11 +530,11 @@
                 (data.RiskChecks=="completed") and
                 (data.suitabilityDecisionRes=="completed") and
                 (data.managementDecision=="yes") %}
-                <a href="residential/address-details-2" class="govuk-link govuk-link--no-visited-state">Edit</a>
+                <a href="residential/address-details-2" class="govuk-link govuk-link--no-visited-state">View or change details</a>
                 {% elseif data.passedDeadline=="yes"%}
                 <a href="residential/address-details-2" class="govuk-button">Resume</a>
                 {% elseif data.AddressSuitabilityDecision=="no"%}
-                <a href="#" class="govuk-link govuk-link--no-visited-state">Edit check</a>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">View or change details check</a>
                 {% else %}
                 <a href="residential/address-details-2" class="govuk-button">Check suitability</a>
                 {% endif %}
@@ -557,7 +557,7 @@
           <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                Third address deleted
+                Third address – deleted
               </span>
             </summary>
             <div class="govuk-details__text">
@@ -579,7 +579,7 @@
                     <details class="govuk-details" style="margin-top: -10px;">
                       <summary class="govuk-details__summary">
                         <span class="govuk-details__summary-text">
-                          Fourth address deleted
+                          Fourth address – deleted
                         </span>
                       </summary>
                       <div class="govuk-details__text">
@@ -817,7 +817,7 @@
                   <ul class="govuk-summary-card__actions">
                     {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
                     <li class="govuk-summary-card__action">
-                      <a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">Edit suitability</a>
+                      <a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">View or change details</a>
                     </li>
                     {% else %}
                     {% endif %}
@@ -890,7 +890,7 @@
                   <ul class="govuk-summary-card__actions">
                     {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
                     <li class="govuk-summary-card__action">
-                      <a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">Edit suitability</a>
+                      <a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">View or change details</a>
                     </li>
                     {% else %}
                     {% endif %}
@@ -958,7 +958,7 @@
               <details class="govuk-details">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
-                    Third area deleted
+                    Third area – deleted
                   </span>
                 </summary>
                 <div class="govuk-details__text">
@@ -986,7 +986,7 @@
                                       <ul class="govuk-summary-card__actions">
                                         {% if (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaC=="no") %}
                                         <li class="govuk-summary-card__action">
-                                          <a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit suitability</a>
+                                          <a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">View or change details</a>
                                         </li>
                                         {% else %}
                                         {% endif %}
@@ -1092,7 +1092,7 @@
                                                       <ul class="govuk-summary-card__actions">
                                                         {% if data.cas2suitableAreaD=="yes" %}
                                                         <li class="govuk-summary-card__action">
-                                                          <a href="./cas/cas2-suitability-d" class="govuk-link govuk-link--no-visited-state">Edit</a>
+                                                          <a href="./cas/cas2-suitability-d" class="govuk-link govuk-link--no-visited-state">View or change details</a>
                                                         </li>
                                                         {% endif %}
                                                       </ul>
