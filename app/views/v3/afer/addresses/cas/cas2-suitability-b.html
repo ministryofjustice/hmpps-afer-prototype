@@ -46,8 +46,19 @@
 
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-      Preferred area
+      Second area
     </h2>
+    <ul class="govuk-summary-card__actions">
+      <li>
+        {% if data.cas2suitableAreaB=="yes" %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Suitable</span>
+        {% elseif data.cas2suitableAreaB=="no" %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Unsuitable</span>
+        {% else %}
+        <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
+        {% endif %}
+      </li>
+    </ul>
   </div>
   
   <div class="govuk-summary-card__content">

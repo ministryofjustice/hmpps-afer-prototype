@@ -815,11 +815,17 @@
                     Preferred area
                   </h2>
                   <ul class="govuk-summary-card__actions">
+                    {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
+                    <li class="govuk-summary-card__action">
+                      <a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">Edit suitability</a>
+                    </li>
+                    {% else %}
+                    {% endif %}
                     <li class="govuk-summary-card__action">
                       {% if data.cas2suitableAreaA=="yes" %}
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Suitable</span>
                       {% elseif data.cas2suitableAreaA=="no" %}
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Unsuitable</span>
                       {% else %}
                       <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
                       {% endif %}
@@ -856,15 +862,14 @@
                       </dd>
                     </div>
 
+                    {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
+                    {% else %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
-                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-a" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
-                        {% else %}
                         <a href="./cas/cas2-suitability-a" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Check suitability</a>
-                        {% endif %}
                       </dt>
                     </div>
+                    {% endif %}
                     
                   </dl>
                 </div>
@@ -883,11 +888,17 @@
                     Second area
                   </h2>
                   <ul class="govuk-summary-card__actions">
+                    {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
+                    <li class="govuk-summary-card__action">
+                      <a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">Edit suitability</a>
+                    </li>
+                    {% else %}
+                    {% endif %}
                     <li class="govuk-summary-card__action">
                       {% if data.cas2suitableAreaB=="yes" %}
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Suitable</span>
                       {% elseif data.cas2suitableAreaB=="no" %}
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Unsuitable</span>
                       {% else %}
                       <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
                       {% endif %}
@@ -923,15 +934,16 @@
                         Person has been released to this area before
                       </dd>
                     </div>
+
+                    {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
+                    {% else %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
-                        <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-b" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
-                        {% else %}
                         <a href="./cas/cas2-suitability-b" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Check suitability</a>
-                        {% endif %}
                       </dt>
                     </div>
+                    {% endif %}
+
                     
                   </dl>
                  </div>
@@ -972,11 +984,17 @@
                                         Third area
                                       </h2>
                                       <ul class="govuk-summary-card__actions">
+                                        {% if (data.cas2suitableAreaC=="yes") or (data.cas2suitableAreaC=="no") %}
+                                        <li class="govuk-summary-card__action">
+                                          <a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit suitability</a>
+                                        </li>
+                                        {% else %}
+                                        {% endif %}
                                         <li class="govuk-summary-card__action">
                                           {% if data.cas2suitableAreaC=="yes" %}
-                                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
+                                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Suitable</span>
                                           {% elseif data.cas2suitableAreaC=="no" %}
-                                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                                          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Unsuitable</span>
                                           {% else %}
                                           <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
                                           {% endif %}
@@ -1038,15 +1056,18 @@
                                           </dd>
                                         </div>
                                         {% endif %}
+
+
+
+                                        {% if (data.cas2suitableAreaC=="yes") %}
+                                        {% else %}
                                         <div class="govuk-summary-list__row">
                                           <dt class="govuk-summary-list__key">
-                                            {% if (data.cas2suitableAreaC=="yes") %}
-                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-c" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
-                                            {% else %}
                                             <a href="./cas/cas2-suitability-c" class="govuk-button" style="margin-top: 20px; margin-bottom: 10px">Check suitability</a>
-                                            {% endif %}
                                           </dt>
                                         </div>
+                                        {% endif %}
+
                                         
                                       </dl>
                                      </div>
@@ -1069,9 +1090,11 @@
                                                         No area preference
                                                       </h2>
                                                       <ul class="govuk-summary-card__actions">
+                                                        {% if data.cas2suitableAreaD=="yes" %}
                                                         <li class="govuk-summary-card__action">
-                                                          <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>-->
+                                                          <a href="./cas/cas2-suitability-d" class="govuk-link govuk-link--no-visited-state">Edit</a>
                                                         </li>
+                                                        {% endif %}
                                                       </ul>
                                                     </div>
                                                   
@@ -1113,11 +1136,7 @@
                                                             No address entered by prison case admin yet
                                                           </dd>
                                                         </div>
-                                                        <div class="govuk-summary-list__row">
-                                                          <dt class="govuk-summary-list__key">
-                                                            <p class="govuk-body" style="margin-top: 20px; margin-bottom: 10px"><a href="./cas/cas2-suitability-d" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
-                                                          </dt>
-                                                        </div>
+                                                       
                                                       
                                                       </dl>
                                                      </div>
