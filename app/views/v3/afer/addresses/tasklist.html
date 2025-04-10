@@ -339,7 +339,7 @@
                         NG31 6HN</br></br>
                         <!--start checks-->
                         <!--<a href="../addresses/residential/address-details-1" class="govuk-button">Start checks</a>-->
-                        <a href="../addresses/residential/address-details-1" class="govuk-button">Resume</a>
+                        <a href="../addresses/residential/address-details-1" class="govuk-button">Continue</a>
                         <!--<a href="#" class="govuk-link govuk-link--no-visited-state">View or change details checks</a></br>-->
                     </dt>
                     <dd class="govuk-summary-list__actions">
@@ -374,7 +374,7 @@
                   Grantham</br>
                   N1J 5NB</br></br>
         
-                  <a href="#" class="govuk-button">Resume</a>
+                  <a href="#" class="govuk-button">Continue</a>
                 </dt>
               </div>
           
@@ -479,17 +479,27 @@
               Second address
             </h2>
             <ul class="govuk-summary-card__actions">
+              {% if data.ResidentialSuitabilityDecision=="no" %}
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="./residential/address-details-2">View or change details</a>
+              </li>
+              {% elseif data.reportedDelay=="yes" %}
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">View or update information about delay</a>
+              </li>
+              {% elseif data.passedDeadline=="yes" %}
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">Report a delay</a>
+              </li>
+              {% endif %}
               <li class="govuk-summary-card__action">
         
-                {% if (data.journey=="cas1application") or (data.journey=="cas2application") or (data.AddressSuitabilityDecision=="no") %}  
-                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
-                {% elseif (data.OccupierChecks=="completed") and
-                (data.PoliceChecks=="completed") and
-                (data.SocialservicesChecks=="completed") and
-                (data.RiskChecks=="completed") and
-                (data.suitabilityDecisionRes=="completed") and
-                (data.managementDecision=="yes") %}
-                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Unsuitable</span>
+                {% if data.ResidentialSuitabilityDecision=="yes" %}  
+                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Suitable</span>
+                {% elseif (data.journey=="cas1application") or (data.journey=="cas2application") or (data.ResidentialSuitabilityDecision=="no") %}  
+                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Unsuitable</span>
+                {% elseif data.OccupierChecks=="completed" %}
+                <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">In progress</span>
                 {% else %}
                 <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
                 {% endif %}
@@ -507,7 +517,9 @@
                 <dt class="govuk-summary-list__value">
                   51 Hill Street</br>
                   Grantham</br>
-                  N1J 5NB</br></br>
+                  N1J 5NB
+
+    
 
                   <!--Out of scope for private beta-->
                   <!--<div class="govuk-warning-text">
@@ -524,19 +536,12 @@
         
                 {% else %}
         
-                {% if (data.OccupierChecks=="completed") and
-                (data.PoliceChecks=="completed") and
-                (data.SocialservicesChecks=="completed") and
-                (data.RiskChecks=="completed") and
-                (data.suitabilityDecisionRes=="completed") and
-                (data.managementDecision=="yes") %}
-                <a href="residential/address-details-2" class="govuk-link govuk-link--no-visited-state">View or change details</a>
+
+                {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}  
                 {% elseif data.passedDeadline=="yes"%}
-                <a href="residential/address-details-2" class="govuk-button">Resume</a>
-                {% elseif data.AddressSuitabilityDecision=="no"%}
-                <a href="#" class="govuk-link govuk-link--no-visited-state">View or change details check</a>
+                </br></br><a href="residential/address-details-2" class="govuk-button">Continue</a>
                 {% else %}
-                <a href="residential/address-details-2" class="govuk-button">Check suitability</a>
+                </br></br><a href="residential/address-details-2" class="govuk-button">Check suitability</a>
                 {% endif %}
         
                 {% endif %}
@@ -604,6 +609,11 @@
               Fifth address
             </h2>
             <ul class="govuk-summary-card__actions">
+              {% if data.passedDeadline=="yes" %}
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Report a delay</a>
+              </li>
+              {% endif %}
               <li class="govuk-summary-card__action">
                 <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
               </li>

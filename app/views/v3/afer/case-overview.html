@@ -718,7 +718,7 @@
         {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            <a class="govuk-link govuk-link--no-visited-state" href="delay/report-delay">Report a delay</a>
+            <a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist">Report a delay</a>
           </dt>
         </div>
         {% endif %}
@@ -1532,11 +1532,6 @@
 {% if data.user=="probation"%}
 
 
-{% if (data.AddressSuitabilityDecision=="no") or (data.passedDeadline=="yes") %}
-hello
-{% endif %}
-
-
 {% if (data.RiskChecks=="completed") or (data.journey=="28daysjourney") %}
 <!--Speak with their POM - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1634,7 +1629,7 @@ hello
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or CAS accommodation</h2>
-        <p class="govuk-body govuk-!-margin-bottom-2">Second address suitable</p>
+        <p class="govuk-body govuk-!-margin-bottom-2">Result: Second address suitable</p>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -1648,7 +1643,7 @@ hello
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation (TEST)</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check addresses or community accommodation</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 70px; margin-top: 5px;">I<span style="text-transform: lowercase;">n progress</span></span>
@@ -1777,7 +1772,7 @@ hello
 
 
 
-{% if data.nonDisclosable=="complete" %}
+{% if (data.nonDisclosableInfo=="nonDisclosableYes") or (data.nonDisclosable=="nonDisclosableNo") %}
 <!--Record non-disclosable information - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
@@ -1931,10 +1926,7 @@ hello
   </section>
 </article>
 <!--Send checks to prison - Inprogress-->
-{% elseif (data.OccupierChecks=="completed") and
-  (data.PoliceChecks=="completed") and
-  (data.SocialservicesChecks=="completed") and
-  (data.RiskChecks=="completed") and (data.ResidentialSuitabilityDecision=="yes") %}
+{% elseif (data.nonDisclosableInfo=="nonDisclosableYes") or (data.nonDisclosable=="nonDisclosableNo") %}
 <!--Send checks to prison - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1946,7 +1938,7 @@ hello
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
       </div>
     </div>
-    <a href="./addresses/select-release" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+    <a href="./addresses/send-checks-prison" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
   </section>
 </article>
 {% else %}

@@ -38,7 +38,7 @@
 
       <h1 class="govuk-heading-l govuk-!-margin-top-6">Record non-disclosable information</h1>
 
-  <form class="form" action="/v3/speakwithpom" method="post" novalidate>
+      <form class="form" action="../case-overview" method="post" novalidate>
 
 
       
@@ -67,7 +67,7 @@
                   {% if data.accomodationType=="cas1" %}
         
                   {{ govukRadios({
-                    name: "vlo",
+                    name: "nonDisclosable",
                     fieldset: {
                       legend: {
                         text: "Is there any information that must not be disclosed to Lenny?",
@@ -77,14 +77,14 @@
                     },
                     items: [
                     {
-                      value: "vloYes",
+                      value: "nonDisclosableInfoYes",
                       text: "Yes",
                       conditional: {
                         html: textHtmlOther
                       }
                     },
                       {
-                        value: "vloNo",
+                        value: "nonDisclosableInfoNo",
                         text: "No"
                       }
                       
@@ -94,7 +94,7 @@
                   {% elseif data.accomodationType=="cas2" %}
    
                   {{ govukRadios({
-                   name: "vlo",
+                   name: "nonDisclosable",
                    fieldset: {
                      legend: {
                        text: "Is there any information that must not be disclosed to Ryan?",
@@ -104,14 +104,14 @@
                    },
                    items: [
                    {
-                     value: "vloYes",
+                     value: "nonDisclosableYes",
                      text: "Yes",
                      conditional: {
                        html: textHtmlOther
                      }
                    },
                      {
-                       value: "vloNo",
+                       value: "nonDisclosableNo",
                        text: "No"
                      }
                      
@@ -122,7 +122,7 @@
                  {% elseif data.accomodationType=="cas2nopref" %}
    
                  {{ govukRadios({
-                  name: "vlo",
+                  name: "nonDisclosable",
                   fieldset: {
                     legend: {
                       text: "Is there any information that must not be disclosed to Julian?",
@@ -132,14 +132,14 @@
                   },
                   items: [
                   {
-                    value: "vloYes",
+                    value: "nonDisclosableYes",
                     text: "Yes",
                     conditional: {
                       html: textHtmlOther
                     }
                   },
                     {
-                      value: "vloNo",
+                      value: "nonDisclosableNo",
                       text: "No"
                     }
                     
@@ -151,7 +151,7 @@
 
                         
                 {{ govukRadios({
-                  name: "vlo",
+                  name: "nonDisclosable",
                   fieldset: {
                     legend: {
                       text: "Is there any information that must not be disclosed to George?",
@@ -161,14 +161,14 @@
                   },
                   items: [
                   {
-                    value: "vloYes",
+                    value: "nonDisclosableYes",
                     text: "Yes",
                     conditional: {
                       html: textHtmlOther
                     }
                   },
                     {
-                      value: "vloNo",
+                      value: "nonDisclosableNo",
                       text: "No"
                     }
                     
@@ -183,10 +183,10 @@
   
 
   <div class="govuk-button-group" style="margin-top: 30px;">
-    <button type="submit" class="govuk-button" data-module="govuk-button" name="nonDisclosable" value="completed">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
       Save
     </button>
-    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="nonDisclosable" value="no">
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Cancel
     </button>
   </div>  

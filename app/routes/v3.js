@@ -249,19 +249,18 @@ router.post(version + '/speakwithpom', function (req, res) {
 });
 
 
-  
 
   //Suitablity decision residential addresses
-  router.post(version + '/residentialsuitablitydecision', function (req, res) {
-    var SuitabilityDecisionNav = req.session.data['suitabilityDecision']
+  router.post(version + '/SuitabilityDecision', function (req, res) {
+    var ResidentialSuitabilityDecision = req.session.data['ResidentialSuitabilityDecision']
     // Check whether the variable matches a condition
-    if (SuitabilityDecisionNav == "cancel"){
+    if (ResidentialSuitabilityDecision == "yes"){
      
-     // Send user to case overview page if suitablity decision has been made and confirm outcome
-      res.redirect(version + '/afer/addresses/residential/address-details-2')
+     // Send user to confirmation page
+      res.redirect(version + '/afer/addresses/outcomes/suitable')
     } else {
-      // Send user back to address details page
-      res.redirect(version + '/afer/case-overview')
+      // Send user back to check other residential addresses
+      res.redirect(version + '/afer/addresses/tasklist')
     }
   });
 
@@ -423,21 +422,6 @@ router.post(version + '/suitabilitycheckd', function (req, res) {
     }
   });
 
-
-
-  //Confirmation of CAS assessment outcome: Suitable
-  router.post(version + '/cassuitableoutcome', function (req, res) {
-    var ConfirmationNav = req.session.data['confirmationnav']
-    // Check whether the variable matches a condition
-    if (ConfirmationNav == "sendtoprison"){
-     
-     // Send user to case list page
-      res.redirect(version + '/afer/addresses/send-checks-prison')
-    } else {
-      // Send user to task list page
-      res.redirect(version + '/afer/case-overview')
-    }
-  });
 
 
 

@@ -31,9 +31,18 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
+            {% if data.journey=="eligiblejourney" %}
+            TOM RESIDENTIAL ADDRESS SUITABLE COPY
+            {% else %}
             CAS suitability check complete
+            {% endif %}
           </h1>
-          {% if data.journey=="casNoPreference" %}
+          {% if data.journey=="eligiblejourney" %}
+          <div class="govuk-panel__body">
+            <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_check_white.svg"/>
+            TOM RESIDENTIAL ADDRESS SUITABLE COPY
+          </div>
+          {% elseif data.journey=="casNoPreference" %}
           {% else %}
           <div class="govuk-panel__body">
             <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_check_white.svg"/>
@@ -42,7 +51,12 @@
           {% endif %}
         </div>
 
+        {% if data.journey=="eligiblejourney" %}
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">TOM RESIDENTIAL ADDRESS SUITABLE COPY</h2>
+        {% else %}
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
+        {% endif %}
+
 
         {% if data.journey=="casNoPreference" %}
         <p class="govuk-body">The prison will use the information you have provided when making a referral for CAS-2 accommodation.</p>
@@ -59,13 +73,10 @@
         <p class="govuk-body">Complete any outstanding tasks on the application overview and then send the HDC application to prison.</p>
         
         
+        <form action="../../case-overview" method="post" novalidate>
 
-        
-        <form action="/v3/cassuitableoutcome" method="post" novalidate>
-
-        
         <div class="govuk-button-group" style="margin-top: 40px;">
-          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="overview">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
             Return to application overview
           </button>
         </div>
