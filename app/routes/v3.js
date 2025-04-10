@@ -353,7 +353,7 @@ router.post(version + '/cas1outcome', function (req, res) {
       if (cas2suitableAreaB == "no"){
       
       // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
+        res.redirect(version + '/afer/addresses/outcomes/unsuitable')
       } else {
         // Send user back to address details page
         res.redirect(version + '/afer/addresses/tasklist')
@@ -371,7 +371,7 @@ router.post(version + '/cas1outcome', function (req, res) {
         res.redirect(version + '/afer/addresses/cas/cas2-alternatives')
       } else {
         // Send user back to address details page
-        res.redirect(version + '/afer/addresses/send-checks-prison')
+        res.redirect(version + '/afer/addresses/overview')
       }
     });
 
@@ -384,10 +384,10 @@ router.post(version + '/cas1outcome', function (req, res) {
       if (cas2suitableAreaC == "no"){
       
       // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/outcomes/cas-unsuitable')
+        res.redirect(version + '/afer/addresses/outcomes/unsuitable')
       } else {
         // Send user back to address details page
-        res.redirect(version + '/afer/addresses/outcomes/cas-suitable')
+        res.redirect(version + '/afer/addresses/outcomes/suitable')
       }
     });
 
@@ -399,7 +399,7 @@ router.post(version + '/suitabilitycheckd', function (req, res) {
   if (areastoavoid == "yes"){
   
   // Send user to case overview page if suitablity decision has been made and confirm outcome
-    res.redirect(version + '/afer/addresses/outcomes/cas-suitable')
+    res.redirect(version + '/afer/addresses/outcomes/suitable')
   } else {
     // Send user back to address details page
     res.redirect(version + '/afer/addresses/tasklist')
