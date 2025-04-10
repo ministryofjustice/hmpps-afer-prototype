@@ -37,30 +37,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      
-      <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Summary</h3>
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Review application and send to prison</h1>
 
-      <p class="govuk-body">The following  release option has been found for
-        {% if data.journey=="cas2application" %}
-        Ryan
-        {% elseif data.journey=="cas1application" %}
-        Lenny
-        {% else %}
-        George
-        {% endif %}:</p>
-
-        <div class="govuk-inset-text">
-          Residential address</br>
-          <strong>49 Hill Street, Grantham, N1J 5NB</strong> 
-        </div>
-
-        <!--<p class="govuk-body">Bla bla alternative options</p>-->
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Consult the VLO and POM</h3>
 
 
-      <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Review application and send to prison</h1>
-
-
-  
       <div class="govuk-summary-card">
 
         <div class="govuk-summary-card__title-wrapper">
@@ -118,50 +99,11 @@
 
 
 
-      <div class="govuk-summary-card">
-
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Record non-disclosable information
-          </h2>
-          <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action">
-              <a class="govuk-link govuk-link--no-visited-state" href="./speak-with-POM">Change</a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-        
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key" style="width: 20%;">
-                 [Label Non-disclosure]
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Yes
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                [Label Details]
-              </dt>
-              <dd class="govuk-summary-list__value">
-               Cannot disclose that home owner did from preferred address did not consent to have them live with them
-              </dd>
-            </div>
-
-          </dl>
-        </div>
-        
-      </div>
-
-
-
 <h3 class="govuk-heading-m" style="margin-top: 80px;">Proposed curfew addresses</h3>
+{% if (data.journey=="cas2application") or (data.journey=="casNoPreference") %} 
+<p class="govuk-body">None entered</p>
 
-
-
+{% else %} 
 <!--<h3 class="govuk-heading-m govuk-!-static-margin-top-8">Preferred address – Unsuitable</h3>-->
  
 <!--PREFERRED ADDRESS-->
@@ -336,8 +278,7 @@
           </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__key">
-                Has the main occupier given informed consent for
-                {% if data.journey=="cas2application"%}
+                Has the main occupier given informed consent for {% if data.journey=="cas2application"%}
                 Ryan
                 {% elseif data.journey=="cas1application"%}
                 Lenny
@@ -355,13 +296,17 @@
       </div>
 
 
+{% endif %}
 
 
 
+{% if data.journey=="cas1application" %}  
+{% else %}  
 
 <!--SECOND ADDRESS-->
 
-
+{% if data.journey=="cas2application" or (data.journey=="casNoPreference") %} 
+{% else %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Second address – Suitable</h3>
 
 
@@ -495,27 +440,41 @@
         <h2 class="govuk-summary-card__title">
           Address details and informed consent
         </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+          </li>
+          <!--<li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
+          </li>-->
+        </ul>
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
               Is the address connected to an electricity supply? 
             </dd>
-            <dt class="govuk-summary-list__value">
+            <dt class="govuk-summary-list__key">
               Yes
             </dt>
+            <!--<dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+            </dd>-->
           </div>
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
               Have you visited this address in person? 
             </dd>
-            <dt class="govuk-summary-list__value">
+            <dt class="govuk-summary-list__key">
              Yes
             </dt>
+            <!--<dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+            </dd>-->
           </div>
             <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__key">
+              <dd class="govuk-summary-list__value">
                 Has the main occupier given informed consent for {% if data.journey=="cas2application"%}
                 Ryan
                 {% elseif data.journey=="cas1application"%}
@@ -525,9 +484,12 @@
                 {% endif %}
                 to be released here? 
               </dd>
-              <dt class="govuk-summary-list__value">
+              <dt class="govuk-summary-list__key">
                Yes
               </dt>
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+              </dd>-->
             </div>
           </div>
         </dl>
@@ -539,37 +501,53 @@
           <h2 class="govuk-summary-card__title">
             Police check
           </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+            </li>
+            <!--<li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
+            </li>-->
+          </ul>
         </div>
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__key" style="width: 20%;">
-                Requested this information on
+              <dd class="govuk-summary-list__value">
+                Enter the date that you requested this information
               </dd>
-              <dt class="govuk-summary-list__value">
+              <dt class="govuk-summary-list__key">
                 13 Nov 2024
               </dt>
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+              </dd>-->
             </div>
             <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__key">
-              Summarise the information the police provided 
+              <dd class="govuk-summary-list__value">
+               Enter the date that the police sent this information
               </dd>
-              <dt class="govuk-summary-list__value">
-               Here is the summary of the information from the police
-              </dt>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__key">
-              Police sent this information on
-              </dd>
-              <dt class="govuk-summary-list__value">
+              <dt class="govuk-summary-list__key">
                25 Nov 2024
               </dt>
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+              </dd>-->
             </div>
+              <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__value">
+                Summarise the information the police provided 
+                </dd>
+                <dt class="govuk-summary-list__key">
+                 Here is the summary of the information from the police
+                </dt>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+                </dd>-->
+              </div>
             </div>
           </dl>
         </div>
-
 
 
         <div class="govuk-summary-card">
@@ -577,38 +555,53 @@
             <h2 class="govuk-summary-card__title">
               Children’s services
             </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+              </li>
+              <!--<li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
+              </li>-->
+            </ul>
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
-                <dd class="govuk-summary-list__key" style="width: 20%;">
-                  Requested this information on
+                <dd class="govuk-summary-list__value">
+                  Enter the date that you requested this information
                 </dd>
-                <dt class="govuk-summary-list__value">
+                <dt class="govuk-summary-list__key">
                   13 Nov 2024
                 </dt>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                </dd>-->
               </div>
               <div class="govuk-summary-list__row">
-                <dd class="govuk-summary-list__key">
-                Summarise the information the children’s services provided 
+                <dd class="govuk-summary-list__value">
+                 Enter the date that the children’s services sent this information
                 </dd>
-                <dt class="govuk-summary-list__value">
-                 Here is the summary of the information from the children’s services
-                </dt>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dd class="govuk-summary-list__key">
-                  Children’s services sent this information on
-                </dd>
-                <dt class="govuk-summary-list__value">
+                <dt class="govuk-summary-list__key">
                  25 Nov 2024
                 </dt>
+                <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+                </dd>-->
               </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value">
+                  Summarise the information the children’s services provided 
+                  </dd>
+                  <dt class="govuk-summary-list__key">
+                    Here is the summary of the information from the children’s services
+                  </dt>
+                  <!--<dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+                  </dd>-->
+                </div>
               </div>
             </dl>
           </div>
-
-
 
 
             <div class="govuk-summary-card">
@@ -616,52 +609,136 @@
                 <h2 class="govuk-summary-card__title">
                   Suitability decision
                 </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+                  </li>
+                  <!--<li class="govuk-summary-card__action">
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
+                  </li>-->
+                </ul>
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__key" style="width: 20%;">
-                      Is this address suitable for this person to live?
+                    <dd class="govuk-summary-list__value">
+                      Is this address suitable for {% if data.journey=="cas2application"%}
+                      Ryan
+                      {% elseif data.journey=="cas1application"%}
+                      Lenny
+                      {% else %}
+                      George
+                      {% endif %} to be released to?
                     </dd>
-                    <dt class="govuk-summary-list__value">
+                    <dt class="govuk-summary-list__key">
                       Yes
                     </dt>
+                    <!--<dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                    </dd>-->
                   </div>
                   <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__key">
-                      Information to support your decision
+                    <dd class="govuk-summary-list__value">
+                      Add information to support your decision
                     </dd>
-                    <dt class="govuk-summary-list__value">
+                    <dt class="govuk-summary-list__key">
                       No concerns
                     </dt>
+                    <!--<dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 2)</span></a>
+                    </dd>-->
                   </div>
-                  <div class="govuk-summary-list__row">
-                    <dd class="govuk-summary-list__key">
-                      Information for the monitoring contractor (optional)
-                    </dd>
-                    <dt class="govuk-summary-list__value">
-                      None entered
-                    </dt>
-                  </div>
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        Do you need to add any more information about {% if data.journey=="cas2application"%}
+                        Ryan
+                        {% elseif data.journey=="cas1application"%}
+                        Lenny
+                        {% else %}
+                        George
+                        {% endif %} or the proposed address for the monitoring contractor?
+                      </dd>
+                      <dt class="govuk-summary-list__key">
+                       No
+                      </dt>
+                      <!--<dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth (resident 2)</span></a>
+                      </dd>-->
+                    </div>
                   </div>
                 </dl>
               </div>
 
 
-              
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Make a risk management decision
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+                    </li>
+                    <!--<li class="govuk-summary-card__action">
+                      <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> resident 2</span></a>
+                    </li>-->
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        Can {% if data.journey=="cas2application"%}
+                        Ryan
+                        {% elseif data.journey=="cas1application"%}
+                        Lenny
+                        {% else %}
+                        George
+                        {% endif %} be managed safely in the community if they are released to the proposed address or CAS area?
+                      </dd>
+                      <dt class="govuk-summary-list__key">
+                        Yes
+                      </dt>
+                      <!--<dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                      </dd>-->
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        Add information to support your decision
+                      </dd>
+                      <dt class="govuk-summary-list__key">
+                        There have been no concerns with the requested areas/locations. All risk checks completed.
+                      </dt>
+                      <!--<dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                      </dd>-->
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        Are any risk management planning actions needed prior to release before the address or CAS area can be suitable?
+                      </dd>
+                      <dt class="govuk-summary-list__key">
+                        No
+                      </dt>
+                      <!--<dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+                      </dd>-->
+                    </div>
+                    </div>
+                  </dl>
+                </div>
 
 
+{% endif %}
 
+{% endif %}  
 
 
 <!--CAS AREAS-->
 
-
 <h3 class="govuk-heading-m govuk-!-static-margin-top-8">CAS accommodation</h3>
 
-{% if data.journey=="eligiblejourney" %} 
-<p class="govuk-body" style="margin-bottom: 40px;">None entered</p>
-{% endif %} 
 
 {% if (data.journey=="cas1application") or (data.journey=="cas2application") or (data.journey=="casNoPreference") %} 
 <h3 class="govuk-heading-m govuk-!-static-margin-top-8">CAS accommodation – Eligible</h3>
@@ -1346,11 +1423,6 @@
   {% else %}
   <input type="hidden" name="sendChecksPrison" value="yes">
   {% endif %}
-
-
-  <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Everything ready?</h3>
-
-  <p>This will happen now. DM will get in touch if something needs to change before they approve it?</p>
 
     <div class="govuk-button-group">
     <button type="submit" class="govuk-button" data-module="govuk-button">
