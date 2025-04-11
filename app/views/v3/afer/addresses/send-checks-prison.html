@@ -90,7 +90,7 @@
         
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key" style="width: 20%;">
-                 [Label VLO]
+                 Has the victim opted into the Victim Contact Scheme?
               </dt>
               <dd class="govuk-summary-list__value">
                 Yes
@@ -98,7 +98,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                [Label victim]
+                Information from victim
               </dt>
               <dd class="govuk-summary-list__value">
                 The individual has requested increased police patrols in the area following the incident at their property. They highlighted concerns about safety and expressed the need for enhanced security measures to reduce the likelihood of similar occurrences in the future. Additionally, they have asked to be regularly informed about the progress of the investigation. The individual also inquired about access to support services, such as counseling, to address the emotional impact of the incident. Their priority is to ensure a secure environment and restore a sense of safety.
@@ -106,7 +106,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                [Label POM]
+                Details of POM consultation
               </dt>
               <dd class="govuk-summary-list__value">
                 During his time in prison, 
@@ -150,7 +150,15 @@
         
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key" style="width: 20%;">
-                 [Label Non-disclosure]
+                 Is there any information that cannot be disclosed to 
+                 {% if data.journey=="28daysjourney" %}
+                 David
+                 {% elseif data.journey=="cas2application" %}
+                 Ryan
+                 {% elseif data.journey=="cas1application" %}
+                 Lenny
+                 {% else %}
+                 George{% endif %}?
               </dt>
               <dd class="govuk-summary-list__value">
                 Yes
@@ -158,7 +166,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                [Label Details]
+                Information that cannot be disclosed
               </dt>
               <dd class="govuk-summary-list__value">
                Cannot disclose that home owner did from preferred address did not consent to have them live with them
@@ -366,7 +374,7 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__key" style="width: 20%;">
-          Is this area suitable for this person to live? [Label?]
+          Is this area suitable?
         </dd>
         <dt class="govuk-summary-list__value">
           Yes, but there are parts of this area to avoid:</br>
@@ -531,7 +539,7 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__key" style="width: 20%;">
-              Is the address connected to an electricity supply? [Label?]
+              Is the address connected to an electricity supply?
             </dd>
             <dt class="govuk-summary-list__value">
               Yes
@@ -539,7 +547,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__key">
-              Have you visited this address in person? [Label?]
+              Have you visited this address in person?
             </dd>
             <dt class="govuk-summary-list__value">
              Yes
@@ -547,14 +555,7 @@
           </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__key">
-                Has the main occupier given informed consent for {% if data.journey=="cas2application"%}
-                Ryan
-                {% elseif data.journey=="cas1application"%}
-                Lenny
-                {% else %}
-                George
-                {% endif %}
-                to be released here? [Label?]
+                Has the main occupier given informed consent?
               </dd>
               <dt class="govuk-summary-list__value">
                Yes
@@ -652,7 +653,7 @@
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__key" style="width: 20%;">
-                      Is this address suitable for this person to live? [Label?]
+                      Is this address suitable?
                     </dd>
                     <dt class="govuk-summary-list__value">
                       Yes
@@ -1041,7 +1042,7 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__key" style="width: 20%;">
-              Is the address connected to an electricity supply? [Label?]
+              Is the address connected to an electricity supply?
             </dd>
             <dt class="govuk-summary-list__value">
               Yes
@@ -1049,7 +1050,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__key">
-              Have you visited this address in person?  [Label?]
+              Have you visited this address in person?
             </dd>
             <dt class="govuk-summary-list__value">
               I have not visited the address but I have spoken to the main occupier 
@@ -1057,15 +1058,7 @@
           </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__key">
-                Has the main occupier given informed consent for
-                {% if data.journey=="cas2application"%}
-                Ryan
-                {% elseif data.journey=="cas1application"%}
-                Lenny
-                {% else %}
-                George
-                {% endif %}
-                to be released here?  [Label?]
+                Has the main occupier given informed consent?
               </dd>
               <dt class="govuk-summary-list__value">
                No
@@ -1160,13 +1153,13 @@
   {% endif %}
 
 
-  <h3 class="govuk-heading-m govuk-!-static-margin-top-8">[H2]</h3>
+  <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Submit for decision</h3>
 
   <p>This will happen now. DM will get in touch if something needs to change before they approve it?</p>
 
     <div class="govuk-button-group">
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Send to prison
+      Submit
     </button>
     </div>
 
