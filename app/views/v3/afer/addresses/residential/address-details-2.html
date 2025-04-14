@@ -51,7 +51,11 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
+        {% if data.ResidentialSuitabilityDecision=="yes" %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+        {% else %}
         <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
+        {% endif %}
       </li>
     </ul>
   </div>

@@ -1,0 +1,409 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if a curfew address is suitable</h1>
+
+        <h2 class="govuk-heading-m">Address details</h2>
+
+      
+    <!--card start-->
+      <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Preferred address
+        </h2>
+       <!--<ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="./change-address/postcode-search">Change</a>
+          </li>
+        </ul>-->
+      </div>
+
+
+
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              4 Inner Street</br>
+              Grantham</br>
+              NG31 6HN 
+            </dt>
+            <!--<dd class="govuk-summary-list__key">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>-->
+          </div>
+
+
+        </dl>
+      </div>
+
+      </div>
+    <!--card end-->
+
+
+
+
+<!--card start-->
+
+  
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Additional information
+    </h2>
+    <!--<ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> additional info of preferred curfew</span></a>
+      </li>
+    </ul>-->
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <!--<dt class="govuk-summary-list__key">
+        </dt>-->
+        <dd class="govuk-summary-list__value">
+          None entered
+        </dd>
+        <!--<dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+        </dd>-->
+      </div>
+      </div>
+    </dl>
+  </div>
+        
+<!--card end-->
+
+  <h2 class="govuk-heading-m">Check details of residents</h2>
+  
+        
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Main occupier
+      </h2>
+      <!--<ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link govuk-link--no-visited-state" href="change-occupier-2">Change<span class="govuk-visually-hidden"> details of main occupier</span></a>
+        </li>
+      </ul>-->
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Sarah Martin
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (Main occupier)</span></a>
+          </dd>-->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            020 555 3083
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> phone number (Main occupier)</span></a>
+          </dd>-->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Relation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Sister
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (Main occupier)</span></a>
+          </dd>-->
+        </div>
+      </dl>
+    </div>
+  </div>
+  
+  
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Resident 1
+      </h2>
+      <!--<ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link govuk-link--no-visited-state" href="change-resident-2">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+        </li>
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link govuk-link--no-visited-state" href="delete-resident-2">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
+        </li>
+      </ul>-->
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Amelia Martin
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name (resident 1)</span></a>
+          </dd>-->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Relation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Cousin
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship (resident 1)</span></a>
+          </dd>-->
+        </div>
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2 May 2007
+            </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Age
+              </dt>
+              <dd class="govuk-summary-list__value">
+                17
+              </dd>
+            </div>-->
+        </div>
+      </dl>
+    </div>
+
+
+
+
+    
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Resident 2
+        </h2>
+        <!--<ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> details of resident 1</span></a>
+          </li>
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="delete-resident-2">Delete<span class="govuk-visually-hidden"> resident 1</span></a>
+          </li>
+        </ul>-->
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              James Martin
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Relation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Cousin
+            </dd>
+          </div>
+            <!--<div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Not entered
+              </dd>
+            </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Age
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  25
+                </dd>
+              </div>-->
+          </div>
+        </dl>
+      </div>
+
+
+
+<!--<div class="govuk-button-group">
+  <a href="add-resident-2" class="govuk-button govuk-button--secondary">Add another resident</a>         
+</div>-->
+
+ 
+    <form class="form" action="address-details-1" method="post" novalidate>
+  
+    <div class="govuk-radios govuk-!-margin-top-8">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Is the address connected to an electricity supply?
+      </legend>    
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="electricitySupply" name="electricitySupply" type="radio" value="yes" checked>
+        <label class="govuk-label govuk-radios__label" for="electricitySupply">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="electricitySupply-2" name="electricitySupply" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="electricitySupply-2">
+           No
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Informed consent</h2>
+  
+    <div class="govuk-form-group govuk-!-margin-top-6">
+      <div class="govuk-radios">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          Have you visited this address in person?
+        </legend>
+        <div class="govuk-hint">
+          It is not mandatory to do so. 
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addressVisit" name="addressVisit" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="addressVisit">
+            I have visited this address and spoken to the main occupier
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addressVisit-2" name="addressVisit" type="radio" value="no" checked>
+          <label class="govuk-label govuk-radios__label" for="addressVisit-2">
+            I have not visited the address but I have spoken to the main occupier
+          </label>
+        </div>
+      </div>
+    </div>
+    
+
+
+  <div class="govuk-radios govuk-!-margin-top-8">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      Has the main occupier given informed consent for George to be released here?
+    </legend>
+    <div class="govuk-hint">
+      <p class="govuk-body govuk-hint">They must understand:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-hint" style="margin-top: -10px; margin-bottom: 20px;">
+        <li>what HDC involves</li>
+        <li>the offences George committed</li>
+      </ul>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="informedConsent" name="informedConsent" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="informedConsent">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="informedConsent-2" name="informedConsent" type="radio" value="no" checked>
+        <label class="govuk-label govuk-radios__label" for="informedConsent-2">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+   
+  
+  <!--<div class="govuk-button-group">
+    <a href="address-details-1" class="govuk-button">Save</a>
+    <a href="../tasklist" class="govuk-button govuk-button--secondary">Cancel</a>         
+  </div>-->
+  
+      <div class="govuk-button-group govuk-!-margin-top-6">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+         Save
+        </button>
+
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Cancel
+        </button>
+
+      </div>
+  
+    </div>
+
+  </form>
+
+
+<!--new forms end-->
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

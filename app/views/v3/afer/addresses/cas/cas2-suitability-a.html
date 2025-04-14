@@ -72,7 +72,10 @@
           Sheffield
         </dd>
         <dd class="govuk-summary-list__actions">
+          {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
+          {% else %}
           <a class="govuk-link govuk-link--no-visited-state" href="./change/town-county">Change</a>
+          {% endif %}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -83,7 +86,10 @@
           South Yorkshire
         </dd>
         <dd class="govuk-summary-list__actions">
+          {% if (data.cas2suitableAreaA=="yes") or (data.cas2suitableAreaA=="no") %}
+          {% else %}
           <a class="govuk-link govuk-link--no-visited-state" href="./change/town-county">Change</a>
+          {% endif %}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -148,6 +154,8 @@
                 
                     <!--END set dynamic radio hide/show text-->
         
+                    {% if data.cas2suitableAreaA=="no" %}
+
                     {{ govukRadios({
                       idPrefix: "cas2suitableAreaA",
                       name: "cas2suitableAreaA",
@@ -174,11 +182,51 @@
                       },
                       {
                         value: "no",
-                        text: "No"
+                        text: "No",
+                        
+                        checked: true
+                        
                        
                       }
                       ]
                     }) }}
+
+                    {% else %}
+
+                    {{ govukRadios({
+                      idPrefix: "cas2suitableAreaA",
+                      name: "cas2suitableAreaA",
+                      fieldset: {
+                        legend: {
+                          text: "",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                
+                      items: [
+                      {
+                        value: "yes",
+                        text: "Yes, all parts of this area are suitable"
+                      },
+                      {
+                        value: "yes",
+                        text: "Yes, but there are parts of this area to avoid",
+                        conditional: {
+                          html: textHtmlOther
+                        }
+                        
+                      },
+                      {
+                        value: "no",
+                        text: "No"          
+                      }
+                      ]
+                    }) }}
+
+
+
+                    {% endif %}
         
         
         
