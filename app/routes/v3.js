@@ -371,7 +371,7 @@ router.post(version + '/cas1outcome', function (req, res) {
         res.redirect(version + '/afer/addresses/cas/cas2-alternatives')
       } else {
         // Send user back to address details page
-        res.redirect(version + '/afer/addresses/overview')
+        res.redirect(version + '/afer/case-overview')
       }
     });
 

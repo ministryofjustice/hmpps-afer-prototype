@@ -72,7 +72,10 @@
           Doncaster
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
+          {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
+          {% else %}
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+          {% endif %}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -83,7 +86,10 @@
           South Yorkshire
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
+          {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
+          {% else %}
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change</a>
+          {% endif %}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -108,7 +114,13 @@
   </div>
   <!--card end-->
 
+                {% if (data.cas2suitableAreaB=="yes") or (data.cas2suitableAreaB=="no") %}
+                <form class="form" action="../tasklist" method="post" novalidate>
+                {% else %}
                 <form class="form" action="/v3/suitabilitycheckb" method="post" novalidate>
+                {% endif %}
+
+                
 
                 
                 
@@ -147,7 +159,48 @@
                     {% endset -%}
                 
                     <!--END set dynamic radio hide/show text-->
+
+
+                    {% if data.cas2suitableAreaB=="no" %}
         
+                    {{ govukRadios({
+                      idPrefix: "cas2suitableAreaB",
+                      name: "cas2suitableAreaB",
+                      fieldset: {
+                        legend: {
+                          text: "",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                
+                      items: [
+                      {
+                        value: "yes",
+                        text: "Yes, all parts of this area are suitable"
+                      },
+                      {
+                        value: "yes",
+                        text: "Yes, but there are parts of this area to avoid",
+                        conditional: {
+                          html: textHtmlOther
+                        }
+                        
+                      },
+                      {
+                        value: "no",
+                        text: "No",
+                        checked: true
+                       
+                      }
+                      ]
+                    }) }}
+
+
+
+                    {% else %}
+
+
                     {{ govukRadios({
                       idPrefix: "cas2suitableAreaB",
                       name: "cas2suitableAreaB",
@@ -182,6 +235,10 @@
         
         
         
+
+                    {% endif %}
+
+
                     </div>
                     </fieldset>
                     </div>

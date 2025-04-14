@@ -479,7 +479,7 @@
               Second address
             </h2>
             <ul class="govuk-summary-card__actions">
-              {% if data.ResidentialSuitabilityDecision=="no" %}
+              {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="./residential/address-details-2">View or change details</a>
               </li>
@@ -609,14 +609,18 @@
               Fifth address
             </h2>
             <ul class="govuk-summary-card__actions">
-              {% if data.passedDeadline=="yes" %}
+              {% if data.ResidentialSuitabilityDecision=="yes" %}
+              {% elseif data.passedDeadline=="yes" %}
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">Report a delay</a>
               </li>
               {% endif %}
+              {% if data.ResidentialSuitabilityDecision=="yes" %}
+              {% else %}
               <li class="govuk-summary-card__action">
                 <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
               </li>
+              {% endif %}
             </ul>
           </div>
 
@@ -629,9 +633,12 @@
                 <dt class="govuk-summary-list__value">
                   7 Main St</br>
                   Oakham</br>
-                  LE15 7SH</br></br>
+                  LE15 7SH
 
-                <a href="#" class="govuk-button">Check suitability</a>
+                {% if data.ResidentialSuitabilityDecision=="yes" %}
+                {% else %}
+                </br></br><a href="#" class="govuk-button">Check suitability</a>
+                {% endif %}
                 
                 </dt>
         
