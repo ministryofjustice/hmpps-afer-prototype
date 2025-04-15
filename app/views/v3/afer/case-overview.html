@@ -1012,8 +1012,7 @@
 
 
 <!--Additional CAS-2 task for CA-->
-{% if data.journey=="cas2application" %}
-{% if (data.addressinput=="complete") %}
+{% if (data.communityaccommodation=="three") or (data.cas=="nopreference") %}
 {% if (data.cas2submitted=="yes") %}
 <!--Enter CAS-2 submitted - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1032,7 +1031,7 @@
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/cas/submitted-application" style="margin-top: 15px;">View or change</a></p>
     {% endif %}
   </section>
-{% elseif (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2")  %}
+{% else %}
 <!--Enter CAS-2 submittted - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
@@ -1049,12 +1048,12 @@
 </article>
 {% endif %}
 {% endif %}
-{% endif %}
+
 <!--Additional CAS-2 task for CA-->
 
 
 <!--Additional CAS-2 task for CA-->
-{% if (data.journey=="cas2application") and (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2") %}
+{% if (data.communityaccommodation=="three") or (data.cas=="nopreference") %}
 {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
 <!--Enter CAS-2 outcome - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1145,7 +1144,26 @@
   </section>
 </form>
 </article>
-{% elseif (data.addressinput=="complete") and (data.journey!=="cas2application") %}
+{% elseif (data.addressinput=="complete") and (data.journey=="eligiblejourney") %}
+<!--CHANGE THIS BASED ON PP INPUT TO addresscheck complete-->
+<!--Review application and send for decision - Start-->
+<article class="moj-ticket-panel" aria-label="Sub navigation 1">
+  <form action="./eligibility/tasklist-review-predecision" method="post" novalidate>
+    <input type="hidden" name="predecisioncheck" value="yes">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Review application and send for decision</h2>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
+      </div>
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">Start</button>
+  </section>
+</form>
+</article>
+{% elseif (data.addressinput=="complete") and (data.journey=="cas1application") %}
 <!--CHANGE THIS BASED ON PP INPUT TO addresscheck complete-->
 <!--Review application and send for decision - Start-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1221,14 +1239,14 @@
 
 
 <!--Additional CAS-2 task for CA-->
-{% if data.journey=="cas2application" %}
+{% if (data.communityaccommodation=="three") or (data.cas=="nopreference") %}
 {% if (data.cas2addressadded=="yes") %}
 <!--Enter CAS-2 address - Done-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">CAS-2 address</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Enter CAS-2 accommodation address</h2>
       </div>
       <div class="govuk-grid-column-one-third">
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
@@ -1260,8 +1278,7 @@
     <p class="govuk-body">Application postponed</p>
   </section>
 </article>
-{% elseif (data.journey=="cas2application") %}
-
+{% else %}
 {% if (data.curfewcasAddress=="cas") or (data.addanotheraddress=="cas2") %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">

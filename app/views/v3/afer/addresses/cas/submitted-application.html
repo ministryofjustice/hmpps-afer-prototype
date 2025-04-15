@@ -40,6 +40,30 @@
           The referral can be started on the</br><a class="govuk-link govuk-link--no-visited-state" href="" target="_blank">CAS-2 – short-term accommodation service</a>.
         </p>
 
+        {% if data.cas=="nopreference" %}
+        <div class="govuk-summary-card" style="margin-top: 45px;">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+             No area preference
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Areas to avoid in referral 
+                </dt> 
+                <dd class="govuk-summary-list__value">
+                  East Midlands, Greater London
+                </dd>
+              </div>
+              
+            </dl>
+          </div>
+          
+        </div>
+
+        {% else %}
          <!--card start-->
          <div class="govuk-summary-card" style="margin-top: 45px;">
               
@@ -79,6 +103,7 @@
               
         </div>
         <!--card end-->
+        {% endif %}
                  
         {% endif %}
           
