@@ -126,6 +126,22 @@
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">View or change curfew addresses or CAS areas</h1>
 
+
+
+        <!--REPORT DELAY start-->
+                
+        {% if data.journey=="eligiblejourney" %}
+        <!--If delay has been reported - After deadline -->
+        <div class="govuk-inset-text" style="border-color: #d4351c">
+          <strong>Checks overdue</strong></br>
+          Address and risk checks were due to be completed
+        </div>
+        {% endif %}
+
+        <!--REPORT DELAY end-->
+
+
+
         {% if data.journey=="casNoPreference" %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
@@ -270,7 +286,17 @@
                   49 Hill Street</br>
                   Grantham</br>
                   N1J 5NB
-                  {% endif %}       
+                  {% endif %}     
+                  
+                  {% if data.journey=="eligiblejourney" %}
+                  <div class="govuk-warning-text" style="margin-top: 20px;">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      Delay reported
+                    </strong>
+                  </div>
+                  {% endif %}
                 </dt>
               </div>
           
