@@ -60,6 +60,18 @@
             
         
 
+            {% if data.reportedDelay=="yes" %}
+            <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+              <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+              </svg>
+
+              <div class="moj-banner__message">Information about delay updated</div>
+
+            </div>
+            {% else %}
+            {% endif %}
 
         
               <!--banner CAS-2 start--> 
@@ -261,52 +273,26 @@
 
         <!--REPORT DELAY start-->
                 
-              <!--If delay has been reported-->
-              <!--Before deadline-->
-              <!--ADD RULES-->
-              <!--<div class="govuk-inset-text">
-                Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-                You have reported a delay to other people working on this application.</br>
-                <a class="govuk-link govuk-link--no-visited-state" href="#">View or update information about this delay.</a>
-              </div>-->
-              <!--ADD RULES-->
-
-              {% if data.journey=="28daysjourney" %}
-              <div class="govuk-inset-text" style="border-color: #d4351c">
-                <strong>Checks overdue</strong></br>
-                Address and risk checks were due to be completed by {{ "today" |  duration(-1) | govukDate("truncate") }}.</br> 
-                You must <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">report a delay</a> to other people working on this application.
-              </div>
-              {% else %}
-
               {% if data.reportedDelay=="yes" %}
-              <!--If delay has been reported - After deadline-->
+              <!--If delay has been reported - After deadline -->
               <div class="govuk-inset-text" style="border-color: #d4351c">
                 <strong>Checks overdue</strong></br>
                 Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-                You have reported a delay to other people working on this application.</br>
-                <a class="govuk-link govuk-link--no-visited-state" href="../delay/view-delay">View or update information about this delay.</a>
+                You have reported a delay to other people working on this application.
               </div>
-              <!--If delay has NOT been reported - After deadline-->
+              <!--If delay has NOT been reported - After deadlin e-->
               {% elseif (data.passedDeadline=="yes") or (data.reportedDelay=="updated") %}
               <div class="govuk-inset-text" style="border-color: #d4351c">
                 <strong>Checks overdue</strong></br>
                 Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
-                You must <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">report a delay</a> to other people working on this application.
+                You can report a delay to other people working on this application.
               </div>
               {% else %}
-              <!--If delay has NOT been reported - Before deadline-->
+              <!-- If delay has NOT been reported - Before deadline -->
               <div class="govuk-inset-text">
                 Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
-                <!--You can <a class="govuk-link govuk-link--no-visited-state" href="#">report a delay</a> to other people working on this application.-->
               </div>
               {% endif %}
-
-
-              {% endif %}
-
-              
-              <!--<a href="../case-overview" class="govuk-button govuk-button--secondary">Return to case overview</a>-->
 
         <!--REPORT DELAY end-->
 
@@ -485,7 +471,7 @@
               </li>
               {% elseif data.reportedDelay=="yes" %}
               <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">View or update information about delay</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">View or update delay information</a>
               </li>
               {% elseif data.passedDeadline=="yes" %}
               <li class="govuk-summary-card__action">

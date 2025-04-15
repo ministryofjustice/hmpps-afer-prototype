@@ -221,7 +221,12 @@
                   {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Lee, David</a>
                   {% endif %}
-                </br><div class="govuk-hint govuk-!-font-size-16">Prison number: G93332</div></td>
+                </br><div class="govuk-hint govuk-!-font-size-16">
+                    {% if data.user=="probation" %}CRN:
+                    {% else %}
+                    Prison number:
+                    {% endif %} G93332
+                  </div></td>
                 {% if data.user=="probation"%}
                 {% else %}
                 <td class="govuk-table__cell">Aisha Thompson</td>
@@ -297,13 +302,7 @@
                 <td class="govuk-table__cell" data-sort-value="3">{{ "today" |  duration(119) | govukDate("truncate") }}</td>
                 <td class="govuk-table__cell">86</td>
                 <td class="govuk-table__cell"></td>
-                <td class="govuk-table__cell">
-                  <dd class="govuk-summary-list__value due-date" data-sort-value="1">
-                    <span class="date overdue">Assess eligibility and suitability</span>
-                    <span class="secondary overdue" style="width: 195px;"> 
-                      Overdue on {{ "today" |  duration(5) | govukDate("truncate") }}</span>
-                  </dd>
-                </td>
+                <td class="govuk-table__cell">Assess eligibility and suitability</td>
               </tr>
               {% endif %}
 
@@ -370,7 +369,19 @@
                     (data.managementDecision=="yes") %}
                     Send checks to prison
                     {% else %}
+
+                    {% if data.passedDeadline=="yes" %}
+                      <dd class="govuk-summary-list__value due-date">
+                        <span class="date overdue">Check addresses or community accommodation</span>
+                        <span class="secondary overdue" style="width: 195px;"> 
+                          Overdue on {{ "today" |  duration(5) | govukDate("truncate") }}</br>
+                          <a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist">Report delay</a>
+                        </span>
+                      </dd>
+                    {% else %}
                     Check addresses or community accommodation
+                    {% endif %}
+
                     {% endif %}
 
                   {% elseif data.user=="admin"%}
@@ -470,7 +481,12 @@
                   {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Murphy, Julian</a>
                   {% endif %}
-                  </br><div class="govuk-hint govuk-!-font-size-16">CRN: GT63908</div>
+                  </br><div class="govuk-hint govuk-!-font-size-16">
+                    {% if data.user=="probation" %}CRN:
+                    {% else %}
+                    Prison number:
+                    {% endif %} GT63908
+                    </div>
                 </td>
                 {% if data.user=="admin" %}
                 <td class="govuk-table__cell">Emily Zhang</td>
@@ -549,7 +565,12 @@
             <tr class="govuk-table__row">
         
               <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="./case-overview">{{yourcase.name}}</a>
-              </br><div class="govuk-hint govuk-!-font-size-16">CRN: {{yourcase.prisonnumber}}</div></td>
+              </br><div class="govuk-hint govuk-!-font-size-16">
+                {% if data.user=="probation" %}
+                CRN:
+                {% else %}
+                Prison number:
+                {% endif %} {{yourcase.prisonnumber}}</div></td>
         
               <td class="govuk-table__cell">{{yourcase.probationpractitioner}}</td>
               
@@ -616,7 +637,13 @@
                       <tr class="govuk-table__row">
                   
                         <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="./case-overview">{{yourcase.name}}</a>
-                        </br><div class="govuk-hint govuk-!-font-size-16">CRN: {{yourcase.prisonnumber}}</div></td>
+                        </br><div class="govuk-hint govuk-!-font-size-16">
+                          {% if data.user=="probation" %}
+                          CRN:
+                          {% else %}
+                          Prison number:
+                          {% endif %} {{yourcase.prisonnumber}}
+                        </div></td>
                   
                         {% if data.user=="probation" %}
                         {% else %}
