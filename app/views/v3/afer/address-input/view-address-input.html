@@ -134,7 +134,7 @@
         <!--If delay has been reported - After deadline -->
         <div class="govuk-inset-text" style="border-color: #d4351c">
           <strong>Checks overdue</strong></br>
-          Address and risk checks were due to be completed
+          Address and risk checks were due to be completed by {{ "today" |  duration(0-2) | govukDate("truncate") }}
         </div>
         {% endif %}
 
