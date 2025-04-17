@@ -32,7 +32,7 @@
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
             {% if data.journey=="eligiblejourney" %}
-            TOM RESIDENTIAL ADDRESS SUITABLE COPY
+            Address checks complete
             {% else %}
             CAS suitability check complete
             {% endif %}
@@ -40,7 +40,7 @@
           {% if data.journey=="eligiblejourney" %}
           <div class="govuk-panel__body">
             <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_check_white.svg"/>
-            TOM RESIDENTIAL ADDRESS SUITABLE COPY
+            Address suitable
           </div>
           {% elseif data.journey=="casNoPreference" %}
           {% else %}
@@ -52,16 +52,19 @@
         </div>
 
         {% if data.journey=="eligiblejourney" %}
-        <h2 class="govuk-heading-m" style="margin-top: 30px;">TOM RESIDENTIAL ADDRESS SUITABLE COPY</h2>
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of address checks</h2>
         {% else %}
-        <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS checks</h2>
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of CAS check</h2>
         {% endif %}
 
 
         {% if data.journey=="casNoPreference" %}
         <p class="govuk-body">The prison will use the information you have provided when making a referral for CAS-2 accommodation.</p>
+        {% elseif data.journey=="eligiblejourney" %}
+        <p class="govuk-body">The following address is suitable for George:</p>
+        <p class="govuk-inset-text">51 Hill Street, Grantham, N1J 5NB</p>
         {% else %}
-        <p class="govuk-body">Rotherham is suitable for Ryan Rees.</p>
+        <p class="govuk-body">Rotherham is suitable for Ryan.</p>
         {% endif %}
 
 
