@@ -710,13 +710,14 @@
               </dt>
             </div>
 
-        {% if (data.journey=="cas1application") or (data.journey=="cas2application" ) %}
-        {% else %}
+        {% if data.reportedDelay=="yes" %}
+        {% elseif data.journey=="eligiblejourney" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist">Report a delay</a>
           </dt>
         </div>
+        {% else %}
         {% endif %}
 
 
