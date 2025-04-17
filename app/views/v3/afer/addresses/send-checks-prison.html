@@ -39,13 +39,13 @@
 
       
 
-      <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Review application and send to prison</h1>
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Review application and submit to prison</h1>
 
 
       <h2 class="govuk-heading-m govuk-!-static-margin-top-8">Outcome summary</h2>
 
 
-        <p class="govuk-body">The following release option has been found for
+        <p class="govuk-body">The following suitable release option has been found for
           {% if data.journey=="cas2application" %}
           Ryan:
           {% elseif data.journey=="cas1application" %}
@@ -55,9 +55,6 @@
           {% else %}
           George:
           {% endif %}</p>
-    
-        <p class="govuk-body">The following suitable release option has been found:</p>
-
           
           <div class="govuk-inset-text">
             {% if data.journey=="cas2application" %}
@@ -65,10 +62,11 @@
             <strong>Rotherham, South Yorkshire</strong>
 
             {% elseif data.journey=="cas1application" %}
-            <strong>Approved Premises (CAS-1)</strong>
+            Approved Premises (CAS-1)
 
             {% elseif data.journey=="casNoPreference" %}
-            <strong>???</strong>
+            Short-term accommodation (CAS-2)<br/>
+            <strong>No preferred location</strong>
 
             {% else %}
             Curfew address</br>
@@ -197,7 +195,7 @@
     </h2>
       <ul class="govuk-summary-card__actions">
         <li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change [x]</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
         </li>
         <li class="govuk-summary-card__action">
           <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Eligible</span>
@@ -216,7 +214,7 @@
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Referral type
+          Type of accommodation
         </dt>
         <dd class="govuk-summary-list__value">
           Approved Premises (CAS-1)
@@ -279,7 +277,7 @@
     </h2>
       <ul class="govuk-summary-card__actions">
         <li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change [x]</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
         </li>
         <li class="govuk-summary-card__action">
           <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Eligible</span>
@@ -290,7 +288,7 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key" style="width: 20%">
-          Is this person eligible for CAS?s
+          Is this person eligible for CAS?
         </dt>
         <dd class="govuk-summary-list__value">
           Yes
@@ -298,7 +296,7 @@
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Referral type
+          Type of accommodation
         </dt>
         <dd class="govuk-summary-list__value">
           Short-term accommodation (CAS-2)
@@ -322,7 +320,7 @@
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change [x]</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
       </li>
       <li class="govuk-summary-card__action">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
@@ -412,7 +410,7 @@
     </h2>
       <ul class="govuk-summary-card__actions">
         <li class="govuk-summary-card__action">
-          <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change [x] Link here??</a>
+          <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
         </li>
         <li class="govuk-summary-card__action">
           <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Eligible</span>
@@ -423,7 +421,7 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key" style="width: 20%">
-          Is this person eligible for CAS accommodation?[Label?]
+          Is this person eligible for CAS?
         </dt>
         <dd class="govuk-summary-list__value">
           Yes
@@ -469,14 +467,6 @@
                                                         </div>
                                                         <div class="govuk-summary-list__row">
                                                           <dd class="govuk-summary-list__key">
-                                                            Referral status
-                                                          </dd>
-                                                          <dd class="govuk-summary-list__value">
-                                                            Not submitted by prison case admin yet
-                                                          </dd>
-                                                        </div>
-                                                        <div class="govuk-summary-list__row">
-                                                          <dd class="govuk-summary-list__key">
                                                             Referral outcome
                                                           </dd>
                                                           <dd class="govuk-summary-list__value">
@@ -518,7 +508,7 @@
                         </h2>
                         <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <a class="govuk-link govuk-link--no-visited-state" href="./speak-with-POM">Change [x]</a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="./speak-with-POM">Change</a>
                           </li>
                           <li class="govuk-summary-card__action">
                             <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
@@ -789,7 +779,7 @@
 
 
 {% if data.journey=="casNoPreference" %}
-Empty state?
+<p>No unsuitable release options</p>
 {% else %}
 
 
@@ -818,7 +808,7 @@ Empty state?
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change [x]</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
       </li>
       <li class="govuk-summary-card__action">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
@@ -912,7 +902,7 @@ Empty state?
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change [x]</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
       </li>
       <li class="govuk-summary-card__action">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
@@ -1003,7 +993,7 @@ Empty state?
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
-        <a class="govuk-link govuk-link--no-visited-state" href="./residential/address-details-1">Change [x]</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="./residential/address-details-1">Change</a>
       </li>
       <li class="govuk-summary-card__action">
         <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
