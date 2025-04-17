@@ -370,7 +370,16 @@
                     Send checks to prison
                     {% else %}
 
-                    {% if data.passedDeadline=="yes" %}
+                    
+                    
+                    {% if data.reportedDelay=="yes" %}
+                    <dd class="govuk-summary-list__value due-date">
+                      <span class="date overdue">Check addresses or community accommodation</span>
+                      <span class="secondary overdue" style="width: 195px;"> 
+                        Overdue on {{ "today" |  duration(5) | govukDate("truncate") }}</br>
+                      </span>
+                    </dd>
+                    {% elseif data.passedDeadline=="yes" %}
                       <dd class="govuk-summary-list__value due-date">
                         <span class="date overdue">Check addresses or community accommodation</span>
                         <span class="secondary overdue" style="width: 195px;"> 

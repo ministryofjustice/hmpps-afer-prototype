@@ -281,7 +281,7 @@
                 You have reported a delay to other people working on this application.
               </div>
               <!--If delay has NOT been reported - After deadlin e-->
-              {% elseif (data.passedDeadline=="yes") or (data.reportedDelay=="updated") %}
+              {% elseif (data.passedDeadline=="yes") %}
               <div class="govuk-inset-text" style="border-color: #d4351c">
                 <strong>Checks overdue</strong></br>
                 Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
@@ -473,7 +473,7 @@
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">View or update delay information</a>
               </li>
-              {% elseif data.passedDeadline=="yes" %}
+              {% else %}
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="../delay/report-delay">Report a delay</a>
               </li>
@@ -596,9 +596,9 @@
             </h2>
             <ul class="govuk-summary-card__actions">
               {% if data.ResidentialSuitabilityDecision=="yes" %}
-              {% elseif data.passedDeadline=="yes" %}
+              {% else %}
               <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="#">Report a delay</a>
+                <a class="govuk-link govuk-link--no-visited-state" href="#">View or update delay information</a>
               </li>
               {% endif %}
               {% if data.ResidentialSuitabilityDecision=="yes" %}
