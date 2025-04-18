@@ -277,20 +277,20 @@
               <!--If delay has been reported - After deadline -->
               <div class="govuk-inset-text" style="border-color: #d4351c">
                 <strong>Checks overdue</strong></br>
-                Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+                This task was due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
                 You have reported a delay to other people working on this application.
               </div>
               <!--If delay has NOT been reported - After deadlin e-->
               {% elseif (data.passedDeadline=="yes") %}
               <div class="govuk-inset-text" style="border-color: #d4351c">
                 <strong>Checks overdue</strong></br>
-                Address and risk checks were due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
+                This task was due to be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br> 
                 You can report a delay to other people working on this application.
               </div>
               {% else %}
               <!-- If delay has NOT been reported - Before deadline -->
               <div class="govuk-inset-text">
-                Address and risk checks must be completed by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
+                Complete this task by {{ "today" |  duration(13) | govukDate("truncate") }}.</br>
               </div>
               {% endif %}
 
