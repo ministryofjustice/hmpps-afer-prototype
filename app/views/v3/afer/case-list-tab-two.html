@@ -121,7 +121,7 @@
       <!--sub nav end-->
 
 
-      {% if data.user=="admin" %}
+      {% if (data.user=="admin") or (data.user=="decisionmaker") %}
       <h2 class="govuk-heading-l">Inactive applications</h2>
 
         <!--table start INACTIVE CASES-->
