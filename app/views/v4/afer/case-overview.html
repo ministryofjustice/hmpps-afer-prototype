@@ -1459,80 +1459,6 @@
 {% endif %}
 
 
-<!--Print licence descope start -->
-<!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <form action="../cvl/ca/print-licence" method="post" novalidate>
-    <input type="hidden" name="printlicence" value="complete">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p class="govuk-body">Copy <a class="govuk-link govuk-link--no-visited-state" href="#">CVL link</a></p>
-  </section>
-  </form>
-</article>-->
-<!--Print licence descope end -->
-
-
-
-
-{% if data.printlicence=="complete" %}
-<!--Print licence - Done-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 95px; margin-top: 5px;">Viewed</span>
-      </div>
-    </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="../cvl/ca/print-licence" style="margin-top: 15px;">View and print licence</a></p>
-  </section>
-</article>
-{% elseif data.prepareforrelease2day=="complete" %}
-<!--Print licence - Start-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <form action="../cvl/ca/print-licence" method="post" novalidate>
-    <input type="hidden" name="printlicence" value="complete">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p><a href="#" class="govuk-link govuk-link--no-visited-state">Go to Create and vary a licence</a> to view and print this person’s licence.</p>
-    <!-- <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 15px;">View and print licence</button> -->
-  </section>
-  </form>
-</article>
-{% elseif (data.postponed=="yes") or (data.resumeapplication=="no") %}
-<!--Print licence - Cannot start yet-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p class="govuk-body">Application postponed</p>
-  </section>
-</article>
-{% elseif data.optin=="yes" %}
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p class="govuk-body">You can view information about a licence as soon as it has been started and print it once approved.</p>
-  </section>
-</article>
-{% elseif data.optoutreason=="yes" %}
-<!--Print licence - Cannot start yet-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p class="govuk-body">Opted out</p>
-  </section>
-</article>
-{% else %}
-<!--Print licence - Cannot start yet-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Print licence</h2>
-    <p class="govuk-body">You can view information about a licence as soon as it has been started and print it once approved.</p>
-  </section>
-</article>
-{% endif %}
 
 {% endif %}
 <!--tasks CA end-->
@@ -2071,60 +1997,6 @@
 {% endif %}
 
 
-{% if data.ApprovedPremisesOutcome=="withdrawn" %}
-{% elseif (data.journey=="cas2application") and (data.sendChecksPrison=="yes") %}
-<!--Create licence - Start-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <input type="hidden" name="printlicence" value="complete">
-<section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-  <p><a href="#" class="govuk-link govuk-link--no-visited-state">Go to Create and vary a licence</a> to create this person’s licence.</p>
-</section>
-</article>
-{% elseif data.LicenceCreated=="yes"%}  
-<!--Create licence - Done-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
-      </div>
-    </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="../cvl/pp/create-licence" style="margin-top: 15px;">View or change</a></p>
-  </section>
-{% elseif data.cas1addressadded=="yes"%}
-<!--Create licence - Start-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <input type="hidden" name="printlicence" value="complete">
-<section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-  <p><a href="#" class="govuk-link govuk-link--no-visited-state">Go to Create and vary a licence</a> to create this person’s licence.</p>
-</section>
-</article>
-{% elseif data.sendChecksPrison=="yes"%}  
-<!--Create licence - Start-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-    <input type="hidden" name="printlicence" value="complete">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-    <p><a href="#" class="govuk-link govuk-link--no-visited-state">Go to Create and vary a licence</a> to create this person’s licence.</p>
-  </section>
-</article>
-{% else %}
-<!--Create licence - Cannot start yet-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Create licence</h2>
-    <p class="govuk-body">You can start this after submitting the application to prison with a suitable curfew address or CAS area. </p>
-  </section>
-</article>
-{% endif %}
-
-
-
 
 {% endif %}
 <!--Probation tasks end-->
@@ -2152,15 +2024,6 @@
   </section>
 </article>
 
-
-
-<!--HDC decision - Cannot start yet-->
-<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Approve licence</h2>
-    <p class="govuk-body">A licence can be submitted if someone is approved for HDC release and a release address is entered into this service.</p>
-  </section>
-</article>
 
 
 {% endif %}
