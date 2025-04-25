@@ -378,34 +378,7 @@
 
 
 
-    <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for
-      {% if data.journey=="28daysjourney" %}
-      David Lee
-
-      {% elseif data.journey=="cas2application"%}
-      Ryan Rees
-
-      {% elseif data.journey=="cas1application"%}
-      Lenny Wallace
-
-      {% elseif data.journey=="casNoPreference"%}
-      Julian Murphy
-
-      {% elseif data.user=="admin"%}
-
-      {% if data.journey=="ineligiblejourney"%}
-      Jose Rodriguez
-      {% elseif data.journey=="28daysjourney" %}
-      David Lee
-      {% elseif data.journey=="ineligiblePreRelease"%}
-      Bailey West
-      {% else %}
-      George Jennings
-      {% endif %}
-
-      {% else %}
-      George Jennings
-      {% endif %}
+    <h1 class="govuk-heading-xl govuk-!-margin-top-8">HDC application for Theodore North
     </h1>
      
           
@@ -442,30 +415,7 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.journey=="28daysjourney" %}
-              David Lee
-
-              {% elseif data.journey=="cas2application" %}
-              Ryan Rees
-
-              {% elseif data.journey=="casNoPreference"%}
-              Julian Murphy
-
-              {% elseif data.journey=="cas1application" %}
-              Lenny Wallace
-
-              {% elseif data.user=="admin" %}
-              {% if data.journey=="ineligiblejourney" %}
-              Jose Rodriguez
-              {% elseif data.journey=="ineligiblePreRelease" %}
-              Bailey West
-              {% else %}
-              George Jennings
-              {% endif %}
-
-              {% else %}
-              George Jennings
-              {% endif %}
+              Theodore North
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -480,29 +430,7 @@
               {% endif %}
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.journey=="28daysjourney" %}
               G93332
-
-              {% elseif data.journey=="cas2application"%}
-              G87634
-
-              {% elseif data.journey=="cas1application"%}
-              G2431GT
-
-              {% elseif data.user=="admin"%}
-              
-              {% if data.journey=="ineligiblejourney"%}
-              G56791
-              {% elseif data.journey=="ineligiblePreRelease"%}
-              G75698
-              {% else %}
-              G5613GT
-              {% endif %}  
-
-              {% else %}
-              G2431GT
-
-              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -525,27 +453,7 @@
               HDCED
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.journey=="28daysjourney" %}
               {{ "today" |  duration(20) | govukDate }}
-
-              {% elseif data.journey=="cas2application"%}
-              {{ "today" |  duration(100) | govukDate }}
-
-              {% elseif data.journey=="cas1application"%}
-              {{ "today" |  duration(128) | govukDate }}
-
-              {% elseif data.user=="admin"%}
-              {% if data.journey=="ineligiblejourney"%}
-              {{ "today" |  duration(128) | govukDate }}
-              {% elseif data.journey=="ineligiblePreRelease"%}
-              {{ "today" |  duration(136) | govukDate }}
-              {% else %}
-              {{ "today" |  duration(96) | govukDate }}
-              {% endif %}
-
-              {% elseif data.user=="probation"%}
-              {{ "today" |  duration(96) | govukDate }}
-              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <span class="moj-badge moj-badge--black">Nomis</span>
@@ -557,27 +465,7 @@
               CRD
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data.journey=="28daysjourney" %}
               {{ "today" |  duration(36) | govukDate }}
-
-              {% elseif data.journey=="cas2application"%}
-              {{ "today" |  duration(153) | govukDate }}
-
-              {% elseif data.journey=="cas1application"%}
-              {{ "today" |  duration(185) | govukDate }}
-
-              {% elseif data.user=="admin"%}
-              {% if data.journey=="ineligiblejourney"%}
-              {{ "today" |  duration(185) | govukDate }}
-              {% elseif data.journey=="ineligiblePreRelease"%}
-              {{ "today" |  duration(192) | govukDate }}
-              {% else %}
-              {{ "today" |  duration(153) | govukDate }}
-              {% endif %}
-
-              {% elseif data.user=="probation"%}
-              {{ "today" |  duration(153) | govukDate }}
-              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <span class="moj-badge moj-badge--black">Nomis</span>
@@ -2004,21 +1892,13 @@
 <!--DM tasks start-->
 {% if data.user=="decisionmaker"%}
 
-<!--HDC decision - Start-->
+<!--HDC decision - Cannot start yet-->
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-  <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Confirm if George can be released on HDC</h2>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Ready<span style="text-transform: lowercase;"> to start</span></span>
-      </div>
-    </div>
-    <a href="./decision/confirm-release" class="govuk-button govuk-button--primary" style="margin-top: 15px;">Start</a>
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Confirm if George can be released on HDC</h2>
+    <p class="govuk-body">Empty state?</p>
   </section>
 </article>
-
 
 
 {% endif %}
