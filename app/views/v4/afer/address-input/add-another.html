@@ -1,0 +1,529 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
+        <!--If 2 addresses and 2 CAS area entered-->
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and 2 CAS areas</h1>
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="no") %}
+        <!--If 2 addresses and not defined CAS area entered-->
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and chosen CAS referral with no preferred area</h1>
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
+        <!--If 2 addresses and 1 CAS area entered-->
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses and one CAS area</h1>
+        {% elseif (data.postcodelookup=="two") %}
+        <!--If 2 address entered-->   
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added 2 addresses</h1>
+        {% elseif data.communityaccommodation=="three" %}
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added one CAS area</h1>
+        {% else %}
+        <!--If 1 address entered-->
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">You have added one address</h1>
+        {% endif%}
+
+
+<div class="govuk-form-group">
+
+  <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+
+
+
+    {% if data.addanotheraddress=="yes" %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+        <strong>Fourth address</strong></br>
+        13 Back Ln, Grantham NG33 5NJ
+      </dt>
+      <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Change</span></a></li>
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+        </ul>
+      </dd>
+    </div>
+    {% elseif data.communityaccommodation=="three" %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+        <strong>Third CAS area</strong></br>
+        {%if (data.castowncity3) %}
+          {{data.castowncity3}}
+         {% else %}
+         Rotherham
+         {% endif %}
+         {%if (data.cascountyborough3) %}, {{data.cascountyborough3}}
+         {% else %}, South Yorkshire
+         {% endif %}
+      </dt>
+      <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas-3"><span aria-hidden="true">Change</span></a></li>
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
+        </ul>
+      </dd>
+    </div>
+    {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="two") %}
+        <!--If 2 addresses and 2 CAS area entered-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred address</strong></br>
+            4 Inner Street, Grantham NG31 6HN
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Second address</strong></br>
+            49 Hill Street, Grantham N1J 5NB
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred CAS area</strong></br>
+            {%if (data.castowncity1) %}
+              {{data.castowncity1}}
+             {% else %}
+              Sheffield
+             {% endif %}
+             {%if (data.cascountyborough1) %}
+              , {{data.cascountyborough1}}
+             {% else %}
+             {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Second CAS area</strong></br>
+            {%if (data.castowncity2) %}
+              {{data.castowncity2}}
+             {% else %}
+              London
+             {% endif %}
+             {%if (data.cascountyborough2) %}
+              , {{data.cascountyborough2}}
+             {% else %}
+             {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas-2.html"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="no") %}
+        <!--If 2 addresses and no CAS preference entered-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred address</strong></br>
+            4 Inner Street, Grantham NG31 6HN
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Second address</strong></br>
+            49 Hill Street, Grantham N1J 5NB
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>No preferred CAS area</strong></br>
+            This person would like to be referred for CAS but has no preference where they are released
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% elseif (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
+        <!--If 2 addresses and 1 CAS area entered-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred address</strong></br>
+            4 Inner Street, Grantham NG31 6HN
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Second address</strong></br>
+            49 Hill Street, Grantham N1J 5NB
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred CAS area</strong></br>
+            {%if (data.castowncity1) %}
+              {{data.castowncity1}}
+             {% else %}
+              Sheffield
+             {% endif %}
+             {%if (data.cascountyborough1) %}
+              , {{data.cascountyborough1}}
+             {% else %}
+             {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="cas.html"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href=#><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% elseif (data.postcodelookup=="two") %}
+        <!--If 2 address entered-->   
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred address</strong></br>
+            4 Inner Street, Grantham NG31 6HN
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Second address</strong></br>
+            49 Hill Street, Grantham N1J 5NB
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-2-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}
+        <!--If 1 address entered-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            <strong>Preferred address</strong></br>
+            4 Inner Street, Grantham NG31 6HN
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="postcode-lookup-results-change"><span aria-hidden="true">Change</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link govuk-link--no-visited-state" href="#"><span aria-hidden="true">Delete</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% endif%}
+  </dl>
+
+</div>
+
+
+  <form action="/v4/add-another-address" method="post">
+
+
+  {% if (data.communityaccommodation=="no") %}
+
+  <a href="./check-your-answers.html" class="govuk-button govuk-button--primary">Check your answers</a>
+
+  {% elseif data.communityaccommodation=="two"%}
+
+  <a href="./check-your-answers.html" class="govuk-button govuk-button--primary">Check your answers</a>
+
+  {% else%}
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+        {% if (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}
+        <!--If 2 addresses and 1 CAS area entered-->
+        Do you need to add another CAS area?
+        {% elseif (data.communityaccommodation=="no") %}
+        <!--If no preferred cas area-->
+        {% elseif (data.postcodelookup=="two") %}
+        <!--If 2 address entered-->   
+        Do you need to add a CAS area?
+        {% else %}
+        <!--If 1 address entered-->
+        Do you need to add another curfew address or CAS area?
+        {% endif%}
+
+
+        <!--RULES-->
+        <!--If 1 address entered-->
+        <!--Do you need to add another curfew address or CAS area?-->
+        <!--If 2 address entered-->
+        <!--Do you need to add a CAS area?-->
+
+        <!--If 1 CAS area entered-->
+        <!--Do you need to add a curfew address? Do you ned to add another CAS area or curfew address?-->
+        <!--If 2 CAS area entered-->
+        <!--Do you need to add a curfew address?-->
+
+        <!--If 1 address and 1 CAS area entered-->
+        <!--Do you need to add another curfew address or CAS area?-->
+        <!--If 2 addresses and 1 CAS area entered-->
+        <!--Do you need to add another CAS area?-->
+        <!--If 1 address and 2 CAS area entered-->
+        <!--Do you need to add another curfew address?-->
+
+       
+      </legend>
+      <!--<div id="add-another-hint" class="govuk-hint">-->
+
+
+        <!--{% if (data.postcodelookup=="two") and (data.communityaccommodation=="one") %}-->
+        <!--If 2 addresses and 1 CAS area entered-->
+        <!--You can enter one more CAS area.-->
+        <!--{% elseif (data.communityaccommodation=="no") %}-->
+        <!--If no preferred cas area-->
+        <!--{% elseif (data.postcodelookup=="two") %}-->
+        <!--If 2 address entered-->   
+        <!--You can enter 2 CAS areas.-->
+        <!--{% else %}-->
+        <!--If 1 address entered-->
+        <!--You can enter one more curfew address and 2 CAS areas.-->
+        <!--{% endif%}-->
+
+
+
+        <!--RULES-->
+        <!--If 1 address entered-->
+        <!--You can enter one more curfew address and 2 CAS areas.-->
+        <!--If 2 address entered-->
+        <!--You can enter 2 CAS areas.-->
+
+        <!--If 1 CAS area entered-->
+        <!--You can enter one more CAS area and 2 curfew addresses.-->
+        <!--If 2 CAS area entered-->
+        <!--You can enter 2 more curfew address.-->
+
+        <!--If 1 address and 1 CAS area entered-->
+        <!--You can enter one more curfew address and one more CAS area.-->
+        <!--If 2 addresses and 1 CAS area entered-->
+        <!--You can enter one more CAS area.-->
+        <!--If 1 address and 2 CAS area entered-->
+        <!--You can enter one more curfew address.-->
+        
+      <!--</div>-->
+      <div class="govuk-radios" data-module="govuk-radios">
+
+      {% if (data.postcodelookup=="two") %}
+      {% else %} 
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-another-address" name="add-another-address" type="radio" value="curfew">
+          <label class="govuk-label govuk-radios__label" for="add-another-address">
+            
+            <!--If no preferred cas area-->
+            Yes, add curfew address
+            
+            <!--RULES-->
+            <!--If 1 address entered-->
+            <!--Yes, add curfew address-->
+            <!--If 2 address entered-->
+            <!--N/A-->
+
+            <!--If 1 CAS area entered-->
+            <!--Yes, add curfew address-->
+            <!--If 2 CAS area entered-->
+            <!--Yes, add curfew area-->
+
+            <!--If 1 address and 1 CAS area entered-->
+            <!--Yes, add curfew address-->
+            <!--If 2 addresses and 1 CAS area entered-->
+            <!--N/A-->
+            <!--If 1 address and 2 CAS area entered-->
+            <!--Yes, add curfew address-->
+
+          </label>
+        </div>
+      {% endif %} 
+
+
+
+      {% if (data.communityaccommodation=="one") and (data.communityaccommodation=="two") %}
+
+      {% elseif (data.communityaccommodation=="no") %}
+
+      {% elseif (data.communityaccommodation=="one") %}
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="addanotheraddress" name="addanotheraddress" type="radio" value="cas2">
+        <label class="govuk-label govuk-radios__label" for="add-another-address-4">
+
+          Yes, add CAS area
+
+          <!--RULES-->
+          <!--If 1 address entered-->
+          <!--Yes, add CAS area-->
+          <!--If 2 address entered-->
+          <!--Yes, add CAS area-->
+
+          <!--If 1 CAS area entered-->
+          <!--Yes, add CAS area-->
+          <!--If 2 CAS area entered-->
+          <!--N/A-->
+
+          <!--If 1 address and 1 CAS area entered-->
+          <!--Yes, add CAS area-->
+          <!--If 2 addresses and 1 CAS area entered-->
+          <!--Yes, add CAS area-->
+          <!--If 1 address and 2 CAS area entered-->
+          <!--N/A-->
+
+
+        </label>
+      </div>
+      {% else %} 
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-another-address" name="add-another-address" type="radio" value="cas">
+          <label class="govuk-label govuk-radios__label" for="add-another-address-2">
+
+            Yes, add CAS area
+
+            <!--RULES-->
+            <!--If 1 address entered-->
+            <!--Yes, add CAS area-->
+            <!--If 2 address entered-->
+            <!--Yes, add CAS area-->
+
+            <!--If 1 CAS area entered-->
+            <!--Yes, add CAS area-->
+            <!--If 2 CAS area entered-->
+            <!--N/A-->
+
+            <!--If 1 address and 1 CAS area entered-->
+            <!--Yes, add CAS area-->
+            <!--If 2 addresses and 1 CAS area entered-->
+            <!--Yes, add CAS area-->
+            <!--If 1 address and 2 CAS area entered-->
+            <!--N/A-->
+
+
+          </label>
+        </div>
+      {% endif %} 
+
+      {% if (data.communityaccommodation=="no") %}
+
+      {% else %} 
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-another-address" name="add-another-address" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="add-another-address-3">
+
+            No
+
+            <!--RULES-->
+            <!--If 1 address entered-->
+            <!--No-->
+            <!--If 2 address entered-->
+            <!--No-->
+
+            <!--If 1 CAS area entered-->
+            <!--No-->
+            <!--If 2 CAS area entered-->
+            <!--No-->
+
+            <!--If 1 address and 1 CAS area entered-->
+            <!--No-->
+            <!--If 2 addresses and 1 CAS area entered-->
+            <!--No-->
+            <!--If 1 address and 2 CAS area entered-->
+            <!--No-->
+
+          </label>
+        </div>
+        {% endif %} 
+      </div>
+    </fieldset>
+  </div>
+
+
+  {% if data.addanotheraddress=="yes" %}
+  <input type="hidden" name="addanotheraddress" value="yes">
+  {% elseif data.communityaccommodation=="three" %}
+  <input type="hidden" name="communityaccommodation" value="three">
+  {% endif %}
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+  {% endif %}
+
+</form>
+
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

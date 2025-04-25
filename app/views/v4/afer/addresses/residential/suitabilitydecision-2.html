@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Suitability decision</h1>
+
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Proposed address
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+          51 Hill Street</br>
+          Grantham</br>
+          N1J 5NB
+        </dt>
+        <!--<dd class="govuk-summary-list__key">
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>-->
+      </div>
+  
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+
+      <form class="form" action="/v4/SuitabilityDecision" method="post" novalidate>
+
+
+  <div class="govuk-form-group  govuk-!-margin-top-8">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        Is this address suitable for this person to live? 
+      </legend>
+      <div class="govuk-hint">
+        <p class="govuk-body govuk-hint">For example, consider if:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-hint" style="margin-top: -10px; margin-bottom: 20px;">
+          <li>they can be managed safely if they are released there</li>
+          <li>victims are nearby</li>
+          <li>the address is compatible with exclusion zones</li>
+        </ul>
+      </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ResidentialSuitabilityDecision" name="ResidentialSuitabilityDecision" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="ResidentialSuitabilityDecision">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ResidentialSuitabilityDecision-2" name="ResidentialSuitabilityDecision" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="ResidentialSuitabilityDecision-2">
+              No
+            </label>
+          </div>
+        </div>
+    </fieldset>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="moreDetailPPdecision"><strong>Add information to support your decision</strong></label>
+    <div class="govuk-hint"><p class="govuk-body govuk-hint">For example, include anything that needs to be put in place to help manage their risk if they are released there, such as treatment programmes.</p></div>
+    <textarea class="govuk-textarea" id="moreDetailPPdecision" name="moreDetailPPdecision" rows="5"></textarea>
+  </div>
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m govuk-!-margin-top-8" for="riskActionsDetails"><strong>Add information for the monitoring contractor (optional)</strong></label>
+    <div class="govuk-hint" style="margin-top: -10px;">For example, anything about the address they should be aware of.</div>
+    <textarea class="govuk-textarea" id="riskActionsDetails" name="riskActionsDetails" rows="5"></textarea>
+  </div>
+
+
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Save
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Cancel
+  </button>
+</div>
+
+
+</form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

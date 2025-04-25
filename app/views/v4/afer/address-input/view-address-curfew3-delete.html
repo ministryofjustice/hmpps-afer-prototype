@@ -1,0 +1,180 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          {% if data.journey=="cas2application" %}
+          <form action="/v4/confirmdeletingcas2" method="post" novalidate>
+          {% else %}
+          <form action="/v4/confirmdeletingaddress" method="post" novalidate>
+          {% endif %}
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Provide a reason for deleting this</h1>
+              </legend>
+              {% if data.journey=="cas2application" %}
+              <div id="changedName-hint" class="govuk-hint">
+                Third CAS area: Rotherham, South Yorkshire
+              </div>
+              {% else %}
+              <div id="changedName-hint" class="govuk-hint">
+                Third address: 1 Belvoir Ave, Grantham, NG31 7TA
+              </div>
+              {% endif %}
+
+              <div class="govuk-form-group">
+        
+            <!--START set dynamic radio hide/show text-->
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        
+            {% set textHtmlOther %}
+            
+            {{ govukInput({
+              label: {
+                text: "Enter reason"
+              },
+              id: "event-name",
+              name: "eventName"
+            }) }}
+
+            {% endset -%}
+        
+            <!--END set dynamic radio hide/show text-->
+            {% if data.journey=="cas2application" %}
+
+            {{ govukRadios({
+              idPrefix: "reasontodelete",
+              name: "reasontodelete",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+        
+              items: [
+              {
+                value: "reason1",
+                text: "Ryan no longer wants to be released here"
+              },
+              {
+                value: "reason2",
+                text: "Probation practitioner does not have time to assess"
+              },
+              {
+                value: "reason3",
+                text: "George has another suitable curfew address or CAS area"
+              },
+              {
+                value: "otherreason",
+                text: "Other reason",
+                conditional: {
+                  html: textHtmlOther
+                }
+              }
+              ]
+            }) }}
+
+            {% else %}
+
+            {{ govukRadios({
+              idPrefix: "reasontodelete",
+              name: "reasontodelete",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+        
+              items: [
+              {
+                value: "reason1",
+                text: "George no longer wants to be released here"
+              },
+              {
+                value: "reason2",
+                text: "Probation practitioner does not have time to assess"
+              },
+              {
+                value: "reason3",
+                text: "George has another suitable curfew address or CAS area"
+              },
+              {
+                value: "otherreason",
+                text: "Other reason",
+                conditional: {
+                  html: textHtmlOther
+                }
+              }
+              ]
+            }) }}
+
+            {% endif %}
+
+            </div>
+            </fieldset>
+            </div>
+
+            {% if data.journey=="cas2application" %}
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmcas2deletion" value="yes">
+                Continue
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmcas2deletion" value="no">
+                Cancel
+              </button>
+            </div>
+            {% else %}
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmdeletion" value="yes">
+                Continue
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmdeletion" value="no">
+                Cancel
+              </button>
+            </div>
+            {% endif %}
+
+
+
+          </form>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

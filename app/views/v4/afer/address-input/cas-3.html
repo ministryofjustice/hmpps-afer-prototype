@@ -1,0 +1,144 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+<form action="additional-info" method="post">
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">
+      Where does this person want to be released?</h1>
+      </legend>
+      <div class="govuk-form-group">
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set textHtmlOther %}
+
+
+    {{ govukInput({
+      id: "castowncity2",
+      name: "castowncity2",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Town or city"
+      }
+    }) }}
+
+
+    {{ govukInput({
+      id: "cascountyborough2",
+      name: "cascountyborough2",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "County or borough (optional)"
+      }
+    }) }}
+
+
+    {% endset -%}
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "contact",
+      name: "contact",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "specificarea",
+        text: "A specific area",
+        conditional: {
+          html: textHtmlOther
+        }
+      },
+      {
+        value: "nopreference",
+        text: "They do not have a preference",
+        hint: {
+          text: "If this person no longer has a preference where they are released, we will remove the CAS areas that were entered previously."
+        },
+        conditional: {
+          html: emailHtml
+        }
+      }
+      ]
+    }) }}
+ 
+
+<!--If they have provided 2 CAS areas, say if this is their preferred or second address-->
+<!--<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
+        Set address preference 
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Preferred CAS area
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland" checked>
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Second CAS area
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>-->
+  
+
+  <input type="hidden" name="communityaccommodation" value="three">
+
+    <button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+      Continue
+    </button>
+
+
+</form>
+
+
+</div>
+</div>
+</main>
+</div>
+{% endblock %}

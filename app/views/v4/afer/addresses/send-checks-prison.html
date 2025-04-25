@@ -1,0 +1,1240 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      
+
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-8">Review application and submit to prison</h1>
+
+
+      <h2 class="govuk-heading-m govuk-!-static-margin-top-8">Outcome summary</h2>
+
+
+        <p class="govuk-body">The following suitable release option has been found for
+          {% if data.journey=="cas2application" %}
+          Ryan:
+          {% elseif data.journey=="cas1application" %}
+          Lenny:
+          {% elseif data.journey=="casNoPreference" %}
+          Julian:
+          {% else %}
+          George:
+          {% endif %}</p>
+          
+          <div class="govuk-inset-text">
+            {% if data.journey=="cas2application" %}
+            Short-term accommodation (CAS-2)</br>
+            <strong>Rotherham, South Yorkshire</strong>
+
+            {% elseif data.journey=="cas1application" %}
+            Approved Premises (CAS-1)
+
+            {% elseif data.journey=="casNoPreference" %}
+            Short-term accommodation (CAS-2)<br/>
+            <strong>No preferred location</strong>
+
+            {% else %}
+            Curfew address</br>
+            <strong>49 Hill Street, Grantham, N1J 5NB</strong>
+            {% endif %}
+          </div>
+  
+          
+  
+
+
+      <div class="govuk-summary-card" style="margin-top: 80px;">
+
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Consult the VLO and POM
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="./speak-with-POM">Change</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+        
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key" style="width: 30%;">
+                 Has the victim opted into the Victim Contact Scheme?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Information from victim
+              </dt>
+              <dd class="govuk-summary-list__value">
+                The individual has requested increased police patrols in the area following the incident at their property. They highlighted concerns about safety and expressed the need for enhanced security measures to reduce the likelihood of similar occurrences in the future. Additionally, they have asked to be regularly informed about the progress of the investigation. The individual also inquired about access to support services, such as counseling, to address the emotional impact of the incident. Their priority is to ensure a secure environment and restore a sense of safety.
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Details of POM consultation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                During his time in prison, 
+                {% if data.journey=="28daysjourney" %}
+                David
+                {% elseif data.journey=="cas2application" %}
+                Ryan
+                {% elseif data.journey=="cas1application" %}
+                Lenny
+                {% else %}
+                George
+                {% endif %} demonstrated exceptional behavior.
+                He adhered to all rules, maintained a positive attitude, and actively participated in rehabilitation programs.  
+              </dd>
+            </div>
+          </dl>
+        </div>
+        
+        </div>
+
+
+      
+
+
+
+      <div class="govuk-summary-card">
+
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Record non-disclosable information
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="./record-non-disclosable-information">Change</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+        
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key" style="width: 30%;">
+                 Is there any information that cannot be disclosed to 
+                 {% if data.journey=="28daysjourney" %}
+                 David{% elseif data.journey=="cas2application" %}
+                 Ryan{% elseif data.journey=="cas1application" %}
+                 Lenny{% else %}
+                 George{% endif %}?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Information that cannot be disclosed
+              </dt>
+              <dd class="govuk-summary-list__value">
+               Cannot disclose that home owner did from preferred address did not consent to have them live with them
+              </dd>
+            </div>
+
+          </dl>
+        </div>
+        
+      </div>
+
+<h3 class="govuk-heading-m" style="margin-top: 80px;">Suitable release option</h3>
+
+
+{% if data.journey=="cas1application" %}
+
+
+<!--CAS eligibility start-->
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligibility for CAS accommodation
+    </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
+        </li>
+        <li class="govuk-summary-card__action">
+          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Eligible</span>
+        </li>
+      </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 30%">
+          Is this person eligible for CAS?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Approved Premises (CAS-1)
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<!--CAS eligibility end-->
+
+
+<!--Approved Premises assessment start-->
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Approved Premises referral
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="./tasklist">Change</a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key" style="width: 30%;">
+          Referral outcome
+        </dd>
+        <dt class="govuk-summary-list__outcome">
+          {% if data.ApprovedPremisesOutcome=="accepted" %}
+          Accepted
+          {% elseif data.ApprovedPremisesOutcome=="rejected" %}
+          Rejected
+          {% elseif data.ApprovedPremisesOutcome=="withdrawn" %}
+          Withdrawn
+          {% endif %}
+        </dt>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Accommodation address
+        </dd>
+        <dt class="govuk-summary-list__value">
+          No address entered by probation practitioner yet
+        </dt>
+      </div>
+    </dl>
+  </div>
+</div>
+<!--Approved Premises assessment end-->
+
+
+
+{% elseif data.journey=="cas2application" %}
+
+
+
+
+<!--CAS eligibility start-->
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligibility for CAS accommodation
+    </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
+        </li>
+        <li class="govuk-summary-card__action">
+          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Eligible</span>
+        </li>
+      </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 30%">
+          Is this person eligible for CAS?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Short-term accommodation (CAS-2)
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<!--CAS eligibility end-->
+
+
+
+
+
+<!--Third CAS start-->
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Third area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas2-suitability-c">Change</a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Rotherham 
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire 
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional information 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          None entered
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Referral outcome
+        </dt>
+        <dd class="govuk-summary-list__value">
+          No outcome entered by prison case admin yet
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Accommodation address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          No address entered by prison case admin yet 
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Check if area is suitable
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key" style="width: 30%;">
+          Is this area suitable?
+        </dd>
+        <dt class="govuk-summary-list__value">
+          Yes, but the following areas should be avoided:</br>
+          Offending history in Doncaster so this would not be suitable
+        </dt>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Information to support your decision
+        </dd>
+        <dt class="govuk-summary-list__value">
+          There have been no concerns with the requested areas/locations.
+        </dt>
+      </div>
+      </div>
+    </dl>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% elseif data.journey=="casNoPreference" %}
+
+
+<!--CAS eligibility start-->
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligibility for CAS accommodation
+    </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link govuk-link--no-visited-state" href="./cas/accommodation-eligibility">Change</a>
+        </li>
+        <li class="govuk-summary-card__action">
+          <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize">Eligible</span>
+        </li>
+      </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width: 30%">
+          Is this person eligible for CAS?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of accommodation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Short-term accommodation (CAS-2)
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<!--CAS eligibility end-->
+
+
+
+                                                  <!--card start-->
+                                                  <div class="govuk-summary-card">
+              
+                                                    <div class="govuk-summary-card__title-wrapper">
+                                                      <h2 class="govuk-summary-card__title">
+                                                        No area preference
+                                                      </h2>
+                                                      <ul class="govuk-summary-card__actions">
+                                                        <li class="govuk-summary-card__action">
+                                                          <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas2-suitability-d">Change</a>
+                                                        </li>
+                                                      </ul>
+                                                    </div>
+                                                  
+                                                    
+                                                    <div class="govuk-summary-card__content">
+                                                      <dl class="govuk-summary-list">
+                                                    
+                                                        <div class="govuk-summary-list__row">
+                                                          <dd class="govuk-summary-list__key">
+                                                            Areas to avoid
+                                                          </dd>
+                                                          <dd class="govuk-summary-list__value">
+                                                            {% if (data.CASareasToAvoid) %}
+                                                            {{data.CASareasToAvoid}}
+                                                            {% endif %}
+                                                          </dd>
+                                                        </div>
+                                                        <div class="govuk-summary-list__row">
+                                                          <dd class="govuk-summary-list__key">
+                                                            Referral outcome
+                                                          </dd>
+                                                          <dd class="govuk-summary-list__value">
+                                                            No outcome entered by prison case admin yet
+                                                          </dd>
+                                                        </div>
+                                                        <div class="govuk-summary-list__row">
+                                                          <dd class="govuk-summary-list__key">
+                                                            Accommodation address
+                                                          </dd>
+                                                          <dd class="govuk-summary-list__value">
+                                                            No address entered by prison case admin yet
+                                                          </dd>
+                                                        </div>
+                                                       
+                                                      
+                                                      </dl>
+                                                     </div>
+                                                        
+                                                  </div>
+                                                  <!--card end-->  
+
+
+
+
+
+{% else %}
+<!--George Jennings-->
+
+
+
+
+                    <!--card start-->
+                    <div class="govuk-summary-card" style="margin-top: 0px;">
+          
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">
+                          Second address
+                        </h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link govuk-link--no-visited-state" href="./residential/address-details-2">Change</a>
+                          </li>
+                          <li class="govuk-summary-card__action">
+                            <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+                          </li>
+                        </ul>
+                      </div>
+              
+                
+                    <div class="govuk-summary-card__content">
+                      <dl class="govuk-summary-list">
+                    
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__value">
+                            49 Hill Street</br>
+                            Grantham</br>
+                            N1J 5NB    
+                          </dt>
+                        </div>
+                      
+                      </dl>
+                    </div>
+                
+                </div>
+                <!--card end-->
+  
+  
+  
+        
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Main occupier
+      </h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Leanna Martin
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            020 3334 3555
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Relation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Mother
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+  
+  
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Resident 1
+      </h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Greg Martin
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Relation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Brother
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2 May 2007
+            </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Age
+              </dt>
+              <dd class="govuk-summary-list__value">
+                17
+              </dd>
+            </div>
+        </div>
+      </dl>
+    </div>
+
+
+  
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Address details and informed consent
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__key" style="width: 30%;">
+              Is the address connected to an electricity supply?
+            </dd>
+            <dt class="govuk-summary-list__value">
+              Yes
+            </dt>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__key">
+              Have you visited this address in person?
+            </dd>
+            <dt class="govuk-summary-list__value">
+             Yes
+            </dt>
+          </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__key">
+                Has the main occupier given informed consent?
+              </dd>
+              <dt class="govuk-summary-list__value">
+               Yes
+              </dt>
+            </div>
+          </div>
+        </dl>
+      </div>
+
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Police check
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__key" style="width: 30%;">
+                Information requested
+              </dd>
+              <dt class="govuk-summary-list__value">
+                13 Nov 2024
+              </dt>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__key">
+              Summarise the information provided 
+              </dd>
+              <dt class="govuk-summary-list__value">
+               Here is the summary of the information from the police
+              </dt>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__key">
+              Information sent
+              </dd>
+              <dt class="govuk-summary-list__value">
+               25 Nov 2024
+              </dt>
+            </div>
+            </div>
+          </dl>
+        </div>
+
+
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Children’s services
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key" style="width: 30%;">
+                  Information requested
+                </dd>
+                <dt class="govuk-summary-list__value">
+                  13 Nov 2024
+                </dt>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                Summarise the information provided 
+                </dd>
+                <dt class="govuk-summary-list__value">
+                 Here is the summary of the information from the children’s services
+                </dt>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                  Information sent
+                </dd>
+                <dt class="govuk-summary-list__value">
+                 25 Nov 2024
+                </dt>
+              </div>
+              </div>
+            </dl>
+          </div>
+
+
+
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Suitability decision
+                </h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key" style="width: 30%;">
+                      Is this address suitable?
+                    </dd>
+                    <dt class="govuk-summary-list__value">
+                      Yes
+                    </dt>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                      Information to support your decision
+                    </dd>
+                    <dt class="govuk-summary-list__value">
+                      No concerns
+                    </dt>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                      Information for the monitoring contractor (optional)
+                    </dd>
+                    <dt class="govuk-summary-list__value">
+                      None entered
+                    </dt>
+                  </div>
+                  </div>
+                </dl>
+              </div>
+{% endif %}
+
+
+
+
+
+<h3 class="govuk-heading-m" style="margin-top: 80px;">Unsuitable release options</h3>
+
+
+{% if data.journey=="casNoPreference" %}
+<p>No unsuitable release options</p>
+{% else %}
+
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
+
+  {% if data.journey=="cas2application" %} 
+
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Preferred area
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+      <!--Preferred area start-->
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas2-suitability-a">Change</a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sheffield
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional information 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Person has relatives in the area
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Check if area is suitable
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key" style="width: 30%;">
+          Is this area suitable?
+        </dd>
+        <dt class="govuk-summary-list__value">
+          No
+        </dt>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Information to support your decision
+        </dd>
+        <dt class="govuk-summary-list__value">
+          There have been concerns with the requested areas/locations.
+        </dt>
+      </div>
+      </div>
+    </dl>
+  </div>
+
+
+    
+
+
+    </div>
+  </div>
+
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Second area
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+      <!--Second area start-->
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Second area
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="./cas/cas2-suitability-b">Change</a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Town or city
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Doncaster
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          County or borough
+        </dt>
+        <dd class="govuk-summary-list__value">
+          South Yorkshire
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional information 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Person has been released to this area before
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Check if area is suitable
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key" style="width: 30%;">
+          Is this area suitable?
+        </dd>
+        <dt class="govuk-summary-list__value">
+          No
+        </dt>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Information to support your decision
+        </dd>
+        <dt class="govuk-summary-list__value">
+          There have been concerns with the requested areas/locations.
+        </dt>
+      </div>
+      </div>
+    </dl>
+  </div>
+
+
+    </div>
+  </div>
+
+  {% else %} 
+
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Preferred address
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+      <!--card start-->
+ <div class="govuk-summary-card">
+        
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred address
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link govuk-link--no-visited-state" href="./residential/address-details-1">Change</a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt> 
+        <dt class="govuk-summary-list__value">
+            4 Inner Street</br>
+            Grantham</br>
+            NG31 6HN
+        </dt>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Outcome
+        </dt> 
+        <dt class="govuk-summary-list__value">
+          Unsuitable – Main occupier has not consented to release here
+        </dt>
+      </div>
+  
+    </dl>
+  </div>  
+
+</div>
+<!--card end-->
+
+
+
+        
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Main occupier
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+           Sarah Martin
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          020 555 3083
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Relation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sister
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Resident 1
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Amelia Martin
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Relation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Cousin
+        </dd>
+      </div>
+      </div>
+    </dl>
+  </div>
+
+
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Resident 2
+      </h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            James Martin
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Relation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Cousin
+          </dd>
+        </div>
+        </div>
+      </dl>
+    </div>
+
+    
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Address details and informed consent
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__key" style="width: 30%;">
+              Is the address connected to an electricity supply?
+            </dd>
+            <dt class="govuk-summary-list__value">
+              Yes
+            </dt>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__key">
+              Have you visited this address in person?
+            </dd>
+            <dt class="govuk-summary-list__value">
+              I have not visited the address but I have spoken to the main occupier 
+            </dt>
+          </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__key">
+                Has the main occupier given informed consent?
+              </dd>
+              <dt class="govuk-summary-list__value">
+               No
+              </dt>
+            </div>
+          </div>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+
+  {% endif %} 
+
+
+
+
+</div>
+{% endif %}
+
+
+
+
+
+
+
+
+<form action="../case-overview" method="post" novalidate>
+
+  {% if data.ApprovedPremisesOutcome=="withdrawn" %}
+  <input type="hidden" name="sendChecksPrison" value="withdrawn">
+  {% else %}
+  <input type="hidden" name="sendChecksPrison" value="yes">
+  {% endif %}
+
+
+  <h3 class="govuk-heading-m govuk-!-static-margin-top-8">Submit for decision</h3>
+
+  <p>Once you submit the application, it will be reviewed by a decision maker in the prison. They will contact you if they need more information.</p>
+
+    <div class="govuk-button-group">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Submit
+    </button>
+    </div>
+
+  </div>
+</form>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

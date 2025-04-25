@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+        <form action="additional-info" method="post" novalidate>
+
+                  <h1 class="govuk-heading-l govuk-!-margin-top-6">Where does this person want to be released?</h1>
+        
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-label--s" for="passport-number">
+                        Town or city 
+                      </label>
+                      <input class="govuk-input govuk-input--width-10" id="passport-number" name="passportNumber" type="text" aria-describedby="passport-number-hint">
+                    </div>
+
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-label--s" for="passport-number">
+                        County or borough
+                      </label>
+                      <input class="govuk-input govuk-input--width-10" id="passport-number" name="passportNumber" type="text" aria-describedby="passport-number-hint">
+                    </div>
+      
+
+<!--If they have provided 2 CAS areas, say if this is their preferred or second address-->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
+        Set address preference 
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Preferred CAS area
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland" checked>
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Second CAS area
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+          <input type="hidden" name="communityaccommodation" value="two">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+        </form>
+
+</div>
+</div>
+</main>
+</div>
+{% endblock %}

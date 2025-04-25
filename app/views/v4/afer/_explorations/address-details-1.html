@@ -1,0 +1,154 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">Select an address to check</h1>
+
+
+<h2 class="govuk-heading-m">Address information from George</h2>
+
+
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Preferred address
+    </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+            4 Inner Street</br>
+            Grantham</br>
+            NG31 6HN
+        </dt>
+        <dd class="govuk-summary-list__actions"></td></dd>
+      </div>
+  
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+
+  <!--tasklist start-->
+
+  <h2 class="app-task-list__section govuk-!-margin-top-8">Checks to do</h2>
+  <ul class="app-task-list__items">
+
+
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="occupier-check-1">
+             Occupier
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="police-check-1">
+             Police
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="socialservices-check-1">
+             Social services
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-1">
+             Suitablity decision
+            </a>
+            </br>
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+          </span>
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+        </li>
+
+
+   
+
+  </ul>
+
+
+<!--tasklist end-->
+       
+
+<div class="govuk-button-group">
+  <a href="../tasklist" class="govuk-button">Back to x</a>
+  </div>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

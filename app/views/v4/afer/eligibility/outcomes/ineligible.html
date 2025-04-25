@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container govuk-!-margin-top-8">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation" style="background-color: #d4351c;">
+          <h1 class="govuk-panel__title">
+            Eligibility and suitability checks complete
+          </h1>
+          <div class="govuk-panel__body">
+            <img style="width:6%; padding-right: 5px;" src="/public/images/icons/icon-grid-125x125_cross_white.svg"/>
+            Ineligible for HDC
+          </div>
+        </div>
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">Eligibility and suitability decision</h2>
+
+        <p class="govuk-body">George Jennings is ineligible for HDC because:</p>
+
+        <div class="govuk-inset-text">
+
+          {% if data.ineligiblereason=="deportationorders"%}
+
+          They are liable to deportation
+
+          {% else %}
+
+          [REASON]
+
+          {% endif %}
+          
+        </div>
+
+       
+        <h2 class="govuk-heading-m">Next steps</h2>
+
+        <p class="govuk-body">
+          Download the following letter to tell George that they are ineligible for HDC. 
+
+          <p class="govuk-body"><a class="govuk-link" href="#">
+            <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+              <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z" />
+            </svg>
+            Home detention curfew: not eligible
+          </a>
+          </p>
+        </p>
+
+
+        <form action="/v4/ineligibleoutcome" method="post" novalidate>
+          <input type="hidden" name="ineligible" value="yes">
+          <input type="hidden" name="eligibility" value="complete">
+
+        <div class="govuk-button-group" style="margin-top: 40px;">
+          <button type="submit" class="govuk-button" data-module="govuk-button" name="confirmationnav" value="caselist">
+            Return to case list
+          </button>
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="confirmationnav" value="overview">
+            Return to application overview
+          </button>
+        </div>
+        
+        </form>
+
+        
+
+        <p class="govuk-body" style="margin-top: 50px; margin-bottom: -50px;">
+          <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

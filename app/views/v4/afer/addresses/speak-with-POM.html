@@ -1,0 +1,125 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-6">Consult the VLO and POM</h1>
+
+      <p class="govuk-body">Completing this task will help the decision maker in the prison decide if this person is right for early release on HDC.</p>
+
+  
+  <form class="form" action="/v4/speakwithpom" method="post" novalidate>
+      
+  <div class="govuk-form-group govuk-!-margin-top-6">
+
+    {% set textHtmlOther %}
+               
+               {{ govukTextarea({
+                 name: "vloInfo",
+                 id: "vloInfo",
+                 rows: "6",
+                 label: {
+                   text: "Enter details of any requests the victim has made. For example, whether exclusion zones have been requested."
+                 }
+               }) }}
+     
+               {% endset -%}
+
+               {{ govukRadios({
+                name: "isVlo",
+                fieldset: {
+                  legend: {
+                    text: "Does this case qualify for the Victim Contact Scheme and has the victim opted in?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "If so, victims must be given 14 days to make representations to the VLO about licence conditions and the impact of this person’s release."
+                },
+                items: [
+                {
+                  value: "vloYes",
+                  text: "Yes",
+                  conditional: {
+                    html: textHtmlOther
+                  }
+                },
+                  {
+                    value: "vloNo",
+                    text: "No"
+                  }
+                  
+                ]
+              }) }}
+
+
+    <fieldset class="govuk-fieldset govuk-!-margin-top-6">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        What information has the POM provided about the behaviour of this person while in prison?
+      </legend>
+      <div id="dob-hint" class="govuk-hint">
+        You must contact the POM to find out information like:
+        <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; text-decoration: #505a5f;">
+          <li>any concerns about them being released on HDC</li>
+          <li>if there have been any changes to their level of risk</li>
+          <li>if they need any medical or mental health treatment after release</li>
+        </ul>
+      </div>
+      <textarea class="govuk-textarea" id="moredetailPOM" name="moredetailPOM" rows="5"></textarea>
+    </fieldset>
+  </div>
+
+  
+
+  <div class="govuk-button-group" style="margin-top: -30px;">
+    <button type="submit" class="govuk-button" data-module="govuk-button" name="RiskChecks" value="completed">
+      Save
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="RiskChecks" value="no">
+      Cancel
+    </button>
+  </div>  
+
+
+         </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

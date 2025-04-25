@@ -1,0 +1,570 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+
+    <!--new profile banner start-->
+    <div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
+      <div class="mini-profile-inner">
+          <div class="mini-profile-left">
+              <img class="mini-profile-person-img" src="/public/images/prisoner-profile-image.png" alt="Image of Last, First" loading="lazy" data-qa="mini-profile-person-img">
+          </div>
+          <div class="mini-profile-right">
+              <ul class="mini-profile-info">
+                  <li>
+                      <p class="govuk-heading-s govuk-!-margin-bottom-1">
+                          <a id="mini-profile-link" class="govuk-link--no-visited-state" href="#" target="_blank" data-qa="mini-profile-person-profile-link">
+                          {% if data.journey=="28daysjourney"%}
+                          David Lee
+                          {% elseif data.journey=="casNoPreference"%}
+                          Julian Murphy
+                          {% elseif data.journey=="cas2application" %}
+                          Ryan Rees
+                          {% elseif data.journey=="cas1application" %}
+                          Lenny Wallace
+                          {% else %}
+                          George Jennings
+                          {% endif %}
+                          </a>
+                      </p>
+                      <span class="govuk-body" data-qa="mini-profile-prisoner-number">
+                        {% if data.journey=="28daysjourney"%}
+                        G93332
+                        {% elseif data.journey=="cas2application" %}
+                        G87634
+                        {% else %}
+                        G5613GT
+                        {% endif %}
+                      </span>
+                  </li>
+                  {% if data.journey=="28daysjourney"%}
+                  <li style="margin-left: 90px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">01 Jan 1980</span></li>
+                  {% elseif data.journey=="cas1application" %}
+                  <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">13 Apr 1999</span></li>
+                  {% elseif data.journey=="cas2application" %}
+                  <li style="margin-left: 85px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">12 Jul 1987</span></li>
+                  {% else %}
+                  <li style="margin-left: 55px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span><span class="govuk-body" data-qa="mini-profile-dob">27 Sep 1998</span></li>
+                  {% endif %}
+                  
+                  <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Location</span><span class="govuk-body" data-qa="mini-profile-prison-name">HMP Prison</span></li>
+                  <li><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span><span class="govuk-body" data-qa="mini-profile-cell-location">A-1-1</span></li></br></br>
+                  <li style="margin-left: 205px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">HDCED</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                    {% if data.journey=="28daysjourney"%}
+                    {{ "today" |  duration(20) | govukDate("truncate") }}
+                    {% elseif data.journey=="cas1application"%}
+                    {{ "today" |  duration(128) | govukDate("truncate") }}
+                    {% elseif data.journey=="cas2application"%}
+                    {{ "today" |  duration(100) | govukDate }}
+                    {% else %}
+                    {{ "today" |  duration(93) | govukDate("truncate") }}
+                    {% endif %}
+                  </span></li>
+                  <li style="margin-left: 0px;"><span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">CRD</span><span class="govuk-body" data-qa="mini-profile-cell-location">
+                    {% if data.journey=="28daysjourney"%}
+                    {{ "today" |  duration(36) | govukDate("truncate") }}
+                    {% elseif data.journey=="cas1application"%}
+                    {{ "today" |  duration(185) | govukDate }}
+                    {% elseif data.journey=="cas2application"%}
+                    {{ "today" |  duration(153) | govukDate }}
+                    {% else %}
+                    {{ "today" |  duration(126) | govukDate("truncate") }}
+                    {% endif %}
+                  </span></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+    <!--new profile banner end-->
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-static-margin-top-6">Confirm if George can be released on HDC</h1>
+
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Check if an address is suitable</h3>
+
+        <p class="govuk-body">This information has been completed by Mark Coombes, this person’s allocated probation practitioner.</p>
+
+  
+
+
+
+    <!--card start-->
+<div class="govuk-summary-card">
+
+<div class="govuk-summary-card__title-wrapper">
+  <h2 class="govuk-summary-card__title">
+    Proposed address
+  </h2>
+</div>
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+          4 Inner Street</br>
+          Grantham</br>
+          NG31 6HN
+      </dt>
+      <!--<dd class="govuk-summary-list__key">
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>-->
+    </div>
+
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+
+ 
+    <!--card start-->
+<div class="govuk-summary-card">
+
+<div class="govuk-summary-card__title-wrapper">
+  <h2 class="govuk-summary-card__title">
+    Details of residents
+  </h2>
+</div>
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Main occupier
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Leanna Martin
+      </dd>
+      <dd class="govuk-summary-list__value">
+        Mother
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Other residents	
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Greg Martin
+      </dd>
+      <dd class="govuk-summary-list__value">
+        Brother</br>
+        Age: 17</br>
+        Date of birth: 2 May 2007
+      </dd>
+    </div>
+
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+
+
+    <h4 class="govuk-heading-s govuk-!-static-margin-top-6">Suitability checks</h4>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <!--check your answers start-->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Have you visited this address in person?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Has the main occupier given informed consent for George to be released here?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Is the address connected to an electricity supply?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              What information have you found from the police and children’s services about the proposed address?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Checks have been completed with police for Mr Jennings. Also DV checks and child safeguarding checks completed.
+            </dt>
+            <!--<dd class="govuk-summary-list__actions">
+            </dd>-->
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Is this address suitable for George to be released to?
+            </dd>
+            <dt class="govuk-summary-list__key">
+              Yes
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <!--<div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              Information to support your decision
+            </dd>
+            <dt class="govuk-summary-list__key">
+             –
+            </dt>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>-->
+      <!--check your answers end-->
+      </div>
+      </div>
+
+
+      <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Assess this person’s risk</h3>
+
+      <p class="govuk-body">This information has been completed by Mark Coombes, this person’s allocated probation practitioner.</p>
+        
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <!--check your answers start-->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                What information has the POM provided about the behaviour of George while in prison?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                Mr Jennings has made good progress in custody
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Does George need a mental health plan to help manage risk?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Have you consulted with prison healthcare?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there a victim liaison officer (VLO) for this case? 
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <!--<div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Give details of any concerns victims have about George being released to the proposed address.
+              </dd>
+              <dt class="govuk-summary-list__key">
+                –
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>-->
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there any information that cannot be disclosed to George?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <!--<div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Give details of information that cannot be disclosed.
+              </dd>
+              <dt class="govuk-summary-list__key">
+                –
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>-->
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Can George be managed safely in the community if they are released to the proposed address?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                Yes
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <!--<div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Add information to support your decision
+              </dd>
+              <dt class="govuk-summary-list__key">
+                 –
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>-->
+        <!--check your answers end-->
+        </div>
+        </div>
+
+
+
+        <h3 class="govuk-heading-m govuk-!-static-margin-top-6">Pre-decision checks</h3>
+
+      <p class="govuk-body">This information has been completed by Jessica Smith at HMP Wandsworth.</p>
+        
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <!--check your answers start-->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there an outstanding investigation with the police or independent adjudicator? 
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is George currently on remand?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is George subject to a confiscation order?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is there an outstanding application under the unduly lenient scheme for George?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                Is George currently segregated (except solely for their own protection)?
+              </dd>
+              <dt class="govuk-summary-list__key">
+                No
+              </dt>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            </div>
+        <!--check your answers end-->
+        </div>
+
+      
+
+
+      <h2 class="govuk-heading-l govuk-!-static-margin-top-6">Release decision</h2>
+
+
+<!--new-->
+
+<form method="post" action="">
+  
+<div class="govuk-form-group">
+  <div class="govuk-radios govuk-radios--inline">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Have there been any changes in this person’s behaviour or level of risk?
+    </legend>
+    <div class="govuk-hint">You must check with their POM.</div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+        No
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    Add more information   
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+</div>
+
+
+<div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    Is this information up to date?
+  </legend>
+  <div class="govuk-hint">Select no if there has been a change in this person’s behaviour or circumstances.</div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="infoUptodate" name="infoUptodate" type="radio" value="yes">
+    <label class="govuk-label govuk-radios__label" for="infoUptodate">
+      Yes
+    </label>
+  </div>
+  <div class="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="infoUptodate-2" name="infoUptodate" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="infoUptodate-2">
+        No
+      </label>
+    </div>
+  </div>
+</div>
+
+
+  <div class="govuk-radios govuk-radios--inline govuk-!-margin-top-8">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Can this person be released on HDC?
+    </legend>    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="hdc-release" name="hdc-release" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="hdc-release">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hdc-release-2" name="hdc-release" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="hdc-release-2">
+         No
+        </label>
+      </div>
+    </div>
+  </div>
+      <br /><br />
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="more-detail">
+          Add more information to support your decision (optional)
+        </label>
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+      </div>
+
+
+
+
+    <div class="govuk-button-group">
+      <a href="./confirmation" class="govuk-button">Submit</a></br>
+      <a href="../case-overview.html" class="govuk-button govuk-button--secondary">Cancel</a></br>
+    </div>
+
+    <!--<div class="govuk-button-group">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Submit
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Cancel
+    </button>
+  </div>-->
+
+  </div>
+</form>
+
+
+             
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

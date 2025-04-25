@@ -1,0 +1,111 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/v4/CASaccomodationType" method="post" novalidate>
+
+        <div class="govuk-form-group govuk-!-margin-top-6">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              Select which type of accommodation
+              {% if data.journey=="casNoPreference"%}
+              Julian
+              {% elseif data.journey=="cas2application"%}
+              Ryan
+              {% elseif data.journey=="cas1application"%}
+              Lenny
+              {% else %}
+              George
+              {% endif %} needs
+            </legend>
+            <!--<div id="dob-hint" class="govuk-hint">
+              If you select Approved Premises (CAS-1), you will not need to check if their release area is suitable in this service.
+            </div>-->
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accomodationType" name="accomodationType" type="radio" value="cas1">
+                <label class="govuk-label govuk-radios__label" for="accomodationType">
+                  Approved Premises (CAS-1)
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  You will not need to check if their release area is suitable in this service.
+                </div>
+              </div>
+
+              {% if data.journey=="casNoPreference" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accomodationType-2" name="accomodationType" type="radio" value="cas2nopref">
+                <label class="govuk-label govuk-radios__label" for="accomodationType-2">
+                  Short-term accommodation (CAS-2)
+                </label>
+              </div>
+              {% else %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accomodationType-2" name="accomodationType" type="radio" value="cas2">
+                <label class="govuk-label govuk-radios__label" for="accomodationType-2">
+                  Short-term accommodation (CAS-2)
+                </label>
+              </div>
+              {% endif %}
+            </div>
+          </fieldset>
+        </div>
+
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+
+      </form>
+
+
+
+
+
+
+
+
+      
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

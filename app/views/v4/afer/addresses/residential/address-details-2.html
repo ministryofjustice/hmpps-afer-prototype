@@ -1,0 +1,239 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-8">Check if a curfew address is suitable</h1>
+
+    <p>Completing these checks will help the decision maker in the prison decide if this person is right for early release on HDC.</p>
+
+    
+<!--card start-->
+<br>
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Second address
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        {% if data.ResidentialSuitabilityDecision=="yes" %}
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+        {% else %}
+        <span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+          51 Hill Street</br>
+          Grantham</br>
+          N1J 5NB
+        </dt>
+      </div>
+  
+    </dl>
+  </div>
+  
+  </div>
+  <!--card end-->
+
+
+  
+
+
+  <!--tasklist start-->
+
+  
+  <h2 class="app-task-list__section govuk-!-margin-top-8">Address checks</h2>
+
+ 
+
+
+  <ul class="app-task-list__items">
+
+        <li class="app-task-list__item" style="margin-left: -30px;">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="occupier-check-2">
+             Address details and informed consent
+            </a>
+            </br>
+            {% if data.OccupierChecks=="completed" %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% endif %}
+          </span>
+          {% if data.OccupierChecks=="completed" %}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
+        </li>
+
+
+        <li class="app-task-list__item" style="margin-left: -30px;">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="police-check-2">
+             Police check
+            </a>
+            </br>
+            {% if data.PoliceChecks=="completed" %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% endif %}
+          </span>
+          {% if data.PoliceChecks=="completed" %}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% elseif data.PoliceChecks=="started" %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag"><span style="text-transform: capitalize;">In</span><span style="text-transform: lowercase;"> progress</span></strong>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
+        </li>
+
+        <li class="app-task-list__item" style="margin-left: -30px;">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="socialservices-check-2">
+             Children's services check
+            </a>
+            </br>
+            {% if data.SocialservicesChecks=="completed" %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% endif %}
+          </span>
+          {% if data.SocialservicesChecks=="completed" %}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% elseif data.SocialservicesChecks=="started" %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag"><span style="text-transform: capitalize;">In</span><span style="text-transform: lowercase;"> progress</span></strong>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
+        </li>
+
+
+        <!--<li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a class="govuk-link govuk-link--no-visited-state" href="risk-check-2">
+             Assess this person's risk
+            </a>
+            </br>
+            {% if data.RiskChecks=="completed" %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% else %}
+            {% endif %}
+          </span>
+          {% if data.RiskChecks=="completed" %}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% endif %}
+        </li>-->
+
+        
+        <li class="app-task-list__item" style="margin-left: -30px;">
+          <span class="app-task-list__task-name">
+            {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
+            <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
+              Suitablity decision
+            </a>
+            {% elseif (data.OccupierChecks=="completed") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") %}
+            <a class="govuk-link govuk-link--no-visited-state" href="suitabilitydecision-2">
+              Suitablity decision
+            </a>
+            {% else %}
+            Suitablity decision
+            {% endif %}
+            </br>
+            {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
+            <div id="company-details-3-hint" class="govuk-task-list__hint" style="color: #505a5f	;">
+             Recorded on {{ "today" |  duration(0) | govukDate("truncate") }} by Mark Coombes
+            </div>
+            {% endif %}
+          </span>
+          
+          
+          {% if (data.ResidentialSuitabilityDecision=="yes") or (data.ResidentialSuitabilityDecision=="no") %}
+          <p class="govuk-body" style="text-align: right;">Completed</p>
+          {% elseif (data.OccupierChecks=="completed") and (data.PoliceChecks=="completed") and (data.SocialservicesChecks=="completed") %}
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Incomplete</strong>
+          {% else %}
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-status" style="text-transform: capitalize;">Cannot<span style="text-transform: lowercase;"> start</span></strong>
+          {% endif %}
+        </li>
+   
+
+  </ul>
+
+
+<!--tasklist end-->
+
+<form action="/v4/addresschecks" method="post" novalidate>
+
+  <input type="hidden" name="passedDeadline" value="yes">
+
+  <div class="govuk-button-group">
+    <button type="submit" class="govuk-button" data-module="govuk-button" name="nav" value="tasklist">
+      Return to address or area details
+    </button>
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="nav" value="overview">
+      Return to application overview
+    </button>
+  </div>
+
+
+</form>
+
+
+       
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

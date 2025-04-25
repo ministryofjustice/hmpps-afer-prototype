@@ -1,0 +1,143 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+<head>
+  <!-- // ... -->
+  <link rel="stylesheet" href="assets/stylesheet/govuk-frontend.min.css">
+  <!-- // ... -->
+</head>
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">
+        [New copy] Select someone's HDC application to work on</br>
+      </h1>
+
+
+     <!--Search field start-->
+     
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+        
+        
+            <div class="moj-search govuk-!-margin-bottom-8">
+        
+              <form action="#" method="post">
+            
+                <div class="govuk-form-group">
+                  <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+                    Find an application
+                  </label>
+            
+                  {% if (data.user=="admin") or (data.user=="decisionmaker") %}
+                  <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
+                    Search by name, prison number or probation practitioner
+                  </div>
+                  {% else %}
+                  <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 470px;">
+                    Search by name, CRN or probation practitioner
+                  </div>
+                  {% endif %}
+            
+                  <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+                </div>
+            
+                <button class="govuk-button moj-search__button " data-module="govuk-button">
+                  Search
+                </button>
+            
+              </form>
+            </div>
+        
+        
+        </div>
+        </div>
+        
+      <!--Search field start-->
+
+      <!--sub nav start-->
+      <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" aria-current="page" href="case-list-tab-one">My cases</a>
+          </li>
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="case-list-tab-two">Team cases</a>
+          </li>
+        </ul>
+        
+      </nav>      
+      <!--sub nav end-->
+
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-6">My cases</h2>
+
+
+      
+      <!--table start-->
+      <table class="govuk-table" data-module="moj-sortable-table">
+          
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+      
+            <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+            <!--<th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>-->
+            <th scope="col" class="govuk-table__header" aria-sort="none">HDCAD</th>
+            <th scope="col" class="govuk-table__header" aria-sort="descending">CRD</th>
+          </tr>
+        </thead>
+      
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a class="govuk-link govuk-link--no-visited-state" href="case-overview">Jennings, George</a>
+              </br>
+              <div class="govuk-hint govuk-!-font-size-16">CRN: G5613GT</div>
+            </td>
+            <!--<td class="govuk-table__cell">Mark Coombes</td>-->
+            <td class="govuk-table__cell">{{ "today" |  duration(100) | govukDate }}</td>
+            <td class="govuk-table__cell">{{ "today" |  duration(153) | govukDate }}</td>
+          </tr>
+      
+        </tbody>
+      </table>
+      <!--table end-->
+  
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

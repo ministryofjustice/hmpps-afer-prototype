@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:20">Back</a>
+{% endblock %}
+
+{% block content %}
+{% include "includes/layouts/personaldetails.html" %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form action="../../case-overview" method="post" novalidate>
+          
+          
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+         
+            <div class="govuk-form-group govuk-!-margin-top-6">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  Enter the address of the accommodation
+                </legend>
+                <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-line-1">
+                    Address line 1
+                  </label>
+                  <input class="govuk-input" id="cas2address-line-1" name="cas2addressLine1">
+                  {% else %}
+                  <label class="govuk-label" for="cas1address-line-1">
+                    Address line 1
+                  </label>
+                  <input class="govuk-input" id="cas1address-line-1" name="cas1addressLine1">
+                  {% endif %}
+                </div>
+                <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-line-2">
+                    Address line 2 (optional)
+                  </label>
+                  <input class="govuk-input" id="cas2address-line-2" name="cas2addressLine2">
+                  {% else %}
+                  <label class="govuk-label" for="cas1address-line-2">
+                    Address line 2 (optional)
+                  </label>
+                  <input class="govuk-input" id="cas1address-line-2" name="cas1addressLine2">
+                  {% endif %}
+                </div>
+                <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-town">
+                    Town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="cas2address-town" name="cas2addressTown">
+                  {% else %}
+                  <label class="govuk-label" for="cas1address-town">
+                    Town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="cas1address-town" name="cas1addressTown">
+                  {% endif %}
+                </div>
+                <div class="govuk-form-group">
+                  {% if (data.user=="admin") %}
+                  <label class="govuk-label" for="cas2address-postcode">
+                    Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="cas2address-postcode" name="cas2addressPostcode">
+                  {% else %}
+                  <label class="govuk-label" for="cas1address-postcode">
+                    Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="cas1address-postcode" name="cas1addressPostcode">
+                  {% endif %}
+                </div>
+              </fieldset>
+            </div>
+
+            </div>
+            </div>
+
+          
+            {% if (data.user=="admin") %}
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="cas2addressadded" value="yes">
+                Save
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="cas2addressadded" value="no">
+                Cancel
+              </button>
+            </div>    
+            {% else %}
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="cas1addressadded" value="yes">
+                Save
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="cas1addressadded" value="no">
+                Cancel
+              </button>
+            </div>    
+            {% endif %}
+
+
+
+        </form>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
