@@ -134,51 +134,51 @@
         </h2>
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#yourwork">
+            <a class="govuk-tabs__tab" href="#yourwork" style="margin-left: -3px; margin-right: -3px;">
               To work on by you
             </a>
           </li>
           {% if data.user=="admin" %}
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#ppwork">
+            <a class="govuk-tabs__tab" href="#ppwork" style="margin-left: -3px; margin-right: -3px;">
               With probation
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#dmwork">
+            <a class="govuk-tabs__tab" href="#dmwork" style="margin-left: -3px; margin-right: -3px;">
               With decision maker
             </a>
           </li>
           {% elseif data.user=="probation" %}
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#cawork">
+            <a class="govuk-tabs__tab" href="#cawork" style="margin-left: -3px; margin-right: -3px;">
               With prison admin
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#dmwork">
+            <a class="govuk-tabs__tab" href="#dmwork" style="margin-left: -3px; margin-right: -3px;">
               With decision maker
             </a>
           </li>
           {% elseif data.user=="decisionmaker" %}
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#cawork">
+            <a class="govuk-tabs__tab" href="#cawork" style="margin-left: -3px; margin-right: -3px;">
               With prison admin
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#ppwork">
+            <a class="govuk-tabs__tab" href="#ppwork" style="margin-left: -3px; margin-right: -3px;">
               With probation
             </a>
           </li>
           {% endif %}
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#postponed">
+            <a class="govuk-tabs__tab" href="#postponed" style="margin-left: -3px; margin-right: -3px;">
               Postponed
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#readyforrelease">
+            <a class="govuk-tabs__tab" href="#readyforrelease" style="margin-left: -3px; margin-right: -3px;">
               Assessment completed
             </a>
           </li>
@@ -244,7 +244,7 @@
                 </td>
                 <td class="govuk-table__cell">
                   {% if data.user=="decisionmaker" %}
-                  Approve licence
+                  Confirm if David can be released on HDC 
                   {% elseif data.user=="probation" %}
                   {% if data.journey=="28daysjourney"%}
                   <dd class="govuk-summary-list__value due-date" data-sort-value="1">
@@ -452,7 +452,7 @@
                 {% if data.user=="decisionmaker" %}
                 <td class="govuk-table__cell">Confirm if Ryan can be released on HDC </td>
                 {% elseif data.user=="probation" %}
-                <td class="govuk-table__cell">Speak with their POM</td>
+                <td class="govuk-table__cell">Consult the VLO and POM</td>
                 {% elseif data.user=="admin" %}
                 <td class="govuk-table__cell">Assess eligibility and suitability</td>
                 {% endif %}
@@ -491,7 +491,7 @@
                 {% if data.user=="decisionmaker" %}
                 <td class="govuk-table__cell">Confirm if Lenny can be released on HDC </td>
                 {% elseif data.user=="probation" %}
-                <td class="govuk-table__cell">Speak with their POM</td>
+                <td class="govuk-table__cell">Consult the VLO and POM</td>
                 {% elseif data.user=="admin" %}
                 <td class="govuk-table__cell">Assess eligibility and suitability</td>
                 {% endif %}
@@ -522,7 +522,9 @@
                 <td class="govuk-table__cell">91</td>
                 <td class="govuk-table__cell">Jessica Smith</td>
                 <td class="govuk-table__cell">
-                  {% if data.user=="decisionmaker" %}
+                  {% if data.user=="admin" %}
+                  Assess eligibility and suitability
+                  {% elseif data.user=="decisionmaker" %}
                   Confirm if Julian can be released on HDC
                   {% else %}
                   Check addresses or community accommodation
@@ -912,13 +914,16 @@
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="readyforrelease">
           <h2 class="govuk-heading-l">Assessment completed</h2>
 
-          <!--descope-->
+          
           <p class="govuk-body">People in this list have been checked to make sure they can still be released on HDC after having their application approved.</p>
           <p class="govuk-body">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Go to Create and vary a licence</a>  
-            if you want to check their licence.
+            {% if data.user=="admin" %}
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Go to Create and vary a licence</a> to view and print their licence. 
+            {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Go to Create and vary a licence</a> if you want to check their licence.
+            {% endif %}
           </p>
-          <!--descope-->
+          
 
           <!--content ready for release start-->
         

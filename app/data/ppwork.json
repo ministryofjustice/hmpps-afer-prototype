@@ -6,7 +6,7 @@
         "eligibilitydate": "3 Nov 2024",
         "daysremaining": 32,
         "staffname": "Emily Zhang",
-        "task": "Check addresses or community accommodation"
+        "task": "Review application and submit for decision"
     },
     {
         "name": "Hernandez, Carlos",
@@ -15,7 +15,7 @@
         "eligibilitydate": "13 Nov 2024",
         "daysremaining": 42,
         "staffname": "Emily Zhang",
-        "task": "Create licence"
+        "task": "Record non-disclosable information"
     },
     {
         "name": "Adeyemi, Oluwatobi",
@@ -24,6 +24,6 @@
         "eligibilitydate": "15 Nov 2024",
         "daysremaining": 44,
         "staffname": "Jessica Stewart",
-        "task": "Create licence"
+        "task": "Check addresses or community accommodation"
     }
 ]

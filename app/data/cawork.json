@@ -42,7 +42,7 @@
         "eligibilitydate": "9 Dec 2024",
         "daysremaining": 68,
         "staffname": "Michael Adeyemi",
-        "task": "Prepare for release"
+        "task": "Complete 2-day check"
     },
     {
         "name": "Johnson, Malik",
@@ -51,7 +51,7 @@
         "eligibilitydate": "7 Jan 2025",
         "daysremaining": 97,
         "staffname": "Emily Zhang",
-        "task": "Prepare for release"
+        "task": "Complete 14-day check"
     },
     {
         "name": "Garcia, Luis",
@@ -60,7 +60,7 @@
         "eligibilitydate": "19 Jan 2025",
         "daysremaining": 109,
         "staffname": "Emily Zhang",
-        "task": "Prepare for release"
+        "task": "Review application and send for decision"
     },
     {
         "name": "Wilson, DeShawn",
