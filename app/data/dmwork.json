@@ -6,7 +6,7 @@
         "eligibilitydate": "18 Nov 2024",
         "daysremaining": 47,
         "staffname": "Rebecca Johnson",
-        "task": "Confirm if George can be released on HDC"
+        "task": "Confirm if [first name] can be released on HDC"
     },
     {
         "name": "Chang, Wei",
@@ -15,7 +15,7 @@
         "eligibilitydate": "15 Dec 2024",
         "daysremaining": 74,
         "staffname": "Mohammed Ali",
-        "task": "Confirm if George can be released on HDC"
+        "task": "Confirm if [first name] can be released on HDC"
     },
     {
         "name": "Abiola, Tunde",
@@ -24,7 +24,7 @@
         "eligibilitydate": "24 Dec 2024",
         "daysremaining": 83,
         "staffname": "Aisha Thompson",
-        "task": "Approve licence"
+        "task": "Confirm if [first name] can be released on HDC"
     },
     {
         "name": "Jackson, Tyler",
@@ -33,6 +33,6 @@
         "eligibilitydate": "25 Jan 2025",
         "daysremaining": 115,
         "staffname": "Mohammed Ali",
-        "task": "Approve licence"
+        "task": "Confirm if [first name] can be released on HDC"
     }
 ]
