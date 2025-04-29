@@ -397,9 +397,16 @@
 
 
             <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="readyforrelease">
-              <h2 class="govuk-heading-l">Ready for release</h2>
+              <h2 class="govuk-heading-l">Assessment completed</h2>
 
-              <!--content ready for release start-->
+              <p class="govuk-body">People in this list have been checked to make sure they can still be released on HDC after having their application approved.</p>
+              <p class="govuk-body">
+                {% if data.user=="admin" %}
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Go to Create and vary a licence</a> to view and print their licence. 
+                {% elseif (data.user=="probation") or (data.user=="decisionmaker") %}
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Go to Create and vary a licence</a> if you want to check their licence.
+                {% endif %}
+              </p>
             
               <!--table start-->
               <table class="govuk-table" data-module="moj-sortable-table">
