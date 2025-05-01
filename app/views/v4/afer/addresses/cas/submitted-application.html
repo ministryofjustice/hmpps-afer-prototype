@@ -34,17 +34,17 @@
 
         {% if (data.user=="admin") %}
 
-        <h1 class="govuk-heading-l govuk-!-margin-top-6">View CAS-2 area and record submission of referral</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">View CAS-2 area information and record submission of referral</h1>
 
         <p class="govuk-body">
           The referral can be started on the <a class="govuk-link govuk-link--no-visited-state" href="" target="_blank">CAS-2 – short-term accommodation service</a> using the following information.
         </p>
 
-        {% if data.cas=="nopreference" %}
+
         <div class="govuk-summary-card" style="margin-top: 45px;">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-             No area preference
+             Information from the probation practitioner
             </h2>
           </div>
           <div class="govuk-summary-card__content">
@@ -62,48 +62,6 @@
           </div>
           
         </div>
-
-        {% else %}
-         <!--card start-->
-         <div class="govuk-summary-card" style="margin-top: 45px;">
-              
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Third area
-            </h2>
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Suitable</span>
-              </li>
-            </ul>
-          </div>
-        
-          
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-          
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Town or city
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Rotherham
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  County or borough
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  South Yorkshire
-                </dd>
-              </div>
-            </dl>
-           </div>
-              
-        </div>
-        <!--card end-->
-        {% endif %}
                  
         {% endif %}
           
