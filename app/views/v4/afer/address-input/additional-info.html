@@ -31,131 +31,8 @@
 
         <form action="add-another" method="post" novalidate>
 
-
-          {% if (data.communityaccommodation=="three") %}
-          
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
-              </legend>
-              <div id="changedName-hint" class="govuk-hint">
-                For example, anything the probation practitioner might need to know about this person’s choice. 
-              </div>
-
-              <div class="govuk-form-group">
-        
-            <!--START set dynamic radio hide/show text-->
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
-            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-        
-            {% set textHtmlOther %}
-            
-            {{ govukTextarea({
-              name: "casinfo3",
-              id: "casinfo3",
-              label: {
-                text: "Add more information"
-              }
-            }) }}
-
-            {% endset -%}
-        
-            <!--END set dynamic radio hide/show text-->
-        
-            {{ govukRadios({
-              idPrefix: "additionalinfo",
-              name: "additionalinfo",
-              fieldset: {
-                legend: {
-                  text: "",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend--s"
-                }
-              },
-        
-              items: [
-              {
-                value: "yes",
-                text: "Yes",
-                conditional: {
-                  html: textHtmlOther
-                }
-              },
-              {
-                value: "no",
-                text: "No"
-              }
-              ]
-            }) }}
-
-            </div>
-            </fieldset>
-            </div>
-
-          {% elseif (data.communityaccommodation=="two") %}
-          
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
-              </legend>
-              <div id="changedName-hint" class="govuk-hint">
-                For example, anything the probation practitioner might need to know about this person’s choice. 
-              </div>
-
-              <div class="govuk-form-group">
-        
-            <!--START set dynamic radio hide/show text-->
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
-            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-        
-            {% set textHtmlOther %}
-            
-            {{ govukTextarea({
-              name: "casinfo2",
-              id: "casinfo2",
-              label: {
-                text: "Add more information"
-              }
-            }) }}
-
-            {% endset -%}
-        
-            <!--END set dynamic radio hide/show text-->
-        
-            {{ govukRadios({
-              idPrefix: "additionalinfo",
-              name: "additionalinfo",
-              fieldset: {
-                legend: {
-                  text: "",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend--s"
-                }
-              },
-        
-              items: [
-              {
-                value: "yes",
-                text: "Yes",
-                conditional: {
-                  html: textHtmlOther
-                }
-              },
-              {
-                value: "no",
-                text: "No"
-              }
-              ]
-            }) }}
-
-            </div>
-            </fieldset>
-            </div>
-
          
-          {% elseif (data.cas=="specificarea") %}
+          {% if (data.communityaccommodation=="one") %}
           
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
@@ -216,66 +93,6 @@
             </fieldset>
             </div>
 
-            {% elseif (data.cas=="nopreference") %}
-          
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                  <h1 class="govuk-fieldset__heading govuk-!-margin-top-6">Do you need to enter any more information?</h1>
-                </legend>
-                <div id="changedName-hint" class="govuk-hint">
-                  For example, anything the probation practitioner might need to know about this person’s choice. 
-                </div>
-  
-                <div class="govuk-form-group">
-          
-              <!--START set dynamic radio hide/show text-->
-              {% from "govuk/components/radios/macro.njk" import govukRadios %}
-              {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-          
-              {% set textHtmlOther %}
-              
-              {{ govukTextarea({
-                name: "nocasinfo",
-                id: "nocasinfo",
-                label: {
-                  text: "Add more information"
-                }
-              }) }}
-  
-              {% endset -%}
-          
-              <!--END set dynamic radio hide/show text-->
-          
-              {{ govukRadios({
-                idPrefix: "additionalinfo",
-                name: "additionalinfo",
-                fieldset: {
-                  legend: {
-                    text: "",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--s"
-                  }
-                },
-          
-                items: [
-                {
-                  value: "yes",
-                  text: "Yes",
-                  conditional: {
-                    html: textHtmlOther
-                  }
-                },
-                {
-                  value: "no",
-                  text: "No"
-                }
-                ]
-              }) }}
-  
-              </div>
-              </fieldset>
-              </div>
           
             {% elseif (data.postcodelookup=="two") %}
           
@@ -407,17 +224,8 @@
         {% if data.addanotheraddress=="yes" %}
         <input type="hidden" name="addanotheraddress" value="yes">
         
-        {% elseif data.communityaccommodation=="three" %}
-        <input type="hidden" name="communityaccommodation" value="three">
-
-        {% elseif data.communityaccommodation=="two" %}
-        <input type="hidden" name="communityaccommodation" value="two">
-      
-        {% elseif (data.cas=="specificarea") %}
+        {% elseif data.communityaccommodation=="one" %}
         <input type="hidden" name="communityaccommodation" value="one">
-        
-        {% elseif (data.cas=="nopreference") %}
-        <input type="hidden" name="communityaccommodation" value="no">
 
         {% elseif (data.postcodelookup=="two") %}
         <input type="hidden" name="postcodelookup" value="two">
