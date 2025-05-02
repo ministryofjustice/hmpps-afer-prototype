@@ -346,19 +346,7 @@ router.post(version + '/cas1outcome', function (req, res) {
 });
 
 
-    //CAS area B unsuitable
-    router.post(version + '/suitabilitycheckb', function (req, res) {
-      var cas2suitableAreaB = req.session.data['cas2suitableAreaB']
-      // Check whether the variable matches a condition
-      if (cas2suitableAreaB == "no"){
-      
-      // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/outcomes/unsuitable')
-      } else {
-        // Send user back to address details page
-        res.redirect(version + '/afer/addresses/tasklist')
-      }
-    });
+    
 
 
     //Confirmation of CAS assessment outcome: Unsuitable
@@ -377,23 +365,9 @@ router.post(version + '/cas1outcome', function (req, res) {
 
 
 
-    //CAS area C suitable
-    router.post(version + '/suitabilitycheckc', function (req, res) {
-      var cas2suitableAreaC = req.session.data['cas2suitableAreaC']
-      // Check whether the variable matches a condition
-      if (cas2suitableAreaC == "no"){
-      
-      // Send user to case overview page if suitablity decision has been made and confirm outcome
-        res.redirect(version + '/afer/addresses/outcomes/unsuitable')
-      } else {
-        // Send user back to address details page
-        res.redirect(version + '/afer/addresses/outcomes/suitable')
-      }
-    });
 
-
-//CAS area D suitable
-router.post(version + '/suitabilitycheckd', function (req, res) {
+//CAS-2 areas to avoid
+router.post(version + '/cas2areastoavoid', function (req, res) {
   var areastoavoid = req.session.data['areastoavoid']
   // Check whether the variable matches a condition
   if (areastoavoid == "yes"){
@@ -405,43 +379,6 @@ router.post(version + '/suitabilitycheckd', function (req, res) {
     res.redirect(version + '/afer/addresses/tasklist')
   }
 });
-
-
-
-    //CAS-2 no preference: Enter details for new area
-  router.post(version + '/cas2newarea', function (req, res) {
-    var cas2addedarea = req.session.data['cas2addedarea']
-    // Check whether the variable matches a condition
-    if (cas2addedarea == "yes"){
-     
-     // Send user to case list page
-      res.redirect(version + '/afer/addresses/cas/cas2-suitability-d')
-    } else {
-      // Send user to task list page
-      res.redirect(version + '/afer/addresses/tasklist')
-    }
-  });
-
-
-
-
-  //Select release address/area if multiple
-  router.post(version + '/selectreleaseaddress', function (req, res) {
-    var releaseaddressnav = req.session.data['releaseaddressnav']
-    // Check whether the variable matches a condition
-    if (releaseaddressnav == "continue"){
-     
-     // If release address/area selected
-      res.redirect(version + '/afer/addresses/send-checks-prison')
-
-    } else {
-      // Send user to overview page
-      res.redirect(version + '/afer/case-overview')
-    }
-  });
-
-  
-
 
   
 
