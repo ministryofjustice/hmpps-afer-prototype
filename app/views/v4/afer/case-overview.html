@@ -1479,11 +1479,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    {% if data.sendChecksPrison=="yes"%}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="#" style="margin-top: 15px;">View</a></p>
-    {% else %}  
-    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/speak-with-POM" style="margin-top: 15px;">View or change</a></p>
-    {% endif %}  
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/speak-with-POM" style="margin-top: 15px;">View or change</a></p> 
   </section>
 {% else %}
 <!--Speak with their POM - Start-->
@@ -1522,11 +1518,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    {% if data.sendChecksPrison=="yes" %}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="#" style="margin-top: 15px;">View</a></p>
-    {% else %}  
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/tasklist" style="margin-top: 15px;">View or change</a></p>
-    {% endif %}  
   </section>
 {% elseif data.OfflineStep=="yes" %}
 <!--Check addresses or community accommodation - In progress-->
@@ -1646,11 +1638,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    {% if data.sendChecksPrison=="yes"%}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="#" style="margin-top: 15px;">View</a></p>
-    {% else %}  
     <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/record-non-disclosable-information" style="margin-top: 15px;">View or change</a></p>
-    {% endif %}  
   </section>
 {% else %}
 <article class="moj-ticket-panel" aria-label="Sub navigation 1">
@@ -1790,7 +1778,7 @@
         <span class="moj-badge moj-badge--green moj-badge--large" style="text-transform: capitalize; margin-left: 68px; margin-top: 5px;">Completed</span>
       </div>
     </div>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="#" style="margin-top: 15px;">View</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="./addresses/send-checks-prison" style="margin-top: 15px;">View</a></p>
   </section>
   {% elseif (data.nonDisclosableInfo=="nonDisclosableYes") or (data.nonDisclosable=="nonDisclosableNo") %}
   <!--Send checks to prison - Start-->
