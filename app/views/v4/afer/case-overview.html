@@ -1506,7 +1506,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to live</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to be released</h2>
         {% if (data.accomodationType=="cas1") and (data.cas1assessment=="complete") %}
         <p class="govuk-body govuk-!-margin-bottom-2">Result: Eligible for Approved Premises (CAS-1)</p>
         {% elseif (data.CASareasToAvoid) and (data.areastoavoid=="yes") %}
@@ -1525,7 +1525,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to live</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to be released</h2>
         <p class="govuk-body">To do by {{ "today" |  duration(13) | govukDate("truncate") }}</p>
       </div>
       <div class="govuk-grid-column-one-third">
@@ -1541,7 +1541,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to live</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to be released</h2>
         {% if data.accomodationType=="cas1" %}
         <p class="govuk-body govuk-!-margin-bottom-2">Make an Approved Premises (CAS-1) referral</p>
         {% elseif (data.cas2suitableAreaB=="no") and (data.RiskChecks=="completed") %}
@@ -1567,7 +1567,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--green" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to live</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to be released</h2>
         <p class="govuk-body govuk-!-margin-bottom-2">Second address suitable</p>
       </div>
       <div class="govuk-grid-column-one-third">
@@ -1602,7 +1602,7 @@
   <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to live</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to be released</h2>
         <p class="govuk-body">To do by {{ "today" |  duration(13) | govukDate("truncate") }}</p>
       </div>
       <div class="govuk-grid-column-one-third">
@@ -1615,7 +1615,7 @@
 <!--Check addresses or community accommodation - Cannot start yet-->
 <!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
   <section class="moj-ticket-panel__content moj-ticket-panel__content--grey" aria-label="Section 1">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to live </h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Check where this person wants to be released </h2>
     <p class="govuk-body">You can start this task when the prison submits address details.</p>
   </section>
 </article>-->
