@@ -29,64 +29,58 @@
       <div class="govuk-grid-column-three-quarters">
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">View details or delete</h1>
-        <!--Second address start-->
-        
-        <!--<p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>-->
 
 
-        <div class="govuk-summary-card">
+        <!--<div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Details of probation practitioner's assessment 
+              Details of probation practitioner’s assessment
             </h2>
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
-
-             <div class="govuk-summary-list__row">
-               <dt class="govuk-summary-list__key">
-                 Assessed by
-               </dt>
-               <dd class="govuk-summary-list__value">
-                 <p class="govuk-body">Mark Coombes on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
-               </dd>
-             </div>
-             <div class="govuk-summary-list__row">
-               <dt class="govuk-summary-list__key">
-                 Reasons for Suitability
-               </dt>
-               <dd class="govuk-summary-list__value">
-                 Assessed as suitable by probation practitioner</br>
-
-                 <details class="govuk-details">
-                   <summary class="govuk-details__summary">
-                     <span class="govuk-details__summary-text">
-                       View more information
-                     </span>
-                   </summary>
-                   <div class="govuk-details__text">
-                    [This would show supporting information added by the probation practitioner on the suitability decision page]
-                   </div>
-                 </details>
-                  </dd>
-                </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Assessed by
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">Mark Coombes on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Areas to avoid in referral 
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  
+                  East Midlands, Greater London</br>
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          View supporting information
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                       [This would show supporting information added by the probation practitioner on the suitability decision page]
+                      </div>
+                    </details>
+                   
+                </dd>
               </div>
             </dl>
           </div>
+        </div>-->
 
-
+        
         
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              CAS details 
+              H2
             </h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="#">Delete third area</a>
-              </li>
-              <li class="govuk-summary-card__action">
-                <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
+                <a class="govuk-link govuk-link--no-visited-state" href="./view-address-input-cas-delete">Delete</a>
               </li>
             </ul>
           </div>
@@ -94,26 +88,10 @@
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Town or city 
+                  Additional information
                  </dt>
                 <dd class="govuk-summary-list__value">
-                  Rotherham 
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  County or borough
-                 </dt>
-                <dd class="govuk-summary-list__value">
-                  South Yorkshire
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Additional information 
-                 </dt>
-                <dd class="govuk-summary-list__value">
-                  Not entered
+                  Person has family in the north of England 
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -128,10 +106,6 @@
           </div>
         </div>
         
-
-        <!--Second address end-->
-
-   
         
 
         <form action="./view-address-input" method="post" novalidate>
