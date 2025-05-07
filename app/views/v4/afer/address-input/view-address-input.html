@@ -124,7 +124,7 @@
 
         
 
-        <h1 class="govuk-heading-l govuk-!-margin-top-6">View or change curfew addresses or CAS areas</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">View or change where this person wants to be released</h1>
 
 
 
@@ -142,7 +142,7 @@
 
 
 
-        {% if data.journey=="casNoPreference" %}
+        {% if data.journey=="cas2application" %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -153,51 +153,17 @@
             <p class="govuk-notification-banner__heading">Information about areas to avoid in referral recorded</p>
   
             <p class="govuk-body">
-              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
+              Completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
             </p>
 
           </div>
         </div>
-        {% elseif data.journey=="cas2application" %}
-        {% if data.communityaccommodation=="three" %}
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">CAS area suitable</p>
-  
-            <p class="govuk-body">
-              Assessment completed by Mark Coombes on {{ "today" |  duration(0) | govukDate("truncate") }}
-            </p>
-
-          </div>
-        </div>
-        {% else %}
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">Alternative release options requested</p>
-  
-            <p class="govuk-body">
-              The areas that were submitted are unsuitable. The probation practitioner can contact you to discuss alternative release options for this person.
-            </p>
-
-          </div>
-        </div>
-        {% endif %}
         {% endif %}
 
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Proposed curfew addresses</h2> 
 
         
-        {% if (data.journey=="cas2application") or (data.journey=="casNoPreference") %}
+        {% if data.journey=="cas2application" %}
 
         <p class="govuk-body">None entered</p>
 
@@ -589,40 +555,11 @@
 
 
 
-        <!--CAS-1 so hiding this CAS area-->
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Preferred CAS area – deleted
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    Town or city: Sheffield</br>
-    County or borough: South Yorkshire</br>
-    Additional Information: Person has relatives in the area</br></br>
-
-    Reason: A referral for Approved Premises (CAS-1) can be made without specific CAS areas.
-  </div>
-</details>
-
-<!--CAS-1 so hiding this CAS area-->
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Second CAS area – deleted
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    Town or city: Doncaster</br>
-    County or borough: South Yorkshire</br>
-    Additional Information: Person has been released to this area before</br></br>
-
-    Reason: A referral for Approved Premises (CAS-1) can be made without specific CAS areas.
-  </div>
-</details>
+   
 
 
-        {% elseif data.cas=="nopreference" %}
+
+{% elseif data.journey=="cas2application" %}
 <!--card start-->
 <div class="govuk-summary-card">
 
@@ -673,7 +610,7 @@
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title">
-     No area preference
+      Information for CAS-2 referral 
     </h2>
     <ul class="govuk-summary-card__actions">
       <li class="govuk-summary-card__action">
@@ -759,323 +696,7 @@
   
 </div>
 
-<form action="./cas-3" method="post" novalidate>
 
-  <input type="hidden" name="communityaccommodation" value="three">
-
-  <button type="submit" class="govuk-button" data-module="govuk-button">
-    Add CAS area
-  </button>
-
-</form>
-
-
-
-        {% elseif data.journey=="cas2application" %}
-
-        
-<!--card start-->
-<div class="govuk-summary-card">
-
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">
-      Eligibility for CAS accommodation 
-    </h2>
-    <ul class="govuk-summary-card__actions">
-      <li class="govuk-summary-card__action">
-        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
-      </li>
-    </ul>
-  </div>
-
-
-
-<div class="govuk-summary-card__content">
-  <dl class="govuk-summary-list">
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Is this person eligible for CAS accommodation?
-      </dt>
-      <dd class="govuk-summary-list__value">
-        Yes
-      </dd>
-    </div>
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Type of accommodation
-      </dt> 
-      <dd class="govuk-summary-list__value">
-        Short-term accommodation (CAS-2)
-      </dd>
-    </div>
-
-  </dl>
-</div>
-
-</div>
-<!--card end-->
-
-
-                      <!--card start-->
-                      <div class="govuk-summary-card">
-              
-                        <div class="govuk-summary-card__title-wrapper">
-                          <h2 class="govuk-summary-card__title">
-                            Preferred area
-                          </h2>
-                          <ul class="govuk-summary-card__actions">
-                            <li class="govuk-summary-card__action">
-                              <!--<a class="govuk-link govuk-link--no-visited-state" href="#">Delete preferred area</a>-->
-                              <a class="govuk-link govuk-link--no-visited-state" href="./view-cas-area-1">View details or delete</a>
-                            </li>
-                            <li class="govuk-summary-card__action">
-                              <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
-                            </li>
-                          </ul>
-                        </div>
-                      
-                        
-                        <div class="govuk-summary-card__content">
-                          <dl class="govuk-summary-list">
-                        
-                            <div class="govuk-summary-list__row">
-                              <dt class="govuk-summary-list__key">
-                                Town or city
-                              </dt>
-                              <dd class="govuk-summary-list__value">
-                                Sheffield
-                              </dd>
-                            </div>
-                            <div class="govuk-summary-list__row">
-                              <dt class="govuk-summary-list__key">
-                                County or borough
-                              </dt>
-                              <dd class="govuk-summary-list__value">
-                                South Yorkshire
-                              </dd>
-                            </div>
-                            <!--<div class="govuk-summary-list__row">
-                              <dt class="govuk-summary-list__key">
-                                Additional Information
-                              </dt>
-                              <dd class="govuk-summary-list__value">
-                                Person has relatives in the area
-                              </dd>
-                            </div>-->
-                            
-                          </dl>
-                        </div>
-                            
-                      </div>
-                      <!--card end-->
-
-
-                      <!--card start-->
-              <div class="govuk-summary-card">
-              
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">
-                    Second area
-                  </h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <!--<a class="govuk-link govuk-link--no-visited-state" href="#">Delete second area</a>-->
-                      <a class="govuk-link govuk-link--no-visited-state" href="./view-cas-area-2">View details or delete</a>
-                    </li>
-                    <li class="govuk-summary-card__action">
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
-                    </li>
-                  </ul>
-                </div>
-              
-                
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Town or city
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Doncaster
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        County or borough
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        South Yorkshire
-                      </dd>
-                    </div>
-                    <!--<div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Additional Information
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Person has been released to this area before
-                      </dd>
-                    </div>-->
-
-                  </dl>
-                 </div>
-                    
-              </div>
-              <!--card end-->
-
-
-              {% if data.cas2deleted=="yes" %}
-              <!--card start - deleted CAS-2 area -->
-              <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Third CAS area – deleted
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  Town or city: Rotherham</br>
-                  County or borough: South Yorkshire</br></br>
-
-                  Deleted by Jessica Smith at HMP Wandsworth on {{ "today" |  duration(0) | govukDate }}</br>
-                  Reason:
-                  {% if data.reasontodelete=="reason1" %}
-                  Ryan no longer wants to be released here
-
-                  {% elseif data.reasontodelete=="reason2" %}
-                  Deletion requested by probation practitioner
-
-                  {% elseif data.reasontodelete=="otherreason" %}
-                  {% if data.eventName %}{{data.eventName}}{% endif %}
-                  {% endif %}
-                </div>
-              </details>
-          <!--card end - deleted CAS-2 area -->
-
-              {% elseif data.communityaccommodation=="three" %}
-              <!--card start-->
-              <div class="govuk-summary-card">
-              
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">
-                    Third area
-                  </h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link govuk-link--no-visited-state" href="./view-cas-area-3">View details or delete</a>
-                    </li>
-                    <li class="govuk-summary-card__action">
-                      <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Suitable</span>
-                    </li>
-                  </ul>
-                </div>
-              
-                
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Town or city
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Rotherham
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        County or borough
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        South Yorkshire
-                      </dd>
-                    </div>
-                    <!--<div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Additional Information
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Not entered
-                      </dd>
-                    </div>-->
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Referral status
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {% if (data.cas2submitted=="yes") %}
-                        CAS-2 referral submitted
-                        {% else %}
-                        Not submitted by prison case admin yet
-                        {% endif %}
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        {% if (data.cas2submitted=="yes") %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/submitted-application">View or change</a>
-                        {% else %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/submitted-application">Enter</a>
-                        {% endif %}
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Referral outcome
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
-                        Offer accepted
-                        {% else %}
-                        No outcome entered by prison case admin yet	
-                        {% endif %}
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        {% if (data.ShorttermAccommodationOutcome=="accepted") or (data.ShorttermAccommodationOutcome=="rejected") or (data.ShorttermAccommodationOutcome=="withdrawn") %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-outcome">View or change</a>
-                        {% else %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-outcome">Enter</a>
-                        {% endif %}
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Accommodation address
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {% if (data.cas2addressadded=="yes") %}
-                        6 Genesis Park</br>
-                        Rotherham</br>
-                        S60 1DX
-                        {% else %}
-                        No address entered by prison case admin yet
-                        {% endif %}
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        {% if (data.cas2addressadded=="yes") %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-address">View or change</a>
-                        {% else %}
-                        <a class="govuk-link govuk-link--no-visited-state" href="../addresses/cas/application-address">Enter</a>
-                        {% endif %}
-                      </dd>
-                    </div>                    
-                  </dl>
-                 </div>
-                    
-              </div>
-              <!--card end-->
-              {% endif %}
-
-
-
-              <form action="./cas-3" method="post" novalidate>
-
-                    <input type="hidden" name="communityaccommodation" value="three">
-          
-                    <button type="submit" class="govuk-button" data-module="govuk-button">
-                      Add CAS area
-                    </button>
-        
-              </form>
 
              
         {% else %}
@@ -1085,7 +706,7 @@
         <form action="./cas" method="post" novalidate>
 
           <button type="submit" class="govuk-button" data-module="govuk-button">
-            Add CAS area
+            Add CAS area - hello
           </button>
 
         </form>
