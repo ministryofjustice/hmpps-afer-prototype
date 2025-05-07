@@ -28,7 +28,20 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-      
+        <!--banner start-->
+        {% if (data.changedcas=="yes") or (data.changedadditionalinfo=="yes") or (data.enteredadditionalinfo=="yes") %}
+        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+          </svg>
+
+          <div class="moj-banner__message">Success banner to confirm CAS details changed</div>
+
+        </div>
+        {% else %}
+        {% endif %}
+        <!--banner end-->
 
         <!--new profile banner start-->
         <!--<div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
@@ -107,12 +120,16 @@
       </div>
     </div>
 
+    
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
         
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
+
+        <p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>
 
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Curfew address details</h2> 
 
@@ -125,15 +142,59 @@
 
         
         
-        <h2 class="govuk-heading-m govuk-!-margin-top-6">CAS area details</h2> 
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">CAS accommodation</h2> 
+
+<!--card start-->
+<div class="govuk-summary-card">
+
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Eligibility for CAS accommodation 
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize; margin-left: 50px; margin-top: 5px;">Eligible</span>
+      </li>
+    </ul>
+  </div>
 
 
-        <!--card start-->
+
+<div class="govuk-summary-card__content">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Is this person eligible for CAS accommodation?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Yes
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Type of accommodation
+      </dt> 
+      <dd class="govuk-summary-list__value">
+        Short-term accommodation (CAS-2)
+      </dd>
+    </div>
+
+  </dl>
+</div>
+
+</div>
+<!--card end-->
+
+
+   
+                    <!--card start-->
         <div class="govuk-summary-card">
 
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Eligibility for CAS accommodation
+              Information for CAS-2 referral
             </h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
@@ -143,22 +204,27 @@
             </ul>
           </div>
 
+
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
-
+          
               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key"> 
-                  <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">This person’s probation practitioner will confirm they are eligible for CAS accommodation and select whether they need to go to Approved Premises (CAS-1) or short-term accommodation (CAS-2).</p>
+                <dt class="govuk-summary-list__key">
+                  Additional information
                 </dt>
+                <dd class="govuk-summary-list__value">
+                  Person has family in the north of England
+                </dd>
               </div>
-
+            
             </dl>
           </div>
 
         </div>
         <!--card end-->
-     
-        
+
+
+
            
         <a href="#" class="govuk-button govuk-button--secondary" style="margin-top: 40px;">Back to application overview</a>
         
