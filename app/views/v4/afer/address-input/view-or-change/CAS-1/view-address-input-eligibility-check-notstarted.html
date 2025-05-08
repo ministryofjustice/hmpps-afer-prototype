@@ -28,20 +28,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <!--banner start-->
-        {% if (data.changedcas=="yes") or (data.changedadditionalinfo=="yes") or (data.enteredadditionalinfo=="yes") %}
-        <div class="moj-banner moj-banner--success govuk-!-margin-top-6" role="region" aria-label="Success">
-
-          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
-          </svg>
-
-          <div class="moj-banner__message">Success banner to confirm CAS details changed</div>
-
-        </div>
-        {% else %}
-        {% endif %}
-        <!--banner end-->
+      
 
         <!--new profile banner start-->
         <!--<div class="mini-profile govuk-!-margin-top-8" data-qa="mini-profile">
@@ -120,8 +107,6 @@
       </div>
     </div>
 
-    
-
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
@@ -129,11 +114,45 @@
 
         <h1 class="govuk-heading-l govuk-!-margin-top-6">Enter curfew address or CAS area</h1>
 
-        <p class="govuk-body">Contact the probation practitioner if you need to change this information.</p>
-
         <h2 class="govuk-heading-m govuk-!-margin-top-6">Proposed curfew addresses</h2> 
 
-        <p class="govuk-body">None entered</p>
+                <!--card start-->
+                <div class="govuk-summary-card">
+        
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Preferred address
+                    </h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!--<span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>-->
+                        <a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View details or delete</a>
+                      </li>
+                      <li class="govuk-summary-card__action">
+                        <span class="moj-badge moj-badge--black moj-badge--large" style="text-transform: capitalize;">Unsuitable</span>
+                        <!--<a class="govuk-link govuk-link--no-visited-state" href="./view-address-curfew1">View details</a>-->
+                      </li>
+                    </ul>
+                  </div>
+          
+            
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__value">
+                          4 Inner Street</br>
+                          Grantham</br>
+                          NG31 6HN
+                          <!--<p class="govuk-body">Assessed as unsuitable by Mark Coombes on {{ "today" | duration(-2) | govukDate("truncate") }}</p>-->
+                      </dt>
+                    </div>
+                
+                  </dl>
+                </div>
+            
+                </div>
+                <!--card end-->
 
   
         <a href="#" class="govuk-button">Add curfew address</a>
@@ -145,44 +164,37 @@
         <h2 class="govuk-heading-m govuk-!-margin-top-6">CAS accommodation</h2> 
 
 
+        <!--card start-->
+        <div class="govuk-summary-card">
 
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Eligibility for CAS accommodation
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="./view-cas-notstarted">View details or delete</a>
+              </li>
+              <li class="govuk-summary-card__action"><span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span></li>
+            </ul>
+          </div>
 
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
 
-<div class="govuk-summary-card">
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">
-      Information for CAS-2 referral 
-    </h2>
-    <ul class="govuk-summary-card__actions">
-      <li class="govuk-summary-card__action">
-        <a class="govuk-link govuk-link--no-visited-state" href="./view-cas-done">View details or delete</a>
-      </li>
-      <li class="govuk-summary-card__action"><span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">In progress</span></li>
-    </ul>
-  </div>
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Areas to avoid in referral 
-        </dt> 
-        <dd class="govuk-summary-list__value">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key"> 
+                  <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">This person’s probation practitioner will confirm they are eligible for CAS accommodation and select whether they need to go to Approved Premises (CAS-1) or short-term accommodation (CAS-2).</p>
+                </dt>
+              </div>
 
-         Empty state
+            </dl>
+          </div>
 
-        </dd>
-       <!--<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./view-cas">View decision</a>
-          </dd>-->
-      </div>
+        </div>
+        <!--card end-->
      
-    </dl>
-  </div>
-  
-</div>
-
-
-
-
+        
            
         <a href="#" class="govuk-button govuk-button--secondary" style="margin-top: 40px;">Back to application overview</a>
         

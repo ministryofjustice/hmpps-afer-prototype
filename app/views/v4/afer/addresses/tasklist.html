@@ -571,6 +571,23 @@
               
                             <div class="govuk-summary-card__content">
                               <dl class="govuk-summary-list">
+
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Additional information from the prison
+                                   </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    Person has family in the north of England 
+                                  </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Saved by
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                                  </dd>
+                                </div>
               
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
@@ -659,9 +676,10 @@
                           {% endif %}
 
               {% elseif (data.journey=="cas1application") or (data.journey=="cas2application") %}
-              <!--card start-->
-              <div class="govuk-summary-card">
 
+              <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">Check this person’s eligibility for CAS accommodation and select whether they need to go to Approved Premises (CAS-1) or short-term accommodation (CAS-2).</p>
+
+              <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
                   <h2 class="govuk-summary-card__title">
                     Eligibility for CAS accommodation
@@ -670,24 +688,37 @@
                     <li><span style="font-family: GDS Transport, arial, sans-serif; font-weight: 100;">Not started</span></li>
                   </ul>
                 </div>
-
                 <div class="govuk-summary-card__content">
                   <dl class="govuk-summary-list">
-
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Additional information from the prison
+                       </dt>
+                      <dd class="govuk-summary-list__value">
+                        Person has family in the north of England 
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Saved by
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">Jessica Smith on {{ "today" | duration(-5) | govukDate("truncate") }}</p>
+                      </dd>
+                    </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                           
-                        <p class="govuk-body" style="margin-left: 5px; margin-top: 10px;">Check this person’s eligibility for CAS accommodation and select whether they need to go to Approved Premises (CAS-1) or short-term accommodation (CAS-2).</p>
-                        <a href="cas/accommodation-eligibility" class="govuk-button" style="margin-top: 0px; margin-left: 5px; margin-bottom: 15px;">Start</a>
+                        
+                        <a href="cas/accommodation-eligibility" class="govuk-button" style="margin-top: 0px; margin-left: 5px; margin-bottom: 15px;">Confirm eligibility</a>
               
                       </dt>
                     </div>
-
                   </dl>
                 </div>
-
               </div>
-              <!--card end-->
+
+   
               {% else %} 
               <p>None entered</p>
               {% endif %} 
