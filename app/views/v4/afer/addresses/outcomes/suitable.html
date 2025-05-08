@@ -46,12 +46,17 @@
           {% endif %}
         </div>
 
+        {% if data.journey=="cas2application" %}
+        <br> 
+        <!--Sorry about this - TR-->
+        {% endif %}
+
         {% if data.journey=="eligiblejourney" %}
         <h2 class="govuk-heading-m" style="margin-top: 30px;">Outcome of address checks</h2>
         <p class="govuk-body">The following address is suitable for George:</p>
         <p class="govuk-inset-text">51 Hill Street, Grantham, N1J 5NB</p>
         {% endif %}
-       
+      
         <h2 class="govuk-heading-m">Next steps</h2>
         {% if data.journey=="cas2application" %}
         <p class="govuk-body">The prison will use the information you have provided when making a referral for CAS-2 accommodation.</p>
